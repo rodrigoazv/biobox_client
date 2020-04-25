@@ -4,11 +4,50 @@ import { Container } from './styles';
 // Components
 import HeaderTopNav  from '../../components/HeaderTopNav';
 import CardProduct from '../../components/CardProduct';
+import EmailBox from '../../components/EmailBox';
+import Footer from '../../components/Footer';
 //asssets
 import Banner from '../../assets/banner.png';
 
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function HomePage() {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+  };
   return (
     <Container>
       <HeaderTopNav/>
@@ -21,20 +60,35 @@ export default function HomePage() {
         <div className="product-hole">
           <section className="product-type max-margin-width">
               <div className="product-type-name">HORTA</div>
-              <ul className="padding-ul">
-                <li>
-                  <CardProduct/>
-                </li>
-                <li>
-                  <CardProduct/>
-                </li>
-                <li>
-                  <CardProduct/>
-                </li>
-                <li>
-                  <CardProduct/>
-                </li>
-              </ul>
+              <div className="padding-slick">
+                <Slider {...settings}>
+                  <div>
+                    <CardProduct/>
+                  </div>
+                  <div>
+                    <CardProduct/>
+                  </div>
+                  <div>
+                    <CardProduct/>
+                  </div>
+                  <div>
+                    <CardProduct/>
+                  </div>
+                  <div>
+                    <CardProduct/>
+                  </div>
+                  <div>
+                    <CardProduct/>
+                  </div>
+                  <div>
+                    <CardProduct/>
+                  </div>
+                  <div>
+                    <CardProduct/>
+                  </div>
+                </Slider>
+                
+              </div>
           </section>
           <section className="product-type max-margin-width">
               <div className="product-type-name">GRANEL</div>
@@ -62,11 +116,11 @@ export default function HomePage() {
             </a>
            </div>
 
-          <div className="email-box max-margin-width">
-              
-          </div>
+          <EmailBox/>
+            
         </div>
       </section>
+      <Footer/>
     </Container>
   );
 }

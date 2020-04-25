@@ -5,7 +5,9 @@ import { Container } from './styles';
 //assets import
 import Logo from '../../assets/logobio.svg';
 import { FaStore } from 'react-icons/fa';
+import { FaSignInAlt } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
+import { FaGripLines} from 'react-icons/fa';
 
 export default function HeaderTopNav() {
   return (
@@ -25,14 +27,19 @@ export default function HeaderTopNav() {
                             </div>
                         </form>
                     </div>
-                    <div>
-                        <a href="/Login" color="#333">
-                            Entre ou cadastre-se
+                    <div className="display-show">
+                        <a href="/login">
+                            Entre </a>
+                        <span>ou </span>
+                        <a href="/register">
+                            cadastre-se
                         </a>    
                     </div>
-                    <a href="/cart"> 
-                        <FaStore size={48} color="green"/>
-                    </a>
+                    <div className="display-show">
+                            <a href="/cart"> 
+                                <FaStore size={48} color="green"/>
+                            </a>
+                    </div>
                 </div>
             </div>
             <div className="under-nav-top">
@@ -43,6 +50,36 @@ export default function HeaderTopNav() {
                             <li><a href="/">Lorem ipsum</a></li>
                             <li><a href="/">Lorem ipsum</a></li>
                             <li><a href="/">Lorem ipsum</a></li>
+                        </ul>
+                </nav>
+            </div>
+            <div className="show-when-under-none">
+                    <nav className="max-margin">
+                        <ul>
+                            <li>
+                                <div className='flex-icon'>
+                                    <a href="/cart"> 
+                                        <FaGripLines size={32} color="#333"/>
+                                          
+                                    </a>     
+                                </div>
+                            </li>
+                            <li>
+                                <div className='flex-icon'>
+                                    <a href="/cart"> 
+                                        <FaSignInAlt size={25} color="#333"/>
+                                          
+                                    </a>  
+                                    Entre/cadastre-se    
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <a href="/cart"> 
+                                        <FaStore size={32} color="green"/>
+                                    </a>    
+                                </div>
+                            </li>
                         </ul>
                 </nav>
             </div>

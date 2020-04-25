@@ -13,6 +13,7 @@ export const Container = styled.div`
         margin:auto;
     }
 
+
     .product-hole{
         width: auto;
         padding: 4.16667rem 0;
@@ -29,7 +30,7 @@ export const Container = styled.div`
         padding-left: 1.25rem;
         padding-right: 1.25rem;
         text-align: center;
-        margin-top:25px;
+        margin-top:50px;
         margin-bottom:25px;
   }
     .info-box{
@@ -40,17 +41,8 @@ export const Container = styled.div`
         border-radius: 24px;
         
   }
-  .email-box{
-        margin-top: 50px;
-        margin-bottom:50px;
-        height: 300px;
-        background-color:#95B737;
-        border-radius:24px;
-  }
-  .padding-ul{
+  .padding-slick{
       margin-top:25px;
       margin-bottom:25px;
-      display: flex;
-      justify-content: space-between;
   }
 `;

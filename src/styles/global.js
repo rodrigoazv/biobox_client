@@ -13,7 +13,7 @@ export default createGlobalStyle`
   }
   body {
     font-family: 'Patua One', cursive;  
-    background: #ecf1f8;
+    background: #fff;
     color: #333;
     -webkit-font-smoothing: antialiased !important;
   }
@@ -26,10 +26,22 @@ export default createGlobalStyle`
     font-size: 1rem;
     height: 36px;
     padding: .5em .5rem .5rem 2rem;
-    border: 1px #eee solid;
+    border: 1px #A4A4A4 solid;
     border-radius: 10px;
     outline:none;
     background-color: rgba(242,242,242,.6);
+  }
+  .input-login{
+    width: 100%;
+    max-width: 100%;
+    font-size: 1rem;
+    height: 46px;
+    margin: 10px 0;
+    padding: .5em .5rem .5rem 2rem;
+    border: 1px #A4A4A4 solid;
+    border-radius: 10px;
+    outline:none;
+    background-color: #fff;
   }
   li{
     font-family: 'Patua One', cursive;
@@ -43,8 +55,25 @@ export default createGlobalStyle`
 
   .max-margin-width{
         max-width: 1250px;
-        padding: 0px 30px;
+        padding: 0px 20px;
         margin: 0px auto;
+        @media (max-width: 1100px){
+            max-width:992px;
+        }
+  }
+  .button-full{
+    background-color: #FF7A00; /* Green */
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    border:none;
+    margin: 0 10px;  
+    height: 40px;
+    width:50%;
   }
   .button {
     margin-top:25px;
