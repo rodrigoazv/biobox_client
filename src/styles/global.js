@@ -20,6 +20,7 @@ export default createGlobalStyle`
   ul {
     list-style: none;
   }
+  /* Input search bar ( NAV-TOP )*/
   .input{
     width: 100%;
     max-width: 100%;
@@ -31,6 +32,7 @@ export default createGlobalStyle`
     outline:none;
     background-color: rgba(242,242,242,.6);
   }
+  /* Input login and register ( NAV-TOP )*/
   .input-login{
     width: 100%;
     max-width: 100%;
@@ -50,9 +52,9 @@ export default createGlobalStyle`
   a{
     text-decoration:none;
     font-weight: 600;
-
+    font-family: 'Patua One', cursive;
   }
-
+  /* Responsive margin global ( NAV-TOP ) */
   .max-margin-width{
         max-width: 1250px;
         padding: 0px 20px;

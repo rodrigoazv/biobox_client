@@ -23,7 +23,7 @@ export default function HomePage() {
     initialSlide: 0,
       responsive: [
         {
-          breakpoint: 1024,
+          breakpoint: 1124,
           settings: {
             slidesToShow: 3,
             slidesToScroll: 3,
@@ -32,7 +32,7 @@ export default function HomePage() {
           }
         },
         {
-          breakpoint: 600,
+          breakpoint: 800,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
@@ -40,7 +40,7 @@ export default function HomePage() {
           }
         },
         {
-          breakpoint: 480,
+          breakpoint: 580,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1

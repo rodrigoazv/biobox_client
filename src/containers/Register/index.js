@@ -19,7 +19,7 @@ export default function Register() {
                 <Link to='/login'>Já tenho cadastro</Link>
             </section>
             <div className='box-form'>
-                <form>
+                <form className="form-type-register">
                     <input className="input-login" placeholder="Email*" type='Email'/>   
                     <input className="input-login" placeholder="Senha*" type='password'/>
                     <input className="input-login" placeholder="Nome completo*"/>

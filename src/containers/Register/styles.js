@@ -4,11 +4,14 @@ export const Container = styled.div`
   .box-form{
       border-top: 1px solid #A4A4A4;
   }
-  form{
+  .form-type-register{
       display:flex;
       flex-direction: column;
       width: 500px;
-      align-items:center;   
+      align-items:center;  
+      @media (max-width: 520px){
+            width: 310px;
+    } 
   }
   .text-cad{
       color:#333;
