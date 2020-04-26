@@ -19,6 +19,7 @@ export const Container = styled.footer`
             flex-direction: column;
             width: 50%;
             margin-bottom:10px;
+            
         }
   }
   .flex-beetwen{

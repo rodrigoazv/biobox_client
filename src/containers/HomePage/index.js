@@ -53,7 +53,7 @@ export default function HomePage() {
       <HeaderTopNav/>
       <section className="main-section">
         <div>
-          <a href='/'>
+          <a href='/sobre-nos'>
             <img src={Banner} alt="banner" className="banner-response"/>
           </a>
         </div>

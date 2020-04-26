@@ -4,6 +4,8 @@ import { BrowserRouter, Route , Switch } from "react-router-dom";
 import HomePage from './containers/HomePage';
 import CheckIn from './containers/CheckIn';
 import Register from './containers/Register';
+import Login from './containers/Login';
+import About from './containers/About'
 
 import  GlobalStyle  from './styles/global';
 
@@ -16,6 +18,8 @@ const Routes = () => (
           <Route exact path="/" component={HomePage} />
           <Route exact path="/checkin" component={CheckIn} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/sobre-nos" component={About} />
         </Switch>
       <GlobalStyle/>
       </BrowserRouter>
