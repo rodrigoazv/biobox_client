@@ -78,7 +78,6 @@ export default createGlobalStyle`
     width:100%;
   }
   .button {
-    margin-top:25px;
     background-color: white;
     color: black;
     border: 2px solid #4CAF50; 
