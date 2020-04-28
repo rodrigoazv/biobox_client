@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 
 import { Container } from './styles';
 // Components
@@ -13,11 +13,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import api from '../../service/api';
+
 export default function HomePage() {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 400,
     slidesToShow: 4,
     slidesToScroll: 4,
     initialSlide: 0,
@@ -48,6 +50,19 @@ export default function HomePage() {
         }
       ]
   };
+
+
+  //api 
+
+  const [products, setProducts] = useState([]);
+    
+    useEffect(()=>{
+        api.get('product')
+        .then(response=>{
+            setProducts(response.data)
+        })
+    },[products.length]);
+    console.log(products)
   return (
     <Container>
       <HeaderTopNav/>
@@ -61,32 +76,19 @@ export default function HomePage() {
           <section className="product-type max-margin-width">
               <div className="product-type-name">HORTA</div>
               <div className="padding-slick">
-                <Slider {...settings}>
-                  <div>
-                    <CardProduct/>
-                  </div>
-                  <div>
-                    <CardProduct/>
-                  </div>
-                  <div>
-                    <CardProduct/>
-                  </div>
-                  <div>
-                    <CardProduct/>
-                  </div>
-                  <div>
-                    <CardProduct/>
-                  </div>
-                  <div>
-                    <CardProduct/>
-                  </div>
-                  <div>
-                    <CardProduct/>
-                  </div>
-                  <div>
-                    <CardProduct/>
-                  </div>
-                </Slider>
+                
+                  <Slider {...settings}>
+                      {products.map(product=>(
+                          <CardProduct
+                            id={product.id}
+                            name={product.productName}
+                            productDescription={product.productDescription}
+                            photoUrl={product.photoUrl}
+                            productPrice={product.productPrice}
+                          />
+                      ))}
+                  </Slider>
+                
                 
               </div>
           </section>

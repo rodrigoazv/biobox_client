@@ -23,7 +23,7 @@ const Routes = () => (
           <Route exact path="/login" component={Login} />
           <Route exact path="/sobre-nos" component={About} />
           <Route exact path="/fim" component={EndOfOrder} />
-          <Route exact path="/product" component={ProductPage} />
+          <Route exact path="/product/:id" component={ProductPage} />
         </Switch>
       <GlobalStyle/>
       </BrowserRouter>

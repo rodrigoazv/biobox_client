@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import api from '../../service/api';
 
 import { Container } from './styles';
+import { useParams } from 'react-router-dom'
 
 import  HeaderTopNav  from '../../components/HeaderTopNav';
 import  Footer  from '../../components/Footer';
@@ -10,6 +12,17 @@ import Alface from '../../assets/alface.png';
 import { FaTruck } from 'react-icons/fa';
 
 export default function ProductPage() {
+    const [product, setProduct] = useState([]);
+    let { id } = useParams();
+    useEffect(()=>{
+        window.scrollTo(0, 0);
+        api.get(`product/${id}`)
+        .then(response=>{
+            setProduct(response.data)
+        })
+    },[id]);
+    console.log(id)
+    
   return (
     
     <Container>
@@ -24,7 +37,7 @@ export default function ProductPage() {
                         Biocampeiro
                     </p>
                     <h1>
-                        Alface 100g 1Molho
+                        {product.productName}
                     </h1>
                     <p>
                         100g
