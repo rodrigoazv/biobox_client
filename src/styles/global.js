@@ -75,7 +75,7 @@ export default createGlobalStyle`
     border:none;
     margin: 0 10px;  
     height: 40px;
-    width:50%;
+    width:100%;
   }
   .button {
     margin-top:25px;
@@ -98,5 +98,35 @@ export default createGlobalStyle`
   background-color: #4CAF50; /* Green */
   color: white;
 }
+
+
+
+  .add-control{
+        height: 40px;
+        border: 1px solid #ccc;
+        border-radius:4px;
+        display:flex;
+    }
+    
+    .button-quantity{
+        border:none;
+        background-color:#fff;
+        color: green;
+        font-weight: 700;
+        font-size:20px;
+        padding:3px; 
+        cursor:pointer;
+    }
+    .button-quantity:hover{
+        color:orange;
+        background-color:#ccc;
+    }
+    .input-quantity{
+        text-align: center;
+        min-width: 2ch;
+        max-width: 3ch;
+        border:none;
+        font-size:20px
+    }
 
 `;
