@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     height: auto;
-    width: 400px;
+    width: 350px;
     -webkit-box-shadow: 0px 0px 13px -5px rgba(0,0,0,0.46);
     -moz-box-shadow: 0px 0px 13px -5px rgba(0,0,0,0.46);
     box-shadow: 0px 0px 13px -5px rgba(0,0,0,0.46);
@@ -10,6 +10,12 @@ export const Container = styled.div`
     border-radius: 8px;
   .card-content{
     padding:2.5%;
+  }
+  .card-content img{
+    width:300px;
+    @media (max-width: 770px){
+        width:290px;
+    } 
   }
   .recipe-info{
     margin: 0 auto;
@@ -42,6 +48,6 @@ export const Container = styled.div`
       padding: 10px;
   }
  .button-pop:hover{
-   width:300px;
+   width:260px;
  }
 `;
