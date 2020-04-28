@@ -11,6 +11,9 @@ export const Container = styled.div`
       flex-direction:column;
       align-items: center;  
   }
+  .about-section{
+    border-top: 1px solid #A4A4A4;
+  }
   .about-box{
     display:flex;
     flex-direction: row;
