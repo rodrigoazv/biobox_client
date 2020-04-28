@@ -78,6 +78,7 @@ export default createGlobalStyle`
     width:100%;
   }
   .button {
+    margin-top: 8px;
     background-color: white;
     color: black;
     border: 2px solid #4CAF50; 
@@ -90,14 +91,18 @@ export default createGlobalStyle`
     width:100%;/* Green */
 }
   .button {
-  transition-duration: 0.4s;
-}
+    transition-duration: 0.4s;
+  }
 
   .button:hover {
-  background-color: #4CAF50; /* Green */
-  color: white;
-}
-
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
+  .flex-display{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
 
 
   .add-control{
@@ -122,8 +127,8 @@ export default createGlobalStyle`
     }
     .input-quantity{
         text-align: center;
-        min-width: 2ch;
-        max-width: 3ch;
+        min-width: 1ch;
+        max-width: 1ch;
         border:none;
         font-size:20px
     }

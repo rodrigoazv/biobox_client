@@ -32,15 +32,16 @@ export default function CardProduct() {
                 <div className="product-info">
                     <div className="product-name">Alface 100g</div>
                     <div className="product-description">Molho de alface agrecológico</div>
-                    <div className="product-price">R$ 4,00</div>
-                    <div className="flex-quant">
-                        <form onSubmit={HandleSubmit}>
-                            <div className="add-control"> 
+                    <div>
+                        <form onSubmit={HandleSubmit} className="flex-display flex-quant">
+                            <div className="add-control" > 
                                 <button className="button-quantity" onClick={HandleDecrement}>-</button>
-                                <input className="input-quantity" value={quantity}/>
+                                <input className="input-quantity" value={quantity} />
                                 <button className="button-quantity" onClick={HandleIncrement}>+</button>  
                             </div>   
-                            <button className="button" >Comprar</button>
+                            <div className="align-button"> 
+                                <button className="button" >Adicionar</button>
+                            </div>
                         </form>
                     </div>
                 </div>
