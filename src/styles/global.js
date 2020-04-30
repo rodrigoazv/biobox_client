@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+ @import url('https://fonts.googleapis.com/css?family=Kreon|Patua+One|Roboto&display=swap');
   * {
     margin: 0;
     padding: 0;
@@ -76,6 +76,7 @@ export default createGlobalStyle`
     margin: 0 10px;  
     height: 40px;
     width:100%;
+    cursor: pointer;
   }
   .button {
     margin-top: 8px;
@@ -89,6 +90,7 @@ export default createGlobalStyle`
     font-size: 16px;
     border-radius: 4px;
     width:100%;/* Green */
+    cursor: pointer;
 }
   .button {
     transition-duration: 0.4s;
