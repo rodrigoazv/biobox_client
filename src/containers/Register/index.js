@@ -1,5 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import api from '../../service/api';
+
 
 import { Container } from './styles';
 //Components
@@ -9,36 +11,117 @@ import Footer from '../../components/Footer';
 import {  FaCheckCircle } from 'react-icons/fa';
 
 export default function Register() {
-  return (
-    <Container>
-        <HeaderTopNav/>
-        <div className="content max-margin-width">
-            <section className="text-cad">
-                <h1 className="text-cad">Cadastro</h1>
-                <p>Faça seu cadastro:</p>
-                <Link to='/login'>Já tenho cadastro</Link>
-            </section>
-            <div className='box-form'>
-                <form className="form-type-register">
-                    <input className="input-login" placeholder="Email*" type='Email'/>   
-                    <input className="input-login" placeholder="Senha*" type='password'/>
-                    <input className="input-login" placeholder="Nome completo*"/>
-                    <input className="input-login" placeholder="CPF*"/>
-                    <input className="input-login" placeholder="Data Nascimento*"/> 
-                    <input className="input-login"placeholder="Telefone"/>
-                    <div className="use-terms">
-                        <span>
-                            <FaCheckCircle/>
-                        </span>
-                        <span>Li e aceito os</span>
-                        <a href="/"> termos de uso</a>
-                    </div>
+    const history = useHistory();
 
-                    <button className="button-full">Register</button>
-                </form>
+    const [completName, setCompletName]= useState('');
+    const [email, setEmail]= useState('');
+    const [cpf, setCpf]= useState('');
+    const [dataNasc, setDataNasc]= useState('');
+    const [number, setNumber]= useState('');
+    const [password, setPassword]= useState('');
+    
+    async function handleRegister(e){
+        e.preventDefault();
+
+        const data = {
+            completName,
+            email,
+            cpf,
+            dataNasc,
+            number,
+            password,
+        }
+        try{
+            const  response = await api.post('user', data);
+        
+            alert(`Olá ${response.data.completName} seu cadastro foi realizado`);
+            history.push('/');
+    }catch{
+            alert(`Error, tente novamente`);
+    }
+    }
+
+
+    return (
+        <Container>
+            <HeaderTopNav/>
+            <div className="content max-margin-width">
+                <section className="text-cad">
+                    <h1 className="text-cad">Cadastro</h1>
+                    <p>Faça seu cadastro:</p>
+                    <Link to='/login'>Já tenho cadastro</Link>
+                </section>
+                <div className='box-form'>
+                    <form className="form-type-register" onSubmit={handleRegister}>
+                        <input 
+                            className="input-login" 
+                            placeholder="Email*" 
+                            type='email'
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
+                            required
+                        />
+
+                        <input 
+                            className="input-login" 
+                            placeholder="Nome completo*" 
+                            type='name'
+                            value={completName}
+                            onChange={e => setCompletName(e.target.value)}
+                            required
+                        />
+
+                        <input 
+                            className="input-login" 
+                            placeholder="Senha*" 
+                            type='password'
+                            value={password}
+                            onChange={e => setPassword(e.target.value)}
+                            required
+                        />
+
+                        <input 
+                            className="input-login" 
+                            placeholder="CPF*" 
+                            type='cpf'
+                            value={cpf}
+                            onChange={e => setCpf(e.target.value)}
+                            required
+                        />
+
+                        <input 
+                            className="input-login" 
+                            placeholder="Data de nascimento*" 
+                            type='date'
+                            value={dataNasc}
+                            onChange={e => setDataNasc(e.target.value)}
+                            required
+                        />
+
+                        <input 
+                            className="input-login" 
+                            placeholder="Whatsapp" 
+                            type='number'
+                            value={number}
+                            onChange={e => setNumber(e.target.value)}
+                            
+                        />
+
+                        
+
+                        <div className="use-terms">
+                            <span>
+                                <FaCheckCircle/>
+                            </span>
+                            <span>Li e aceito os</span>
+                            <a href="/"> termos de uso</a>
+                        </div>
+
+                        <button className="button-full" type='submit'>Register</button>
+                    </form>
+                </div>
             </div>
-        </div>
-        <Footer/>
-    </Container>
+            <Footer/>
+        </Container>
   );
 }

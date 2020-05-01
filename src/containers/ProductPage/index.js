@@ -21,7 +21,6 @@ export default function ProductPage() {
             setProduct(response.data)
         })
     },[id]);
-    console.log(id)
     
   return (
     

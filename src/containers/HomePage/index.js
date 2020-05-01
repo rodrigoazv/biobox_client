@@ -61,8 +61,11 @@ export default function HomePage() {
         .then(response=>{
             setProducts(response.data)
         })
-    },[products.length]);
-    console.log(products)
+    },[products.id]);
+    
+  console.log(products);
+
+  
   return (
     <Container>
       <HeaderTopNav/>
@@ -76,9 +79,10 @@ export default function HomePage() {
           <section className="product-type max-margin-width">
               <div className="product-type-name">HORTA</div>
               <div className="padding-slick">
-                
+                <ul>
                   <Slider {...settings}>
                       {products.map(product=>(
+                        <li key={product.id}>
                           <CardProduct
                             id={product.id}
                             name={product.productName}
@@ -86,9 +90,10 @@ export default function HomePage() {
                             photoUrl={product.photoUrl}
                             productPrice={product.productPrice}
                           />
+                        </li>
                       ))}
                   </Slider>
-                
+                </ul>
                 
               </div>
           </section>
