@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import {Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import {Link} from 'react-router-dom';
 import { Container } from './styles';
+
+//Default-Componentes
+import ButtonFull from '../ButtonFull';
+
 
 export default function CardProduct(props) {
     const [quantity, setQuantity] = useState(1);
     const [cart, setCart] = useState([]);
-    
-    useEffect(() => {
-        setCart(
-            {
-            pid:props.id,
-            price:props.productPrice,
-            quantity: quantity
-        })
-    },[props.id, props.productPrice, quantity]);
+
 
     function HandleIncrement(){
         setQuantity(quantity+1);
+        if(quantity>8){
+            setQuantity(9)
+            alert('O máximo de compras para pessoa juridica são 9 itens')
+        }
     }
     function HandleDecrement(){
         setQuantity(quantity-1)
@@ -27,13 +27,16 @@ export default function CardProduct(props) {
     function HandleSubmit(e){
         e.preventDefault();
     }
-    function HandleAddCart(id) {
-        
-        
-        console.log(cart); 
-    
-    }
-    
+    function HandleAddCart(e) {    
+        e.preventDefault();
+        setCart(
+            [...cart, {
+            pid:props.id,
+            price:props.productPrice,
+            quantity: quantity
+        }])
+    } 
+    console.log(cart); 
     
     return (
         <Container>
@@ -62,7 +65,12 @@ export default function CardProduct(props) {
                                 <input className="input-quantity" value={quantity} />
                                 <button className="button-quantity" onClick={HandleIncrement}>+</button>  
                             </div>   
-                            <button onClick={HandleAddCart} className="button" >Adicionar</button>
+                            <ButtonFull 
+                                onClick={HandleAddCart} 
+                                className="button" 
+                                color="red"
+                                text="Comprar"
+                            />
                             
                         </form>
                     </div>

@@ -1,9 +1,6 @@
-<<<<<<< HEAD
+
 import React, {useState, useEffect} from 'react';
 import api from '../../service/api';
-=======
-import React, { useState } from 'react';
->>>>>>> 53e188b2c3e82090d4c607f8b33b909afa998bf1
 
 import { Container } from './styles';
 import { useParams } from 'react-router-dom'
@@ -16,8 +13,8 @@ import Alface from '../../assets/alface.png';
 import { FaTruck } from 'react-icons/fa';
 
 export default function ProductPage() {
-<<<<<<< HEAD
     const [product, setProduct] = useState([]);
+    const [quantity, setQuantity] = useState(1);
     let { id } = useParams();
     useEffect(()=>{
         window.scrollTo(0, 0);
@@ -26,6 +23,20 @@ export default function ProductPage() {
             setProduct(response.data)
         })
     },[id]);
+    
+    function HandleIncrement(){
+        setQuantity(quantity+1);
+    }
+    function HandleDecrement(){
+        setQuantity(quantity-1)
+        if(quantity<=0){
+            setQuantity(0)
+        }
+    }
+    function HandleSubmit(e){
+        e.preventDefault();
+    }
+
     
   return (
     
@@ -42,57 +53,6 @@ export default function ProductPage() {
                     </p>
                     <h1>
                         {product.productName}
-=======
-    const [quantity, setQuantity] = useState(1);
-    const [product, setProduct] = useState('Alface')
-       
-    function HandleIncrement(e) {
-        e.preventDefault()
-        setQuantity(quantity + 1);
-    }
-    function HandleDecrement(e) {
-        e.preventDefault()
-        setQuantity(quantity - 1)
-        if (quantity <= 1) {
-            setQuantity(1)
-        }
-    }
-    function cartModal(IDmodal) {
-        const modalBox = document.getElementById(IDmodal)
-        modalBox.classList.add('self-show')
-
-    }
-    function backShopping() {
-        const backShop = (IDmodal) => {
-            const modalBox = document.getElementById(IDmodal)
-            modalBox.classList.remove('self-show')
-        }
-        backShop('modal-full')
-    }
-    function HandleSubmit(e) {
-        e.preventDefault();
-        setQuantity(quantity)
-        setProduct(product)
-        localStorage.setItem("@produto-nome-quant/user", [product, quantity])
-        cartModal('modal-full')
-    }
-
-    return (
-
-        <Container>
-            <HeaderTopNav />
-            <div className="max-margin-width flex-row">
-                <div>
-                    <img src={Alface} className="product-image" alt="productimgae"></img>
-                </div>
-                <div className="product-detail">
-                    <div className="product-name">
-                        <p>
-                            Biocampeiro
-                    </p>
-                        <h1>
-                            {product} 100g 1 Molho
->>>>>>> 53e188b2c3e82090d4c607f8b33b909afa998bf1
                     </h1>
                         <p>
                             100g
@@ -147,15 +107,6 @@ export default function ProductPage() {
                         <p >
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
                     </p>
-                    </div>
-                </div>
-            </div>
-            <div id="modal-full" className="modal-container">
-                <div className="modal-box ">
-                    <div>
-                        <h3>{product} Qtd:{quantity}</h3>
-                        <a href="/cart"><button className="button">Continuar para o carrinho</button></a>
-                        <button onClick={backShopping} className="button">Voltar às compras</button>
                     </div>
                 </div>
             </div>

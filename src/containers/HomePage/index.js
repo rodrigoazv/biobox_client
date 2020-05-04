@@ -78,7 +78,6 @@ export default function HomePage() {
         </div>
         <div className="product-hole">
           <section className="product-type max-margin-width">
-<<<<<<< HEAD
               <div className="product-type-name">HORTA</div>
               <div className="padding-slick">
                 <ul>
@@ -96,40 +95,7 @@ export default function HomePage() {
                       ))}
                   </Slider>
                 </ul>
-                
               </div>
-=======
-            <div className="product-type-name">HORTA</div>
-            <div className="padding-slick">
-              <Slider {...settings}>
-                <div>
-                  <CardProduct />
-                </div>
-                <div>
-                  <CardProduct />
-                </div>
-                <div>
-                  <CardProduct />
-                </div>
-                <div>
-                  <CardProduct />
-                </div>
-                <div>
-                  <CardProduct />
-                </div>
-                <div>
-                  <CardProduct />
-                </div>
-                <div>
-                  <CardProduct />
-                </div>
-                <div>
-                  <CardProduct />
-                </div>
-              </Slider>
-
-            </div>
->>>>>>> 53e188b2c3e82090d4c607f8b33b909afa998bf1
           </section>
           <section className="product-type max-margin-width">
             <div className="product-type-name">GRANEL</div>

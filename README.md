@@ -29,3 +29,11 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Documentação de pastas base
 
+### SRC
+
+Contém toda logica base de inicialização global de rotas, e configurações básicas.
+
+### Components
+
+Contém toda lógica de um componente 
+
