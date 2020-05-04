@@ -4,6 +4,7 @@ import React from 'react';
 import { Container } from './styles';
 //Components
 import HeaderTopNav from '../../components/HeaderTopNav';
+import EmailBox from '../../components/EmailBox'
 import Footer from '../../components/Footer';
 
 //Images
@@ -22,7 +23,7 @@ export default function About() {
             <HeaderTopNav />
             <div className="about-content max-margin-width">
                 <h1 >Nosso Legado</h1>
-                <section>
+                <section className="about-section">
                     <div className="about-title">
                     <h2>Nós cuidamos da sua missão de aisjjda</h2>
                     </div>
@@ -57,6 +58,7 @@ export default function About() {
                     </div>
                 </section>
             </div>
+            <EmailBox/>
             <Footer />
         </Container >
     );
