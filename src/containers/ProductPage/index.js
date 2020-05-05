@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import React, {useState, useEffect} from 'react';
 import api from '../../service/api';
-=======
-import React, { useState } from 'react';
->>>>>>> 53e188b2c3e82090d4c607f8b33b909afa998bf1
 
 import { Container } from './styles';
 import { useParams } from 'react-router-dom'
@@ -16,7 +12,6 @@ import Alface from '../../assets/alface.png';
 import { FaTruck } from 'react-icons/fa';
 
 export default function ProductPage() {
-<<<<<<< HEAD
     const [product, setProduct] = useState([]);
     let { id } = useParams();
     useEffect(()=>{
@@ -26,26 +21,8 @@ export default function ProductPage() {
             setProduct(response.data)
         })
     },[id]);
-    
-  return (
-    
-    <Container>
-        <HeaderTopNav/>
-        <div className="max-margin-width flex-row">
-            <div>
-                <img src={Alface} className="product-image" alt="productimgae"></img>
-            </div>
-            <div className="product-detail">
-                <div className="product-name">
-                    <p>
-                        Biocampeiro
-                    </p>
-                    <h1>
-                        {product.productName}
-=======
     const [quantity, setQuantity] = useState(1);
-    const [product, setProduct] = useState('Alface')
-       
+           
     function HandleIncrement(e) {
         e.preventDefault()
         setQuantity(quantity + 1);
@@ -57,6 +34,7 @@ export default function ProductPage() {
             setQuantity(1)
         }
     }
+    //funções para lidar com o modal( cartModal & backShopping )
     function cartModal(IDmodal) {
         const modalBox = document.getElementById(IDmodal)
         modalBox.classList.add('self-show')
@@ -76,23 +54,22 @@ export default function ProductPage() {
         localStorage.setItem("@produto-nome-quant/user", [product, quantity])
         cartModal('modal-full')
     }
-
-    return (
-
-        <Container>
-            <HeaderTopNav />
-            <div className="max-margin-width flex-row">
-                <div>
-                    <img src={Alface} className="product-image" alt="productimgae"></img>
-                </div>
-                <div className="product-detail">
-                    <div className="product-name">
-                        <p>
-                            Biocampeiro
+    
+  return (
+    
+    <Container>
+        <HeaderTopNav/>
+        <div className="max-margin-width flex-row">
+            <div>
+                <img src={Alface} className="product-image" alt="productimgae"></img>
+            </div>
+            <div className="product-detail">
+                <div className="product-name">
+                    <p>
+                        Biocampeiro
                     </p>
-                        <h1>
-                            {product} 100g 1 Molho
->>>>>>> 53e188b2c3e82090d4c607f8b33b909afa998bf1
+                    <h1>
+                        {product.productName}
                     </h1>
                         <p>
                             100g
