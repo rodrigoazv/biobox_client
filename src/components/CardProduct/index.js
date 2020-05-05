@@ -6,10 +6,8 @@ import { Container } from './styles';
 import ButtonFull from '../ButtonFull';
 
 
-export default function CardProduct(props) {
+export default function CardProduct({props, addCartProduct}) {
     const [quantity, setQuantity] = useState(1);
-    const [cart, setCart] = useState([]);
-
 
     function HandleIncrement(){
         setQuantity(quantity+1);
@@ -27,17 +25,6 @@ export default function CardProduct(props) {
     function HandleSubmit(e){
         e.preventDefault();
     }
-    function HandleAddCart(e) {    
-        e.preventDefault();
-        setCart(
-            [...cart, {
-            pid:props.id,
-            price:props.productPrice,
-            quantity: quantity
-        }])
-    } 
-    console.log(cart); 
-    
     return (
         <Container>
             <div className="padding-into">
@@ -66,7 +53,7 @@ export default function CardProduct(props) {
                                 <button className="button-quantity" onClick={HandleIncrement}>+</button>  
                             </div>   
                             <ButtonFull 
-                                onClick={HandleAddCart} 
+                                onClick={() => addCartProduct(props)} 
                                 className="button" 
                                 color="red"
                                 text="Comprar"

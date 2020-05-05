@@ -20,6 +20,18 @@ export default createGlobalStyle`
   ul {
     list-style: none;
   }
+   /* Responsive margin global ( NAV-TOP ) */
+
+   .max-margin-width{
+        max-width: 1250px;
+        padding: 0px 20px;
+        margin: 0px auto;
+        @media (max-width: 1100px){
+            max-width:992px;
+        }
+  }
+
+  /* Responsive margin global ( NAV-TOP ) */
   /* Input search bar ( NAV-TOP )*/
   .input{
     width: 100%;
@@ -54,15 +66,7 @@ export default createGlobalStyle`
     font-weight: 600;
     font-family: 'Patua One', cursive;
   }
-  /* Responsive margin global ( NAV-TOP ) */
-  .max-margin-width{
-        max-width: 1250px;
-        padding: 0px 20px;
-        margin: 0px auto;
-        @media (max-width: 1100px){
-            max-width:992px;
-        }
-  }
+
   .flex-display{
     display:flex;
     flex-direction:column;
