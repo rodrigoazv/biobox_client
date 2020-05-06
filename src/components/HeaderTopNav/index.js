@@ -2,10 +2,11 @@ import React from 'react';
 
 import { Container } from './styles';
 import {Link} from 'react-router-dom';
+import "../../styles/colors";
 
 //assets import
 import Logo from '../../assets/logobio.svg';
-import { FaStore } from 'react-icons/fa';
+import { RiShoppingBasketLine } from 'react-icons/ri';
 import { FaSignInAlt } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
 import { FaGripLines} from 'react-icons/fa';
@@ -43,7 +44,7 @@ export default function HeaderTopNav() {
                         </div>
                         <div className="display-show">
                                 <Link to="/cart"> 
-                                    <FaStore size={48} color="green"/>
+                                    <RiShoppingBasketLine size={36} color='#95B737'/>
                                     <span>{length}</span>
                                 </Link>
                         </div>
@@ -52,11 +53,11 @@ export default function HeaderTopNav() {
                 <div className="under-nav-top">
                         <nav className="max-margin">
                             <ul>
-                                <li><a href="/">Lorem ipsum</a></li>
-                                <li><a href="/">Lorem ipsum</a></li>
-                                <li><a href="/">Lorem ipsum</a></li>
-                                <li><a href="/">Lorem ipsum</a></li>
-                                <li><a href="/">Lorem ipsum</a></li>
+                                <li><a href="/">Produtos</a></li>
+                                <li><a href="/">Receitas</a></li>
+                                <li><a href="/">Sobre nós</a></li>
+                                <li><a href="/">Biocabanas</a></li>
+                                <li><a href="/">Contato</a></li>
                             </ul>
                     </nav>
                 </div>
@@ -83,7 +84,7 @@ export default function HeaderTopNav() {
                                 <li>
                                     <div>
                                         <a href="/cart"> 
-                                            <FaStore size={32} color="green"/>
+                                            <RiShoppingBasketLine size={32} color='PRIMARY_GREN_LIGHT'/>
                                         </a>    
                                     </div>
                                 </li>
