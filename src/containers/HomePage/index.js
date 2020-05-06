@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 
 import { Container } from './styles';
 // Components
@@ -14,7 +14,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import api from '../../service/api';
+//import api from '../../service/api';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllProducts } from '../../store/fetchProduct';
+import { addItem } from '../../store/ducks/cart';
 
 export default function HomePage() {
   const settings = {
@@ -53,20 +57,19 @@ export default function HomePage() {
   };
 
 
-  //api 
+  //reducer getProducts from api
+  const products = useSelector(state => state.products);
+  const dispatch = useDispatch();
 
-  const [products, setProducts] = useState([]);
-    
-    useEffect(()=>{
-        api.get('product')
-        .then(response=>{
-            setProducts(response.data)
-        })
-    },[products.id]);
-    
-  console.log(products);
+  useEffect(() => {
+    dispatch(getAllProducts());
+  },[dispatch])
 
-  
+  //reducer addProducts in cart
+  function addCartProduct(product){
+    dispatch(addItem(product));
+  }
+
   return (
     <Container>
       <HeaderTopNav />
@@ -85,33 +88,23 @@ export default function HomePage() {
                       {products.map(product=>(
                         <li key={product.id}>
                           <CardProduct
-                            id={product.id}
-                            name={product.productName}
-                            productDescription={product.productDescription}
-                            photoUrl={product.photoUrl}
-                            productPrice={product.productPrice}
+                            props={product}
+                            addCartProduct={addCartProduct}
                           />
                         </li>
                       ))}
                   </Slider>
                 </ul>
-                
               </div>
           </section>
           <section className="product-type max-margin-width">
             <div className="product-type-name">GRANEL</div>
             <ul className="padding-ul">
-              <li>
-                <CardProduct />
-              </li>
             </ul>
           </section>
           <section className="product-type max-margin-width">
             <div className="product-type-name">BIOPRODUTOS</div>
             <ul className="padding-ul">
-              <li>
-                <CardProduct />
-              </li>
             </ul>
           </section>
           <div className="info-box max-margin-width">

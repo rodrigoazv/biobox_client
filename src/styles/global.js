@@ -20,6 +20,18 @@ export default createGlobalStyle`
   ul {
     list-style: none;
   }
+   /* Responsive margin global ( NAV-TOP ) */
+
+   .max-margin-width{
+        max-width: 1250px;
+        padding: 0px 20px;
+        margin: 0px auto;
+        @media (max-width: 1100px){
+            max-width:992px;
+        }
+  }
+
+  /* Responsive margin global ( NAV-TOP ) */
   /* Input search bar ( NAV-TOP )*/
   .input{
     width: 100%;
@@ -54,52 +66,7 @@ export default createGlobalStyle`
     font-weight: 600;
     font-family: 'Patua One', cursive;
   }
-  /* Responsive margin global ( NAV-TOP ) */
-  .max-margin-width{
-        max-width: 1250px;
-        padding: 0px 20px;
-        margin: 0px auto;
-        @media (max-width: 1100px){
-            max-width:992px;
-        }
-  }
-  .button-full{
-    background-color: #FF7A00; /* Green */
-    color: white;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 4px;
-    border:none;
-    margin: 0 10px;  
-    height: 40px;
-    width:100%;
-    cursor: pointer;
-  }
-  .button {
-    margin-top: 8px;
-    background-color: white;
-    color: black;
-    border: 2px solid #4CAF50; 
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 4px;
-    width:100%;/* Green */
-    cursor: pointer;
-}
-  .button {
-    transition-duration: 0.4s;
-  }
 
-  .button:hover {
-    background-color: #4CAF50; /* Green */
-    color: white;
-  }
   .flex-display{
     display:flex;
     flex-direction:column;
