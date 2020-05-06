@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, {useState} from 'react';
+import {useDispatch} from 'react-redux';
 
 import { Container } from './styles';
 //Components
@@ -9,6 +9,18 @@ import Footer from '../../components/Footer';
 
 
 export default function Login() {
+    const [form, setForm] = useState({email:'',password:''})
+    const dispatch = useDispatch()
+    function formChange(e){
+        const {name, value}= e.target
+        setForm({...form,[name]:value})
+    }
+    function loginSubmit(e){
+        e.preventDefault()
+        console.log(form)
+        setForm({email:'',password:''})
+
+    }
       return (
         <Container>
             <HeaderTopNav />
@@ -18,10 +30,10 @@ export default function Login() {
                     <p>Acessar sua conta</p>
                 </section>
                 <div className='box-form'>
-                    <form className="form-type-register">
-                        <input className="input-login" placeholder="Email" type='Email' />
-                        <input className="input-login" placeholder="Senha" type='password' />
-                        <button className="button-full">Entrar</button>
+                    <form onSubmit={loginSubmit} className="form-type-register">
+                        <input value={form.email} onChange={formChange} className="input-login" name="email" placeholder="Email" type='Email' />
+                        <input value={form.password} onChange={formChange} className="input-login" name="password" placeholder="Senha" type='password' />
+                        <button type="submit" className="button-full">Entrar</button>
                     </form>
                 </div>
             </div>
