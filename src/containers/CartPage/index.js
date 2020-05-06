@@ -5,14 +5,23 @@ import HeaderTopNav from '../../components/HeaderTopNav';
 import Footer from '../../components/Footer';
 import ButtonFull from '../../components/ButtonFull';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeItem } from '../../store/ducks/cart';
+
+import { BsTrash } from 'react-icons/bs';
 
 function CartPage() {
 
     const cartProductState = useSelector(state => state.cart)
     localStorage.setItem("sback_cart_item", JSON.stringify(cartProductState));
+    const cartProduct = JSON.parse(localStorage.getItem("sback_cart_item"));
 
-    const cartProduct = JSON.parse(localStorage.getItem("sback_cart_item"))
+    const dispatch = useDispatch();
+
+    function removeProductCart(id){
+        dispatch(removeItem(id));
+    }
+
 
     return (
         <Container>
@@ -27,14 +36,21 @@ function CartPage() {
                             <>
                                 <ul>
                                     {cartProduct.map(product => (
-                                        <li key={product.id}>
-                                            <div>
+                                        <li key={product.id} >
+                                            <div className="display-flex">
                                                 <img src={product.photoUrl} alt="none" className="cart-photo"/>
-                                                {product.productName}
+                                                
+                                                <div>
+                                                    <h4>{product.productName}</h4>
+                                                    <p>{product.productDescription}</p>
+                                                </div>
                                             </div>
                                             <div className="flex-end">
                                                 {product.productPrice}
                                             </div>
+                                            <button className="mini-button" onClick={() => removeProductCart(product.id)}>
+                                                <BsTrash size={22   }/>
+                                            </button>
                                         </li>
                                     ))}
                                 </ul>

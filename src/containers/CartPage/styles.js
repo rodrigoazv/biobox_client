@@ -5,13 +5,23 @@ export const Container = styled.div`
     margin-top:40px;
     margin-bottom: 200px;
   }
-  li{
+  .box-product li{
     border-bottom: 1px solid #ddd;
     margin-top: 20px;
     display:flex;
     flex-direction: row;
     justify-content:space-between;
+    align-items: center;
 
+  }
+  p{
+    font-size:12px;
+    font-weight:300;
+  }
+  h4{
+    font-size:13px;
+    font-weight:500;
+    color:#333;
   }
   /* BOX DE CHECKOUT */
 
@@ -40,5 +50,14 @@ export const Container = styled.div`
   }
   .flex-end{
     padding-right: 50px;
+  }
+  .mini-button{
+    background-color:transparent;
+    border:0;
+    cursor:pointer;
+  }
+  .mini-button:hover{
+    opacity: 0.8;
+    color:red;
   }
 `;
