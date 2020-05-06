@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route , Switch } from "react-router-dom";
+import { BrowserRouter, Route , Switch, Redirect } from "react-router-dom";
 //containersImport
 import HomePage from './containers/HomePage';
 import CheckIn from './containers/CheckIn';
@@ -14,7 +14,18 @@ import  GlobalStyle  from './styles/global';
 import ProductPage from './containers/ProductPage';
 
 import {Provider} from 'react-redux';
+import {useSelector} from 'react-redux'
 import store from './store';
+
+function PrivateRoutes ({component:Component, ...rest}){
+  const {isAuthenticated} = useSelector(state => state.authe)
+  return (
+    <Route {...rest} render={props => (
+      isAuthenticated ? (<Component {...props}/>) : (<Redirect to={{pathname:'/register', state:{from:props.location}}}/>)
+    )} />
+  )
+
+}
 
 
 const Routes = () => (
@@ -30,7 +41,7 @@ const Routes = () => (
           <Route exact path="/product/:id" component={ProductPage} />
           <Route exact path="/product" component={ProductPage} />
           <Route exact path="/receitas" component={Recipes} />
-          <Route exact path="/cart" component={CartPage} />
+          <PrivateRoutes exact path="/cart" component={CartPage} />
         </Switch>
       <GlobalStyle/>
       </BrowserRouter>

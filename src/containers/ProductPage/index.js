@@ -35,7 +35,7 @@ export default function ProductPage() {
         }
     }
     //funções para lidar com o modal( cartModal & backShopping )
-    function cartModal(IDmodal) {
+    /*function cartModal(IDmodal) {
         const modalBox = document.getElementById(IDmodal)
         modalBox.classList.add('self-show')
 
@@ -46,13 +46,13 @@ export default function ProductPage() {
             modalBox.classList.remove('self-show')
         }
         backShop('modal-full')
-    }
+    }*/
     function HandleSubmit(e) {
         e.preventDefault();
         setQuantity(quantity)
         setProduct(product)
-        localStorage.setItem("@produto-nome-quant/user", [product, quantity])
-        cartModal('modal-full')
+        //localStorage.setItem("@produto-nome-quant/user", [product, quantity])
+        //cartModal('modal-full')
     }
     
   return (
