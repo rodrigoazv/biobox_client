@@ -72,47 +72,7 @@ export const Container = styled.section`
         margin:100px 0;
         width: 50%;
     }  
-    .modal-container{
-       color:blue;
-       width:100vw;
-       height:100vh;
-       z-index:2000;
-       position:fixed;
-       background: rgba(0,0,0,0.5);
-       top:0px;
-       left:0px;
-       display: none;
-       justify-content:center;
-       align-items:center;
- }
- .modal-container.self-show{
-     display: flex;
- }
- .modal-box{
-     background: white;
-     width: 500px;
-     height:200px;
-     border-radius: 8px;
- }
-@keyframes modalAnimation{
-    from{
-        opacity:0;
-        transform: translate3d(0, -70px,0)
-    }
-    to{
-        opacity:1;
-        transform: translate3d(0,0,0)
-    }
-}
-.self-show .modal-box{
-    animation: modalAnimation  .4s;
-}
-
- .modal-box div{
-     margin: 5%;
-     justify-content:space-between;
- }
-    h3{
+     h3{
         font-size:20px;
         margin:10px;
         color:green;

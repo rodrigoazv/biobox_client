@@ -5,6 +5,7 @@ import { Container } from './styles';
 import { useParams } from 'react-router-dom'
 
 import HeaderTopNav from '../../components/HeaderTopNav';
+import Modal from '../../components/Modal'
 import Footer from '../../components/Footer';
 
 import Alface from '../../assets/alface.png';
@@ -35,24 +36,19 @@ export default function ProductPage() {
         }
     }
     //funções para lidar com o modal( cartModal & backShopping )
-    /*function cartModal(IDmodal) {
+    function callModal(IDmodal) {
         const modalBox = document.getElementById(IDmodal)
         modalBox.classList.add('self-show')
+        setTimeout(() => modalBox.classList.remove('self-show'), 2500)
 
     }
-    function backShopping() {
-        const backShop = (IDmodal) => {
-            const modalBox = document.getElementById(IDmodal)
-            modalBox.classList.remove('self-show')
-        }
-        backShop('modal-full')
-    }*/
     function HandleSubmit(e) {
         e.preventDefault();
         setQuantity(quantity)
         setProduct(product)
-        //localStorage.setItem("@produto-nome-quant/user", [product, quantity])
-        //cartModal('modal-full')
+        localStorage.setItem("@produto-nome-quant/user", [product, quantity])
+        callModal('modal-full')
+        
     }
     
   return (
@@ -127,6 +123,8 @@ export default function ProductPage() {
                     </div>
                 </div>
             </div>
+            <Modal text="Produto adicionado ao Carrinho"/>
+
             <Footer />
         </Container>
     );
