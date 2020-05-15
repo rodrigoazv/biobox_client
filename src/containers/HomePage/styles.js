@@ -34,12 +34,44 @@ export const Container = styled.div`
         margin-bottom:25px;
   }
     .info-box{
+        position:initial;
         margin-top: 50px;
         margin-bottom:50px;
         height: 300px;
         background-color:#FFFAF5;
         border-radius: 24px;
+        display:flex;
+              
+      @media (max-width: 770px){
+          text-align:center;
+          height:800px;
+    } 
         
+  }
+  .info-box-content{
+      padding:5vh;
+  }
+  .info-box-inner p{
+      padding:100px;
+      font-size: 16px;
+      
+  }
+  .info-box-content img{
+      margin-top:0;
+      width:200px;
+      @media (max-width: 770px){
+        margin:auto;
+         
+    } 
+  }
+  .info-box-inner{
+      display:flex;
+      flex-direction:row;
+      text-align:center;
+      @media (max-width: 770px){
+        flex-direction:column
+    } 
+
   }
   .padding-slick{
       margin-top:25px;

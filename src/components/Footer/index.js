@@ -23,7 +23,7 @@ export default function Footer() {
             
             <div className="flex-beetwen">
                 <div>
-                    <p>Institucional</p>
+                    <h3>Institucional</h3>
                     <div className="flex-column">
                         <a href="/">Quem somos</a>
                         <a href="/">O que fazemos</a>
@@ -32,7 +32,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div >
-                    <p>Contato</p>
+                    <h3>Contato</h3>
                     <div className="flex-column">
                         <a href="/">Biocampeiro</a>
                         <a href="/">Biocampeiro</a>
@@ -41,7 +41,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div >
-                    <p>Nossos projetos</p>
+                    <h3>Nossos projetos</h3>
                     <div className="flex-column">
                         <a href="/">Biocampeiro</a>
                         <a href="/">Biocampeiro</a>
