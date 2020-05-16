@@ -6,12 +6,16 @@ import CheckIn from './containers/CheckIn';
 import Register from './containers/Register';
 import Login from './containers/Login';
 import About from './containers/About';
-import Recipes from './containers/Recipes'
+import Recipes from './containers/Recipes';
+import Products from './containers/Products';
+import Contact from './containers/Contact'
 import EndOfOrder from './containers/EndOfOrder';
 import CartPage from './containers/CartPage';
-
-import  GlobalStyle  from './styles/global';
 import ProductPage from './containers/ProductPage';
+
+import GlobalFonts from './styles/fonts/fonts'
+import  GlobalStyle  from './styles/global';
+
 
 import {Provider} from 'react-redux';
 import {useSelector} from 'react-redux'
@@ -30,6 +34,7 @@ function PrivateRoutes ({component:Component, ...rest}){
 
 const Routes = () => (
   <Provider store={store}>
+    <GlobalFonts/>
     <BrowserRouter>
       <Switch>
           <Route exact path="/" component={HomePage} />
@@ -41,6 +46,8 @@ const Routes = () => (
           <Route exact path="/product/:id" component={ProductPage} />
           <Route exact path="/product" component={ProductPage} />
           <Route exact path="/receitas" component={Recipes} />
+          <Route exact path="/produtos" component={Products} />
+          <Route exact path="/contato" component={Contact} />
           <PrivateRoutes exact path="/cart" component={CartPage} />
         </Switch>
       <GlobalStyle/>
