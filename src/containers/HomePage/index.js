@@ -66,6 +66,7 @@ export default function HomePage() {
   },[dispatch])
 
   //reducer addProducts in cart
+
   function addCartProduct(product){
     dispatch(addItem(product));
   }
@@ -100,11 +101,31 @@ export default function HomePage() {
           <section className="product-type max-margin-width">
             <div className="product-type-name">GRANEL</div>
             <ul className="padding-ul">
+            <Slider {...settings}>
+                      {products.map(product=>(
+                        <li key={product.id}>
+                          <CardProduct
+                            props={product}
+                            addCartProduct={addCartProduct}
+                          />
+                        </li>
+                      ))}
+                  </Slider>
             </ul>
           </section>
           <section className="product-type max-margin-width">
             <div className="product-type-name">BIOPRODUTOS</div>
             <ul className="padding-ul">
+            <Slider {...settings}>
+                      {products.map(product=>(
+                        <li key={product.id}>
+                          <CardProduct
+                            props={product}
+                            addCartProduct={addCartProduct}
+                          />
+                        </li>
+                      ))}
+                  </Slider>
             </ul>
           </section>
           <div className="info-box max-margin-width">

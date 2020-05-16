@@ -27,7 +27,7 @@ export default function EndOfOrder() {
                             <img alt="" src={InfoBio2}></img>
                         </div>
                         <div>
-                           <Link to="/produtos"><button className="button-full">Retornar</button></Link> 
+                           <Link to="/"><button className="button-full">Retornar</button></Link> 
                         </div>
                     </div>
 

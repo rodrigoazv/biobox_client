@@ -53,11 +53,11 @@ export default function HeaderTopNav() {
                 <div className="under-nav-top">
                         <nav className="max-margin">
                             <ul>
-                                <li><a href="/">Produtos</a></li>
-                                <li><a href="/">Receitas</a></li>
-                                <li><a href="/">Sobre nós</a></li>
-                                <li><a href="/">Biocabanas</a></li>
-                                <li><a href="/">Contato</a></li>
+                                <li><a href="/bioprodutos">Produtos</a></li>
+                                <li><a href="/receitas">Receitas</a></li>
+                                <li><a href="/sobre-nos">Sobre nós</a></li>
+                                <li><a href="/biocabanas">Biocabanas</a></li>
+                                <li><a href="/contato">Contato</a></li>
                             </ul>
                     </nav>
                 </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import { Container } from './styles';
 import HeaderTopNav from '../../components/HeaderTopNav';
@@ -49,7 +50,7 @@ function CartPage() {
                                                 {product.productPrice}
                                             </div>
                                             <button className="mini-button" onClick={() => removeProductCart(product.id)}>
-                                                <BsTrash size={22   }/>
+                                                <BsTrash size={22}/>
                                             </button>
                                         </li>
                                     ))}
@@ -61,9 +62,11 @@ function CartPage() {
                 <div className="box-checkout">
                     <p>Os itens serão enviados de acordo com a data prevista de entrega e localidade especifica</p>
                     <h2>Sub-total</h2>
-                    <ButtonFull
-                        text="Fazer pedido"
-                    />
+                    <Link to="/checkout">
+                        <ButtonFull
+                            text="Fazer pedido"
+                        />
+                    </Link>
                 </div>
             </div>
             <Footer/>

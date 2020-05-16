@@ -1,7 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
- @import url('https://fonts.googleapis.com/css?family=Kreon|Patua+One|Roboto&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Kreon|Patua+One|Roboto&display=swap');
+
   * {
     margin: 0;
     padding: 0;
@@ -100,6 +101,10 @@ export default createGlobalStyle`
         max-width: 1ch;
         border:none;
         font-size:20px
+    }
+    .margint-top-bot{
+      margin-top: 100px;
+      margin-bottom: 100px;
     }
 
 `;

@@ -8,7 +8,7 @@ import { Container } from './styles';
 import HeaderTopNav  from '../../components/HeaderTopNav';
 import Footer from '../../components/Footer';
 
-import {  FaCheckCircle } from 'react-icons/fa';
+import { FaCheckCircle } from 'react-icons/fa';
 
 export default function Register() {
     const history = useHistory();

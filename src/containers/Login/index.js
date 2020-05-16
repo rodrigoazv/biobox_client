@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 
 import { Container } from './styles';
@@ -6,9 +7,10 @@ import { Container } from './styles';
 import HeaderTopNav from '../../components/HeaderTopNav';
 import Footer from '../../components/Footer';
 
-
+import { postUserLogin } from '../../store/fetchProduct';
 
 export default function Login() {
+    const history = useHistory();
     const [form, setForm] = useState({email:'',password:''})
     const dispatch = useDispatch()
     function formChange(e){
@@ -17,9 +19,9 @@ export default function Login() {
     }
     function loginSubmit(e){
         e.preventDefault()
-        console.log(form)
+        dispatch(postUserLogin(form));
         setForm({email:'',password:''})
-
+        history.push('/');
     }
       return (
         <Container>
