@@ -12,7 +12,10 @@ export const Container = styled.div`
         max-width:100%;
         margin:auto;
     }
-
+    .paddingup{
+        padding-top:10px;
+        padding-bottom:10px;
+    }
 
     .product-hole{
         width: auto;

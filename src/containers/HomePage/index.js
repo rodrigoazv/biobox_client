@@ -87,7 +87,7 @@ export default function HomePage() {
                 <ul>
                   <Slider {...settings}>
                       {products.map(product=>(
-                        <li key={product.id}>
+                        <li key={product.id} className="paddingup">
                           <CardProduct
                             props={product}
                             addCartProduct={addCartProduct}
@@ -103,7 +103,7 @@ export default function HomePage() {
             <ul className="padding-ul">
             <Slider {...settings}>
                       {products.map(product=>(
-                        <li key={product.id}>
+                        <li key={product.id} className="paddingup">
                           <CardProduct
                             props={product}
                             addCartProduct={addCartProduct}
@@ -118,7 +118,7 @@ export default function HomePage() {
             <ul className="padding-ul">
             <Slider {...settings}>
                       {products.map(product=>(
-                        <li key={product.id}>
+                        <li key={product.id} className="paddingup">
                           <CardProduct
                             props={product}
                             addCartProduct={addCartProduct}
