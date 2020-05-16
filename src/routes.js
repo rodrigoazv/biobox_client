@@ -12,15 +12,13 @@ import Contact from './containers/Contact'
 import EndOfOrder from './containers/EndOfOrder';
 import CartPage from './containers/CartPage';
 import ProductPage from './containers/ProductPage';
-<<<<<<< HEAD
 
+
+
+//Global Components
 import GlobalFonts from './styles/fonts/fonts'
 import  GlobalStyle  from './styles/global';
-=======
-//Global Components
-import  GlobalStyle  from './styles/global';
 import CheckUserAuth from './components/CheckUserAuth';
->>>>>>> d416779f9c09b7a597ca822462e553e80f9d5797
 
 
 import {Provider} from 'react-redux';
@@ -55,15 +53,11 @@ const Routes = () => (
           <Route exact path="/product/:id" component={ProductPage} />
           <Route exact path="/product" component={ProductPage} />
           <Route exact path="/receitas" component={Recipes} />
-<<<<<<< HEAD
           <Route exact path="/produtos" component={Products} />
           <Route exact path="/contato" component={Contact} />
-          <PrivateRoutes exact path="/cart" component={CartPage} />
-=======
           <Route exact path="/cart" component={CartPage} /> 
           <PrivateRoutes exact path="/checkout" component={Checkout} />
           <PrivateRoutes exact path="/checkout/sendorder" component={EndOfOrder} />
->>>>>>> d416779f9c09b7a597ca822462e553e80f9d5797
         </Switch>
       <GlobalStyle/>
       <CheckUserAuth/>
