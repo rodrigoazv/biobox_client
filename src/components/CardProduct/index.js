@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import { Container } from './styles';
+import Modal  from '../Modal';
 
 //Default-Componentes
 import ButtonFull from '../ButtonFull';
@@ -58,7 +59,7 @@ export default function CardProduct({props, addCartProduct}) {
                                 color="red"
                                 text="Comprar"
                             />
-                            
+                            <Modal text="Produto adicionado ao Carrinho"/>
                         </form>
                     </div>
                 </div>

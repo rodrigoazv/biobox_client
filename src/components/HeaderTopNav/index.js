@@ -16,6 +16,7 @@ import { useSelector } from 'react-redux';
 export default function HeaderTopNav() {
     
     const length = useSelector(state => state.cart.length);
+    const {isAuthenticated} = useSelector(state => state.authe);
 
     return (
         <Container className="top-nav-sizing">
@@ -34,14 +35,28 @@ export default function HeaderTopNav() {
                                 </div>
                             </form>
                         </div>
-                        <div className="display-show">
-                            <a href="/login">
-                                Entre </a>
-                            <span>ou </span>
-                            <a href="/register">
-                                cadastre-se
-                            </a>    
-                        </div>
+                        { isAuthenticated ? ( 
+                                <div className="display-show">
+                                <p>Olá    
+                                    <a href='/'>
+                                        @Name, 
+                                    </a> 
+                                </p>  
+                                <p>Boas compras</p>   
+                            </div> 
+                            ) : (
+                                <div className="display-show">
+                                <a href="/login">
+                                    Entre </a>
+                                <span>ou </span>
+                                <a href="/register">
+                                    cadastre-se
+                                </a>    
+                            </div>
+                            )
+                           
+                        }
+                        
                         <div className="display-show">
                                 <Link to="/cart"> 
                                     <RiShoppingBasketLine size={36} color='#95B737'/>
@@ -76,7 +91,6 @@ export default function HeaderTopNav() {
                                     <div className='flex-icon'>
                                         <a href="/cart"> 
                                             <FaSignInAlt size={25} color="#333"/>
-                                            
                                         </a>  
                                         Entre/cadastre-se    
                                     </div>

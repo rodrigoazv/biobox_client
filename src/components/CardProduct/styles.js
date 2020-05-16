@@ -39,6 +39,8 @@ export const Container = styled.div`
   .size-product{
       align-items:center;
       height: 220px;
+      width:220px;
+      margin:0;
       
   }
   .padding-into{
