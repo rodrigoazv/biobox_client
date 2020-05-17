@@ -8,6 +8,8 @@ import HeaderTopNav from '../../components/HeaderTopNav';
 import Modal from '../../components/Modal'
 import Footer from '../../components/Footer';
 
+import {Helmet} from "react-helmet";
+
 import Alface from '../../assets/alface.png';
 
 import { FaTruck } from 'react-icons/fa';
@@ -54,6 +56,11 @@ export default function ProductPage() {
   return (
     
     <Container>
+        <Helmet>
+                <meta charSet="utf-8" />
+                <title>Biocampeiro - Produtos</title>
+                <link rel="canonical" href="http://biocampeio.com.br" />
+        </Helmet>
         <HeaderTopNav/>
         <div className="max-margin-width flex-row">
             <div>

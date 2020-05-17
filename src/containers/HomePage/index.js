@@ -9,6 +9,7 @@ import Footer from '../../components/Footer';
 //asssets
 import Banner from '../../assets/banner.png';
 import InfoBio1 from '../../assets/InfoBio1.svg'
+import Modal from '../../components/Modal';
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -55,7 +56,12 @@ export default function HomePage() {
       }
     ]
   };
+  function callModal(IDmodal) {
+    const modalBox = document.getElementById(IDmodal)
+    modalBox.classList.add('self-show')
+    setTimeout(() => modalBox.classList.remove('self-show'), 2500)
 
+  }
 
   //reducer getProducts from api
   const products = useSelector(state => state.products);
@@ -69,6 +75,7 @@ export default function HomePage() {
 
   function addCartProduct(product){
     dispatch(addItem(product));
+    callModal('modal-full')
   }
 
   return (
@@ -150,6 +157,7 @@ export default function HomePage() {
 
         </div>
       </section>
+      <Modal text="Produto adicionado ao Carrinho"/>
       <Footer />
     </Container>
   );

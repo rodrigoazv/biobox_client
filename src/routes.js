@@ -53,7 +53,7 @@ const Routes = () => (
           <Route exact path="/product/:id" component={ProductPage} />
           <Route exact path="/product" component={ProductPage} />
           <Route exact path="/receitas" component={Recipes} />
-          <Route exact path="/produtos" component={Products} />
+          <Route exact path="/bioprodutos" component={Products} />
           <Route exact path="/contato" component={Contact} />
           <Route exact path="/cart" component={CartPage} /> 
           <PrivateRoutes exact path="/checkout" component={Checkout} />
