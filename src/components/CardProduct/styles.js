@@ -3,11 +3,11 @@ import styled from 'styled-components';
 export const Container = styled.div`
     height: auto;
     width: 250px;
-    -webkit-box-shadow: 0px 0px 13px -5px rgba(0,0,0,0.46);
-    -moz-box-shadow: 0px 0px 13px -5px rgba(0,0,0,0.46);
-    box-shadow: 0px 0px 13px -5px rgba(0,0,0,0.46);
+    box-shadow: 0 1px 4px 0 rgba(192,208,230,.8);
     background-color:white;
-  border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+    
   .product-info{
     width: 14.5rem;
     margin: 0 auto;
@@ -22,9 +22,15 @@ export const Container = styled.div`
     font-size: 15px;
     font-weight: 300;
   }
+  .price-product-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:80%;
+  }
   .product-price{
-    width:55%;
-    color: green;
+    color: #95B737;
+    font-size: 20px;
     font-weight: 600;
   }
   .align-button{

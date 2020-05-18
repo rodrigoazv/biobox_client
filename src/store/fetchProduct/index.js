@@ -1,5 +1,5 @@
 import api from '../../service/api';
-import { addProducts } from '../ducks/products';
+import { addProducts, getProduct } from '../ducks/products';
 import {login, sucessAuth, failedAuth} from '../ducks/authe';
 import {getUser} from '../ducks/user';
 
@@ -13,6 +13,7 @@ export const getAllProducts = () => {
             .catch(console.log)
     }
 }
+
 export const getOneUser = (id) =>{
     return (dispatch) =>{
         api

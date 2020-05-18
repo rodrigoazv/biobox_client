@@ -43,16 +43,19 @@ export default function CardProduct({props, addCartProduct}) {
                     </Link>
                 </figure>
                 <div className="product-info">
-                <div className="product-name">{props.name}</div>
-                <div className="product-name">{props.productPrice}</div>
-                    <div className="product-description">{props.producDescription}</div>
+                <div className="product-name">{props.productName}</div>
+                
+                    <div className="product-description">{props.productDescription}</div>
                     <div>
                         <form onSubmit={HandleSubmit} className="flex-display flex-quant">
-                            <div className="add-control" > 
-                                <button className="button-quantity" onClick={HandleDecrement}>-</button>
-                                <input className="input-quantity" value={quantity} />
-                                <button className="button-quantity" onClick={HandleIncrement}>+</button>  
-                            </div>   
+                            <div className="price-product-container">
+                                <div className="product-price">R$ {props.productPrice},00</div>
+                                <div className="add-control" > 
+                                    <button className="button-quantity" onClick={HandleDecrement}>-</button>
+                                    <input className="input-quantity" value={quantity} />
+                                    <button className="button-quantity" onClick={HandleIncrement}>+</button>  
+                                </div>  
+                            </div> 
                             <ButtonFull 
                                 onClick={() => addCartProduct(props)} 
                                 className="button" 

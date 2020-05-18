@@ -1,7 +1,7 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 import { Container } from './styles';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import "../../styles/colors";
 
 //assets import
@@ -14,10 +14,17 @@ import { FaGripLines} from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 
 export default function HeaderTopNav() {
+    const [search, setSerch] = useState();
+    const history = useHistory();
     
     const length = useSelector(state => state.cart.length);
     const {isAuthenticated} = useSelector(state => state.authe);
 
+    
+    function HandleSearch(e){
+        e.preventDefault();
+        history.push(`product/${search}`)
+    }
     return (
         <Container className="top-nav-sizing">
             <div className="max-margin">
@@ -30,8 +37,15 @@ export default function HeaderTopNav() {
                         <div className="searchBar">
                             <form className="max-margin">
                                 <div className="inputWithIcon">
-                                    <input className="input" type="text" placeholder="Procurando algo ?"/>
-                                    <FaSearch size={16}aria-hidden="true"/> 
+                                    <input 
+                                        className="input" 
+                                        type="text" 
+                                        placeholder="Procurando algo ?" 
+                                        onChange={(e) => setSerch(e.target.value)}
+                                    />
+                                    <button onClick={HandleSearch}>
+                                         <FaSearch size={16}aria-hidden="true"/>
+                                    </button>
                                 </div>
                             </form>
                         </div>
