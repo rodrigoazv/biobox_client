@@ -23,8 +23,16 @@ export default function CardProduct({props, addCartProduct}) {
             setQuantity(0)
         }
     }
+      //função para lidar com o modal
+      function callModal(IDmodal) {
+        const modalBox = document.getElementById(IDmodal)
+        modalBox.classList.add('self-show')
+        setTimeout(() => modalBox.classList.remove('self-show'), 2500)
+
+    }
     function HandleSubmit(e){
         e.preventDefault();
+        callModal('modal-full')
     }
     return (
         <Container>

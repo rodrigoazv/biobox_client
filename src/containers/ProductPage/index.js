@@ -37,7 +37,7 @@ export default function ProductPage() {
             setQuantity(1)
         }
     }
-    //funções para lidar com o modal( cartModal & backShopping )
+    //função para lidar com o modal
     function callModal(IDmodal) {
         const modalBox = document.getElementById(IDmodal)
         modalBox.classList.add('self-show')
