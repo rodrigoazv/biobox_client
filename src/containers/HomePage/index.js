@@ -14,7 +14,7 @@ import Modal from '../../components/Modal';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import {Helmet} from 'react-helmet';
 //import api from '../../service/api';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -80,6 +80,11 @@ export default function HomePage() {
 
   return (
     <Container>
+      <Helmet>
+                <meta charSet="utf-8" />
+                <title>Biocampeiro - Homepage</title>
+                <link rel="canonical" href="http://biocampeio.com.br" />
+        </Helmet>
       <HeaderTopNav />
       <section className="main-section">
         <div>
