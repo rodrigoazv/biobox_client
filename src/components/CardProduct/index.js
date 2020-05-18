@@ -7,6 +7,8 @@ import Modal  from '../Modal';
 import ButtonFull from '../ButtonFull';
 
 
+
+
 export default function CardProduct({props, addCartProduct}) {
     const [quantity, setQuantity] = useState(1);
 
@@ -67,7 +69,6 @@ export default function CardProduct({props, addCartProduct}) {
                             <ButtonFull 
                                 onClick={() => addCartProduct(props)} 
                                 className="button" 
-                                color="red"
                                 text="Comprar"
                             />
                             <Modal text="Produto adicionado ao Carrinho"/>

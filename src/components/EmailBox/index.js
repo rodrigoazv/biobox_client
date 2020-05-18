@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Container } from './styles';
 
+import {PRIMARY_ORANGE} from '../../styles/colors'
 import Button from '../../components/ButtonFull';
 
 export default function EmailBox() {
@@ -16,7 +17,7 @@ export default function EmailBox() {
                 <form className="width-x1" ><input className="input"/></form>
                 <Button
                 text="Enviar"
-                color="red"
+                inputColor={PRIMARY_ORANGE}
                 />
             </div>
         </div>

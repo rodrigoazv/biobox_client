@@ -5,19 +5,20 @@ import { Container } from './styles';
 import Logo from '../../assets/logobio.svg';
 import { FaInstagram, FaFacebook, FaPinterest, FaLinkedin  } from 'react-icons/fa';
 
+
 export default function Footer() {
   return (
     <Container>
         <div className="max-margin-width flex-row ">
             
-            <div className="flex-column">
+            <div className="flex-column column-top">
                 <img src={Logo} alt="logo"/>
                 <p>Junte-se a mais de 10.000 pessoas que estão pens..</p>
                 <div className="flex-social-media">
-                    <FaInstagram size={32}/>
-                    <FaFacebook size={32}/>
-                    <FaPinterest size={32}/>
-                    <FaLinkedin size={32}/>
+                   <a href="https://www.instagram.com/biocampeiro/?hl=pt-br" target="_blank"> <FaInstagram size={32}/></a>
+                   <a href="https://www.facebook.com/biocampeiro" target="_blank"><FaFacebook size={32}/></a> 
+                   <a href="https://www.instagram.com/biocampeiro/?hl=pt-br" target="_blank"><FaPinterest size={32}/></a> 
+                   <a href="https://www.instagram.com/biocampeiro/?hl=pt-br" target="_blank"> <FaLinkedin size={32}/></a>
                 </div>
             </div>
             

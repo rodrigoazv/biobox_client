@@ -9,6 +9,7 @@ export default function ButtonFull(props) {
         onChange={props.onChange}
         onSubmit={props.onSubmit}
         type={props.type}
+        inputColor={props.inputColor}
     >
         {props.text}
     </Container>

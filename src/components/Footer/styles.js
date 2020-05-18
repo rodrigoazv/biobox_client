@@ -39,6 +39,7 @@ export const Container = styled.footer`
       display:flex;
       flex-direction:column;
   }
+ 
   .flex-social-media{
       display: flex;    
       margin-top:10px;
