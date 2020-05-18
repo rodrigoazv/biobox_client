@@ -8,6 +8,7 @@ export default function ButtonFull(props) {
         onClick={props.onClick}
         onChange={props.onChange}
         onSubmit={props.onSubmit}
+        type={props.type}
     >
         {props.text}
     </Container>

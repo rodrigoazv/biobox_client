@@ -7,6 +7,7 @@ import { Container } from './styles';
 //Components
 import HeaderTopNav  from '../../components/HeaderTopNav';
 import Footer from '../../components/Footer';
+import Button from '../../components/ButtonFull';
 
 import { FaCheckCircle } from 'react-icons/fa';
 
@@ -117,7 +118,11 @@ export default function Register() {
                             <a href="/"> termos de uso</a>
                         </div>
 
-                        <button className="button-full" type='submit'>Register</button>
+                       
+                       <Button
+                       type="submit"
+                       text="Cadastrar"
+                       />
                     </form>
                 </div>
             </div>

@@ -5,30 +5,28 @@ import { Container } from './styles';
 //Components
 import HeaderTopNav from '../../components/HeaderTopNav';
 import Footer from '../../components/Footer';
-import Button from '../../components/ButtonFull';
+import Button from '../../components/ButtonFull'
 
-//Images
-import InfoBio2 from '../../assets/InfoBio2.svg'
-
-
+import {IoIosConstruct} from 'react-icons/io'
 
 export default function EndOfOrder() {
     return (
         <Container>
             <HeaderTopNav />
             <div className="content max-margin-width">
-            <section className="box-end">
-                <div className="box-end-content">
-                    <div id="innercontentbox">
+            <section className="box-construct">
+                <div className="box-construct-content">
+                    <div className="inner-content-box">
                         <div >
-                            <h2>Seu pedido foi finalizado</h2>
-                            <h5>Visualize seu email para informações</h5>
+                            <h2>Novidades em breve</h2>
+                            <h5>Volte depois, página em construção</h5>
                         </div>
+                        <span>
+                            <IoIosConstruct size={45}/>
+                        </span>
+                        
                         <div>
-                            <img alt="" src={InfoBio2}></img>
-                        </div>
-                        <div>
-                           <Link to="/"><Button text="Retornar" /></Link> 
+                           <Link to="/"><Button text="Retornar"/></Link> 
                         </div>
                     </div>
 

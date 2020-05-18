@@ -8,10 +8,11 @@ import Login from './containers/Login';
 import About from './containers/About';
 import Recipes from './containers/Recipes';
 import Products from './containers/Products';
-import Contact from './containers/Contact'
+import Contact from './containers/Contact';
 import EndOfOrder from './containers/EndOfOrder';
 import CartPage from './containers/CartPage';
 import ProductPage from './containers/ProductPage';
+import Biocabanas from './containers/Biocabanas';
 
 
 
@@ -53,9 +54,10 @@ const Routes = () => (
           <Route exact path="/product/:id" component={ProductPage} />
           <Route exact path="/product" component={ProductPage} />
           <Route exact path="/receitas" component={Recipes} />
-          <Route exact path="/produtos" component={Products} />
+          <Route exact path="/bioprodutos" component={Products} />
           <Route exact path="/contato" component={Contact} />
           <Route exact path="/cart" component={CartPage} /> 
+          <Route exact path="/biocabanas" component={Biocabanas} /> 
           <PrivateRoutes exact path="/checkout" component={Checkout} />
           <PrivateRoutes exact path="/checkout/sendorder" component={EndOfOrder} />
         </Switch>

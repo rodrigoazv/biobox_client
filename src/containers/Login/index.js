@@ -6,6 +6,7 @@ import { Container } from './styles';
 //Components
 import HeaderTopNav from '../../components/HeaderTopNav';
 import Footer from '../../components/Footer';
+import Button from '../../components/ButtonFull';
 
 import { postUserLogin } from '../../store/fetchProduct';
 
@@ -35,7 +36,10 @@ export default function Login() {
                     <form onSubmit={loginSubmit} className="form-type-register">
                         <input value={form.email} onChange={formChange} className="input-login" name="email" placeholder="Email" type='Email' />
                         <input value={form.password} onChange={formChange} className="input-login" name="password" placeholder="Senha" type='password' />
-                        <button type="submit" className="button-full">Entrar</button>
+                        <Button 
+                        type="submit"
+                        text="Entrar"
+                        />
                     </form>
                 </div>
             </div>
