@@ -13,6 +13,7 @@ import EndOfOrder from './containers/EndOfOrder';
 import CartPage from './containers/CartPage';
 import ProductPage from './containers/ProductPage';
 import Biocabanas from './containers/Biocabanas';
+import Location from './containers/Location'
 
 
 
@@ -58,6 +59,7 @@ const Routes = () => (
           <Route exact path="/contato" component={Contact} />
           <Route exact path="/cart" component={CartPage} /> 
           <Route exact path="/biocabanas" component={Biocabanas} /> 
+          <Route exact path="/localizacao" component={Location} /> 
           <PrivateRoutes exact path="/checkout" component={Checkout} />
           <PrivateRoutes exact path="/checkout/sendorder" component={EndOfOrder} />
         </Switch>

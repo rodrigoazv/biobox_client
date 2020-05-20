@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import { Container } from './styles';
-import Modal  from '../Modal';
 
 //Default-Componentes
 import ButtonFull from '../ButtonFull';
@@ -70,8 +69,9 @@ export default function CardProduct({props, addCartProduct}) {
                                 onClick={() => addCartProduct(props)} 
                                 className="button" 
                                 text="Comprar"
+                                type="submit"
                             />
-                            <Modal text="Produto adicionado ao Carrinho"/>
+                           
                         </form>
                     </div>
                 </div>
