@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Container } from './styles';
 import HeaderTopNav from '../../components/HeaderTopNav';
@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { removeItem } from '../../store/ducks/cart';
 
 import { BsTrash } from 'react-icons/bs';
+import { Helmet } from 'react-helmet';
 
 function CartPage() {
 
@@ -19,44 +20,49 @@ function CartPage() {
 
     const dispatch = useDispatch();
 
-    function removeProductCart(id){
+    function removeProductCart(id) {
         dispatch(removeItem(id));
     }
 
 
     return (
         <Container>
-            <HeaderTopNav/>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Biocampeiro - Carrinho</title>
+                <link rel="canonical" href="http://biocampeiro.com.br" />
+            </Helmet>
+            <HeaderTopNav />
             <div className="max-margin-width margin-align display-flex">
                 <div className="box-product">
                     <h2>Carrinho</h2>
                     <div >
-                        {cartProduct.length === 0 ?(
+                        {cartProduct.length === 0 ? (
                             <p>Carrinho vazio</p>
                         ) : (
-                            <>
-                                <ul>
-                                    {cartProduct.map(product => (
-                                        <li key={product.id} >
-                                            <div className="display-flex">
-                                                <img src={product.photoUrl} alt="none" className="cart-photo"/>
-                                                
-                                                <div>
-                                                    <h4>{product.productName}</h4>
-                                                    <p>{product.productDescription}</p>
+                                <>
+                                    <ul>
+                                        {cartProduct.map(product => (
+                                            <li key={product.id} >
+                                                <div className="display-flex">
+                                                    <img src={product.photoUrl} alt="none" className="cart-photo" />
+
+                                                    <div>
+                                                        <h4>{product.productName}</h4>
+                                                        <p>{product.productDescription}</p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="flex-end">
-                                                {product.productPrice}
-                                            </div>
-                                            <button className="mini-button" onClick={() => removeProductCart(product.id)}>
-                                                <BsTrash size={22}/>
-                                            </button>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </>
-                        )}
+                                                <div className="flex-end">
+                                                    {product.productPrice}
+                                                </div>
+                                                <button className="mini-button" onClick={() => removeProductCart(product.id)}>
+                                                    <BsTrash size={22} />
+                                                </button>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </>
+                            )}
                     </div>
                 </div>
                 <div className="box-checkout">
@@ -69,7 +75,7 @@ function CartPage() {
                     </Link>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </Container>
     );
 }

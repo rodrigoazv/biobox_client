@@ -59,7 +59,7 @@ export default function ProductPage() {
         <Helmet>
                 <meta charSet="utf-8" />
                 <title>Biocampeiro - Produtos</title>
-                <link rel="canonical" href="http://biocampeio.com.br" />
+                <link rel="canonical" href="http://biocampeiro.com.br" />
         </Helmet>
         <HeaderTopNav/>
         <div className="max-margin-width flex-row">

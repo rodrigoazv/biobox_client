@@ -9,6 +9,7 @@ import Footer from '../../components/Footer';
 import Button from '../../components/ButtonFull';
 
 import { postUserLogin } from '../../store/fetchProduct';
+import {Helmet} from 'react-helmet';
 
 export default function Login() {
     const history = useHistory();
@@ -26,6 +27,11 @@ export default function Login() {
     }
       return (
         <Container>
+             <Helmet>
+                <meta charSet="utf-8" />
+                <title>Biocampeiro - Login</title>
+                <link rel="canonical" href="http://biocampeiro.com.br" />
+            </Helmet>
             <HeaderTopNav />
             <div className="content max-margin-width">
                 <section className="text-cad">

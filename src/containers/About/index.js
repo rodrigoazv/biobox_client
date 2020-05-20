@@ -15,11 +15,18 @@ import Food from '../../assets/food.png';
 import GlutenF from '../../assets/gluten-free.png';
 import Tree from '../../assets/tree.png'
 
+//assets
+import { Helmet } from 'react-helmet';
 
 
 export default function About() {
-       return (
+    return (
         <Container>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Biocampeiro - Sobre Nós</title>
+                <link rel="canonical" href="http://biocampeiro.com.br" />
+            </Helmet>
             <HeaderTopNav />
             <div className="about-content max-margin-width">
                 <h1 >Nosso Legado</h1>

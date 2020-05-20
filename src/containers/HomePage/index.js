@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 
 import { Container } from './styles';
 // Components
@@ -14,7 +14,7 @@ import Modal from '../../components/Modal';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {Helmet} from 'react-helmet';
+import { Helmet } from 'react-helmet';
 //import api from '../../service/api';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -69,11 +69,11 @@ export default function HomePage() {
 
   useEffect(() => {
     dispatch(getAllProducts());
-  },[dispatch])
+  }, [dispatch])
 
   //reducer addProducts in cart
 
-  function addCartProduct(product){
+  function addCartProduct(product) {
     dispatch(addItem(product));
     callModal('modal-full')
   }
@@ -81,10 +81,10 @@ export default function HomePage() {
   return (
     <Container>
       <Helmet>
-                <meta charSet="utf-8" />
-                <title>Biocampeiro - Homepage</title>
-                <link rel="canonical" href="http://biocampeio.com.br" />
-        </Helmet>
+        <meta charSet="utf-8" />
+        <title>Biocampeiro - Homepage</title>
+        <link rel="canonical" href="http://biocampeiro.com.br" />
+      </Helmet>
       <HeaderTopNav />
       <section className="main-section">
         <div>
@@ -94,50 +94,50 @@ export default function HomePage() {
         </div>
         <div className="product-hole">
           <section className="product-type max-margin-width">
-              <div className="product-type-name">HORTA</div>
-              <div className="padding-slick">
-                <ul>
-                  <Slider {...settings}>
-                      {products.map(product=>(
-                        <li key={product.id} className="paddingup">
-                          <CardProduct
-                            props={product}
-                            addCartProduct={addCartProduct}
-                          />
-                        </li>
-                      ))}
-                  </Slider>
-                </ul>
-              </div>
+            <div className="product-type-name">HORTA</div>
+            <div className="padding-slick">
+              <ul>
+                <Slider {...settings}>
+                  {products.map(product => (
+                    <li key={product.id} className="paddingup">
+                      <CardProduct
+                        props={product}
+                        addCartProduct={addCartProduct}
+                      />
+                    </li>
+                  ))}
+                </Slider>
+              </ul>
+            </div>
           </section>
           <section className="product-type max-margin-width">
             <div className="product-type-name">GRANEL</div>
             <ul className="padding-ul">
-            <Slider {...settings}>
-                      {products.map(product=>(
-                        <li key={product.id} className="paddingup">
-                          <CardProduct
-                            props={product}
-                            addCartProduct={addCartProduct}
-                          />
-                        </li>
-                      ))}
-                  </Slider>
+              <Slider {...settings}>
+                {products.map(product => (
+                  <li key={product.id} className="paddingup">
+                    <CardProduct
+                      props={product}
+                      addCartProduct={addCartProduct}
+                    />
+                  </li>
+                ))}
+              </Slider>
             </ul>
           </section>
           <section className="product-type max-margin-width">
             <div className="product-type-name">BIOPRODUTOS</div>
             <ul className="padding-ul">
-            <Slider {...settings}>
-                      {products.map(product=>(
-                        <li key={product.id} className="paddingup">
-                          <CardProduct
-                            props={product}
-                            addCartProduct={addCartProduct}
-                          />
-                        </li>
-                      ))}
-                  </Slider>
+              <Slider {...settings}>
+                {products.map(product => (
+                  <li key={product.id} className="paddingup">
+                    <CardProduct
+                      props={product}
+                      addCartProduct={addCartProduct}
+                    />
+                  </li>
+                ))}
+              </Slider>
             </ul>
           </section>
           <div className="info-box max-margin-width">
@@ -162,7 +162,7 @@ export default function HomePage() {
 
         </div>
       </section>
-      <Modal text="Produto adicionado ao Carrinho"/>
+      <Modal text="Produto adicionado ao Carrinho" />
       <Footer />
     </Container>
   );
