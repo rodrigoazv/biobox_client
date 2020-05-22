@@ -6,6 +6,7 @@ import HeaderTopNav from '../../components/HeaderTopNav';
 import CardProduct from '../../components/CardProduct';
 import EmailBox from '../../components/EmailBox';
 import Footer from '../../components/Footer';
+import ResponsiveNav from '../../components/ResponsiveNav';
 //asssets
 import Banner from '../../assets/banner.png';
 import InfoBio1 from '../../assets/InfoBio1.svg'
@@ -162,6 +163,7 @@ export default function HomePage() {
 
         </div>
       </section>
+      <ResponsiveNav/>
       <Modal text="Produto adicionado ao Carrinho" />
       <Footer />
     </Container>

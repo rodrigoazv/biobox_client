@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import { Container } from './styles';
 //Components
 import HeaderTopNav from '../../components/HeaderTopNav';
-import Button from '../../components/ButtonFull'
+import Button from '../../components/ButtonFull';
+import ResponsiveNav from '../../components/ResponsiveNav';
 import Footer from '../../components/Footer';
 
 //assets
@@ -50,6 +51,7 @@ export default function Contact() {
                 </div>
             </div>
             <Footer />
+            <ResponsiveNav/>
         </Container >
     );
 }

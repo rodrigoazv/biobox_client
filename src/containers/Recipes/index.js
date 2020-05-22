@@ -4,7 +4,8 @@ import React from 'react';
 import { Container } from './styles';
 //Components
 import HeaderTopNav from '../../components/HeaderTopNav';
-import CardRecipe from '../../components/CardRecipe'
+import CardRecipe from '../../components/CardRecipe';
+import ResponsiveNav from '../../components/ResponsiveNav';
 import Footer from '../../components/Footer';
 
 import { Helmet } from 'react-helmet';
@@ -49,6 +50,7 @@ export default function Recipes() {
 
             </div>
             <Footer />
+            <ResponsiveNav/>
         </Container >
     );
 }

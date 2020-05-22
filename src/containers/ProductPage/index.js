@@ -5,6 +5,7 @@ import { Container } from './styles';
 import { useParams } from 'react-router-dom'
 
 import HeaderTopNav from '../../components/HeaderTopNav';
+import ResponsiveNav from '../../components/ResponsiveNav';
 import Modal from '../../components/Modal'
 import Footer from '../../components/Footer';
 
@@ -133,6 +134,7 @@ export default function ProductPage() {
             <Modal text="Produto adicionado ao Carrinho"/>
 
             <Footer />
+            <ResponsiveNav/>
         </Container>
     );
 }

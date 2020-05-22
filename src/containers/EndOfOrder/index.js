@@ -5,6 +5,7 @@ import { Container } from './styles';
 import { Helmet } from 'react-helmet';
 //Components
 import HeaderTopNav from '../../components/HeaderTopNav';
+import ResponsiveNav from '../../components/ResponsiveNav';
 import Footer from '../../components/Footer';
 import Button from '../../components/ButtonFull';
 
@@ -44,6 +45,7 @@ export default function EndOfOrder() {
 
             </div>
             <Footer />
+            <ResponsiveNav/>
         </Container >
     );
 }

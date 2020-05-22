@@ -6,6 +6,7 @@ import { Container } from './styles';
 //Components
 import HeaderTopNav from '../../components/HeaderTopNav';
 import Footer from '../../components/Footer';
+import ResponsiveNav from '../../components/ResponsiveNav';
 import Button from '../../components/ButtonFull';
 
 import { postUserLogin } from '../../store/fetchProduct';
@@ -51,6 +52,7 @@ export default function Login() {
                 </div>
             </div>
             <Footer />
+            <ResponsiveNav/>
         </Container >
     );
 }

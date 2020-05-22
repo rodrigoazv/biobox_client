@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Container } from './styles';
 import HeaderTopNav from '../../components/HeaderTopNav';
 import Footer from '../../components/Footer';
+import ResponsiveNav from '../../components/ResponsiveNav';
 import ButtonFull from '../../components/ButtonFull';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -76,6 +77,7 @@ function CartPage() {
                 </div>
             </div>
             <Footer />
+            <ResponsiveNav/>
         </Container>
     );
 }

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { Container } from './styles';
 //Components
 import HeaderTopNav from '../../components/HeaderTopNav';
+import ResponsiveNav from '../../components/ResponsiveNav';
 import Footer from '../../components/Footer';
 //assets
 import Biomap from '../../assets/Taperoa-test.png'
@@ -41,6 +42,7 @@ export default function Location() {
 
             </div>
             <Footer />
+            <ResponsiveNav/>
         </Container >
     );
 }

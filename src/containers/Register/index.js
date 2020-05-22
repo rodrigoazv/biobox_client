@@ -7,6 +7,7 @@ import { Container } from './styles';
 //Components
 import HeaderTopNav from '../../components/HeaderTopNav';
 import Footer from '../../components/Footer';
+import ResponsiveNav from '../../components/ResponsiveNav';
 import Button from '../../components/ButtonFull';
 //assets
 import { FaCheckCircle } from 'react-icons/fa';
@@ -132,6 +133,7 @@ export default function Register() {
                 </div>
             </div>
             <Footer />
+            <ResponsiveNav/>
         </Container>
     );
 }

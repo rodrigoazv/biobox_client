@@ -4,7 +4,8 @@ import React from 'react';
 import { Container } from './styles';
 //Components
 import HeaderTopNav from '../../components/HeaderTopNav';
-import EmailBox from '../../components/EmailBox'
+import EmailBox from '../../components/EmailBox';
+import ResponsiveNav from '../../components/ResponsiveNav';
 import Footer from '../../components/Footer';
 
 //Images
@@ -66,7 +67,9 @@ export default function About() {
                 </section>
             </div>
             <EmailBox />
+            <ResponsiveNav/>
             <Footer />
+            
         </Container >
     );
 }
