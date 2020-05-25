@@ -4,14 +4,21 @@ import React from 'react';
 import { Container } from './styles';
 //Components
 import HeaderTopNav from '../../components/HeaderTopNav';
-import CardRecipe from '../../components/CardRecipe'
+import CardRecipe from '../../components/CardRecipe';
+import ResponsiveNav from '../../components/ResponsiveNav';
 import Footer from '../../components/Footer';
 
+import { Helmet } from 'react-helmet';
 
 
 export default function Recipes() {
     return (
         <Container>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Biocampeiro - Receitas</title>
+                <link rel="canonical" href="http://biocampeiro.com.br" />
+            </Helmet>
             <HeaderTopNav />
             <div className="recipes-box max-margin-width">
                 <div>
@@ -43,6 +50,7 @@ export default function Recipes() {
 
             </div>
             <Footer />
+            <ResponsiveNav/>
         </Container >
     );
 }

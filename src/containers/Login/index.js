@@ -6,9 +6,11 @@ import { Container } from './styles';
 //Components
 import HeaderTopNav from '../../components/HeaderTopNav';
 import Footer from '../../components/Footer';
+import ResponsiveNav from '../../components/ResponsiveNav';
 import Button from '../../components/ButtonFull';
 
 import { postUserLogin } from '../../store/fetchProduct';
+import {Helmet} from 'react-helmet';
 
 import { ErrorMessage, Formik, Form , Field } from 'formik';
 import * as yup from 'yup';
@@ -30,6 +32,11 @@ export default function Login() {
    
     return (
         <Container>
+             <Helmet>
+                <meta charSet="utf-8" />
+                <title>Biocampeiro - Login</title>
+                <link rel="canonical" href="http://biocampeiro.com.br" />
+            </Helmet>
             <HeaderTopNav />
             <div className="content max-margin-width">
                 <section className="text-cad">
@@ -66,6 +73,7 @@ export default function Login() {
                 </div>
             </div>
             <Footer />
+            <ResponsiveNav/>
         </Container >
     );
 }

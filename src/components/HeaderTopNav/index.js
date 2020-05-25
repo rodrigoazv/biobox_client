@@ -21,6 +21,19 @@ export default function HeaderTopNav() {
     const {isAuthenticated} = useSelector(state => state.authe);
 
     
+    function showNav(){
+        const showMenu=(IDnav)=>{
+            const responsiveNav = document.getElementById(IDnav)
+            responsiveNav.classList.add('self-show')
+            responsiveNav.addEventListener('click', (e)=>{
+                if(e.target.id === IDnav || e.target.className==='close-nav'){
+                    responsiveNav.classList.remove('self-show')
+                }
+            })
+        }
+        showMenu('nav-full')
+    }
+    
     function HandleSearch(e){
         e.preventDefault();
         history.push(`product/${search}`)
@@ -95,15 +108,15 @@ export default function HeaderTopNav() {
                             <ul>
                                 <li>
                                     <div className='flex-icon'>
-                                        <a href="/cart"> 
-                                            <FaGripLines size={32} color="#333"/>
+                                        
+                                            <FaGripLines onClick={showNav} size={32} color="#333"/>
                                             
-                                        </a>     
+                                          
                                     </div>
                                 </li>
                                 <li>
                                     <div className='flex-icon'>
-                                        <a href="/cart"> 
+                                        <a href="/login"> 
                                             <FaSignInAlt size={25} color="#333"/>
                                         </a>  
                                         Entre/cadastre-se    

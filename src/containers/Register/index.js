@@ -1,15 +1,19 @@
+
 import React from 'react';
+
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../service/api';
 
 
 import { Container } from './styles';
 //Components
-import HeaderTopNav  from '../../components/HeaderTopNav';
+import HeaderTopNav from '../../components/HeaderTopNav';
 import Footer from '../../components/Footer';
+import ResponsiveNav from '../../components/ResponsiveNav';
 import Button from '../../components/ButtonFull';
-
+//assets
 import { FaCheckCircle } from 'react-icons/fa';
+import { Helmet } from 'react-helmet';
 
 import { ErrorMessage, Formik, Form , Field } from 'formik';
 import * as yup from 'yup';
@@ -51,17 +55,23 @@ export default function Register() {
     console.log(form)
         try{
             const  response = await api.post('user', form);
+
             alert(`Olá ${response.data.completName} seu cadastro foi realizado`);
             history.push('/');
-    }catch{
+        } catch{
             alert(`Error, tente novamente`);
-    }
+        }
     }
 
 
     return (
         <Container>
-            <HeaderTopNav/>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Biocampeiro - Registre-se</title>
+                <link rel="canonical" href="http://biocampeiro.com.br" />
+            </Helmet>
+            <HeaderTopNav />
             <div className="content max-margin-width">
                 <section className="text-cad">
                     <h1 className="text-cad">Cadastro</h1>
@@ -69,6 +79,7 @@ export default function Register() {
                     <Link to='/login'>Já tenho cadastro</Link>
                 </section>
                 <div className='box-form'>
+
                     <Formik
                         initialValues={{
                             completName:'',
@@ -181,9 +192,11 @@ export default function Register() {
                         />
                     </Form>
                 </Formik>
+
                 </div>
             </div>
-            <Footer/>
+            <Footer />
+            <ResponsiveNav/>
         </Container>
-  );
+    );
 }

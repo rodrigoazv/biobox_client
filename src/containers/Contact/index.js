@@ -4,34 +4,41 @@ import React, { useState } from 'react';
 import { Container } from './styles';
 //Components
 import HeaderTopNav from '../../components/HeaderTopNav';
-import Button from '../../components/ButtonFull'
+import Button from '../../components/ButtonFull';
+import ResponsiveNav from '../../components/ResponsiveNav';
 import Footer from '../../components/Footer';
 
 //assets
 import { FiMail } from "react-icons/fi";
+import { Helmet } from 'react-helmet';
 
 
 
 export default function Contact() {
-    const [form,setForm] =useState({name:'', email:'', title:'', message:''})
-    function formChange(e){
-        const {name, value}= e.target
-        setForm({...form,[name]:value})
+    const [form, setForm] = useState({ name: '', email: '', title: '', message: '' })
+    function formChange(e) {
+        const { name, value } = e.target
+        setForm({ ...form, [name]: value })
     }
     function handleMessage(e) {
         e.preventDefault()
         console.log(form)
-        setForm({name:'', email:'', title:'', message:''})
-        
+        setForm({ name: '', email: '', title: '', message: '' })
+
 
     }
     return (
         <Container>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Biocampeiro - Contato</title>
+                <link rel="canonical" href="http://biocampeiro.com.br" />
+            </Helmet>
             <HeaderTopNav />
             <div className="content max-margin-width">
                 <section className="text-cad">
                     <h1 className="text-cad">Contato</h1>
-                   <span><FiMail size={25} color='#95B737'/></span>
+                    <span><FiMail size={25} color='#95B737' /></span>
                 </section>
                 <div className='box-form'>
                     <form onSubmit={handleMessage} className="form-type-register">
@@ -44,6 +51,7 @@ export default function Contact() {
                 </div>
             </div>
             <Footer />
+            <ResponsiveNav/>
         </Container >
     );
 }

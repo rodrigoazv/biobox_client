@@ -1,15 +1,17 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Container } from './styles';
 import HeaderTopNav from '../../components/HeaderTopNav';
 import Footer from '../../components/Footer';
+import ResponsiveNav from '../../components/ResponsiveNav';
 import ButtonFull from '../../components/ButtonFull';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem } from '../../store/ducks/cart';
 
 import { BsTrash } from 'react-icons/bs';
+import { Helmet } from 'react-helmet';
 
 
 function CartPage() {
@@ -20,18 +22,23 @@ function CartPage() {
     const dispatch = useDispatch();
     
 
-    function removeProductCart(id){
+    function removeProductCart(id) {
         dispatch(removeItem(id));
     }
 
     return (
         <Container>
-            <HeaderTopNav/>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Biocampeiro - Carrinho</title>
+                <link rel="canonical" href="http://biocampeiro.com.br" />
+            </Helmet>
+            <HeaderTopNav />
             <div className="max-margin-width margin-align display-flex">
                 <div className="box-product">
                     <h2>Carrinho</h2>
                     <div >
-                        {cartProduct.length === 0 ?(
+                        {cartProduct.length === 0 ? (
                             <p>Carrinho vazio</p>
                         ) : (
                             <>
@@ -61,6 +68,7 @@ function CartPage() {
                                 </ul>
                             </>
                         )}
+
                     </div>
                 </div>
                 <div className="box-checkout">
@@ -73,7 +81,8 @@ function CartPage() {
                     </Link>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
+            <ResponsiveNav/>
         </Container>
     );
 }

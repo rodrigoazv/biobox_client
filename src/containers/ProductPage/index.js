@@ -5,6 +5,7 @@ import { Container } from './styles';
 import { useParams } from 'react-router-dom'
 
 import HeaderTopNav from '../../components/HeaderTopNav';
+import ResponsiveNav from '../../components/ResponsiveNav';
 import Modal from '../../components/Modal'
 import Footer from '../../components/Footer';
 
@@ -59,7 +60,7 @@ export default function ProductPage() {
         <Helmet>
                 <meta charSet="utf-8" />
                 <title>Biocampeiro - Produtos</title>
-                <link rel="canonical" href="http://biocampeio.com.br" />
+                <link rel="canonical" href="http://biocampeiro.com.br" />
         </Helmet>
         <HeaderTopNav/>
         <div className="max-margin-width flex-row">
@@ -133,6 +134,7 @@ export default function ProductPage() {
             <Modal text="Produto adicionado ao Carrinho"/>
 
             <Footer />
+            <ResponsiveNav/>
         </Container>
     );
 }
