@@ -1,16 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import { Container } from './styles';
 import Modal  from '../Modal';
 
 //Default-Componentes
 import ButtonFull from '../ButtonFull';
+import { addItem } from '../../store/ducks/cart';
+import { useDispatch } from 'react-redux';
 
 
 
+export default function CardProduct({props}) {
 
-export default function CardProduct({props, addCartProduct}) {
+    const dispatch = useDispatch();
     const [quantity, setQuantity] = useState(1);
+    const [dataCart, setDataCart] = useState({
+        pid: '',
+        quantity:1,
+        price:1
+    });
+    useEffect(() => {
+        setDataCart({
+            pid: props.id,
+            quantity:quantity,
+            price: props.productPrice,
+            name: props.productName,
+            photo: props.photoUrl,
+            description : props.productDescription
+        })
+    },[props, quantity])
 
     function HandleIncrement(){
         setQuantity(quantity+1);
@@ -35,6 +53,10 @@ export default function CardProduct({props, addCartProduct}) {
     function HandleSubmit(e){
         e.preventDefault();
         callModal('modal-full')
+    }
+    function addCartProduct(dataCart){
+        
+        dispatch(addItem(dataCart));
     }
     return (
         <Container>
@@ -67,7 +89,7 @@ export default function CardProduct({props, addCartProduct}) {
                                 </div>  
                             </div> 
                             <ButtonFull 
-                                onClick={() => addCartProduct(props)} 
+                                onClick={() => addCartProduct(dataCart)} 
                                 className="button" 
                                 text="Comprar"
                             />

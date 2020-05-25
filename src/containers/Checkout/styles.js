@@ -4,7 +4,7 @@ export const Container = styled.div`
   margin:0;
   .background-h2{
       background-color:#95B737;
-      font-weight: 700;
+      font-weight: 100;
       color:#fff;
       font-size:20px;
       padding: 3px 0 3px 15px;
@@ -14,19 +14,33 @@ export const Container = styled.div`
       display:flex;
   }
   .box-checkout{
-    width: 30%;
+    width: 50%;
     border-radius:10px;
     border: 1px solid #ddd;
     padding: 25px;
+    
+  }
+  .form-adress{
+    width:50%;
+    padding-right:50px;
   }
   .form-margin-width{
       width: 33%;
       padding-right: 50px;
       margin-bottom:15px;
     
+  }.form-margin-width-2x{
+      width: 66%;
+      margin-bottom:15px;
+    
+  }
+  .form-submit{
+    display:flex;
+    justify-content: space-between;
+
   }
   .input-margin{
-      margin-top:10px;
+      margin-top:4px;
   } 
   .input-checkout{
     width: 100%;
@@ -53,5 +67,13 @@ export const Container = styled.div`
     border-radius: 5px;
     outline:none;
     background-color: #F1F1F1;
+  }
+  .input-05{
+    margin-left:5px;
+  }
+  label{
+    padding: 0 5px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:gray;
   }
 `;

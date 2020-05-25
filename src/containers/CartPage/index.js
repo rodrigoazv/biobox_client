@@ -11,18 +11,18 @@ import { removeItem } from '../../store/ducks/cart';
 
 import { BsTrash } from 'react-icons/bs';
 
+
 function CartPage() {
 
     const cartProductState = useSelector(state => state.cart)
     localStorage.setItem("sback_cart_item", JSON.stringify(cartProductState));
     const cartProduct = JSON.parse(localStorage.getItem("sback_cart_item"));
-
     const dispatch = useDispatch();
+    
 
     function removeProductCart(id){
         dispatch(removeItem(id));
     }
-
 
     return (
         <Container>
@@ -36,20 +36,24 @@ function CartPage() {
                         ) : (
                             <>
                                 <ul>
-                                    {cartProduct.map(product => (
-                                        <li key={product.id} >
+                                    {cartProductState.map((product) => (
+                                        
+                                        <li key={product.pid} >
                                             <div className="display-flex">
-                                                <img src={product.photoUrl} alt="none" className="cart-photo"/>
+                                                <img src={product.photo} alt="none" className="cart-photo"/>
                                                 
                                                 <div>
-                                                    <h4>{product.productName}</h4>
-                                                    <p>{product.productDescription}</p>
+                                                    <h4>{product.name}</h4>
+                                                    <p>{product.description}</p>
                                                 </div>
                                             </div>
                                             <div className="flex-end">
-                                                {product.productPrice}
+                                                {product.price}
                                             </div>
-                                            <button className="mini-button" onClick={() => removeProductCart(product.id)}>
+                                            <div className="flex-end">
+                                                Qnt: {product.quantity}
+                                            </div>
+                                            <button className="mini-button" onClick={() => removeProductCart(product.pid)}>
                                                 <BsTrash size={22}/>
                                             </button>
                                         </li>

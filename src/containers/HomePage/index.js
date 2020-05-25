@@ -19,7 +19,7 @@ import {Helmet} from 'react-helmet';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllProducts } from '../../store/fetchProduct';
-import { addItem } from '../../store/ducks/cart';
+
 
 export default function HomePage() {
   const settings = {
@@ -56,12 +56,6 @@ export default function HomePage() {
       }
     ]
   };
-  function callModal(IDmodal) {
-    const modalBox = document.getElementById(IDmodal)
-    modalBox.classList.add('self-show')
-    setTimeout(() => modalBox.classList.remove('self-show'), 2500)
-
-  }
 
   //reducer getProducts from api
   const products = useSelector(state => state.products);
@@ -72,11 +66,7 @@ export default function HomePage() {
   },[dispatch])
 
   //reducer addProducts in cart
-
-  function addCartProduct(product){
-    dispatch(addItem(product));
-    callModal('modal-full')
-  }
+ 
 
   return (
     <Container>
@@ -102,7 +92,6 @@ export default function HomePage() {
                         <li key={product.id} className="paddingup">
                           <CardProduct
                             props={product}
-                            addCartProduct={addCartProduct}
                           />
                         </li>
                       ))}
@@ -118,7 +107,6 @@ export default function HomePage() {
                         <li key={product.id} className="paddingup">
                           <CardProduct
                             props={product}
-                            addCartProduct={addCartProduct}
                           />
                         </li>
                       ))}
@@ -133,7 +121,7 @@ export default function HomePage() {
                         <li key={product.id} className="paddingup">
                           <CardProduct
                             props={product}
-                            addCartProduct={addCartProduct}
+
                           />
                         </li>
                       ))}

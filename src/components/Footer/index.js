@@ -15,10 +15,10 @@ export default function Footer() {
                 <img src={Logo} alt="logo"/>
                 <p>Junte-se a mais de 10.000 pessoas que estão pens..</p>
                 <div className="flex-social-media">
-                   <a href="https://www.instagram.com/biocampeiro/?hl=pt-br" target="_blank"> <FaInstagram size={32}/></a>
-                   <a href="https://www.facebook.com/biocampeiro" target="_blank"><FaFacebook size={32}/></a> 
-                   <a href="https://www.instagram.com/biocampeiro/?hl=pt-br" target="_blank"><FaPinterest size={32}/></a> 
-                   <a href="https://www.instagram.com/biocampeiro/?hl=pt-br" target="_blank"> <FaLinkedin size={32}/></a>
+                   <a href="https://www.instagram.com/biocampeiro/?hl=pt-br" > <FaInstagram size={32}/></a>
+                   <a href="https://www.facebook.com/biocampeiro" ><FaFacebook size={32}/></a> 
+                   <a href="https://www.instagram.com/biocampeiro/?hl=pt-br" ><FaPinterest size={32}/></a> 
+                   <a href="https://www.instagram.com/biocampeiro/?hl=pt-br" > <FaLinkedin size={32}/></a>
                 </div>
             </div>
             

@@ -16,7 +16,9 @@ export const Container = styled.header`
         width: 100%;
         height: 80px;
     }
-    
+    .none{
+        display:none;
+    }
     .searchBar{
         width: 55%;
         margin-left: 0;

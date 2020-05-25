@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
 
 import { Container } from './styles';
 
@@ -12,7 +11,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getOneUser } from '../../store/fetchProduct';
 //api - without redux
 import api from '../../service/api';
+import { ErrorMessage, Formik, Form , Field } from 'formik';
+import * as yup from 'yup';
+import MaskedInput from 'react-text-mask'
 
+
+
+const validation = yup.object().shape({
+    zipcode: yup
+        .string()
+        .matches('45430000', "Desculpe ainda não estamos entregando nesse CEP, somente em Taperoá-BA")
+        .min(8, 'CEP deve conter 8 digitos')
+        .max(8, 'CEP deve conter 8 digitos')
+        .required("X CEP necessário"),
+})
 
 function Checkout() {
     //Variaveis const 
@@ -56,11 +68,10 @@ function Checkout() {
 
     useEffect(()  => { 
         const fetchData = async () => {
+            
             let zipcodeGet = await api.get(`getcep/${zipcode}`); 
             setState(zipcodeGet.data.data.state);
-            setStreet(zipcodeGet.data.data.street);
-            setNeighborhood(zipcodeGet.data.data.neighborhood);
-            setCity(zipcodeGet.data.data.city)
+            setCity(zipcodeGet.data.data.city);
         }
         if(zipcode.length===8){
             fetchData();
@@ -71,9 +82,13 @@ function Checkout() {
    
     //functions onClick, onSubmit, onChange
     async function handleRegister(e){
-        e.preventDefault();
-        
-        const data = {
+        const headers = {
+            headers:{
+                'Content-Type': 'application/json',
+                'authorization': localStorage.getItem('sback_id')
+              }
+        }
+        const adress = {
             zipcode,
             city,
             state,
@@ -82,14 +97,15 @@ function Checkout() {
             complement,
             neighborhood
         }
-        console.log(data);
+        console.log('adress', adress)
         const cartByUser = {
             products,
-            userId
+            userId,
+            adress
         }
         console.log(products);
         try{
-            const response = await api.post('sendo', cartByUser);
+            const response = await api.post('sendo', cartByUser, headers);
             console.log(response);
             alert(`Olá  seu cadastro foi realizado`);
     }catch{
@@ -97,8 +113,8 @@ function Checkout() {
         }
     }
 
-    const cepChange = (e) => {
-        setZipcode(e.target.value);
+    const cepChange = (value) => {
+        setZipcode(value);   
     }
     
     return (
@@ -131,47 +147,104 @@ function Checkout() {
                             </form>
                         </div>
                         
-                        { Object.keys(adressUser).length === 0 ?( <div className="form-margin-width">
-                            <h2 className="background-h2">Dados Entrega</h2>
-                            <form>
-                                <input 
-                                    className="input-checkout input-margin"
-                                    placeholder="CEP"
-                                    type='zipcode'
-                                    onChange={cepChange}
-                                    value={zipcode}
-                                    required
-                                />
-                                <input 
-                                    className="input-checkout input-margin"
-                                    placeholder="Endereço"
-                                    defaultValue={street}
-                                    
-                                />
-                                <input 
-                                    className="input-checkout input-margin"
-                                    placeholder="Numero da casa"
-                                    defaultValue={number}
-                                />
-                                <input 
-                                    className="input-checkout input-margin"
-                                    placeholder="Estado"
-                                    defaultValue={state}
-                                />
-                                <input 
-                                    className="input-checkout input-margin"
-                                    placeholder="Cidade"
-                                    defaultValue={city}
-                                />
+                        { Object.keys(adressUser).length === 0 ?( <div className="form-margin-width-2x">
                             
-                                <input 
-                                    className="input-checkout input-margin"
-                                    placeholder="Complemento"
-                                    defaultValue={neighborhood}
-                                />
-                                
-                            </form>
+                            <Formik
+                                initialValues={{
+                                    zipcode:'',
+                                }}
+                                onSubmit={handleRegister} 
+                                validationSchema={validation}
+                            >
+                            <Form className="form-submit">
+                                <div className="form-adress">
+                                    <h2 className="background-h2">Dados Entrega</h2> 
+                                    
+                                    <div>
+                                        <label>CEP:</label>
+                                        <Field
+                                            type='zipcode'
+                                            name='zipcode'
+                                            validate={cepChange}
+                                            children={({field}) =>{
+                                                return <input
+                                                {...field}
+                                                className="input-checkout input-margin"
+                                                placeholder="ex. 0000000"
+                                                maxLength={8}
+                                            />
+                                        }}/>
+                                        <ErrorMessage className="err-form" component="span" name="zipcode"/>
+                                    </div>
+                                    <div>
+                                        <label>Rua:</label>
+                                        <input 
+                                            className="input-checkout input-margin"
+                                            placeholder="Endereço"
+                                            defaultValue={street}
+                                            onChange={e => setStreet(e.target.value)}
+                                            required
+                                        />
+                                    </div>
+                                    <div className="flex-form">
+                                        <div>
+                                            <label>Numero:</label>
+                                            <input 
+                                                className="input-checkout input-margin"
+                                                placeholder="Numero da casa"
+                                                defaultValue={number}
+                                                onChange={e => setNumber(e.target.value)}
+                                                required
+                                            />
+                                        </div>
+                                        <div className='input-05'>
+                                            <label>Estado:</label>
+                                            <input disabled
+                                            className="input-checkout input-margin input-checkout-autoload"
+                                            placeholder="Estado"
+                                            defaultValue={state}
+                                            onChange={e => setState(e.target.value)}
+                                            required
+                                            />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label>Cidade:</label>
+                                        <input disabled
+                                        className="input-checkout input-margin input-checkout-autoload"
+                                        placeholder="Cidade"
+                                        defaultValue={city}
+                                        onChange={e => setCity(e.target.value)}
+                                        required
+                                        />
+                                    </div>
+                                    
+                                    <div>
+                                        <label>Bairro:</label>
+                                        <input 
+                                        className="input-checkout input-margin"
+                                        placeholder="Complemento"
+                                        defaultValue={neighborhood}
+                                        onChange={e => setNeighborhood(e.target.value)}
+                                        required
+                                    />
+                                    </div>       
+                                   
+                                </div>
+                                <div className="box-checkout">
+                                    <p>Os itens serão enviados de acordo com a data prevista de entrega e localidade especifica</p>
+                                    <h2>Sub-total</h2>
+                                    
+                                    <ButtonFull
+                                        text="Fazer pedido"
+                                        type="submit"
+                                    />
+                                    
+                                </div>
+                            </Form>
+                        </Formik>
                         </div>
+                        
                         
                         ) : (
                             <div className="form-margin-width">
@@ -187,21 +260,7 @@ function Checkout() {
                         </div>
                         )}
                         
-                        <div className="box-checkout">
-                            <p>Os itens serão enviados de acordo com a data prevista de entrega e localidade especifica</p>
-                            <h2>Sub-total</h2>
-                            <Link to={
-                                 {   
-                                    pathname: '/checkout/sendOrder',
-                                     
-                            }}>
-                                <ButtonFull
-                                    text="Fazer pedido"
-                                    type="submit"
-                                    onSubmit={handleRegister}
-                                />
-                            </Link>
-                        </div>
+                        
                         
                     </div>
                 </div>

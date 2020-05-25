@@ -33,7 +33,13 @@ export const Container = styled.div`
       text-align: center;
       align-items: center;  
   }
-    span{
-      margin-left: 10px;
+  span{
+    margin-left: 1px;
+  }
+  
+  label{
+    padding: 0 5px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:gray;
   }
 `;
