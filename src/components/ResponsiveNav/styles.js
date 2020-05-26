@@ -41,6 +41,9 @@ export const Container = styled.button`
 .self-show .nav-box{
     animation: navAnimation  .4s;
 }
+.self-show .close-nav{
+    animation: navAnimation  .4s;
+}
 
  .nav-box div{
      margin: 5%;
