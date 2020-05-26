@@ -7,6 +7,7 @@ import { FaInstagram, FaFacebook, FaPinterest, FaLinkedin } from 'react-icons/fa
 
 
 export default function Footer() {
+
     return (
         <Container>
             <div className="max-margin-width flex-row ">

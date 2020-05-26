@@ -56,9 +56,9 @@ export default function HeaderTopNav() {
                                         placeholder="Procurando algo ?" 
                                         onChange={(e) => setSerch(e.target.value)}
                                     />
-                                    <button onClick={HandleSearch}>
-                                         <FaSearch size={16}aria-hidden="true"/>
-                                    </button>
+                                    
+                                        <FaSearch size={16}aria-hidden="true" onClick={HandleSearch}/>
+                                    
                                 </div>
                             </form>
                         </div>

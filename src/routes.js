@@ -30,9 +30,8 @@ import Checkout from './containers/Checkout';
 
 function PrivateRoutes ({component:Component, ...rest}){
   
-  const {isAuthenticated, isLoading} = useSelector(state => state.authe);
-  
-  console.log(isAuthenticated,'HERE<<', isLoading)
+  const {isAuthenticated} = useSelector(state => state.authe);
+
   return (
     <Route {...rest} render={props => (
       isAuthenticated ? (<Component {...props}/>) : (<Redirect to={{pathname:'/login', state:{from:props.location}}}/>)

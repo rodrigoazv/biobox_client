@@ -48,15 +48,18 @@ export default createGlobalStyle`
   /* Input login and register ( NAV-TOP )*/
   .input-login{
     width: 100%;
-    max-width: 100%;
+    min-width: 100%;
     font-size: 1rem;
     height: 46px;
-    margin: 10px 0;
     padding: .5em .5rem .5rem 2rem;
     border: 1px #A4A4A4 solid;
-    border-radius: 10px;
+    border-radius: 7px;
     outline:none;
     background-color: #fff;
+  }
+  .margin-input{
+    margin:3px 0;
+    width:100%;
   }
   li{
     font-family: 'Patua One', cursive;
@@ -64,7 +67,7 @@ export default createGlobalStyle`
   }
   a{
     text-decoration:none;
-    font-weight: 600;
+    font-weight: 200;
     font-family: 'Patua One', cursive;
   }
 
@@ -86,7 +89,7 @@ export default createGlobalStyle`
         border:none;
         background-color:#fff;
         color: green;
-        font-weight: 700;
+        font-weight: 200;
         font-size:20px;
         padding:3px; 
         cursor:pointer;
@@ -106,5 +109,11 @@ export default createGlobalStyle`
       margin-top: 100px;
       margin-bottom: 100px;
     }
-
+    .err-form{
+      font-size: 12px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight:100;
+      color: rgb(193, 53, 21) !important;
+      text-align: left !important;
+    }
 `;

@@ -20,7 +20,7 @@ import { Helmet } from 'react-helmet';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllProducts } from '../../store/fetchProduct';
-import { addItem } from '../../store/ducks/cart';
+
 
 export default function HomePage() {
   const settings = {
@@ -57,12 +57,6 @@ export default function HomePage() {
       }
     ]
   };
-  function callModal(IDmodal) {
-    const modalBox = document.getElementById(IDmodal)
-    modalBox.classList.add('self-show')
-    setTimeout(() => modalBox.classList.remove('self-show'), 2500)
-
-  }
 
   //reducer getProducts from api
   const products = useSelector(state => state.products);
@@ -73,12 +67,7 @@ export default function HomePage() {
   }, [dispatch])
 
   //reducer addProducts in cart
-
-  function addCartProduct(product) {
-    dispatch(addItem(product));
-    callModal('modal-full')
-  }
-
+ 
   return (
     <Container>
       <Helmet>
@@ -95,50 +84,48 @@ export default function HomePage() {
         </div>
         <div className="product-hole">
           <section className="product-type max-margin-width">
-            <div className="product-type-name">HORTA</div>
-            <div className="padding-slick">
-              <ul>
-                <Slider {...settings}>
-                  {products.map(product => (
-                    <li key={product.id} className="paddingup">
-                      <CardProduct
-                        props={product}
-                        addCartProduct={addCartProduct}
-                      />
-                    </li>
-                  ))}
-                </Slider>
-              </ul>
-            </div>
+              <div className="product-type-name">HORTA</div>
+              <div className="padding-slick">
+                <ul>
+                  <Slider {...settings}>
+                      {products.map(product=>(
+                        <li key={product.id} className="paddingup">
+                          <CardProduct
+                            props={product}
+                          />
+                        </li>
+                      ))}
+                  </Slider>
+                </ul>
+              </div>
           </section>
           <section className="product-type max-margin-width">
             <div className="product-type-name">GRANEL</div>
             <ul className="padding-ul">
-              <Slider {...settings}>
-                {products.map(product => (
-                  <li key={product.id} className="paddingup">
-                    <CardProduct
-                      props={product}
-                      addCartProduct={addCartProduct}
-                    />
-                  </li>
-                ))}
-              </Slider>
+            <Slider {...settings}>
+                      {products.map(product=>(
+                        <li key={product.id} className="paddingup">
+                          <CardProduct
+                            props={product}
+                          />
+                        </li>
+                      ))}
+                  </Slider>
             </ul>
           </section>
           <section className="product-type max-margin-width">
             <div className="product-type-name">BIOPRODUTOS</div>
             <ul className="padding-ul">
-              <Slider {...settings}>
-                {products.map(product => (
-                  <li key={product.id} className="paddingup">
-                    <CardProduct
-                      props={product}
-                      addCartProduct={addCartProduct}
-                    />
-                  </li>
-                ))}
-              </Slider>
+            <Slider {...settings}>
+                      {products.map(product=>(
+                        <li key={product.id} className="paddingup">
+                          <CardProduct
+                            props={product}
+
+                          />
+                        </li>
+                      ))}
+                  </Slider>
             </ul>
           </section>
           <div className="info-box max-margin-width">

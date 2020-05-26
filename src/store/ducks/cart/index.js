@@ -8,9 +8,10 @@ export const removeItem = createAction('REMOVE_ITEM');
 export default createReducer(INITIAL_STATE,{
     [addItem.type]: (state, action) => 
         [...state.filter(
-            item => item.id !== action.payload.id
+            item => item.pid !== action.payload.pid
         ), Object.assign({}, action.payload) ],
-    [removeItem.type]: (state, action) => state.filter(item => item.id !== action.payload),
+    [removeItem.type]: (state, action) => state.filter(item => item.pid !== action.payload),
+    
 });
 
 //[...state, action.payload] 

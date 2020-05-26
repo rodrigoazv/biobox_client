@@ -1,5 +1,5 @@
 import api from '../../service/api';
-import { addProducts, getProduct } from '../ducks/products';
+import { addProducts} from '../ducks/products';
 import {login, sucessAuth, failedAuth} from '../ducks/authe';
 import {getUser} from '../ducks/user';
 
@@ -26,29 +26,29 @@ export const getOneUser = (id) =>{
 }
 
 export const postUserLogin = (user) => {
-    return (dispatch) =>{
-        api
-            .post('login', user)
-            .then(res =>{
-                localStorage.setItem("sback_id", res.data.token)
+    return async (dispatch) =>{
+        try{
+            const response = await api.post('login', user)
+            if(response.data.sucess){
+                localStorage.setItem("sback_id", response.data.token)
                 dispatch(login())
-            })
-            .catch(console.log())
+            }
+        }
+        catch(error){
+            alert('Confira seus dados e tente novamente')
+        }
     }
 }
 
 export const boolUserVerify = (headers) =>{
     return async (dispatch) =>{  
         try{
-            const response = await api.get('validadetoken', headers);
+            const response = await api.get('auth/1/user', headers);
             if(response.data.auth){
                 dispatch(sucessAuth(response.data.auth))
-            }else{
-                dispatch(failedAuth(response.data.auth))
             }
-            console.log("retorno do back",response.data.auth)
-        }catch{
-            console.log()
+        }catch(error){
+            dispatch(failedAuth(error.response.data.auth))
         }
     } 
 }
