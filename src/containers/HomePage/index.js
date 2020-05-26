@@ -9,6 +9,7 @@ import Footer from '../../components/Footer';
 import ResponsiveNav from '../../components/ResponsiveNav';
 //asssets
 import Banner from '../../assets/banner.png';
+import BannerFood from '../../assets/BannerFood.png'
 import InfoBio1 from '../../assets/InfoBio1.svg'
 import Modal from '../../components/Modal';
 
@@ -142,7 +143,7 @@ export default function HomePage() {
 
           <div>
             <a href='/'>
-              <img src={Banner} alt="banner" className="banner-response" />
+              <img src={BannerFood} alt="banner" className="banner-response" />
             </a>
           </div>
 

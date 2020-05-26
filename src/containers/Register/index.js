@@ -94,7 +94,7 @@ export default function Register() {
                     >
                         <Form className="form-type-register" >
                            <div className="margin-input">
-                               <label>Email</label>
+                               <label>Email:</label>
                                 <Field 
                                     className="input-login" 
                                     placeholder="Email*" 
@@ -105,7 +105,7 @@ export default function Register() {
                                 <ErrorMessage className="err-form" component="span" name="email"/>
                             </div>
                             <div className="margin-input">   
-                                <label>Nome</label> 
+                                <label>Nome:</label> 
                                 <Field  
                                     className="input-login" 
                                     placeholder="Nome completo*" 

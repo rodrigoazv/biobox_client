@@ -20,6 +20,9 @@ export const Container = styled.div`
      margin: 4%;
 
   }
+  .inner-content-box img{
+    width:90%;
+  }
 
   .box-construct-content{
     width:85%;

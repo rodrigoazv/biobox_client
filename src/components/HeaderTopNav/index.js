@@ -43,9 +43,9 @@ export default function HeaderTopNav() {
             <div className="max-margin">
                     <div className= "nav-elements-mother">
                         <div>
-                            <a href="/">
+                            <Link to="/">
                                 <img src={Logo} alt="none" className="logo-sizing"/>
-                            </a>
+                            </Link>
                         </div>
                         <div className="searchBar">
                             <form className="max-margin">
@@ -73,12 +73,12 @@ export default function HeaderTopNav() {
                             </div> 
                             ) : (
                                 <div className="display-show">
-                                <a href="/login">
-                                    Entre </a>
+                                <Link to="/login">
+                                    Entre </Link>
                                 <span>ou </span>
-                                <a href="/register">
+                                <Link to="/register">
                                     cadastre-se
-                                </a>    
+                                </Link>    
                             </div>
                             )
                            
@@ -95,11 +95,11 @@ export default function HeaderTopNav() {
                 <div className="under-nav-top">
                         <nav className="max-margin">
                             <ul>
-                                <li><a href="/bioprodutos">Produtos</a></li>
-                                <li><a href="/receitas">Receitas</a></li>
-                                <li><a href="/sobre-nos">Sobre nós</a></li>
-                                <li><a href="/biocabanas">Biocabanas</a></li>
-                                <li><a href="/contato">Contato</a></li>
+                                <li><Link to="/bioprodutos">Produtos</Link></li>
+                                <li><Link to="/receitas">Receitas</Link></li>
+                                <li><Link to="/sobre-nos">Sobre nós</Link></li>
+                                <li><Link to="/biocabanas">Biocabanas</Link></li>
+                                <li><Link to="/contato">Contato</Link></li>
                             </ul>
                     </nav>
                 </div>
@@ -116,17 +116,17 @@ export default function HeaderTopNav() {
                                 </li>
                                 <li>
                                     <div className='flex-icon'>
-                                        <a href="/login"> 
+                                        <Link to="/login"> 
                                             <FaSignInAlt size={25} color="#333"/>
-                                        </a>  
+                                        </Link>  
                                         Entre/cadastre-se    
                                     </div>
                                 </li>
                                 <li>
                                     <div>
-                                        <a href="/cart"> 
+                                        <Link to="/cart"> 
                                             <RiShoppingBasketLine size={32} color='PRIMARY_GREN_LIGHT'/>
-                                        </a>    
+                                        </Link>    
                                     </div>
                                 </li>
                             </ul>

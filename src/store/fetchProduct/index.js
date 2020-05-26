@@ -42,13 +42,13 @@ export const postUserLogin = (user) => {
 
 export const boolUserVerify = (headers) =>{
     return async (dispatch) =>{  
-        try{
+       /* try{
             const response = await api.get('auth/1/user', headers);
             if(response.data.auth){
                 dispatch(sucessAuth(response.data.auth))
             }
         }catch(error){
             dispatch(failedAuth(error.response.data.auth))
-        }
+        }*/
     } 
 }

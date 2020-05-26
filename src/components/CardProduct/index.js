@@ -51,10 +51,10 @@ export default function CardProduct({props}) {
     }
     function HandleSubmit(e){
         e.preventDefault();
-        callModal('modal-full')
+      
     }
     function addCartProduct(dataCart){
-        
+        callModal('modal-full')
         dispatch(addItem(dataCart));
     }
     return (
@@ -89,7 +89,6 @@ export default function CardProduct({props}) {
                             </div> 
                             <ButtonFull 
                                 onClick={() => addCartProduct(dataCart)} 
-                                className="button" 
                                 text="Comprar"
                                 type="submit"
                             />

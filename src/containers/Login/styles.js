@@ -19,18 +19,17 @@ export const Container = styled.div`
   .text-cad{
       color:#333;
       margin:15px;
+      text-align:center;
   }
   .content{
       margin-top: 50px;
       width:100%;
       padding:0 96px 96px 96px  ;
-
       border-radius:4px;
-
       display: flex;
       justify-content: space-between;
       flex-direction:column;
-      text-align: center;
+     
       align-items: center;  
   }
   span{
@@ -38,6 +37,7 @@ export const Container = styled.div`
   }
   
   label{
+    align-items:left;
     padding: 0 5px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color:gray;
