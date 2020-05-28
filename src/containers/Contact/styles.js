@@ -43,7 +43,4 @@ export const Container = styled.div`
       align-items: center;  
   }
  
-  span{
-      margin-left: 10px;
-  }
-`;
+ `;

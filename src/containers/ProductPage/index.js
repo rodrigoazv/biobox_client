@@ -2,12 +2,17 @@ import React, {useState, useEffect} from 'react';
 import api from '../../service/api';
 
 import { Container } from './styles';
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 import HeaderTopNav from '../../components/HeaderTopNav';
 import ResponsiveNav from '../../components/ResponsiveNav';
-import Modal from '../../components/Modal'
+import Modal from '../../components/Modal';
+import Button from '../../components/ButtonFull';
 import Footer from '../../components/Footer';
+
+//assets
+import {PRIMARY_GREN, PRIMARY_ORANGE} from '../../styles/colors'
 
 import {Helmet} from "react-helmet";
 
@@ -91,7 +96,16 @@ export default function ProductPage() {
                                             <button className="button-quantity" onClick={HandleIncrement}>+</button>
                                         </div>
                                     </div>
-                                    <button type="submit" className="button-full">Adicionar</button>
+                                   <Button 
+                                   text="Adicionar"
+                                   inputColor={PRIMARY_ORANGE}
+                                   type="submit"
+                                   />
+                                   <Link to="/cart"> <Button 
+                                   text="Ir para o carrinho"
+                                   inputColor={PRIMARY_GREN}
+                                   type="submit"
+                                   /></Link>
                                 </div>
                             </form>
                         </div>

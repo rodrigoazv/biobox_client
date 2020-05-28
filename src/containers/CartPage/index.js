@@ -34,7 +34,7 @@ function CartPage() {
                 <link rel="canonical" href="http://biocampeiro.com.br" />
             </Helmet>
             <HeaderTopNav />
-            <div className="max-margin-width margin-align display-flex">
+            <div className="max-margin-width margin-align  cart-box">
                 <div className="box-product">
                     <h2>Carrinho</h2>
                     <div >

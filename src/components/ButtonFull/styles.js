@@ -12,6 +12,7 @@ export const Container = styled.button`
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    font-family:Patua One;
     font-size: 16px;
     font-weight:700;
     border-radius: 4px;

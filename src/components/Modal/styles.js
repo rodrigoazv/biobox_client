@@ -16,11 +16,16 @@ export const Container = styled.button`
      display: flex;
  }
  .modal-box{
-     background: lightgreen;
+     background: #91B431;
      width: 180px;
      height:70px;
      border-radius: 8px;
      
+     
+ }
+ .modal-box p{
+     color:white;
+     font-family: Patua One;
  }
 @keyframes modalAnimation{
     from{

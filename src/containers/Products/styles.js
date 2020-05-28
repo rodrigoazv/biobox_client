@@ -55,16 +55,16 @@ export const Container = styled.section`
     } 
     }
     .hort-li{
-        background: rgb(149, 183, 55);
+        background: #91B431;
     }
     .gran-li{
-        background:rgb(101,67,33)
+        background:rgb(101,67,33);
     }
     .biop-li{
         background:rgb(128,172,154);
     }
     .horta{
-        background:rgb(149, 183, 55);
+        background: #91B431;
         border-radius:4px;
         font-size:12px;
     }
