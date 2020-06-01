@@ -87,7 +87,7 @@ export default function HeaderTopNav() {
                         <div className="display-show">
                                 <Link to="/cart"> 
                                     <RiShoppingBasketLine size={36} color='#95B737'/>
-                                    <span>{length}</span>
+                                    <span>value</span>
                                 </Link>
                         </div>
                     </div>
