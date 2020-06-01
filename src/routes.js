@@ -63,9 +63,8 @@ const Routes = () => (
           <PrivateRoutes exact path="/checkout/sendorder" component={EndOfOrder} />
         </Switch>
       <GlobalStyle/>
-      <CheckUserAuth/>
       </BrowserRouter>
-     
+      <CheckUserAuth/>
   </Provider>
 );
 
