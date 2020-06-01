@@ -13,9 +13,9 @@ export default function HeaderTop() {
             <div className="max-margin">
                     <div >
                         <div className= "nav-elements">
-                            <a href="/">
+                            <Link to="/">
                                 <img src={Logo} alt="none" className="logo-sizing"/>
-                            </a>
+                            </Link>
                             <a className="back-home" href="/"> Voltar Para o Início</a>
                         </div>
                     </div>

@@ -48,6 +48,7 @@ export const Container = styled.section`
         display:flex;
         height:auto;
         align-items:center;
+        flex-direction: column;
     }
     .price-payment{
         margin-top: 20px;
@@ -72,10 +73,10 @@ export const Container = styled.section`
         margin:100px 0;
         width: 50%;
     }  
-     h3{
+     .color h3{
         font-size:20px;
         margin:10px;
-        color:green;
+        color:#91B431;
     }
     p{
         color: #808080;

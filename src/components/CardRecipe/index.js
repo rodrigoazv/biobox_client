@@ -3,6 +3,8 @@ import React from 'react';
 import { Container } from './styles';
 import Meloon from '../../assets/meloon.jpg';
 
+import Button from '../../components/ButtonFull';
+
 export default function CardRecipe() {
     return (
         <Container>
@@ -17,7 +19,9 @@ export default function CardRecipe() {
                     <div className="recipe-description">Receita de chucrute de melão adocicado e aromatizado com ervas finas da amazônia</div>
                     <div>
                         <div className="align-button">
-                            <button className="button button-pop" >Ler Mais</button>
+                           <Button 
+                           text="Ler Mais"
+                           />
                         </div>
                     </div>
                 </div>

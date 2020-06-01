@@ -1,30 +1,42 @@
-import React, {useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import React from 'react';
+import {useHistory, Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 
 import { Container } from './styles';
 //Components
 import HeaderTopNav from '../../components/HeaderTopNav';
 import Footer from '../../components/Footer';
+import ResponsiveNav from '../../components/ResponsiveNav';
+import Button from '../../components/ButtonFull';
 
 import { postUserLogin } from '../../store/fetchProduct';
+import {Helmet} from 'react-helmet';
+
+import { ErrorMessage, Formik, Form , Field } from 'formik';
+import * as yup from 'yup';
+
+
+const validation = yup.object().shape({
+    email: yup.string().email('Email inválido').required('Email é um campo requirido'),
+    password: yup.string().min(8,"Minimo 8 digitos").required("Senha é um campo requerido")
+})
 
 export default function Login() {
     const history = useHistory();
-    const [form, setForm] = useState({email:'',password:''})
     const dispatch = useDispatch()
-    function formChange(e){
-        const {name, value}= e.target
-        setForm({...form,[name]:value})
-    }
-    function loginSubmit(e){
-        e.preventDefault()
+   
+    function loginSubmit(form){
         dispatch(postUserLogin(form));
-        setForm({email:'',password:''})
-        history.push('/');
     }
-      return (
+    
+   
+    return (
         <Container>
+             <Helmet>
+                <meta charSet="utf-8" />
+                <title>Biocampeiro - Login</title>
+                <link rel="canonical" href="http://biocampeiro.com.br" />
+            </Helmet>
             <HeaderTopNav />
             <div className="content max-margin-width">
                 <section className="text-cad">
@@ -32,14 +44,36 @@ export default function Login() {
                     <p>Acessar sua conta</p>
                 </section>
                 <div className='box-form'>
-                    <form onSubmit={loginSubmit} className="form-type-register">
-                        <input value={form.email} onChange={formChange} className="input-login" name="email" placeholder="Email" type='Email' />
-                        <input value={form.password} onChange={formChange} className="input-login" name="password" placeholder="Senha" type='password' />
-                        <button type="submit" className="button-full">Entrar</button>
-                    </form>
+                    <Formik 
+                        initialValues={{
+                            email: '',
+                            password:''
+                        }}
+                        onSubmit={loginSubmit} 
+                        validationSchema={validation}
+                    >
+                        <Form className="form-type-register"> 
+                            <div className="margin-input">
+                                <label>Email:</label>
+                                <Field className="input-login" name="email" placeholder="Email" type='Email' />
+                                <ErrorMessage className="err-form" component="span" name="email"/>
+                            </div>
+                            <div className="margin-input">
+                                <label>Senha:</label>
+                                <Field className="input-login" name="password" placeholder="Senha" type='password' />
+                                <ErrorMessage className="err-form" component="span" name="password"/>
+                            </div>
+                            <Button 
+                                type="submit"
+                                text="Entrar"
+                            />
+                            <Link to="/register"><h4>Ainda não tenho conta</h4></Link>
+                        </Form>
+                    </Formik>
                 </div>
             </div>
             <Footer />
+            <ResponsiveNav/>
         </Container >
     );
 }

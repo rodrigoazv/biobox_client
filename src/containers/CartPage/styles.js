@@ -5,6 +5,18 @@ export const Container = styled.div`
     margin-top:40px;
     margin-bottom: 200px;
   }
+  .cart-box{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    @media (max-width: 600px){
+        flex-direction:column;
+        text-align:center;
+        justify-content:center;
+        align-items:center;
+    } 
+  }
+
   .box-product li{
     border-bottom: 1px solid #ddd;
     margin-top: 20px;
@@ -12,6 +24,7 @@ export const Container = styled.div`
     flex-direction: row;
     justify-content:space-between;
     align-items: center;
+    
 
   }
   p{
@@ -26,7 +39,7 @@ export const Container = styled.div`
   /* BOX DE CHECKOUT */
 
   .box-checkout{
-    width: 30%;
+    width: 250px;
     border-radius:10px;
     border: 1px solid #ddd;
     padding: 25px;

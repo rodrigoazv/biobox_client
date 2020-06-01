@@ -3,12 +3,13 @@ import styled from 'styled-components';
 export const Container = styled.div`
   .box-form{
       border-top: 1px solid #A4A4A4;
+      
   }
   .form-type-register{
       display:flex;
       flex-direction: column;
       width: 500px;
-      align-items:center;  
+      text-align:left; 
       @media (max-width: 520px){
             width: 310px;
     } 
@@ -37,6 +38,12 @@ export const Container = styled.div`
     color: #162c38;
   }
   span{
-      margin-left: 10px;
+      margin-left: 1px;
+  }
+  
+  label{
+    padding: 0 5px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:gray;
   }
 `;

@@ -1,55 +1,66 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Container } from './styles';
 import HeaderTopNav from '../../components/HeaderTopNav';
 import Footer from '../../components/Footer';
+import ResponsiveNav from '../../components/ResponsiveNav';
 import ButtonFull from '../../components/ButtonFull';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem } from '../../store/ducks/cart';
 
 import { BsTrash } from 'react-icons/bs';
+import { Helmet } from 'react-helmet';
+
 
 function CartPage() {
 
     const cartProductState = useSelector(state => state.cart)
     localStorage.setItem("sback_cart_item", JSON.stringify(cartProductState));
     const cartProduct = JSON.parse(localStorage.getItem("sback_cart_item"));
-
     const dispatch = useDispatch();
+    
 
-    function removeProductCart(id){
+    function removeProductCart(id) {
         dispatch(removeItem(id));
     }
 
-
     return (
         <Container>
-            <HeaderTopNav/>
-            <div className="max-margin-width margin-align display-flex">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Biocampeiro - Carrinho</title>
+                <link rel="canonical" href="http://biocampeiro.com.br" />
+            </Helmet>
+            <HeaderTopNav />
+            <div className="max-margin-width margin-align  cart-box">
                 <div className="box-product">
                     <h2>Carrinho</h2>
                     <div >
-                        {cartProduct.length === 0 ?(
+                        {cartProduct.length === 0 ? (
                             <p>Carrinho vazio</p>
                         ) : (
                             <>
                                 <ul>
-                                    {cartProduct.map(product => (
-                                        <li key={product.id} >
+                                    {cartProductState.map((product) => (
+                                        
+                                        <li key={product.pid} >
                                             <div className="display-flex">
-                                                <img src={product.photoUrl} alt="none" className="cart-photo"/>
+                                                <img src={product.photo} alt="none" className="cart-photo"/>
                                                 
                                                 <div>
-                                                    <h4>{product.productName}</h4>
-                                                    <p>{product.productDescription}</p>
+                                                    <h4>{product.name}</h4>
+                                                    <p>{product.description}</p>
                                                 </div>
                                             </div>
                                             <div className="flex-end">
-                                                {product.productPrice}
+                                                {product.price}
                                             </div>
-                                            <button className="mini-button" onClick={() => removeProductCart(product.id)}>
+                                            <div className="flex-end">
+                                                Qnt: {product.quantity}
+                                            </div>
+                                            <button className="mini-button" onClick={() => removeProductCart(product.pid)}>
                                                 <BsTrash size={22}/>
                                             </button>
                                         </li>
@@ -57,6 +68,7 @@ function CartPage() {
                                 </ul>
                             </>
                         )}
+
                     </div>
                 </div>
                 <div className="box-checkout">
@@ -69,7 +81,8 @@ function CartPage() {
                     </Link>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
+            <ResponsiveNav/>
         </Container>
     );
 }

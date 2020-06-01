@@ -16,7 +16,9 @@ export const Container = styled.header`
         width: 100%;
         height: 80px;
     }
-    
+    .none{
+        display:none;
+    }
     .searchBar{
         width: 55%;
         margin-left: 0;
@@ -87,7 +89,7 @@ export const Container = styled.header`
         right: 0;
         margin-right: 20px;
         top: 11px;
-        color: green;
+        color:#91B431 ;
         transition: 0.3s;
     }
     .show-when-under-none{

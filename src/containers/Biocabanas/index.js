@@ -2,38 +2,36 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 import { Container } from './styles';
-import { Helmet } from 'react-helmet';
 //Components
 import HeaderTopNav from '../../components/HeaderTopNav';
-import ResponsiveNav from '../../components/ResponsiveNav';
 import Footer from '../../components/Footer';
+import ResponsiveNav from '../../components/ResponsiveNav';
 import Button from '../../components/ButtonFull';
 
-//Images
-import InfoBio2 from '../../assets/InfoBio2.svg'
+import { IoIosConstruct } from 'react-icons/io';
+import { Helmet } from 'react-helmet';
 
-
-
-export default function EndOfOrder() {
+export default function Biocabanas() {
     return (
         <Container>
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>Biocampeiro - Fim do Pedido</title>
+                <title>Biocampeiro - Biocabanas</title>
                 <link rel="canonical" href="http://biocampeiro.com.br" />
             </Helmet>
             <HeaderTopNav />
             <div className="content max-margin-width">
-                <section className="box-end">
-                    <div className="box-end-content">
-                        <div id="innercontentbox">
+                <section className="box-construct">
+                    <div className="box-construct-content">
+                        <div className="inner-content-box">
                             <div >
-                                <h2>Seu pedido foi finalizado</h2>
-                                <h5>Visualize seu email para informações</h5>
+                                <h2>Novidades em breve</h2>
+                                <h5>Volte depois, página em construção</h5>
                             </div>
-                            <div>
-                                <img alt="" src={InfoBio2}></img>
-                            </div>
+                            <span>
+                                <IoIosConstruct size={45} />
+                            </span>
+
                             <div>
                                 <Link to="/"><Button text="Retornar" /></Link>
                             </div>

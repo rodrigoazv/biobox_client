@@ -2,6 +2,9 @@ import React from 'react';
 
 import { Container } from './styles';
 
+import {PRIMARY_ORANGE} from '../../styles/colors'
+import Button from '../../components/ButtonFull';
+
 export default function EmailBox() {
   return (
     <Container>
@@ -12,7 +15,10 @@ export default function EmailBox() {
             </div>
             <div className="flex-row align-horizontal width-x2">
                 <form className="width-x1" ><input className="input"/></form>
-                <button className="button-full" background-color="orange"> Enviar </button>
+                <Button
+                text="Enviar"
+                inputColor={PRIMARY_ORANGE}
+                />
             </div>
         </div>
     </Container>

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 
 import { Container } from './styles';
 // Components
@@ -6,19 +6,22 @@ import HeaderTopNav from '../../components/HeaderTopNav';
 import CardProduct from '../../components/CardProduct';
 import EmailBox from '../../components/EmailBox';
 import Footer from '../../components/Footer';
+import ResponsiveNav from '../../components/ResponsiveNav';
 //asssets
 import Banner from '../../assets/banner.png';
+import BannerFood from '../../assets/BannerFood.png'
 import InfoBio1 from '../../assets/InfoBio1.svg'
+import Modal from '../../components/Modal';
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { Helmet } from 'react-helmet';
 //import api from '../../service/api';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllProducts } from '../../store/fetchProduct';
-import { addItem } from '../../store/ducks/cart';
+
 
 export default function HomePage() {
   const settings = {
@@ -56,23 +59,23 @@ export default function HomePage() {
     ]
   };
 
-
   //reducer getProducts from api
   const products = useSelector(state => state.products);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllProducts());
-  },[dispatch])
+  }, [dispatch])
 
   //reducer addProducts in cart
-
-  function addCartProduct(product){
-    dispatch(addItem(product));
-  }
-
+ 
   return (
     <Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Biocampeiro - Homepage</title>
+        <link rel="canonical" href="http://biocampeiro.com.br" />
+      </Helmet>
       <HeaderTopNav />
       <section className="main-section">
         <div>
@@ -87,10 +90,9 @@ export default function HomePage() {
                 <ul>
                   <Slider {...settings}>
                       {products.map(product=>(
-                        <li key={product.id}>
+                        <li key={product.id} className="paddingup">
                           <CardProduct
                             props={product}
-                            addCartProduct={addCartProduct}
                           />
                         </li>
                       ))}
@@ -103,10 +105,9 @@ export default function HomePage() {
             <ul className="padding-ul">
             <Slider {...settings}>
                       {products.map(product=>(
-                        <li key={product.id}>
+                        <li key={product.id} className="paddingup">
                           <CardProduct
                             props={product}
-                            addCartProduct={addCartProduct}
                           />
                         </li>
                       ))}
@@ -118,10 +119,10 @@ export default function HomePage() {
             <ul className="padding-ul">
             <Slider {...settings}>
                       {products.map(product=>(
-                        <li key={product.id}>
+                        <li key={product.id} className="paddingup">
                           <CardProduct
                             props={product}
-                            addCartProduct={addCartProduct}
+
                           />
                         </li>
                       ))}
@@ -142,7 +143,7 @@ export default function HomePage() {
 
           <div>
             <a href='/'>
-              <img src={Banner} alt="banner" className="banner-response" />
+              <img src={BannerFood} alt="banner" className="banner-response" />
             </a>
           </div>
 
@@ -150,6 +151,8 @@ export default function HomePage() {
 
         </div>
       </section>
+      <ResponsiveNav/>
+      <Modal text="Produto adicionado ao Carrinho" />
       <Footer />
     </Container>
   );

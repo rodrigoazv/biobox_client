@@ -6,11 +6,19 @@ import CheckIn from './containers/CheckIn';
 import Register from './containers/Register';
 import Login from './containers/Login';
 import About from './containers/About';
-import Recipes from './containers/Recipes'
+import Recipes from './containers/Recipes';
+import Products from './containers/Products';
+import Contact from './containers/Contact';
 import EndOfOrder from './containers/EndOfOrder';
 import CartPage from './containers/CartPage';
 import ProductPage from './containers/ProductPage';
+import Biocabanas from './containers/Biocabanas';
+import Location from './containers/Location'
+
+
+
 //Global Components
+import GlobalFonts from './styles/fonts/fonts'
 import  GlobalStyle  from './styles/global';
 import CheckUserAuth from './components/CheckUserAuth';
 
@@ -22,9 +30,8 @@ import Checkout from './containers/Checkout';
 
 function PrivateRoutes ({component:Component, ...rest}){
   
-  const {isAuthenticated, isLoading} = useSelector(state => state.authe);
-  
-  console.log(isAuthenticated,'HERE<<', isLoading)
+  const {isAuthenticated} = useSelector(state => state.authe);
+
   return (
     <Route {...rest} render={props => (
       isAuthenticated ? (<Component {...props}/>) : (<Redirect to={{pathname:'/login', state:{from:props.location}}}/>)
@@ -36,6 +43,7 @@ function PrivateRoutes ({component:Component, ...rest}){
 
 const Routes = () => (
   <Provider store={store}>
+    <GlobalFonts/>
     <BrowserRouter>
       <Switch>
           <Route exact path="/" component={HomePage}/>
@@ -46,7 +54,11 @@ const Routes = () => (
           <Route exact path="/product/:id" component={ProductPage} />
           <Route exact path="/product" component={ProductPage} />
           <Route exact path="/receitas" component={Recipes} />
+          <Route exact path="/bioprodutos" component={Products} />
+          <Route exact path="/contato" component={Contact} />
           <Route exact path="/cart" component={CartPage} /> 
+          <Route exact path="/biocabanas" component={Biocabanas} /> 
+          <Route exact path="/localizacao" component={Location} /> 
           <PrivateRoutes exact path="/checkout" component={Checkout} />
           <PrivateRoutes exact path="/checkout/sendorder" component={EndOfOrder} />
         </Switch>

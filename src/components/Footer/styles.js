@@ -39,6 +39,15 @@ export const Container = styled.footer`
       display:flex;
       flex-direction:column;
   }
+  .column-top{
+      display:flex;
+      flex-direction:column;
+      @media(max-width:956px){
+           align-items:center;
+        }
+  
+  }
+ 
   .flex-social-media{
       display: flex;    
       margin-top:10px;
