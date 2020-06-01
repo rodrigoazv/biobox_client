@@ -17,7 +17,7 @@ export default function HeaderTopNav() {
     const [search, setSerch] = useState();
     const history = useHistory();
     
-    const length = useSelector(state => state.cart.length);
+    const length = useSelector(state => state.cart.length || 0);
     const {isAuthenticated} = useSelector(state => state.authe);
 
     
@@ -87,7 +87,7 @@ export default function HeaderTopNav() {
                         <div className="display-show">
                                 <Link to="/cart"> 
                                     <RiShoppingBasketLine size={36} color='#95B737'/>
-                                    <span>value</span>
+                                    <span>{length}</span>
                                 </Link>
                         </div>
                     </div>
