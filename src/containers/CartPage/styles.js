@@ -8,7 +8,7 @@ export const Container = styled.div`
   .cart-box{
     display:flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     @media (max-width: 600px){
         flex-direction:column;
         text-align:center;
