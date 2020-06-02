@@ -28,8 +28,7 @@ export const Container = styled.div`
 
   }
   p{
-    font-size:12px;
-    font-weight:300;
+    font-weight:100;
   }
   h4{
     font-size:13px;

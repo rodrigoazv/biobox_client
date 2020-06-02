@@ -19,7 +19,7 @@ export default function HeaderTopNav() {
     
     const length = useSelector(state => state.cart.length);
     const {isAuthenticated} = useSelector(state => state.authe);
-
+    
     
     function showNav(){
         const showMenu=(IDnav)=>{

@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import HeaderTopNav from '../../components/HeaderTopNav';
-import CardRecipe from '../../components/CardRecipe';
 import ResponsiveNav from '../../components/ResponsiveNav';
 import Footer from '../../components/Footer';
+import CardProduct from '../../components/CardProduct';
 
 import { Helmet } from 'react-helmet';
 import { Container } from './styles';
 import "../../styles/colors";
+
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllProducts } from '../../store/fetchProduct';
 
 
 
@@ -30,6 +33,12 @@ export default function Products() {
         setGranel(true)
         setBioprod(false)
     }
+    const products = useSelector(state => state.products);
+    const dispatch = useDispatch();
+  
+    useEffect(() => {
+      dispatch(getAllProducts());
+    }, [dispatch])
     return (
         <Container >
             <Helmet>
@@ -85,8 +94,13 @@ export default function Products() {
 
                 </div>
                 <div className="products">
-                    <CardRecipe />
-
+                    {products.map(product=>(
+                        <li key={product.id} className="paddingup">
+                          <CardProduct
+                            props={product}
+                          />
+                        </li>
+                      ))}
                 </div>
 
             </div>
