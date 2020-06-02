@@ -44,10 +44,11 @@ export const Container = styled.div`
         background-color:#F0F0F0;
         border-radius: 24px;
         display:flex;
-              
-      @media (max-width: 770px){
+        @media (max-width: 770px){
           text-align:center;
-          height:800px;
+          height:400px;
+          margin-left: 5px;
+          margin-right: 5px;
     } 
         
   }
@@ -57,6 +58,10 @@ export const Container = styled.div`
   .info-box-inner p{
       padding:100px;
       font-size: 16px;
+      @media (max-width: 770px){
+        padding:5px;
+        text-align:center;
+    }
       
   }
   .info-box-content img{

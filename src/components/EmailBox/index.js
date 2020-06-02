@@ -10,8 +10,8 @@ export default function EmailBox() {
     <Container>
         <div className="email-box max-margin-width flex-row">
             <div className="width-x2">
-                <h1>Onto Onto quem deixar email ganha desconto</h1>
-                <p>Vou te mandar descontos especiais</p>
+                <h1>Deixe seu email para receber ofertas especiais</h1>
+                <p>Vamos te enviar todas as novidades !</p>
             </div>
             <div className="flex-row align-horizontal width-x2">
                 <form className="width-x1" ><input className="input"/></form>

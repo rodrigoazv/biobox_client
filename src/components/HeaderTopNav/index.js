@@ -17,7 +17,7 @@ export default function HeaderTopNav() {
     const [search, setSerch] = useState();
     const history = useHistory();
     
-    const length = useSelector(state => state.cart.length || 0);
+    const length = useSelector(state => state.cart.length);
     const {isAuthenticated} = useSelector(state => state.authe);
 
     

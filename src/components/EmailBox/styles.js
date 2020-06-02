@@ -31,6 +31,11 @@ export const Container = styled.div`
   h1{
       color:white;
       font-size:40px;
+      font-weight:200;
+      @media (max-width: 984px){
+        font-size: 25px;
+        
+      }
   }
   .flex-row{
       display:flex;
@@ -44,5 +49,9 @@ export const Container = styled.div`
   p{
       font-size: 20px;
       color:white;
+      @media (max-width: 984px){
+        font-size: 15px;
+        
+      }
   }
 `;

@@ -17,6 +17,7 @@ export default createGlobalStyle`
     background: #fff;
     color: #333;
     -webkit-font-smoothing: antialiased !important;
+    font-weight:100;
   }
   ul {
     list-style: none;
