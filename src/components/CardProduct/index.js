@@ -42,7 +42,7 @@ export default function CardProduct({props}) {
             setQuantity(0)
         }
     }
-      //função para lidar com o modal
+      //função para lidar com o modal 11
       function callModal(IDmodal) {
         const modalBox = document.getElementById(IDmodal)
         modalBox.classList.add('self-show')
