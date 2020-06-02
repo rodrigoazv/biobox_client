@@ -21,7 +21,7 @@ function CartPage() {
     const cartProduct = JSON.parse(localStorage.getItem("sback_cart_item"));
     const dispatch = useDispatch();
     
-
+    
     function removeProductCart(id) {
         dispatch(removeItem(id));
     }
@@ -38,7 +38,7 @@ function CartPage() {
                 <div className="box-product">
                     <h2>Carrinho</h2>
                     <div >
-                        {cartProduct.length === 0 ? (
+                        {cartProduct.length && cartProductState === 0 ? (
                             <p>Carrinho vazio</p>
                         ) : (
                             <>
