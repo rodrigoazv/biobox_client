@@ -1,6 +1,6 @@
 import {createAction, createReducer } from '@reduxjs/toolkit';
 
-const INITIAL_STATE= JSON.parse(localStorage.getItem("sback_cart_item"));
+const INITIAL_STATE= JSON.parse(localStorage.getItem("sback_cart_item")) || 0;
 
 export const addItem = createAction('ADD_ITEM');
 export const removeItem = createAction('REMOVE_ITEM');
