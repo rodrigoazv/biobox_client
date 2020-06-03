@@ -52,9 +52,7 @@ export default function ProductPage() {
     }
     function HandleSubmit(e) {
         e.preventDefault();
-        setQuantity(quantity)
-        setProduct(product)
-        localStorage.setItem("@produto-nome-quant/user", [product, quantity])
+
         callModal('modal-full')
         
     }
