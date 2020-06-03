@@ -10,6 +10,7 @@ import { RiShoppingBasketLine } from 'react-icons/ri';
 import { FaSignInAlt } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
 import { FaGripLines} from 'react-icons/fa';
+import { FaSignOutAlt } from 'react-icons/fa';
 
 import { useSelector , useDispatch } from 'react-redux';
 import {logout} from '../../store/ducks/authe';
@@ -73,12 +74,14 @@ export default function HeaderTopNav() {
                         </div>
                         { isAuthenticated ? ( 
                                 <div className="display-show">
-                                <p>Olá    
-                                    <a href='/'>
-                                        @Name, 
-                                    </a> 
+                                <p>Olá,     
+                                    {user.userName.split(" ")[0]}
                                 </p>  
-                                <p>Boas compras</p>   
+                                <p>Boas compras</p>
+                                <button onClick={handleSignOut}>
+                                    <FaSignOutAlt/>
+                                </button>
+                                
                             </div> 
                             ) : (
                                 <div className="display-show">
