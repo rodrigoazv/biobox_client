@@ -9,9 +9,8 @@ function Loading() {
     <Loader 
         type="Puff"
         color="#95B737"
-        height={100}
-        width={100}
-        timeout={1000} 
+        height={30}
+        width={30}
     />
     <Redirect to='/login'/>
   </Container>;

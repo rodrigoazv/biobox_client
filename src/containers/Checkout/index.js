@@ -39,9 +39,9 @@ function Checkout() {
     const [neighborhood, setNeighborhood]= useState('');
     const [products, setProducts]=useState([])
     const [userId, setUserId] = useState('')
-    const id = "960f2bc3-702c-4c4e-905d-cfbd8b99be2a" //LocalStorage-set when data response validate token
+    const id =  JSON.parse(localStorage.getItem('user_session'));//LocalStorage-set when data response validate token
     
-    const user = useSelector(state => state.user)
+    const user = useSelector(state => state.user);
 
     const adressUser = Object.assign({}, user.adress);
     /* {
@@ -55,7 +55,7 @@ function Checkout() {
     */
 
     // verify token
-
+    
     useEffect(() => {
         dispatch(getOneUser(id));
     },[dispatch, id]);
@@ -63,8 +63,8 @@ function Checkout() {
 
     useEffect(() => {
         setProducts(JSON.parse(localStorage.getItem('sback_cart_item')))
-        setUserId(id)
-    },[products.length])
+        setUserId(id.userid)
+    },[products.length, id.userid])
 
     useEffect(()  => { 
         const fetchData = async () => {

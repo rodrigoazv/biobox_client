@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {useHistory, Link} from 'react-router-dom';
-import {useDispatch} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+
 
 import { Container } from './styles';
 //Components
@@ -8,6 +9,7 @@ import HeaderTop from '../../components/HeaderTop';
 import Footer from '../../components/Footer';
 import ResponsiveNav from '../../components/ResponsiveNav';
 import Button from '../../components/ButtonFull';
+import Loading from '../../components/Loading';
 
 import { postUserLogin } from '../../store/fetchProduct';
 import {Helmet} from 'react-helmet';
@@ -23,11 +25,20 @@ const validation = yup.object().shape({
 
 export default function Login() {
     const history = useHistory();
-    const dispatch = useDispatch()
-   
-    function loginSubmit(form){
-        dispatch(postUserLogin(form));
-        history.push('/');
+    const dispatch = useDispatch();
+    const [isLoading, setIsLoading] = useState(false)
+
+    async function loginSubmit(form){
+        setIsLoading(true)
+        const teste = await dispatch(postUserLogin(form));
+        if(teste){
+            setIsLoading(false)
+            history.push('/');
+        }
+        else{
+            alert('Email ou senha incorretos, confira seus dados e tente novamente.')
+            setIsLoading(false)
+        }
     }
     
    
@@ -64,10 +75,14 @@ export default function Login() {
                                 <Field className="input-login" name="password" placeholder="Senha" type='password' />
                                 <ErrorMessage className="err-form" component="span" name="password"/>
                             </div>
-                            <Button 
-                                type="submit"
-                                text="Entrar"
-                            />
+                            {isLoading ? (
+                                <Loading/>
+                            ) : (
+                                <Button 
+                                    type="submit"
+                                    text="Entrar"
+                                />
+                            )}
                             <Link to="/register"><h4>Ainda não tenho conta</h4></Link>
                         </Form>
                     </Formik>

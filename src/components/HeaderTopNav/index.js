@@ -47,6 +47,7 @@ export default function HeaderTopNav() {
         e.preventDefault();
         dispatch(logout())
         localStorage.removeItem('sback_id')
+        localStorage.removeItem('user_session')
     }
     return (
         <Container className="top-nav-sizing">

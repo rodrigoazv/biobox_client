@@ -1,8 +1,9 @@
 
-import React from 'react';
+import React,{useState} from 'react';
 
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../service/api';
+import Loading from '../../components/Loading';
 
 
 import { Container } from './styles';
@@ -49,16 +50,28 @@ const validation = yup.object().shape({
 
 export default function Register() {
     const history = useHistory();
+    const [isLoading, setIsLoading] = useState(false);
 
-    
     async function handleRegister(form){
-    console.log(form)
+        const data = form.dateNasc.split('/').reverse().join('-');
+        console.log(data);
+        setIsLoading(true);
+        let formSend ={
+            completName: form.completName,
+            email: form.email,
+            cpf: form.cpf,
+            dateNasc: data,
+            number: form.number,
+            password: form.password
+        }
+        console.log(formSend)
         try{
-            const  response = await api.post('user', form);
-
+            const  response = await api.post('user', formSend);
             alert(`Olá ${response.data.completName} seu cadastro foi realizado`);
-            history.push('/');
+            
+            history.push('/login');
         } catch{
+           
             alert(`Error, tente novamente`);
         }
     }
@@ -185,11 +198,14 @@ export default function Register() {
                             </div>
 
                         
-                        <Button
-                            type="submit"
-                            text="Cadastrar"
-
-                        />
+                            {isLoading ? (
+                                <Loading/>
+                            ) : (
+                                <Button 
+                                    type="submit"
+                                    text="Registrar"
+                                />
+                            )}
                     </Form>
                 </Formik>
 

@@ -3,6 +3,7 @@ import { addProducts} from '../ducks/products';
 import {login, sucessAuth, failedAuth} from '../ducks/authe';
 import {getUser} from '../ducks/user';
 
+
 export const getAllProducts = () => {
     return (dispatch) => {
         api
@@ -37,10 +38,11 @@ export const postUserLogin = (user) => {
                 }
                 localStorage.setItem("user_session", JSON.stringify(dataSession))
                 dispatch(login())
+                return true;
             }
         }
         catch(error){
-            alert('Confira seus dados e tente novamente')
+            return false;
         }
     }
 }
