@@ -31,6 +31,11 @@ export const postUserLogin = (user) => {
             const response = await api.post('login', user)
             if(response.data.sucess){
                 localStorage.setItem("sback_id", response.data.token)
+                const dataSession = {
+                    userid: response.data.user, 
+                    userName:response.data.userName 
+                }
+                localStorage.setItem("user_session", JSON.stringify(dataSession))
                 dispatch(login())
             }
         }

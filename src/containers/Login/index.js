@@ -4,7 +4,7 @@ import {useDispatch} from 'react-redux';
 
 import { Container } from './styles';
 //Components
-import HeaderTopNav from '../../components/HeaderTopNav';
+import HeaderTop from '../../components/HeaderTop';
 import Footer from '../../components/Footer';
 import ResponsiveNav from '../../components/ResponsiveNav';
 import Button from '../../components/ButtonFull';
@@ -27,6 +27,7 @@ export default function Login() {
    
     function loginSubmit(form){
         dispatch(postUserLogin(form));
+        history.push('/');
     }
     
    
@@ -37,7 +38,7 @@ export default function Login() {
                 <title>Biocampeiro - Login</title>
                 <link rel="canonical" href="http://biocampeiro.com.br" />
             </Helmet>
-            <HeaderTopNav />
+            <HeaderTop/>
             <div className="content max-margin-width">
                 <section className="text-cad">
                     <h1 className="text-cad">Login</h1>

@@ -11,14 +11,17 @@ import { FaSignInAlt } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
 import { FaGripLines} from 'react-icons/fa';
 
-import { useSelector } from 'react-redux';
+import { useSelector , useDispatch } from 'react-redux';
+import {logout} from '../../store/ducks/authe';
 
 export default function HeaderTopNav() {
     const [search, setSerch] = useState();
     const history = useHistory();
+    const dispatch = useDispatch();
     
     const length = useSelector(state => state.cart.length);
     const {isAuthenticated} = useSelector(state => state.authe);
+    const user = JSON.parse(localStorage.getItem('user_session'));
     
     
     function showNav(){
@@ -37,6 +40,12 @@ export default function HeaderTopNav() {
     function HandleSearch(e){
         e.preventDefault();
         history.push(`product/${search}`)
+    }
+
+    function handleSignOut(e){
+        e.preventDefault();
+        dispatch(logout())
+        localStorage.removeItem('sback_id')
     }
     return (
         <Container className="top-nav-sizing">
