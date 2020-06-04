@@ -12,7 +12,7 @@ function ForgotPass() {
     const dispatch = useDispatch();
     function handleSend(form){
         console.log(form)
-        dispatch(forgotPassData(form.email));
+        dispatch(forgotPassData(form));
     }
 
     return <Container>
@@ -35,7 +35,7 @@ function ForgotPass() {
                             className="input-checkout input-margin"
                             placeholder="Email de recuperação"
                         />
-                        <ErrorMessage className="err-form" component="span" name="zipcode"/>
+                        <ErrorMessage className="err-form" component="span" name="email"/>
                     </div>
                     <ButtonFull
                             text="Enviar"
