@@ -8,7 +8,7 @@ import Loading from '../../components/Loading';
 
 import { Container } from './styles';
 //Components
-import HeaderTopNav from '../../components/HeaderTopNav';
+import HeaderTop from '../../components/HeaderTop';
 import Footer from '../../components/Footer';
 import ResponsiveNav from '../../components/ResponsiveNav';
 import Button from '../../components/ButtonFull';
@@ -83,7 +83,7 @@ export default function Register() {
                 <title>Biocampeiro - Registre-se</title>
                 <link rel="canonical" href="http://biocampeiro.com.br" />
             </Helmet>
-            <HeaderTopNav />
+            <HeaderTop />
             <div className="content max-margin-width">
                 <section className="text-cad">
                     <h1 className="text-cad">Cadastro</h1>

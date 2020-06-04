@@ -40,6 +40,17 @@ export const Container = styled.header`
         }
         
     }
+    .display-show button{
+        color: white;
+        background-color:#91B431;
+        width:35px;
+        border-radius: 2.5px;
+        cursor:pointer;
+        transition: background-color 0.4s;
+    }
+    .display-show button:hover{
+        background-color: red;
+    }
     div.nav-elements-mother{
         height: 100%;
         display: flex;
