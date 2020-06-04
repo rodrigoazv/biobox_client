@@ -57,8 +57,8 @@ function Checkout() {
     // verify token
     
     useEffect(() => {
-        dispatch(getOneUser(id));
-    },[dispatch, id]);
+        dispatch(getOneUser(id.userid));
+    },[dispatch, id.userid]);
 
 
     useEffect(() => {

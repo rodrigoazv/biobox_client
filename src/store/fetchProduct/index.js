@@ -26,6 +26,14 @@ export const getOneUser = (id) =>{
     }
 }
 
+export const forgotPassData = (data) => {
+    console.log(data);
+    return async (dispatch) =>{
+        const response = await api.post('forgot_pass', data.email)
+        console.log(response);
+    }
+}
+
 export const postUserLogin = (user) => {
     return async (dispatch) =>{
         try{

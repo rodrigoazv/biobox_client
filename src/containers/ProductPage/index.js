@@ -79,7 +79,7 @@ export default function ProductPage() {
                         {product.productName}
                     </h1>
                         <p>
-                            100g
+                            100gTe 
                     </p>
                     </div>
                     <div className="price-box">

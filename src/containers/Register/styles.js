@@ -14,6 +14,12 @@ export const Container = styled.div`
             width: 310px;
     } 
   }
+  .flex-sexo{
+    display:flex;
+  }
+  .flex-sexo span{
+    padding:2px;
+  }
   .text-cad{
       color:#333;
       margin:15px;
