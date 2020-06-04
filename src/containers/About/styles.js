@@ -41,6 +41,10 @@ export const Container = styled.div`
   .about-imgs li{
     padding: 5%;
     width:110px;
+    @media (max-width: 770px){
+        width:85px;
+        padding:1%;
+    } 
   }
   
   
