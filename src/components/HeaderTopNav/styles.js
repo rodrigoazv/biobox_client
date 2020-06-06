@@ -86,7 +86,8 @@ export const Container = styled.header`
         padding: 15px 0 15px 0;
     }
     .logo-sizing{
-        height: 87px;
+        height: 72px;
+        padding: 10px 0;
         @media (max-width: 720px){
             height: 50px;
         }

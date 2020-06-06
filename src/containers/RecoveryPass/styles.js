@@ -15,7 +15,7 @@ export const Container = styled.div`
   }
   .form-width{
     max-width:460px;
-    margin: 0 auto;
+    margin: 0 auto;   
   }
   .input-checkout{
     width: 100%;

@@ -88,6 +88,7 @@ export default function HomePage() {
               <div className="product-type-name">HORTA</div>
               <div className="padding-slick">
                 <ul>
+                  {products.length !== 0  ? (
                   <Slider {...settings}>
                       {products.map(product=>(
                         <li key={product.id} className="paddingup">
@@ -96,14 +97,16 @@ export default function HomePage() {
                           />
                         </li>
                       ))}
-                  </Slider>
+                  </Slider>):(<p>Sem produtos nessa categoria, por enquanto ! </p>)}
+                  
                 </ul>
               </div>
           </section>
           <section className="product-type max-margin-width">
             <div className="product-type-name">GRANEL</div>
             <ul className="padding-ul">
-            <Slider {...settings}>
+                {products.length !== 0  ? (
+                  <Slider {...settings}>
                       {products.map(product=>(
                         <li key={product.id} className="paddingup">
                           <CardProduct
@@ -111,22 +114,24 @@ export default function HomePage() {
                           />
                         </li>
                       ))}
-                  </Slider>
+                  </Slider>):(<p>Sem produtos nessa categoria, por enquanto ! </p>)}
             </ul>
           </section>
           <section className="product-type max-margin-width">
             <div className="product-type-name">BIOPRODUTOS</div>
             <ul className="padding-ul">
-            <Slider {...settings}>
+              {products.length !== 0  
+                ? (<Slider {...settings}>
                       {products.map(product=>(
                         <li key={product.id} className="paddingup">
                           <CardProduct
                             props={product}
-
                           />
                         </li>
                       ))}
-                  </Slider>
+                  </Slider>)
+                  : (<p>Sem produtos nessa categoria, por enquanto ! </p>)
+                  }
             </ul>
           </section>
           <div className="info-box max-margin-width">
