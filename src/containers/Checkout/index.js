@@ -13,6 +13,7 @@ import { getOneUser } from '../../store/fetchProduct';
 import api from '../../service/api';
 import { ErrorMessage, Formik, Form , Field } from 'formik';
 import * as yup from 'yup';
+import { useHistory } from 'react-router-dom';
 
 
 
@@ -28,6 +29,7 @@ const validation = yup.object().shape({
 function Checkout() {
     //Variaveis const 
     const dispatch = useDispatch();
+    const history = useHistory();
     //state de envio adress quando não tiver endereço
     const [zipcode, setZipcode]= useState('');
     const [city, setCity]= useState('');
@@ -44,11 +46,14 @@ function Checkout() {
     const user = useSelector(state => state.user);
 
     const adressUser = Object.assign({}, user.adress);
+
     useEffect(() => {
-        if(adressUser){
+        if(adressUser.zipcode){
             setBoolAdress(false)
+        }else{
+            setBoolAdress(true)
         }
-    },[])
+    },[adressUser.zipcode])
     /* {
 	"zipcode": "1234",
 	"city": "tap",
@@ -102,26 +107,45 @@ function Checkout() {
             complement,
             neighborhood
         }
-        console.log('adress', adress)
         const cartByUser = {
             products,
             userId,
             adress
         }
-        console.log(products);
         try{
             const response = await api.post('sendo', cartByUser, headers);
             console.log(response);
-            alert(`Olá  seu cadastro foi realizado`);
+            history.push('/checkout/sendorder')
     }catch{
-            alert(`Error, tente novamente`);
+            alert(`Ocorreu algum erro confira seus dados e se existe produto no carrinho e tente novamente !`);
         }
     }
 
     const cepChange = (value) => {
         setZipcode(value);   
     }
-    console.log()
+    //Registrar sem cep
+    async function handleRegisterNoAdress(e){
+        const headers = {
+            headers:{
+                'Content-Type': 'application/json',
+                'authorization': localStorage.getItem('sback_id')
+              }
+        }
+        
+        const cartByUser = {
+            products,
+            userId,
+        }
+        try{
+            const response = await api.post('sendnoadress', cartByUser, headers);
+            console.log(response);
+            history.push('/checkout/sendorder')
+        }catch{
+            alert(`Ocorreu algum erro confira seus dados e se existe produto no carrinho e tente novamente !`);
+        }
+    }
+    
     
    
     return (
@@ -245,6 +269,7 @@ function Checkout() {
                                     <ButtonFull
                                         text="Fazer pedido"
                                         type="submit"
+                                        
                                     />
                                     
                                 </div>
@@ -277,7 +302,7 @@ function Checkout() {
                             
                             <ButtonFull
                                 text="Fazer pedido"
-                                type="submit"
+                                onClick={() => handleRegisterNoAdress()}
                             />
                             
                             

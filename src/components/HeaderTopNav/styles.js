@@ -132,6 +132,8 @@ export const Container = styled.header`
         position: fixed;
          width: 100%;
         box-shadow: 0 -0.83333rem 2.5rem #000;
+        z-index:10;
+        
 }
 
 `;
