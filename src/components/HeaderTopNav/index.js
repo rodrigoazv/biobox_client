@@ -49,8 +49,24 @@ export default function HeaderTopNav() {
         localStorage.removeItem('sback_id')
         localStorage.removeItem('user_session')
     }
+    function menuOnScroll(){
+        function menufixed(){
+            let menuonScroll = document.getElementById("menu-fixed")
+            let menuDefault = menuonScroll.offsetTop
+            if(window.pageYOffset>110){
+                menuonScroll.classList.add("menu-on-scroll")
+            } else{
+                menuonScroll.classList.remove("menu-on-scroll")
+            }
+        }
+        window.onscroll = function () {menufixed()}
+
+    }
+    menuOnScroll();
+   
     return (
         <Container className="top-nav-sizing">
+            <div id="menu-fixed">
             <div className="max-margin">
                 <div className="nav-elements-mother">
                     <div>
@@ -105,6 +121,9 @@ export default function HeaderTopNav() {
                     </div>
                 </div>
             </div>
+
+            </div>
+           
             <div className="under-nav-top">
                 <nav className="max-margin">
                     <ul>
