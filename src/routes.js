@@ -14,6 +14,8 @@ import CartPage from './containers/CartPage';
 import ProductPage from './containers/ProductPage';
 import Biocabanas from './containers/Biocabanas';
 import Location from './containers/Location'
+import ForgotPass from './containers/ForgotPass';
+import RecoveryPass from './containers/RecoveryPass';
 
 
 
@@ -59,6 +61,8 @@ const Routes = () => (
           <Route exact path="/cart" component={CartPage} /> 
           <Route exact path="/biocabanas" component={Biocabanas} /> 
           <Route exact path="/localizacao" component={Location} /> 
+          <Route exact path="/forgot" component={ForgotPass} />
+          <Route exact path="/recovery/:token" component={RecoveryPass}/>
           <PrivateRoutes exact path="/checkout" component={Checkout} />
           <PrivateRoutes exact path="/checkout/sendorder" component={EndOfOrder} />
         </Switch>

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import {useHistory, Link} from 'react-router-dom';
-import {useSelector, useDispatch} from 'react-redux';
+import { useDispatch} from 'react-redux';
 
 
 import { Container } from './styles';
@@ -54,6 +54,8 @@ export default function Login() {
                 <section className="text-cad">
                     <h1 className="text-cad">Login</h1>
                     <p>Acessar sua conta</p>
+
+                    <Link to="/register"><h4>Ainda não tenho conta</h4></Link>
                 </section>
                 <div className='box-form'>
                     <Formik 
@@ -83,9 +85,10 @@ export default function Login() {
                                     text="Entrar"
                                 />
                             )}
-                            <Link to="/register"><h4>Ainda não tenho conta</h4></Link>
+                            <Link to="/forgot"><h4>Esqueci minha senha</h4></Link>
                         </Form>
                     </Formik>
+                    
                 </div>
             </div>
             <Footer />

@@ -13,7 +13,7 @@ import { getOneUser } from '../../store/fetchProduct';
 import api from '../../service/api';
 import { ErrorMessage, Formik, Form , Field } from 'formik';
 import * as yup from 'yup';
-import MaskedInput from 'react-text-mask'
+import { useHistory } from 'react-router-dom';
 
 
 
@@ -29,6 +29,7 @@ const validation = yup.object().shape({
 function Checkout() {
     //Variaveis const 
     const dispatch = useDispatch();
+    const history = useHistory();
     //state de envio adress quando não tiver endereço
     const [zipcode, setZipcode]= useState('');
     const [city, setCity]= useState('');
@@ -39,11 +40,20 @@ function Checkout() {
     const [neighborhood, setNeighborhood]= useState('');
     const [products, setProducts]=useState([])
     const [userId, setUserId] = useState('')
+    const [BoolAdress, setBoolAdress] = useState(Boolean);
     const id =  JSON.parse(localStorage.getItem('user_session'));//LocalStorage-set when data response validate token
     
     const user = useSelector(state => state.user);
 
     const adressUser = Object.assign({}, user.adress);
+
+    useEffect(() => {
+        if(adressUser.zipcode){
+            setBoolAdress(false)
+        }else{
+            setBoolAdress(true)
+        }
+    },[adressUser.zipcode])
     /* {
 	"zipcode": "1234",
 	"city": "tap",
@@ -57,8 +67,8 @@ function Checkout() {
     // verify token
     
     useEffect(() => {
-        dispatch(getOneUser(id));
-    },[dispatch, id]);
+        dispatch(getOneUser(id.userid));
+    },[dispatch, id.userid]);
 
 
     useEffect(() => {
@@ -97,26 +107,47 @@ function Checkout() {
             complement,
             neighborhood
         }
-        console.log('adress', adress)
         const cartByUser = {
             products,
             userId,
             adress
         }
-        console.log(products);
         try{
             const response = await api.post('sendo', cartByUser, headers);
             console.log(response);
-            alert(`Olá  seu cadastro foi realizado`);
+            history.push('/checkout/sendorder')
     }catch{
-            alert(`Error, tente novamente`);
+            alert(`Ocorreu algum erro confira seus dados e se existe produto no carrinho e tente novamente !`);
         }
     }
 
     const cepChange = (value) => {
         setZipcode(value);   
     }
+    //Registrar sem cep
+    async function handleRegisterNoAdress(e){
+        const headers = {
+            headers:{
+                'Content-Type': 'application/json',
+                'authorization': localStorage.getItem('sback_id')
+              }
+        }
+        
+        const cartByUser = {
+            products,
+            userId,
+        }
+        try{
+            const response = await api.post('sendnoadress', cartByUser, headers);
+            console.log(response);
+            history.push('/checkout/sendorder')
+        }catch{
+            alert(`Ocorreu algum erro confira seus dados e se existe produto no carrinho e tente novamente !`);
+        }
+    }
     
+    
+   
     return (
         <Container>
             <HeaderTopNav/>
@@ -147,7 +178,7 @@ function Checkout() {
                             </form>
                         </div>
                         
-                        { Object.keys(adressUser).length === 0 ?( <div className="form-margin-width-2x">
+                        { ( BoolAdress ) ? ( <div className="form-margin-width-2x">
                             
                             <Formik
                                 initialValues={{
@@ -200,33 +231,33 @@ function Checkout() {
                                         <div className='input-05'>
                                             <label>Estado:</label>
                                             <input disabled
-                                            className="input-checkout input-margin input-checkout-autoload"
-                                            placeholder="Estado"
-                                            defaultValue={state}
-                                            onChange={e => setState(e.target.value)}
-                                            required
+                                                className="input-checkout input-margin input-checkout-autoload"
+                                                placeholder="Estado"
+                                                defaultValue={state}
+                                                onChange={e => setState(e.target.value)}
+                                                required
                                             />
                                         </div>
                                     </div>
                                     <div>
                                         <label>Cidade:</label>
                                         <input disabled
-                                        className="input-checkout input-margin input-checkout-autoload"
-                                        placeholder="Cidade"
-                                        defaultValue={city}
-                                        onChange={e => setCity(e.target.value)}
-                                        required
+                                            className="input-checkout input-margin input-checkout-autoload"
+                                            placeholder="Cidade"
+                                            defaultValue={city}
+                                            onChange={e => setCity(e.target.value)}
+                                            required
                                         />
                                     </div>
                                     
                                     <div>
                                         <label>Bairro:</label>
                                         <input 
-                                        className="input-checkout input-margin"
-                                        placeholder="Complemento"
-                                        defaultValue={neighborhood}
-                                        onChange={e => setNeighborhood(e.target.value)}
-                                        required
+                                            className="input-checkout input-margin"
+                                            placeholder="Complemento"
+                                            defaultValue={neighborhood}
+                                            onChange={e => setNeighborhood(e.target.value)}
+                                            required
                                     />
                                     </div>       
                                    
@@ -238,6 +269,7 @@ function Checkout() {
                                     <ButtonFull
                                         text="Fazer pedido"
                                         type="submit"
+                                        
                                     />
                                     
                                 </div>
@@ -247,17 +279,35 @@ function Checkout() {
                         
                         
                         ) : (
+                            <>
                             <div className="form-margin-width">
-                            <h2 className="background-h2">Dados Entrega</h2>
-                            <div>
-                                <p>
-                                    Endereço de entrega {adressUser.city}, N:{adressUser.number}
-                                </p>
-                                <p>
-                                    Cep {adressUser.zipcode}
-                                </p>
+                                <h2 className="background-h2">Dados Entrega</h2>
+                                <div>
+                                    <p>
+                                        Endereço de entrega {adressUser.city}, N:{adressUser.number}
+                                    </p>
+                                    <p>
+                                        Cep {adressUser.zipcode}
+                                    </p>
+                                </div>
+                                <button 
+                                    onClick={() => setBoolAdress(true)}
+                                    className="button-change"
+                                    
+                                    >Alterar endereço</button>
                             </div>
-                        </div>
+                            <div className="box-checkout">
+                            <p>Os itens serão enviados de acordo com a data prevista de entrega e localidade especifica</p>
+                            <h2>Sub-total</h2>
+                            
+                            <ButtonFull
+                                text="Fazer pedido"
+                                onClick={() => handleRegisterNoAdress()}
+                            />
+                            
+                            
+                            </div>
+                            </>
                         )}
                         
                         

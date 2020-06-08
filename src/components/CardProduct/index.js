@@ -14,9 +14,12 @@ export default function CardProduct({props}) {
     const dispatch = useDispatch();
     const [quantity, setQuantity] = useState(1);
     const [dataCart, setDataCart] = useState({
-        pid: '',
+        pid: 'v',
         quantity:1,
-        price:1
+        price:1,
+        name: props.productName,
+        photo: props.photoUrl,
+        description : props.productDescription
     });
     useEffect(() => {
         setDataCart({
@@ -28,7 +31,6 @@ export default function CardProduct({props}) {
             description : props.productDescription
         })
     },[props, quantity])
-
     function HandleIncrement(){
         setQuantity(quantity+1);
         if(quantity>8){

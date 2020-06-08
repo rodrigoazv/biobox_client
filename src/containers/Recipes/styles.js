@@ -1,6 +1,43 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  
+  .end-content{
+      margin-top: 50px;
+      width:100%;
+      border-radius:4px;
+      display: flex;
+      justify-content: center;
+      flex-direction:column;
+      align-items: center;  
+   }
+  .box-construct{
+    text-align: center;
+    
+  }
+
+  .inner-content-box div{
+     margin: 4%;
+
+  }
+
+  .box-construct-content{
+    width:85%;
+     text-align:center;
+     margin:auto;
+     background-color: #F0F0F0;
+     padding: 10%;
+
+  }
+  
+  
+`;
+
+
+//Receitas - Original
+/*import styled from 'styled-components';
+
+export const Container = styled.div`
  
   .recipes-box{
       margin-top: 50px;
@@ -24,4 +61,4 @@ export const Container = styled.div`
     margin: 2% ;
   }
  
-`;
+`;*/

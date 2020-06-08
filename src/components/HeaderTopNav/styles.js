@@ -40,6 +40,17 @@ export const Container = styled.header`
         }
         
     }
+    .display-show button{
+        color: white;
+        background-color:#91B431;
+        width:35px;
+        border-radius: 2.5px;
+        cursor:pointer;
+        transition: background-color 0.4s;
+    }
+    .display-show button:hover{
+        background-color: red;
+    }
     div.nav-elements-mother{
         height: 100%;
         display: flex;
@@ -75,10 +86,14 @@ export const Container = styled.header`
         padding: 15px 0 15px 0;
     }
     .logo-sizing{
-        height: 87px;
+        height: 72px;
+        padding: 10px 0;
         @media (max-width: 720px){
             height: 50px;
         }
+    }
+    .button-signout{
+        border:none;
     }
     .inputWithIcon {
         position: relative;
@@ -112,5 +127,13 @@ export const Container = styled.header`
         font-weight:300;    
         
     }
+    .menu-on-scroll{
+        background: white;
+        position: fixed;
+         width: 100%;
+        box-shadow: 0 -0.83333rem 2.5rem #000;
+        z-index:10;
+        
+}
 
 `;

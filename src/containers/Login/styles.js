@@ -16,6 +16,12 @@ export const Container = styled.div`
             width: 310px;
     } 
   }
+  h4{
+    font-weight: 100;
+    color: #333;
+    text-decoration: underline;
+    
+  }
   .text-cad{
       color:#333;
       margin:15px;

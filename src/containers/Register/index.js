@@ -8,12 +8,13 @@ import Loading from '../../components/Loading';
 
 import { Container } from './styles';
 //Components
-import HeaderTopNav from '../../components/HeaderTopNav';
+import HeaderTop from '../../components/HeaderTop';
 import Footer from '../../components/Footer';
 import ResponsiveNav from '../../components/ResponsiveNav';
 import Button from '../../components/ButtonFull';
 //assets
 import { FaCheckCircle } from 'react-icons/fa';
+import{Radio} from "@material-ui/core";
 import { Helmet } from 'react-helmet';
 
 import { ErrorMessage, Formik, Form , Field } from 'formik';
@@ -55,21 +56,19 @@ export default function Register() {
     async function handleRegister(form){
         const data = form.dateNasc.split('/').reverse().join('-');
         console.log(data);
-        setIsLoading(true);
         let formSend ={
             completName: form.completName,
             email: form.email,
             cpf: form.cpf,
             dateNasc: data,
             number: form.number,
-            password: form.password
+            password: form.password,
+            sexo: form.sexo
         }
         console.log(formSend)
         try{
             const  response = await api.post('user', formSend);
             alert(`Olá ${response.data.completName} seu cadastro foi realizado`);
-            
-            history.push('/login');
         } catch{
            
             alert(`Error, tente novamente`);
@@ -84,7 +83,7 @@ export default function Register() {
                 <title>Biocampeiro - Registre-se</title>
                 <link rel="canonical" href="http://biocampeiro.com.br" />
             </Helmet>
-            <HeaderTopNav />
+            <HeaderTop />
             <div className="content max-margin-width">
                 <section className="text-cad">
                     <h1 className="text-cad">Cadastro</h1>
@@ -101,6 +100,7 @@ export default function Register() {
                             dateNasc:'',
                             number:'',
                             password:'',
+                            sexo:''
                         }}
                         onSubmit={handleRegister} 
                         validationSchema={validation}
@@ -126,6 +126,29 @@ export default function Register() {
                                     name='completName'
                                     
                                 />
+                                 <ErrorMessage className="err-form" component="span" name="completName"/>
+                            </div>
+                            <div className="margin-input">   
+                                <label>Sexo:</label> 
+                                
+                                <div className="flex-sexo">
+                                    <span>Masculino</span> 
+                                    <Field  
+                                        placeholder="Nome completo*" 
+                                        type='radio'
+                                        name='sexo'
+                                        value="Masculino"
+                                        as={Radio}
+                                    />
+                                    <span>Feminino</span> 
+                                    <Field  
+                                        placeholder="Nome completo*" 
+                                        type='radio'
+                                        name='sexo'
+                                        value="Feminino"
+                                        as={Radio}
+                                    />
+                                </div>
                                  <ErrorMessage className="err-form" component="span" name="completName"/>
                             </div>
                             <div className="margin-input">
@@ -193,7 +216,7 @@ export default function Register() {
                                 <span>
                                     <FaCheckCircle/>
                                 </span>
-                                <span>Li e aceito os</span>
+                                <span>Ao registrar você aceita todos os</span>
                                 <a href="/"> termos de uso</a>
                             </div>
 

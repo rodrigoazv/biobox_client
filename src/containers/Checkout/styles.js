@@ -18,7 +18,7 @@ export const Container = styled.div`
     border-radius:10px;
     border: 1px solid #ddd;
     padding: 25px;
-    
+    max-width: 400px;
   }
   .form-adress{
     width:50%;
@@ -53,6 +53,19 @@ export const Container = styled.div`
     outline:none;
     background-color: white;
   }
+  
+  .button-change{
+    padding: 3px;
+    width:100%;
+    color: grey;
+    border:none;
+    cursor: pointer;
+  }
+  .button-change:hover{
+    color: green;
+    cursor: pointer;
+  }
+
   .input-checkout:hover{
     border: 2px #95B737 solid;
 
