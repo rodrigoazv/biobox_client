@@ -11,6 +11,7 @@ export default function HeaderTop() {
     
     return (
         <Container className="top-nav-sizing">
+            <div id="menu-fixed">
             <div className="max-margin">
                     <div >
                         <div className= "nav-elements">
@@ -21,6 +22,9 @@ export default function HeaderTop() {
                         </div>
                     </div>
                 </div>
+
+            </div>
+           
                
               
         </Container>

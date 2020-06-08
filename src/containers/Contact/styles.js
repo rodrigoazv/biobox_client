@@ -4,6 +4,13 @@ export const Container = styled.div`
   .box-form{
       border-top: 1px solid #A4A4A4;
   }
+  .box-form div{
+    display:flex;
+    justify-content: center;
+  }
+  .box-form span{
+    margin-left:5px;
+  }
   .form-type-register{
       display:flex;
       flex-direction: column;

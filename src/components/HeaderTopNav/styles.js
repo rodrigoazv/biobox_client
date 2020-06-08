@@ -127,5 +127,11 @@ export const Container = styled.header`
         font-weight:300;    
         
     }
+    .menu-on-scroll{
+        background: white;
+        position: fixed;
+         width: 100%;
+        box-shadow: 0 -0.83333rem 2.5rem #000;
+}
 
 `;
