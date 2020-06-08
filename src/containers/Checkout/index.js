@@ -38,11 +38,17 @@ function Checkout() {
     const [neighborhood, setNeighborhood]= useState('');
     const [products, setProducts]=useState([])
     const [userId, setUserId] = useState('')
+    const [BoolAdress, setBoolAdress] = useState(Boolean);
     const id =  JSON.parse(localStorage.getItem('user_session'));//LocalStorage-set when data response validate token
     
     const user = useSelector(state => state.user);
 
     const adressUser = Object.assign({}, user.adress);
+    useEffect(() => {
+        if(adressUser){
+            setBoolAdress(false)
+        }
+    },[])
     /* {
 	"zipcode": "1234",
 	"city": "tap",
@@ -115,7 +121,9 @@ function Checkout() {
     const cepChange = (value) => {
         setZipcode(value);   
     }
+    console.log()
     
+   
     return (
         <Container>
             <HeaderTopNav/>
@@ -146,7 +154,7 @@ function Checkout() {
                             </form>
                         </div>
                         
-                        { Object.keys(adressUser).length === 0 ?( <div className="form-margin-width-2x">
+                        { ( BoolAdress ) ? ( <div className="form-margin-width-2x">
                             
                             <Formik
                                 initialValues={{
@@ -199,33 +207,33 @@ function Checkout() {
                                         <div className='input-05'>
                                             <label>Estado:</label>
                                             <input disabled
-                                            className="input-checkout input-margin input-checkout-autoload"
-                                            placeholder="Estado"
-                                            defaultValue={state}
-                                            onChange={e => setState(e.target.value)}
-                                            required
+                                                className="input-checkout input-margin input-checkout-autoload"
+                                                placeholder="Estado"
+                                                defaultValue={state}
+                                                onChange={e => setState(e.target.value)}
+                                                required
                                             />
                                         </div>
                                     </div>
                                     <div>
                                         <label>Cidade:</label>
                                         <input disabled
-                                        className="input-checkout input-margin input-checkout-autoload"
-                                        placeholder="Cidade"
-                                        defaultValue={city}
-                                        onChange={e => setCity(e.target.value)}
-                                        required
+                                            className="input-checkout input-margin input-checkout-autoload"
+                                            placeholder="Cidade"
+                                            defaultValue={city}
+                                            onChange={e => setCity(e.target.value)}
+                                            required
                                         />
                                     </div>
                                     
                                     <div>
                                         <label>Bairro:</label>
                                         <input 
-                                        className="input-checkout input-margin"
-                                        placeholder="Complemento"
-                                        defaultValue={neighborhood}
-                                        onChange={e => setNeighborhood(e.target.value)}
-                                        required
+                                            className="input-checkout input-margin"
+                                            placeholder="Complemento"
+                                            defaultValue={neighborhood}
+                                            onChange={e => setNeighborhood(e.target.value)}
+                                            required
                                     />
                                     </div>       
                                    
@@ -246,17 +254,35 @@ function Checkout() {
                         
                         
                         ) : (
+                            <>
                             <div className="form-margin-width">
-                            <h2 className="background-h2">Dados Entrega</h2>
-                            <div>
-                                <p>
-                                    Endereço de entrega {adressUser.city}, N:{adressUser.number}
-                                </p>
-                                <p>
-                                    Cep {adressUser.zipcode}
-                                </p>
+                                <h2 className="background-h2">Dados Entrega</h2>
+                                <div>
+                                    <p>
+                                        Endereço de entrega {adressUser.city}, N:{adressUser.number}
+                                    </p>
+                                    <p>
+                                        Cep {adressUser.zipcode}
+                                    </p>
+                                </div>
+                                <button 
+                                    onClick={() => setBoolAdress(true)}
+                                    className="button-change"
+                                    
+                                    >Alterar endereço</button>
                             </div>
-                        </div>
+                            <div className="box-checkout">
+                            <p>Os itens serão enviados de acordo com a data prevista de entrega e localidade especifica</p>
+                            <h2>Sub-total</h2>
+                            
+                            <ButtonFull
+                                text="Fazer pedido"
+                                type="submit"
+                            />
+                            
+                            
+                            </div>
+                            </>
                         )}
                         
                         

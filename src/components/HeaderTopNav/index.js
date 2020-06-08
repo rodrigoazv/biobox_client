@@ -79,7 +79,7 @@ export default function HeaderTopNav() {
                                     {user.userName.split(" ")[0]}
                             </p>
                             <p>Boas compras</p>
-                            <button onClick={handleSignOut}>
+                            <button onClick={handleSignOut} className="button-signout">
                                 <FaSignOutAlt />
                             </button>
 
@@ -130,9 +130,9 @@ export default function HeaderTopNav() {
                         <li>
                             {isAuthenticated ? (
                                 <div className='flex-icon'>
-                                     <div>
-                                        <FaSignInAlt  onClick={handleSignOut} size={25} color="#333" />
-                                    </div>
+                                        <div>
+                                            <FaSignInAlt  onClick={handleSignOut} size={25} color="#333" />
+                                        </div>
                                       Sair
                                 </div>
 

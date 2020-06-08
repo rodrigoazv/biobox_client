@@ -92,6 +92,9 @@ export const Container = styled.header`
             height: 50px;
         }
     }
+    .button-signout{
+        border:none;
+    }
     .inputWithIcon {
         position: relative;
     }
