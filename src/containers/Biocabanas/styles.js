@@ -2,32 +2,37 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   
-  .end-content{
-      margin-top: 50px;
-      width:100%;
-      border-radius:4px;
-      display: flex;
-      justify-content: center;
-      flex-direction:column;
-      align-items: center;  
-   }
-  .box-construct{
+.box-construct{
     text-align: center;
-    
-  }
-
-  .inner-content-box div{
-     margin: 4%;
 
   }
+  .content{
+      margin-top: 50px;
+      margin-bottom:50px;
+      width:100%;
+      padding:80px 80px 80px 80px  ;
+      border-radius:8px;
+      background:#F0F0F0;
+      display: flex;
+      justify-content: space-between;
+      flex-direction:column;
+      text-align: center;
+      align-items: center;  
+  }
+
+ 
 
   .box-construct-content{
-    width:85%;
+  
+     width:85%;
      text-align:center;
      margin:auto;
      background-color: #F0F0F0;
      padding: 10%;
 
+  }
+  .box-construct-content div{
+    margin:4%;
   }
   
   

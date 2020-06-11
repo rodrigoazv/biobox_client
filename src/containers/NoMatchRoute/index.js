@@ -1,3 +1,6 @@
+
+
+
 import React from 'react';
 import { Link } from 'react-router-dom'
 
@@ -11,34 +14,33 @@ import Button from '../../components/ButtonFull';
 import { IoIosConstruct } from 'react-icons/io';
 import { Helmet } from 'react-helmet';
 
-export default function Biocabanas() {
+export default function NoMatch() {
     return (
         <Container>
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>Biocampeiro - Biocabanas</title>
+                <title>Biocampeiro - Ops!</title>
                 <link rel="canonical" href="http://biocampeiro.com.br" />
             </Helmet>
             <HeaderTopNav />
             <div className="content max-margin-width">
-               <div className="box-construct-content">
+              
+                    <div className="box-construct-content">
                         <div className="inner-content-box">
                             <div >
-                                <h2>Novidades em breve</h2>
-                                <h5>Volte depois, página em construção</h5>
+                                <h1>Ops!</h1>
+                                <h2>Página não encontrada :/</h2>
+                                <h5>Desculpe pelo incoveniente, mas a página solicitada não existe ou não pode ser encontrada</h5>
+                                <h5>Mas pode ficar tranquilo, sinta-se à vontade para continuar navegando pelo site e dando uma olhada nos nossos produtos fresquinhos!</h5>
                             </div>
-                            <span>
-                                <IoIosConstruct size={45} />
-                            </span>
-
                             <div>
-                                <Link to="/"><Button text="Retornar" /></Link>
+                                <Link to="/"><Button text="Home" /></Link>
                             </div>
                         </div>
 
                     </div>
 
-               
+                
 
             </div>
             <Footer />
@@ -46,3 +48,5 @@ export default function Biocabanas() {
         </Container >
     );
 }
+
+

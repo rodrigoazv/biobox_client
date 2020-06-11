@@ -10,6 +10,7 @@ import { Container } from './styles';
 //Components
 import HeaderTop from '../../components/HeaderTop';
 import Footer from '../../components/Footer';
+import UserTerms from '../../components/UserTerms'
 import ResponsiveNav from '../../components/ResponsiveNav';
 import Button from '../../components/ButtonFull';
 //assets
@@ -75,7 +76,18 @@ export default function Register() {
         }
     }
 
-
+    function showTerms() {
+        const showTerm = (IDnav) => {
+            const responsiveNav = document.getElementById(IDnav)
+            responsiveNav.classList.add('self-show')
+            responsiveNav.addEventListener('click', (e) => {
+                if (e.target.id === IDnav || e.target.className === 'close-terms') {
+                    responsiveNav.classList.remove('self-show')
+                }
+            })
+        }
+        showTerm('terms-full')
+    }
     return (
         <Container>
             <Helmet>
@@ -217,7 +229,7 @@ export default function Register() {
                                     <FaCheckCircle/>
                                 </span>
                                 <span>Ao registrar você aceita todos os</span>
-                                <a href="/"> termos de uso</a>
+                                <p onClick={showTerms}> termos de uso</p>
                             </div>
 
                         
@@ -235,6 +247,7 @@ export default function Register() {
                 </div>
             </div>
             <Footer />
+            <UserTerms/>
             <ResponsiveNav/>
         </Container>
     );

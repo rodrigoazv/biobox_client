@@ -12,7 +12,8 @@ export default function HeaderTop() {
     return (
         <Container className="top-nav-sizing">
             <div id="menu-fixed">
-            <div className="max-margin">
+                <div id="nav-fixed">
+                <div className="max-margin">
                     <div >
                         <div className= "nav-elements">
                             <Link to="/">
@@ -20,8 +21,12 @@ export default function HeaderTop() {
                             </Link>
                             <a className="back-home" href="/"> Voltar Para o Início</a>
                         </div>
+                    
                     </div>
                 </div>
+
+                </div>
+            
 
             </div>
            

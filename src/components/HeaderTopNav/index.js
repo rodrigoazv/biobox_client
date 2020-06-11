@@ -49,81 +49,85 @@ export default function HeaderTopNav() {
         localStorage.removeItem('sback_id')
         localStorage.removeItem('user_session')
     }
-    function menuOnScroll(){
-        function menufixed(){
-            let menuonScroll = document.getElementById("menu-fixed")
-            let menuDefault = menuonScroll.offsetTop
-            if(window.pageYOffset>110){
+    function menuOnScroll() {
+        const menufixed = (ID) => {
+            let menuonScroll = document.getElementById(ID)
+            if (window.pageYOffset > 100)
                 menuonScroll.classList.add("menu-on-scroll")
-            } else{
+            else
                 menuonScroll.classList.remove("menu-on-scroll")
-            }
         }
-        window.onscroll = function () {menufixed()}
+        const navpadding = (id) => {
+            let navFixed = document.getElementById(id);
+            if (window.pageYOffset >100)
+                navFixed.classList.add("nav-on-scroll")
+            else
+                navFixed.classList.remove("nav-on-scroll")
+        }
+        window.onscroll = () => { menufixed("menu-fixed"); menufixed("nav-fixed"); navpadding("nav-fixed") }
+}
+menuOnScroll();
 
-    }
-    menuOnScroll();
-   
     return (
         <Container className="top-nav-sizing">
             <div id="menu-fixed">
-            <div className="max-margin">
-                <div className="nav-elements-mother">
-                    <div>
-                        <Link to="/">
-                            <img src={Logo} alt="none" className="logo-sizing" />
-                        </Link>
-                    </div>
-                    <div className="searchBar">
-                        <form className="max-margin">
-                            <div className="inputWithIcon">
-                                <input
-                                    className="input"
-                                    type="text"
-                                    placeholder="Procurando algo ?"
-                                    onChange={(e) => setSerch(e.target.value)}
-                                />
-
-                                <FaSearch size={16} aria-hidden="true" onClick={HandleSearch} />
-
-                            </div>
-                        </form>
-                    </div>
-                    {isAuthenticated ? (
-                        <div className="display-show">
-                            <p>Olá,
-                                    {user.userName.split(" ")[0]}
-                            </p>
-                            <p>Boas compras</p>
-                            <button onClick={handleSignOut}>
-                                <FaSignOutAlt />
-                            </button>
-
+                <div className="max-margin">
+                    <div className="nav-elements-mother">
+                        <div>
+                            <Link to="/">
+                                <img src={Logo} alt="none" className="logo-sizing" />
+                            </Link>
                         </div>
-                    ) : (
+                        <div className="searchBar">
+                            <form className="max-margin">
+                                <div className="inputWithIcon">
+                                    <input
+                                        className="input"
+                                        type="text"
+                                        placeholder="Procurando algo ?"
+                                        onChange={(e) => setSerch(e.target.value)}
+                                    />
+
+                                    <FaSearch size={16} aria-hidden="true" onClick={HandleSearch} />
+
+                                </div>
+                            </form>
+                        </div>
+                        {isAuthenticated ? (
                             <div className="display-show">
-                                <Link to="/login">
-                                    Entre </Link>
-                                <span>ou </span>
-                                <Link to="/register">
-                                    cadastre-se
-                                </Link>
+                                <p>Olá,
+                                    {user.userName.split(" ")[0]}
+                                </p>
+                                <p>Boas compras</p>
+                                <button onClick={handleSignOut}>
+                                    <FaSignOutAlt />
+                                </button>
+
                             </div>
-                        )
+                        ) : (
+                                <div className="display-show">
+                                    <Link to="/login">
+                                        Entre </Link>
+                                    <span>ou </span>
+                                    <Link to="/register">
+                                        cadastre-se
+                                </Link>
+                                </div>
+                            )
 
-                    }
+                        }
 
-                    <div className="display-show">
-                        <Link to="/cart">
-                            <RiShoppingBasketLine size={36} color='#95B737' />
-                            <span>{length}</span>
-                        </Link>
+                        <div className="display-show">
+                            <Link to="/cart">
+                                <RiShoppingBasketLine size={36} color='#95B737' />
+                                <span>{length}</span>
+                            </Link>
+                        </div>
                     </div>
                 </div>
-            </div>
 
             </div>
-           
+
             <div className="under-nav-top">
                 <nav className="max-margin">
                     <ul>
@@ -135,46 +139,50 @@ export default function HeaderTopNav() {
                     </ul>
                 </nav>
             </div>
-            <div className="show-when-under-none">
-                <nav className="max-margin">
-                    <ul>
-                        <li>
-                            <div className='flex-icon'>
-
-                                <FaGripLines onClick={showNav} size={32} color="#333" />
-
-
-                            </div>
-                        </li>
-                        <li>
-                            {isAuthenticated ? (
+            <div id="nav-fixed">
+                <div className="show-when-under-none" >
+                    <nav className="max-margin">
+                        <ul>
+                            <li>
                                 <div className='flex-icon'>
-                                     <div>
-                                        <FaSignInAlt  onClick={handleSignOut} size={25} color="#333" />
-                                    </div>
-                                      Sair
+
+                                    <FaGripLines onClick={showNav} size={32} color="#333" />
+
+
                                 </div>
-
-                            ) : (
-                                <div className='flex-icon'>
-                                        <Link to="/login"> 
-                                            <FaSignInAlt size={25} color="#333"/>
-                                        </Link>  
-                                        Entre/cadastre-se    
+                            </li>
+                            <li>
+                                {isAuthenticated ? (
+                                    <div className='flex-icon'>
+                                        <div>
+                                            <FaSignInAlt onClick={handleSignOut} size={25} color="#333" />
+                                        </div>
+                                      Sair
                                     </div>
-                            )
-                             }
-                        </li>
-                        <li>
-                            <div>
-                                <Link to="/cart">
-                                    <RiShoppingBasketLine size={32} color='PRIMARY_GREN_LIGHT' />
-                                </Link>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
+
+                                ) : (
+                                        <div className='flex-icon'>
+                                            <Link to="/login">
+                                                <FaSignInAlt size={25} color="#333" />
+                                            </Link>
+                                        Entre/cadastre-se
+                                        </div>
+                                    )
+                                }
+                            </li>
+                            <li>
+                                <div>
+                                    <Link to="/cart">
+                                        <RiShoppingBasketLine size={32} color='PRIMARY_GREN_LIGHT' />
+                                    </Link>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
             </div>
+
         </Container>
     );
 }

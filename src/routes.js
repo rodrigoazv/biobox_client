@@ -16,7 +16,8 @@ import Biocabanas from './containers/Biocabanas';
 import Location from './containers/Location'
 import ForgotPass from './containers/ForgotPass';
 import RecoveryPass from './containers/RecoveryPass';
-import PassChange from './containers/PassChange'
+import PassChange from './containers/PassChange';
+import NoMatch from './containers/NoMatchRoute'
 
 
 
@@ -65,8 +66,10 @@ const Routes = () => (
           <Route exact path="/forgot" component={ForgotPass} />
           <Route exact path="/pass-change" component={PassChange} />
           <Route exact path="/recovery/:token" component={RecoveryPass}/>
+          <Route component={NoMatch}/>
           <PrivateRoutes exact path="/checkout" component={Checkout} />
           <PrivateRoutes exact path="/checkout/sendorder" component={EndOfOrder} />
+
         </Switch>
       <GlobalStyle/>
       <CheckUserAuth/>

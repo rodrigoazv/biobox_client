@@ -24,7 +24,7 @@ export default function Recipes() {
             </Helmet>
             <HeaderTopNav />
             <div className="content max-margin-width">
-                <section className="box-construct">
+              
                     <div className="box-construct-content">
                         <div className="inner-content-box">
                             <div >
@@ -42,7 +42,7 @@ export default function Recipes() {
 
                     </div>
 
-                </section>
+                
 
             </div>
             <Footer />

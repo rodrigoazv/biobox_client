@@ -40,8 +40,8 @@ export default function CardProduct({props}) {
     }
     function HandleDecrement(){
         setQuantity(quantity-1)
-        if(quantity<=0){
-            setQuantity(0)
+        if(quantity<=1){
+            setQuantity(1)
         }
     }
       //função para lidar com o modal 11

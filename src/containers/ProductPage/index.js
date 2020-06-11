@@ -35,6 +35,10 @@ export default function ProductPage() {
     function HandleIncrement(e) {
         e.preventDefault()
         setQuantity(quantity + 1);
+        if(quantity>8){
+            setQuantity(9)
+            alert('O máximo de compras para pessoa juridica são 9 itens')
+        }
     }
     function HandleDecrement(e) {
         e.preventDefault()
@@ -52,9 +56,7 @@ export default function ProductPage() {
     }
     function HandleSubmit(e) {
         e.preventDefault();
-
-        callModal('modal-full')
-        
+        callModal('modal-full')  
     }
     
   return (

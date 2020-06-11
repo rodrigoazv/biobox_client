@@ -85,4 +85,7 @@ export const Container = styled.section`
           margin:auto;
     }
     }
+    .products ul{
+      list-style:none;
+    }
 `;
