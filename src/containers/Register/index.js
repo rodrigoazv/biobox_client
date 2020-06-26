@@ -6,10 +6,13 @@ import Loading from "../../components/Loading";
 
 import { Container } from "./styles";
 //Components
-import HeaderTop from "../../components/HeaderTop";
-import Footer from "../../components/Footer";
-import ResponsiveNav from "../../components/ResponsiveNav";
-import Button from "../../components/ButtonFull";
+
+import HeaderTop from '../../components/HeaderTop';
+import Footer from '../../components/Footer';
+import UserTerms from '../../components/UserTerms';
+import ResponsiveNav from '../../components/ResponsiveNav';
+import Button from '../../components/ButtonFull';
+
 //assets
 import { FaCheckCircle } from "react-icons/fa";
 import { Radio } from "@material-ui/core";
@@ -64,6 +67,18 @@ export default function Register() {
       alert(`Desculpe, email, cpf ou numero de telefone já cadastrado no sistema tente novamente mudando algum desses campos`);
     }
   }
+  function showTerms() {
+    const showTerm = (IDnav) => {
+        const responsiveNav = document.getElementById(IDnav)
+        responsiveNav.classList.add('self-show')
+        responsiveNav.addEventListener('click', (e) => {
+            if (e.target.id === IDnav || e.target.className === 'close-terms') {
+                responsiveNav.classList.remove('self-show')
+            }
+        })
+    }
+    showTerm('terms-full')
+}
   //MASCARAS DE INPUT PARA REGISTRO BASEADO EM REGEX FUNCIONAR PERFEITAMENTE COM FORMIK 
   const TextMaskCustomCPF = (props) => {
     const { mask, inputRef, ...other } = props;
@@ -305,7 +320,7 @@ export default function Register() {
                   <FaCheckCircle />
                 </span>
                 <span>Ao registrar você aceita todos os</span>
-                <a href="/"> termos de uso</a>
+                <p onClick={showTerms}> termos de uso</p>
               </div>
 
               {isLoading ? (
@@ -318,6 +333,7 @@ export default function Register() {
         </div>
       </div>
       <Footer />
+      <UserTerms/>
       <ResponsiveNav />
     </Container>
   );

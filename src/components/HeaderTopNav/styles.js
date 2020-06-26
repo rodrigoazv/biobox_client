@@ -116,7 +116,8 @@ export const Container = styled.header`
         box-shadow: 0px 2px 18px -9px rgba(0,0,0,0.39);
         @media (min-width: 720px){
             height: 50px;
-            display:none;   
+            display:none;  
+            
         }
     }
     .flex-icon{
@@ -131,9 +132,20 @@ export const Container = styled.header`
         background: white;
         position: fixed;
          width: 100%;
+         top:0;
         box-shadow: 0 -0.83333rem 2.5rem #000;
+<<<<<<< HEAD
         z-index:10;
         
+=======
+        @media (max-width: 720px){
+           box-shadow:unset; 
+                    
+        }
+}
+.nav-on-scroll{
+    top:100px;
+>>>>>>> 9ceb25237ea68980b2c72fbebf5a8635e63f9dee
 }
 
 `;

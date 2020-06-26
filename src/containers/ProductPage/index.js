@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import api from '../../service/api';
 
+
 import { Container } from './styles';
 import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import { addItem } from '../../store/ducks/cart';
 
 import HeaderTopNav from '../../components/HeaderTopNav';
 import ResponsiveNav from '../../components/ResponsiveNav';
@@ -23,6 +26,25 @@ import { FaTruck } from 'react-icons/fa';
 export default function ProductPage() {
     const [product, setProduct] = useState([]);
     const [quantity, setQuantity] = useState(1);
+    const [dataCart, setDataCart] = useState({
+        pid: 'v',
+        quantity:1,
+        price:1,
+        name: product.productName,
+        photo: product.photoUrl,
+        description : product.productDescription
+    });
+    const dispatch = useDispatch();
+    useEffect(() => {
+        setDataCart({
+            pid: product.id,
+            quantity:quantity,
+            price: product.productPrice,
+            name: product.productName,
+            photo: product.photoUrl,
+            description : product.productDescription
+        })
+    },[product, quantity])
     let { id } = useParams();
     useEffect(()=>{
         window.scrollTo(0, 0);
@@ -35,6 +57,10 @@ export default function ProductPage() {
     function HandleIncrement(e) {
         e.preventDefault()
         setQuantity(quantity + 1);
+        if(quantity>8){
+            setQuantity(9)
+            alert('O máximo de compras para pessoa juridica são 9 itens')
+        }
     }
     function HandleDecrement(e) {
         e.preventDefault()
@@ -50,11 +76,9 @@ export default function ProductPage() {
         setTimeout(() => modalBox.classList.remove('self-show'), 2500)
 
     }
-    function HandleSubmit(e) {
-        e.preventDefault();
-
+    function addCartProduct(dataCart){
         callModal('modal-full')
-        
+        dispatch(addItem(dataCart));
     }
     
   return (
@@ -85,8 +109,7 @@ export default function ProductPage() {
                     <div className="price-box">
                         <div className="details-pricebox">
                             <h2 className="price">R$4,00</h2>
-                            <form onSubmit={HandleSubmit}>
-                                <div className="add-cart-form">
+                             <div className="add-cart-form">
                                     <div className="color-add">
                                         <div className="add-control">
                                             <button className="button-quantity" onClick={HandleDecrement}>-</button>
@@ -98,6 +121,7 @@ export default function ProductPage() {
                                    text="Adicionar"
                                    inputColor={PRIMARY_ORANGE}
                                    type="submit"
+                                   onClick={() => addCartProduct(dataCart)} 
                                    />
                                    <Link to="/cart"> <Button 
                                    text="Ir para o carrinho"
@@ -105,7 +129,6 @@ export default function ProductPage() {
                                    type="submit"
                                    /></Link>
                                 </div>
-                            </form>
                         </div>
                         <div className="price-payment">
                             <div className="payment-type">

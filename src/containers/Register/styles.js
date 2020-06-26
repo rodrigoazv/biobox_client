@@ -43,6 +43,10 @@ export const Container = styled.div`
     margin-bottom: 26px;
     color: #162c38;
   }
+  .use-terms p{
+    color: green;
+    cursor:pointer;
+  }
   span{
       margin-left: 1px;
   }
