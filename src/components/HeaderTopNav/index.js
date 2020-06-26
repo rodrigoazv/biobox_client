@@ -52,7 +52,6 @@ export default function HeaderTopNav() {
     function menuOnScroll(){
         function menufixed(){
             let menuonScroll = document.getElementById("menu-fixed")
-            let menuDefault = menuonScroll.offsetTop
             if(window.pageYOffset>110){
                 menuonScroll.classList.add("menu-on-scroll")
             } else{

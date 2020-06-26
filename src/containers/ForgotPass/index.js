@@ -6,30 +6,27 @@ import ButtonFull from '../../components/ButtonFull';
 import { ErrorMessage, Formik, Form , Field } from 'formik';
 
 import {forgotPassData} from '../../store/fetchProduct';
-import {RecoveryPassData} from '../../store/fetchProduct';
-import { useHistory,useParams } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 
 function ForgotPass() {
     const history = useHistory();
     const dispatch = useDispatch();
-    const token = useParams();
-   async function handleSend(form){
-        console.log(form)
-        dispatch(forgotPassData(form));
-        const dataSend ={
-            token: token.token,
-            email: form.email
+    async function handleSend(form){
+            console.log(form)
+            dispatch(forgotPassData(form));
+            const dataSend ={
+                email: form.email
+            }
+            const data = await dispatch(forgotPassData(dataSend));
+            if(data === true){
+                alert(`Tudo Pronto`)
+                history.push('/pass-change')
+            }
+            else{
+                alert(`Erro: ${data}`)
+            }
         }
-        const data = await dispatch(forgotPassData(dataSend));
-        if(data === true){
-            alert(`Tudo Pronto`)
-            history.push('/pass-change')
-        }
-        else{
-            alert(`Erro: ${data}`)
-        }
-    }
         
     
 
