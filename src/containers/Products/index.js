@@ -95,7 +95,7 @@ export default function Products() {
 
                 </div>
                 <div className="products">
-                    <ul>
+                    <ul className="display-flex">
                         {products.map(product=>(
                         <li key={product.id} className="paddingup">
                           <CardProduct
