@@ -156,10 +156,6 @@ export const Container = styled.header`
          width: 100%;
          top:0;
         box-shadow: 0 -0.83333rem 2.5rem #000;
-<<<<<<< HEAD
-        z-index:10;
-        
-=======
 
         z-index:10;
         
@@ -171,6 +167,9 @@ export const Container = styled.header`
 }
 .nav-on-scroll{
     top:100px;
+    position:fixed;
+    background: white;
+    width: 100%;
 
 }
 .min-list{
@@ -178,7 +177,6 @@ export const Container = styled.header`
     color: #333;
     font-weight: 100;
     font-family: Arial, Helvetica, sans-serif;
->>>>>>> 94b005f1285e40652947c448633c8087bce3c3a2
 }
 
 `;
