@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.header`
 
@@ -98,7 +98,29 @@ export const Container = styled.header`
     .inputWithIcon {
         position: relative;
     }
-
+    .listbox{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        z-index: 1;
+        position: absolute;
+        list-style: none;
+        background-color: #fff;
+        overflow: auto;
+        max-height: 200px;
+        border: 1px solid rgba(0,0,0,.25);
+    }
+    .listbox-element{
+        padding: 2px 0 2px 0;
+        display: flex;
+        flex-direction: row;
+        font-weight: 0;
+    }
+    .img-search{
+        max-height: 40px;
+    }
     .inputWithIcon svg {
         position: absolute;
         right: 0;
@@ -134,8 +156,29 @@ export const Container = styled.header`
          width: 100%;
          top:0;
         box-shadow: 0 -0.83333rem 2.5rem #000;
+<<<<<<< HEAD
         z-index:10;
         
+=======
+
+        z-index:10;
+        
+
+        @media (max-width: 720px){
+           box-shadow:unset; 
+                    
+        }
+}
+.nav-on-scroll{
+    top:100px;
+
+}
+.min-list{
+    font-size: 13px;
+    color: #333;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+>>>>>>> 94b005f1285e40652947c448633c8087bce3c3a2
 }
 
 `;

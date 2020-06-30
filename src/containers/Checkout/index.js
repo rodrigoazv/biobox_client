@@ -41,11 +41,12 @@ function Checkout() {
   const [neighborhood, setNeighborhood] = useState("");
   const [products, setProducts] = useState([]);
   const [userId, setUserId] = useState("");
+  const [totalPrice, setTotalPrice] = useState(null)
   const [BoolAdress, setBoolAdress] = useState(Boolean);
   const id = JSON.parse(localStorage.getItem("user_session")); //LocalStorage-set when data response validate token
 
   const user = useSelector((state) => state.user);
-
+  //Variaveis de envio
   const adressUser = Object.assign({}, user.adress);
   useEffect(() => {
     if (adressUser.zipcode) {
@@ -63,7 +64,20 @@ function Checkout() {
 	"complement": "1234",
 	"neighborhood": "1234"
     */
-
+    //Variavel que representa o valor total do pedido
+  const cartProductState = useSelector((state) => state.cart);
+  useEffect(() =>{
+    const productTotal = cartProductState.map((product) => {
+      let productTotal = +product.price * product.quantity;
+      return productTotal;
+    });
+    const totalPrice = productTotal.reduce(
+      (total, productTotal) => total + productTotal,
+      0
+    );
+    setTotalPrice(totalPrice);
+  },[cartProductState])
+  
   // verify token
 
   useEffect(() => {
@@ -109,6 +123,7 @@ function Checkout() {
       products,
       userId,
       adress,
+      totalPrice,
     };
     try {
       await api.post("sendo", cartByUser, headers);
@@ -135,6 +150,7 @@ function Checkout() {
       products,
       userId,
       adressUser,
+      totalPrice,
     };
     try {
       await api.post("sendnoadress", cartByUser, headers);

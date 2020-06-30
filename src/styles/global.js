@@ -45,6 +45,10 @@ export default createGlobalStyle`
     border-radius: 10px;
     outline:none;
     background-color: rgba(242,242,242,.6);
+
+    &:focus{
+      border: 1px green solid;
+    }
   }
   /* Input login and register ( NAV-TOP )*/
   .input-login{
