@@ -21,10 +21,12 @@ export default function EmailBox() {
       alert(response.data.message)
     }
     catch{
-      alert("Email já cadastratado ou inválido");
+      alert("Email já cadastrado ou inválido")
+      
     }
   }
   return (
+    
     <Container>
       <div className="email-box max-margin-width flex-row">
         <div className="width-x2">

@@ -36,8 +36,8 @@ export default function Login() {
 
   async function loginSubmit(form) {
     setIsLoading(true);
-    const teste = await dispatch(postUserLogin(form));
-    if (teste) {
+    const retorno = await dispatch(postUserLogin(form));
+    if (retorno) {
       setIsLoading(false);
       history.push("/");
     } else {
