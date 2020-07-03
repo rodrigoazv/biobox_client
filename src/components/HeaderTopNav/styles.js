@@ -166,7 +166,6 @@ export const Container = styled.header`
       box-shadow: unset;
     }
   }
-
   .min-list {
     font-size: 13px;
     color: #333;
@@ -176,9 +175,10 @@ export const Container = styled.header`
   .undernav-hover {
     align-items: center;
     text-align: center;
+    transition: color .4s;
   }
   .undernav-hover:hover {
-    color: green;
+    color:#91B431;
   }
   .menu-grow {
     border-radius: 4px;

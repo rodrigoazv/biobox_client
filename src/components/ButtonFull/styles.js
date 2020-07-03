@@ -3,7 +3,6 @@ import {PRIMARY_GREN_LIGHT} from '../../styles/colors';
 
 export const Container = styled.button`
   
-    margin-top: 8px;
     background-color: ${props => props.inputColor || `${PRIMARY_GREN_LIGHT}` };
     color: #FFF;
     border: 2px  ; 
@@ -12,7 +11,7 @@ export const Container = styled.button`
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-family:Patua One;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     font-weight:700;
     border-radius: 4px;

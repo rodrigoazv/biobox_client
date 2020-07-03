@@ -69,13 +69,13 @@ export default function HeaderTopNav() {
   function menuOnScroll() {
     function menufixed() {
       let menuonScroll = document.getElementById("menu-fixed");
-      if (window.pageYOffset > 110)
+      if (window.pageYOffset > 2)
         menuonScroll.classList.add("menu-on-scroll");
       else menuonScroll.classList.remove("menu-on-scroll");
     }
     const navpadding = (id) => {
       let navFixed = document.getElementById(id);
-      if (window.pageYOffset > 100) navFixed.classList.add("nav-on-scroll");
+      if (window.pageYOffset > 1) navFixed.classList.add("nav-on-scroll");
       else navFixed.classList.remove("nav-on-scroll");
     };
     window.onscroll = () => {
@@ -87,10 +87,6 @@ export default function HeaderTopNav() {
   menuOnScroll();
 
   const products = useSelector((state) => state.products);
-
-  useEffect(() => {
-    dispatch(getAllProducts());
-  }, [dispatch]);
 
   const {
     getRootProps,
