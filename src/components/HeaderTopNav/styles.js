@@ -166,9 +166,7 @@ export const Container = styled.header`
       box-shadow: unset;
     }
   }
-  .nav-on-scroll {
-    top: 100px;
-  }
+
   .min-list {
     font-size: 13px;
     color: #333;
