@@ -85,4 +85,15 @@ export const Container = styled.section`
           margin:auto;
     }
     }
+    .products ul{
+      list-style:none;
+    }
+    .display-flex{
+      display:flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .paddingup{
+      margin: 0 50px 20px 0;
+    }
 `;

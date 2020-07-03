@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   
-  .end-content{
+  .pass-content{
       margin-top: 50px;
       width:100%;
       border-radius:4px;
@@ -11,25 +11,21 @@ export const Container = styled.div`
       flex-direction:column;
       align-items: center;  
   }
-  .box-end{
+  .box-pass{
     text-align: center;
   }
-  .box-end img{
+  .box-pass img{
       width: 300px;
       @media (max-width: 520px){
             width: 200px;
     } 
 
   }
-  .box-end-content{
+  .box-pass-content{
     width:85%;
      text-align:center;
      margin:auto;
-<<<<<<< HEAD
-     background-color: #FFFAF5;
-=======
-     background-color: #F0F0F0;;
->>>>>>> 9ceb25237ea68980b2c72fbebf5a8635e63f9dee
+     background-color: rgb(270, 240, 245);
      padding: 10%;
 
   }

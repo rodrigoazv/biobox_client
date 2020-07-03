@@ -17,7 +17,7 @@ export default createGlobalStyle`
     background: #fff;
     color: #333;
     -webkit-font-smoothing: antialiased !important;
-    font-weight:100;
+    font-weight:100!important;
   }
   ul {
     list-style: none;
@@ -45,6 +45,10 @@ export default createGlobalStyle`
     border-radius: 10px;
     outline:none;
     background-color: rgba(242,242,242,.6);
+
+    &:focus{
+      border: 1px green solid;
+    }
   }
   /* Input login and register ( NAV-TOP )*/
   .input-login{
@@ -52,14 +56,12 @@ export default createGlobalStyle`
     min-width: 100%;
     font-size: 1rem;
     height: 46px;
-    padding: .5em .5rem .5rem 2rem;
-    border: 1px #A4A4A4 solid;
-    border-radius: 7px;
-    outline:none;
     background-color: #fff;
+    margin: 10px 0!important;
   }
+
   .margin-input{
-    margin:3px 0;
+    margin:5px 0;
     width:100%;
   }
   li{

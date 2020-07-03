@@ -27,14 +27,21 @@ export const getOneUser = (id) =>{
 }
 
 export const forgotPassData = (data) => {
-    console.log(data);
     return async (dispatch) =>{
-        const response = await api.post('forgot_pass', data)
-        console.log(response);
+        try{
+            const response = await api.post('forgot_pass', data)
+            console.log(response);
+            if(response.data.sucess){
+                return true;
+            }
+        }catch(err){
+            console.log(err);
+            return false;
+        }
+      
     }
 }
 export const RecoveryPassData = (data) => {
-    console.log(data);
     return async (dispatch) =>{
         try{
             const response = await api.post('change_pass', data)

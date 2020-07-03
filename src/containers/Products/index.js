@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import HeaderTopNav from '../../components/HeaderTopNav';
 import ResponsiveNav from '../../components/ResponsiveNav';
 import Footer from '../../components/Footer';
+import Modal from '../../components/Modal'
 import CardProduct from '../../components/CardProduct';
 
 import { Helmet } from 'react-helmet';
@@ -94,18 +95,23 @@ export default function Products() {
 
                 </div>
                 <div className="products">
-                    {products.map(product=>(
+                    <ul className="display-flex">
+                        {products.map(product=>(
                         <li key={product.id} className="paddingup">
                           <CardProduct
                             props={product}
                           />
                         </li>
                       ))}
+
+                    </ul>
+                    
                 </div>
 
             </div>
 
             <Footer />
+            <Modal text="Produto adicionado ao Carrinho"/>
             <ResponsiveNav/>
         </Container>
     );

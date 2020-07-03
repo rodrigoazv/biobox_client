@@ -5,6 +5,9 @@ export const Container = styled.div`
       width: 33%;
       padding-right: 50px;
       margin-bottom:15px;
+      @media (max-width: 700px){
+            width:100%
+        }
     
   }
   .input-margin{
