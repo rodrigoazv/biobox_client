@@ -169,6 +169,7 @@ export const Container = styled.header`
   .undernav-hover {
     align-items: center;
     text-align: center;
+    transition: 0.8s;
   }
   .undernav-hover:hover {
     color: green;
