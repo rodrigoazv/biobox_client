@@ -150,15 +150,15 @@ export const Container = styled.header`
     width: 100%;
     top: 0;
     box-shadow: 0 -0.83333rem 2.5rem #000;
-
     z-index: 10;
-
+    transition: 0.4s;
     @media (max-width: 720px) {
       box-shadow: unset;
     }
   }
   .nav-on-scroll {
     top: 100px;
+    
   }
   .min-list {
     font-size: 13px;

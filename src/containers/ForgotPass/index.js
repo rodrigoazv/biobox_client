@@ -13,8 +13,6 @@ function ForgotPass() {
     const history = useHistory();
     const dispatch = useDispatch();
     async function handleSend(form){
-            console.log(form)
-            dispatch(forgotPassData(form));
             const dataSend ={
                 email: form.email
             }
