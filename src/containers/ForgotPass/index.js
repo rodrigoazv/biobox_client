@@ -8,7 +8,6 @@ import { ErrorMessage, Formik, Form, Field } from "formik";
 import { forgotPassData } from "../../store/fetchProduct";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import Loading from "../../components/Loading";
 
 function ForgotPass() {
   const history = useHistory();

@@ -18,8 +18,6 @@ import { PRIMARY_GREN, PRIMARY_ORANGE } from "../../styles/colors";
 
 import { Helmet } from "react-helmet";
 
-import Alface from "../../assets/alface.png";
-
 import { FaTruck } from "react-icons/fa";
 
 export default function ProductPage() {

@@ -17,7 +17,7 @@ import Location from './containers/Location'
 import ForgotPass from './containers/ForgotPass';
 import RecoveryPass from './containers/RecoveryPass';
 import PassChange from './containers/PassChange';
-import NoMatch from './containers/NoMatchRoute'
+//import NoMatch from './containers/NoMatchRoute'
 
 
 

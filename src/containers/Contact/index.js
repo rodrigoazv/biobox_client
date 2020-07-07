@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 
 import { Container } from './styles';
@@ -16,18 +16,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 
 export default function Contact() {
-    const [form, setForm] = useState({ name: '', email: '', title: '', message: '' })
-    function formChange(e) {
-        const { name, value } = e.target
-        setForm({ ...form, [name]: value })
-    }
-    function handleMessage(e) {
-        e.preventDefault()
-        console.log(form)
-        setForm({ name: '', email: '', title: '', message: '' })
 
-
-    }
     return (
         <Container>
             <Helmet>

@@ -11,7 +11,6 @@ import Footer from '../../components/Footer';
 import ResponsiveNav from '../../components/ResponsiveNav';
 import Button from '../../components/ButtonFull';
 
-import { IoIosConstruct } from 'react-icons/io';
 import { Helmet } from 'react-helmet';
 
 export default function NoMatch() {

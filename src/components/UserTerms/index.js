@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Container } from './styles';
-import {Link} from 'react-router-dom'
 //assets
 import Logo from '../../assets/logobio.svg';
 

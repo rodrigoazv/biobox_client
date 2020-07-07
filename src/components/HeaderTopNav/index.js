@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { Container } from "./styles";
 import { Link, useHistory } from "react-router-dom";
@@ -23,7 +23,6 @@ import { logout } from "../../store/ducks/authe";
 
 //Autocomplet Search Bar
 import useAutocomplete from "@material-ui/lab/useAutocomplete";
-import { getAllProducts } from "../../store/fetchProduct";
 //MaterialUi Auth
 import Button from '@material-ui/core/Button';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
@@ -34,7 +33,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 
 export default function HeaderTopNav() {
-  const [search, setSerch] = useState();
+  const [search] = useState();
   const history = useHistory();
   const dispatch = useDispatch();
 

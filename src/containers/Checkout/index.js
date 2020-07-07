@@ -283,9 +283,19 @@ function Checkout() {
                       <label>Bairro:</label>
                       <input
                         className="input-checkout input-margin"
-                        placeholder="Complemento"
+                        placeholder="Bairro"
                         defaultValue={neighborhood}
                         onChange={(e) => setNeighborhood(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label>Bairro:</label>
+                      <input
+                        className="input-checkout input-margin"
+                        placeholder="Complemento (Opcional)"
+                        defaultValue={complement}
+                        onChange={(e) => setComplement(e.target.value)}
                         required
                       />
                     </div>
