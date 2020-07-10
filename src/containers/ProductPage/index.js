@@ -116,12 +116,17 @@ export default function ProductPage() {
                     </button>
                   </div>
                 </div>
+                <div className="button-box">
+                <div className="button-sett">
                 <Button
                   text="Adicionar"
                   inputColor={PRIMARY_ORANGE}
                   type="submit"
                   onClick={() => addCartProduct(dataCart)}
                 />
+
+                </div>
+                <div className="button-sett">
                 <Link to="/cart">
                   {" "}
                   <Button
@@ -130,6 +135,13 @@ export default function ProductPage() {
                     type="submit"
                   />
                 </Link>
+
+                </div>
+
+                </div>
+               
+                
+               
               </div>
             </div>
             <div className="price-payment">

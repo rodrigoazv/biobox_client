@@ -57,7 +57,7 @@ export const Container = styled.div`
   }
   .info-box-inner p{
       padding:100px;
-      font-size: 16px;
+      font-size: 18px;
       @media (max-width: 770px){
         padding:5px;
         text-align:center;

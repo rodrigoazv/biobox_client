@@ -326,7 +326,10 @@ export default function Register() {
               {isLoading ? (
                 <Loading />
               ) : (
-                <Button type="submit" text="Registrar" />
+                <div className="button-sett">
+                   <Button type="submit" text="Registrar" />
+                </div>
+               
               )}
             </Form>
           </Formik>
