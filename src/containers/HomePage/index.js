@@ -77,13 +77,13 @@ export default function HomePage() {
         <link rel="canonical" href="http://biocampeiro.com.br" />
       </Helmet>
       <HeaderTopNav />
-      <section className="main-section">
-        <div>
+      <main className="main-section">
+        <section className="general-banner">
           <a href='/sobre-nos'>
             <img src={Banner} alt="banner" className="banner-response" />
           </a>
-        </div>
-        <div className="product-hole">
+        </section>
+        <section className="product-hole">
           <section className="product-type max-margin-width">
               <div className="product-type-name">HORTA</div>
               <div className="padding-slick">
@@ -154,8 +154,8 @@ export default function HomePage() {
 
           <EmailBox />
 
-        </div>
-      </section>
+        </section>
+      </main>
       <ResponsiveNav/>
       <Modal text="Produto adicionado ao Carrinho" />
       <Footer />

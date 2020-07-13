@@ -2,7 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.header`
   display: block;
-  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  transition: all 300ms ease-in-out;
+  z-index: 3;
+  top: 0;
+  width: 100%;
+  left: 0;
   .max-margin {
     max-width: 1270px;
     padding: 0px 30px;
@@ -67,6 +73,7 @@ export const Container = styled.header`
   div.under-nav-top {
     -webkit-box-align: center;
     align-items: center;
+    position: relative;
     border-top: 0.08333rem solid #f2f2f2;
     -webkit-box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.39);
     -moz-box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.39);
@@ -100,7 +107,7 @@ export const Container = styled.header`
     width: 100%;
     margin: 0;
     padding: 0;
-    z-index: 1;
+    z-index: 10;
     position: absolute;
     list-style: none;
     background-color: #fff;
@@ -128,6 +135,7 @@ export const Container = styled.header`
   .show-when-under-none {
     -webkit-box-align: center;
     align-items: center;
+    position:relative;
     border-top: 0.08333rem solid #f2f2f2;
     -webkit-box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.39);
     -moz-box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.39);
@@ -144,21 +152,25 @@ export const Container = styled.header`
     align-items: center;
     font-weight: 300;
   }
+  .menu-after-scroll {
+    background: white;
+    width: 100%;
+    z-index: 1;
+  }
   .menu-on-scroll {
     background: white;
     position: fixed;
     width: 100%;
     top: 0;
+    z-index: 1;
     box-shadow: 0 -0.83333rem 2.5rem #000;
-
-        @media (max-width: 720px){
-           box-shadow:unset; 
-                    
-        }
-}
-.nav-on-scroll{
-    top:100px;
-    position:fixed;
+    @media (max-width: 720px) {
+      box-shadow: unset;
+    }
+  }
+  .nav-on-scroll {
+    top: 100px;
+    position: fixed;
     background: white;
     width: 100%;
 
@@ -175,10 +187,10 @@ export const Container = styled.header`
   .undernav-hover {
     align-items: center;
     text-align: center;
-    transition: color .4s;
+    transition: color 0.4s;
   }
   .undernav-hover:hover {
-    color:#91B431;
+    color: #91b431;
   }
   .menu-grow {
     border-radius: 4px;

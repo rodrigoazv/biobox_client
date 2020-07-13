@@ -23,6 +23,7 @@ import { FaTruck } from "react-icons/fa";
 export default function ProductPage() {
   const [product, setProduct] = useState([]);
   const [quantity, setQuantity] = useState(1);
+  const [element, setElement] = useState(["No caracteristics"]);
   const [dataCart, setDataCart] = useState({
     pid: "v",
     quantity: 1,
@@ -47,9 +48,10 @@ export default function ProductPage() {
     window.scrollTo(0, 0);
     api.get(`product/${id}`).then((response) => {
       setProduct(response.data);
+      setElement(response.data.element);
+      console.log(response.data)
     });
   }, [id]);
-
   function HandleIncrement(e) {
     e.preventDefault();
     setQuantity(quantity + 1);
@@ -86,11 +88,15 @@ export default function ProductPage() {
       <HeaderTopNav />
       <div className="max-margin-width flex-row">
         <div>
-          <img src={product.photoUrl} className="product-image" alt="productimgae"></img>
+          <img
+            src={product.photoUrl}
+            className="product-image"
+            alt="productimgae"
+          ></img>
         </div>
         <div className="product-detail">
           <div className="product-name">
-            <p>Marca: Biocampeiro</p>
+            <p>Marca: {product.brand}</p>
             <h1>{product.productName}</h1>
             <p>Unidade: {product.productVol}</p>
             <p>{product.productDescription}</p>
@@ -140,8 +146,16 @@ export default function ProductPage() {
               </p>
               <p className="paragraph-payment">Pague antes por email</p>
             </div>
-            <div>
-              <p>caracteristicas</p>
+            <div className="price-payment">
+              <div className="payment-type">Caracteristicas</div>
+              <div className="elementProd">
+                {element.map((data) => (
+                  <span className="spanicon">
+                    <img src={data.iconUrl} alt="no" className="icon" />
+                    {data.name}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -150,9 +164,7 @@ export default function ProductPage() {
         <div className="max-margin-width flex-row">
           <div className="margin">
             <h3>Informações tecnicas</h3>
-            <p>
-              {product.productTecDescription}
-            </p>
+            <p>{product.productTecDescription}</p>
           </div>
         </div>
       </div>

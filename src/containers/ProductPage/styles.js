@@ -8,6 +8,16 @@ export const Container = styled.section`
             height:300px;
         }
     }
+    .icon{
+        height: 22px;
+        width: 22px;
+    }
+    .spanicon{
+        margin: 4px;
+    }
+    .elementProd{
+        padding-top: 10px;
+    }
     .flex-row{
         display:flex;
         flex-direction:row;
@@ -57,6 +67,9 @@ export const Container = styled.section`
         border-radius: 4px;
         padding: 5px;
         text-align: left
+    }
+    .payment-type{
+        font-size:18px;
     }
     .paragraph-payment{
         border-top: 1px solid #d9d9d9;
