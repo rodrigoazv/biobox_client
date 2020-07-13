@@ -58,7 +58,7 @@ export const Container = styled.section`
         background: #91B431;
     }
     .gran-li{
-        background:rgb(101,67,33);
+        background:#311F17;
     }
     .biop-li{
         background:rgb(128,172,154);
@@ -69,7 +69,7 @@ export const Container = styled.section`
         font-size:12px;
     }
     .granel{
-      background: rgb(101,67,33);
+      background: #311F17;
       border-radius:4px;
       font-size:12px;
     }
