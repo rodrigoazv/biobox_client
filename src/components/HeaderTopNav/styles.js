@@ -173,7 +173,7 @@ export const Container = styled.header`
     position: fixed;
     background: white;
     width: 100%;
-
+    z-index: 10;
     @media (max-width: 720px) {
       box-shadow: unset;
     }

@@ -18,7 +18,7 @@ export const Container = styled.div`
     display:flex;
     flex-direction: row;
     align-items:center;
-    font-size:15px;
+    font-size:16px;
     margin-top: 1%;
     padding:2.5%;
     @media (max-width: 770px){

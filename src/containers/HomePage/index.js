@@ -68,7 +68,7 @@ export default function HomePage() {
   }, [dispatch])
 
   //reducer addProducts in cart
- 
+
   return (
     <Container>
       <Helmet>
@@ -82,66 +82,82 @@ export default function HomePage() {
           <a href='/sobre-nos'>
             <img src={Banner} alt="banner" className="banner-response" />
           </a>
+
         </section>
         <section className="product-hole">
+          <div className="info-stripe max-margin-width">
+            <p>Frete Grátis</p>
+            <p>Entrega em Taperoá-BA</p>
+            <p>Produtos colhidos 1 dia antes</p>
+          </div>
+        </section>
+        <div className="product-hole">
           <section className="product-type max-margin-width">
-              <div className="product-type-name">HORTA</div>
-              <div className="padding-slick">
-                <ul>
-                  {products.length !== 0  ? (
+            <div className="product-type-name">HORTA</div>
+            <div className="padding-slick">
+              <ul>
+                {products.length !== 0 ? (
                   <Slider {...settings}>
-                      {products.map(product=>(
-                        <li key={product.id} className="paddingup">
-                          <CardProduct
-                            props={product}
-                          />
-                        </li>
-                      ))}
-                  </Slider>):(<p>Sem produtos nessa categoria, por enquanto ! </p>)}
-                  
-                </ul>
-              </div>
+                    {products.map(product => (
+                      <li key={product.id} className="paddingup">
+                        <CardProduct
+                          props={product}
+                        />
+                      </li>
+                    ))}
+                  </Slider>) : (<p>Sem produtos nessa categoria, por enquanto ! </p>)}
+
+              </ul>
+            </div>
           </section>
           <section className="product-type max-margin-width">
             <div className="product-type-name">GRANEL</div>
             <ul className="padding-ul">
-                {products.length !== 0  ? (
-                  <Slider {...settings}>
-                      {products.map(product=>(
-                        <li key={product.id} className="paddingup">
-                          <CardProduct
-                            props={product}
-                          />
-                        </li>
-                      ))}
-                  </Slider>):(<p>Sem produtos nessa categoria, por enquanto ! </p>)}
+              {products.length !== 0 ? (
+                <Slider {...settings}>
+                  {products.map(product => (
+                    <li key={product.id} className="paddingup">
+                      <CardProduct
+                        props={product}
+                      />
+                    </li>
+                  ))}
+                </Slider>) : (<p>Sem produtos nessa categoria, por enquanto ! </p>)}
             </ul>
           </section>
           <section className="product-type max-margin-width">
             <div className="product-type-name">BIOPRODUTOS</div>
             <ul className="padding-ul">
-              {products.length !== 0  
+              {products.length !== 0
                 ? (<Slider {...settings}>
-                      {products.map(product=>(
-                        <li key={product.id} className="paddingup">
-                          <CardProduct
-                            props={product}
-                          />
-                        </li>
-                      ))}
-                  </Slider>)
-                  : (<p>Sem produtos nessa categoria, por enquanto ! </p>)
-                  }
+                  {products.map(product => (
+                    <li key={product.id} className="paddingup">
+                      <CardProduct
+                        props={product}
+                      />
+                    </li>
+                  ))}
+                </Slider>)
+                : (<p>Sem produtos nessa categoria, por enquanto ! </p>)
+              }
             </ul>
           </section>
           <div className="info-box max-margin-width">
-            <div className="info-box-content">
+            <div className="info-box-phrase">
               <h1>Porque nós fazemos o que fazemos?</h1>
-              <div className="info-box-inner">
-                <p>1.Alimentar você de forma limpa e sem agrotóxicos</p>
-                <img alt="Info-Bio" src={InfoBio1}></img>
-                <p>2.Ajudar o pequeno agricultor</p>
-              </div>
+              <p>Entenda nossa filosofia e junte-se à família Biocampeiro</p>
+            </div>
+            <div className="info-box-content">
+              <img alt="Info-Bio" src={InfoBio1}></img>
+              <p>1.Alimentar você de forma limpa e sem agrotóxicos</p>
+            </div>
+            <div className="info-box-content">
+              <img alt="Info-Bio" src={InfoBio1}></img>
+              <p>2.Ajudar o pequeno agricultor no seu desenvolvimento</p>
+            </div>
+            <div className="info-box-content">
+              <img alt="Info-Bio" src={InfoBio1}></img>
+              <p>3.Levar sua feira até você, sem complicações</p>
             </div>
 
           </div>
@@ -154,9 +170,10 @@ export default function HomePage() {
 
           <EmailBox />
 
-        </section>
+        </div>
       </main>
       <ResponsiveNav/>
+
       <Modal text="Produto adicionado ao Carrinho" />
       <Footer />
     </Container>

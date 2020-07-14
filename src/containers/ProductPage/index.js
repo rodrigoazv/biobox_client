@@ -82,7 +82,8 @@ export default function ProductPage() {
     <Container>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Biocampeiro - Produtos</title>
+        <title>{`Biocampeiro - ${product.productName}`}</title>
+        <meta name="description" content={`${product.productDescription}`}/>
         <link rel="canonical" href="http://biocampeiro.com.br" />
       </Helmet>
       <HeaderTopNav />
@@ -122,12 +123,17 @@ export default function ProductPage() {
                     </button>
                   </div>
                 </div>
+                <div className="button-box">
+                <div className="button-sett">
                 <Button
                   text="Adicionar"
                   inputColor={PRIMARY_ORANGE}
                   type="submit"
                   onClick={() => addCartProduct(dataCart)}
                 />
+
+                </div>
+                <div className="button-sett">
                 <Link to="/cart">
                   {" "}
                   <Button
@@ -136,6 +142,13 @@ export default function ProductPage() {
                     type="submit"
                   />
                 </Link>
+
+                </div>
+
+                </div>
+               
+                
+               
               </div>
             </div>
             <div className="price-payment">

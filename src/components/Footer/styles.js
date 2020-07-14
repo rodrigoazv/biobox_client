@@ -61,5 +61,6 @@ export const Container = styled.footer`
       border-top: 1px solid #333;
       padding: 30px 0;
       text-align: center;
+      font-family: 'Kreon', cursive;
   }
 `;

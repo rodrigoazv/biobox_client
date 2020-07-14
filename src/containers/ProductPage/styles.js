@@ -82,6 +82,9 @@ export const Container = styled.section`
         background-color:#f2f2f2;
         width:100%;
     }  
+    .button-box{
+        width:180px;
+    }
     .margin{
         margin:100px 0;
         width: 50%;
