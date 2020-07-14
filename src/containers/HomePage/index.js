@@ -90,25 +90,23 @@ export default function HomePage() {
              data-aos="zoom"
              data-aos-delay="20"
              data-aos-duration="2000"
-             data-aos-once="false"
+             data-aos-once="true"
              data-aos-anchor-placement="top-center"
-             data-aos-offset="2"
-            >Frete Grátis</p>
+             >Frete Grátis</p>
             <p
             data-aos="zoom"
             data-aos-delay="350"
             data-aos-duration="3220"
-            data-aos-once="false"
+            data-aos-once="true"
             data-aos-anchor-placement="top-center"
-            data-aos-offset="2"
+           
             >Entrega em Taperoá-BA</p>
             <p
             data-aos="zoom"
             data-aos-delay="550"
             data-aos-duration="4120"
-            data-aos-once="false"
+            data-aos-once="true"
             data-aos-anchor-placement="top-center"
-            data-aos-offset="2"
             >Produtos colhidos 1 dia antes</p>
           </div>
         </div>
