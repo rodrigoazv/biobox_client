@@ -13,7 +13,7 @@ export default createGlobalStyle`
   }
   body {
     font-family: 'Patua One', cursive;  
-    background: #fff;
+    background: #FFFCF9;
     color: #333;
     -webkit-font-smoothing: antialiased !important;
     font-weight:100!important;

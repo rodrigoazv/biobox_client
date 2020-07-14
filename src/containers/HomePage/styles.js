@@ -15,6 +15,11 @@ export const Container = styled.div`
     .paddingup{
         padding-top:10px;
         padding-bottom:10px;
+        margin: 0 25px;
+        @media (max-width: 850px){
+            margin: 0 2px;
+    } 
+
     }
 
     .product-hole{
@@ -27,27 +32,28 @@ export const Container = styled.div`
         margin-top: 20px;
     }
     .product-type-name{
-        border-bottom: .08333rem solid #A4A4A4;
-        font-size: 1.41667rem;
+        border-bottom: 2px solid #816A5A;
+        font-size: 1.61667rem;
         font-weight: 600;
         padding-left: 1.25rem;
         padding-right: 1.25rem;
-        text-align: center;
+        text-align: left;
         margin-top:50px;
         margin-bottom:25px;
+        color: #816A5A;
   }
     .info-box{
         position:initial;
         margin-top: 50px;
         margin-bottom:50px;
-        border-radius: 24px;
         display:flex;
-        padding:2%;
+        flex-direction:row;
+        justify-content:space-between;
         @media (max-width: 850px){
          text-align:center;
          flex-direction: column;
          margin: auto;
-         justify-content: center;
+         justify-content:center;
          align-items:center;
     } 
         
@@ -57,8 +63,8 @@ export const Container = styled.div`
       margin:1%;
       background: #F0F0F0;
       border-radius:24px;
-      width:21.5vw;
       text-align:center;
+      width:21.5vw;
       @media (max-width: 850px){
          width:80vw;
     } 
