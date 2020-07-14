@@ -40,14 +40,14 @@ export const Container = styled.div`
         position:initial;
         margin-top: 50px;
         margin-bottom:50px;
-        border-radius: 24px;
         display:flex;
-        padding:2%;
+        flex-direction:row;
+        justify-content:space-between;
         @media (max-width: 850px){
          text-align:center;
          flex-direction: column;
          margin: auto;
-         justify-content: center;
+         justify-content:center;
          align-items:center;
     } 
         
@@ -57,8 +57,8 @@ export const Container = styled.div`
       margin:1%;
       background: #F0F0F0;
       border-radius:24px;
-      width:21.5vw;
       text-align:center;
+      width:21.5vw;
       @media (max-width: 850px){
          width:80vw;
     } 

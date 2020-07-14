@@ -25,11 +25,7 @@ export const Container = styled.div`
     width:85%;
      text-align:center;
      margin:auto;
-<<<<<<< HEAD
-     background-color: #FFFAF5;
-=======
      background-color: #F0F0F0;;
->>>>>>> 9ceb25237ea68980b2c72fbebf5a8635e63f9dee
      padding: 10%;
 
   }
