@@ -5,6 +5,7 @@ import cartReducer from './ducks/cart';
 import layoutReducer from './ducks/layout';
 import authReducer from './ducks/authe';
 import userReducer from './ducks/user';
+import categoryReducer from './ducks/category'
 
 
 export default configureStore({
@@ -15,5 +16,6 @@ export default configureStore({
         layout: layoutReducer,
         authe : authReducer,
         user: userReducer,
+        category: categoryReducer,
     }
 });
