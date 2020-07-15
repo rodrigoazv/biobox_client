@@ -1,8 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Kreon|Patua+One|Roboto&display=swap');
-
+ 
   * {
     margin: 0;
     padding: 0;
@@ -14,7 +13,7 @@ export default createGlobalStyle`
   }
   body {
     font-family: 'Patua One', cursive;  
-    background: #fff;
+    background: #FFFCF9;
     color: #333;
     -webkit-font-smoothing: antialiased !important;
     font-weight:100!important;
@@ -73,13 +72,19 @@ export default createGlobalStyle`
     font-weight: 200;
     font-family: 'Patua One', cursive;
   }
+  p{
+    font-family: 'Kreon', cursive;
+  }
 
   .flex-display{
     display:flex;
     flex-direction:column;
     align-items:center;
   }
-
+.button-sett{
+  padding: 2% 0 2% 0;
+  width: 100%;
+}
 
   .add-control{
         height: 40px;

@@ -8,6 +8,16 @@ export const Container = styled.section`
             height:300px;
         }
     }
+    .icon{
+        height: 22px;
+        width: 22px;
+    }
+    .spanicon{
+        margin: 4px;
+    }
+    .elementProd{
+        padding-top: 10px;
+    }
     .flex-row{
         display:flex;
         flex-direction:row;
@@ -58,6 +68,9 @@ export const Container = styled.section`
         padding: 5px;
         text-align: left
     }
+    .payment-type{
+        font-size:18px;
+    }
     .paragraph-payment{
         border-top: 1px solid #d9d9d9;
         margin-top: 7px;
@@ -69,6 +82,9 @@ export const Container = styled.section`
         background-color:#f2f2f2;
         width:100%;
     }  
+    .button-box{
+        width:180px;
+    }
     .margin{
         margin:100px 0;
         width: 50%;

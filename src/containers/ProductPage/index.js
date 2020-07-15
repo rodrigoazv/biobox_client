@@ -23,6 +23,7 @@ import { FaTruck } from "react-icons/fa";
 export default function ProductPage() {
   const [product, setProduct] = useState([]);
   const [quantity, setQuantity] = useState(1);
+  const [element, setElement] = useState(["No caracteristics"]);
   const [dataCart, setDataCart] = useState({
     pid: "v",
     quantity: 1,
@@ -47,9 +48,10 @@ export default function ProductPage() {
     window.scrollTo(0, 0);
     api.get(`product/${id}`).then((response) => {
       setProduct(response.data);
+      setElement(response.data.element);
+      console.log(response.data)
     });
   }, [id]);
-
   function HandleIncrement(e) {
     e.preventDefault();
     setQuantity(quantity + 1);
@@ -80,17 +82,22 @@ export default function ProductPage() {
     <Container>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Biocampeiro - Produtos</title>
+        <title>{`Biocampeiro - ${product.productName}`}</title>
+        <meta name="description" content={`${product.productDescription}`}/>
         <link rel="canonical" href="http://biocampeiro.com.br" />
       </Helmet>
       <HeaderTopNav />
       <div className="max-margin-width flex-row">
         <div>
-          <img src={product.photoUrl} className="product-image" alt="productimgae"></img>
+          <img
+            src={product.photoUrl}
+            className="product-image"
+            alt="productimgae"
+          ></img>
         </div>
         <div className="product-detail">
           <div className="product-name">
-            <p>Marca: Biocampeiro</p>
+            <p>Marca: {product.brand}</p>
             <h1>{product.productName}</h1>
             <p>Unidade: {product.productVol}</p>
             <p>{product.productDescription}</p>
@@ -116,12 +123,17 @@ export default function ProductPage() {
                     </button>
                   </div>
                 </div>
+                <div className="button-box">
+                <div className="button-sett">
                 <Button
                   text="Adicionar"
                   inputColor={PRIMARY_ORANGE}
                   type="submit"
                   onClick={() => addCartProduct(dataCart)}
                 />
+
+                </div>
+                <div className="button-sett">
                 <Link to="/cart">
                   {" "}
                   <Button
@@ -130,6 +142,13 @@ export default function ProductPage() {
                     type="submit"
                   />
                 </Link>
+
+                </div>
+
+                </div>
+               
+                
+               
               </div>
             </div>
             <div className="price-payment">
@@ -140,8 +159,16 @@ export default function ProductPage() {
               </p>
               <p className="paragraph-payment">Pague antes por email</p>
             </div>
-            <div>
-              <p>caracteristicas</p>
+            <div className="price-payment">
+              <div className="payment-type">Caracteristicas</div>
+              <div className="elementProd">
+                {element.map((data) => (
+                  <span className="spanicon">
+                    <img src={data.iconUrl} alt="no" className="icon" />
+                    {data.name}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -150,9 +177,7 @@ export default function ProductPage() {
         <div className="max-margin-width flex-row">
           <div className="margin">
             <h3>Informações tecnicas</h3>
-            <p>
-              {product.productTecDescription}
-            </p>
+            <p>{product.productTecDescription}</p>
           </div>
         </div>
       </div>

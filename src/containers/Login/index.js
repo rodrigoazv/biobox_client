@@ -121,7 +121,7 @@ export default function Login() {
                   name="password"
                 />
               </div>
-              {isLoading ? <Loading /> : <Button type="submit" text="Entrar" />}
+              {isLoading ? <Loading /> : <div className="button-sett"><Button type="submit" text="Entrar" /></div>}
               <Link to="/forgot">
                 <h4>Esqueci minha senha</h4>
               </Link>

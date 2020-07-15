@@ -68,13 +68,13 @@ export default function HeaderTopNav() {
   function menuOnScroll() {
     function menufixed() {
       let menuonScroll = document.getElementById("menu-fixed");
-      if (window.pageYOffset > 2)
+      if (window.pageYOffset > 1)
         menuonScroll.classList.add("menu-on-scroll");
       else menuonScroll.classList.remove("menu-on-scroll");
     }
     const navpadding = (id) => {
       let navFixed = document.getElementById(id);
-      if (window.pageYOffset > 1) navFixed.classList.add("nav-on-scroll");
+      if (window.pageYOffset > 2) navFixed.classList.add("nav-on-scroll");
       else navFixed.classList.remove("nav-on-scroll");
     };
     window.onscroll = () => {
@@ -136,7 +136,7 @@ export default function HeaderTopNav() {
   }, [open]);
   return (
     <Container className="top-nav-sizing">
-      <div id="menu-fixed">
+      <div id="menu-fixed" className="menu-after-scroll">
         <div className="max-margin">
           <div className="nav-elements-mother">
             <div>
