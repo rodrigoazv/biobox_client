@@ -152,7 +152,14 @@ export default function HomePage() {
               </section>
             ))
           ) : (
-            <h2>data</h2>
+            <section className="product-type max-margin-width display-flex-row">
+               <Skeleton variant="rect" width={165} height={200} />
+               <Skeleton variant="rect" width={165} height={200} />
+               <Skeleton variant="rect" width={165} height={200} />
+               <Skeleton variant="rect" width={165} height={200} />
+               <Skeleton variant="rect" width={165} height={200} />
+          </section>
+           
           )}
 
           <div className="info-box max-margin-width">
@@ -166,7 +173,6 @@ export default function HomePage() {
               data-aos-duration="1000"
               data-aos-once="false"
               data-aos-anchor-placement="top-center"
-              data-aos-offset="2"
               className="info-box-content"
             >
               <img alt="Info-Bio" src={InfoBio1}></img>
@@ -175,10 +181,9 @@ export default function HomePage() {
             <div
               data-aos="zoom"
               data-aos-delay="350"
-              data-aos-duration="1120"
+              data-aos-duration="1150"
               data-aos-once="false"
               data-aos-anchor-placement="top-center"
-              data-aos-offset="2"
               className="info-box-content"
             >
               <img alt="Info-Bio" src={InfoBio1}></img>
@@ -186,12 +191,11 @@ export default function HomePage() {
             </div>
             <div
               data-aos="zoom"
-              data-aos-delay="450"
+              data-aos-delay="550"
               data-aos-duration="1200"
               data-aos-once="false"
               data-aos-anchor-placement="top-center"
-              data-aos-offset="2"
-              className="info-box-content"
+             className="info-box-content"
             >
               <img alt="Info-Bio" src={InfoBio1}></img>
               <p>3.Levar sua feira até você, sem complicações</p>
