@@ -7,7 +7,18 @@ export const Container = styled.div`
     .general-banner{
         background-repeat:no-repeat;
         background-position:center top;
+        @media (max-width: 360px){
+            display:none
     }
+    }
+    .general-banner-mobile{
+        background-repeat:no-repeat;
+        background-position:center top;
+        @media (min-width: 360px){
+            display:none
+    } 
+    }
+
     .banner-response{
         max-width:100%;
         margin:auto;

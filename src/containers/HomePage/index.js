@@ -9,6 +9,7 @@ import Footer from "../../components/Footer";
 import ResponsiveNav from "../../components/ResponsiveNav";
 //asssets
 import Banner from "../../assets/banner.png";
+import BannerResponsive from "../../assets/Banner@2x.png";
 import BannerFood from "../../assets/BannerFood.png";
 import InfoBio1 from "../../assets/InfoBio1.svg";
 import Modal from "../../components/Modal";
@@ -24,7 +25,7 @@ import Skeleton from "@material-ui/lab/Skeleton";
 //import api from '../../service/api';
 
 import { useSelector, useDispatch } from "react-redux";
-import { getAllCategory } from "../../store/fetchProduct";
+import { getAllCategory, getAllProducts} from "../../store/fetchProduct";
 
 export default function HomePage() {
   const settings = {
@@ -71,6 +72,10 @@ export default function HomePage() {
   useEffect(() => {
     dispatch(getAllCategory());
   }, [dispatch]);
+
+  useEffect(() =>{
+    dispatch(getAllProducts());
+  }, [dispatch])
   console.log(category);
   //reducer addProducts in cart
 
@@ -83,11 +88,16 @@ export default function HomePage() {
       </Helmet>
       <HeaderTopNav />
       <main className="main-section">
-        <section className="general-banner">
+        <div className="general-banner">
           <a href="/sobre-nos">
             <img src={Banner} alt="banner" className="banner-response" />
           </a>
-        </section>
+        </div>
+        <div className="general-banner-mobile">
+          <a href="/sobre-nos">
+            <img src={BannerResponsive} alt="banner" className="banner-response" />
+          </a>
+        </div>
         <section className="product-hole">
           <div className="info-stripe max-margin-width">
             <p

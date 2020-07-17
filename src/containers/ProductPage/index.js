@@ -101,6 +101,7 @@ export default function ProductPage() {
             <h1>{product.productName}</h1>
             <p>Unidade: {product.productVol}</p>
             <p>{product.productDescription}</p>
+            <p>Já ajudamos nossos fornecedores comprando: {product.sellQuantity}</p>
           </div>
           <div className="price-box">
             <div className="details-pricebox">
