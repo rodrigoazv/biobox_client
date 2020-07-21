@@ -7,14 +7,14 @@ export const Container = styled.div`
     .general-banner{
         background-repeat:no-repeat;
         background-position:center top;
-        @media (max-width: 360px){
+        @media (max-width: 500px){
             display:none
     }
     }
     .general-banner-mobile{
         background-repeat:no-repeat;
         background-position:center top;
-        @media (min-width: 360px){
+        @media (min-width: 500px){
             display:none
     } 
     }
