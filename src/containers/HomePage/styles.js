@@ -1,23 +1,26 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  .main-section {
-    border-top: none;
-  }
-  .general-banner {
-    background-repeat: no-repeat;
-    background-position: center top;
-    @media (max-width: 360px) {
-      display: none;
+
+    .main-section{
+        border-top:none;
     }
-  }
-  .general-banner-mobile {
-    background-repeat: no-repeat;
-    background-position: center top;
-    @media (min-width: 360px) {
-      display: none;
+    .general-banner{
+        background-repeat:no-repeat;
+        background-position:center top;
+        @media (max-width: 500px){
+            display:none
     }
-  }
+    }
+    .general-banner-mobile{
+        background-repeat:no-repeat;
+        background-position:center top;
+        @media (min-width: 500px){
+            display:none
+    } 
+
+    }
+  
 
   .banner-response {
     max-width: 100%;
