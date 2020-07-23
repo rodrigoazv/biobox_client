@@ -81,6 +81,12 @@ export default createGlobalStyle`
     flex-direction:column;
     align-items:center;
   }
+  .display-flex-row{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+  }
 .button-sett{
   padding: 2% 0 2% 0;
   width: 100%;

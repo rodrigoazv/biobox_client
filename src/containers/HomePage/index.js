@@ -9,6 +9,7 @@ import Footer from "../../components/Footer";
 import ResponsiveNav from "../../components/ResponsiveNav";
 //asssets
 import Banner from "../../assets/banner.png";
+import BannerResponsive from "../../assets/Banner@2x.png";
 import BannerFood from "../../assets/BannerFood.png";
 import InfoBio1 from "../../assets/InfoBio1.svg";
 import Modal from "../../components/Modal";
@@ -24,7 +25,7 @@ import Skeleton from "@material-ui/lab/Skeleton";
 //import api from '../../service/api';
 
 import { useSelector, useDispatch } from "react-redux";
-import { getAllCategory } from "../../store/fetchProduct";
+import { getAllCategory, getAllProducts} from "../../store/fetchProduct";
 
 export default function HomePage() {
   const settings = {
@@ -71,6 +72,10 @@ export default function HomePage() {
   useEffect(() => {
     dispatch(getAllCategory());
   }, [dispatch]);
+
+  useEffect(() =>{
+    dispatch(getAllProducts());
+  }, [dispatch])
   console.log(category);
   //reducer addProducts in cart
 
@@ -83,11 +88,16 @@ export default function HomePage() {
       </Helmet>
       <HeaderTopNav />
       <main className="main-section">
-        <section className="general-banner">
+        <div className="general-banner">
           <a href="/sobre-nos">
             <img src={Banner} alt="banner" className="banner-response" />
           </a>
-        </section>
+        </div>
+        <div className="general-banner-mobile">
+          <a href="/sobre-nos">
+            <img src={BannerResponsive} alt="banner" className="banner-response" />
+          </a>
+        </div>
         <section className="product-hole">
           <div className="info-stripe max-margin-width">
             <p
@@ -142,7 +152,14 @@ export default function HomePage() {
               </section>
             ))
           ) : (
-            <h2>data</h2>
+            <section className="product-type max-margin-width display-flex-row">
+               <Skeleton variant="rect" width={165} height={200} />
+               <Skeleton variant="rect" width={165} height={200} />
+               <Skeleton variant="rect" width={165} height={200} />
+               <Skeleton variant="rect" width={165} height={200} />
+               <Skeleton variant="rect" width={165} height={200} />
+          </section>
+           
           )}
 
           <div className="info-box max-margin-width">
@@ -156,7 +173,6 @@ export default function HomePage() {
               data-aos-duration="1000"
               data-aos-once="false"
               data-aos-anchor-placement="top-center"
-              data-aos-offset="2"
               className="info-box-content"
             >
               <img alt="Info-Bio" src={InfoBio1}></img>
@@ -165,10 +181,9 @@ export default function HomePage() {
             <div
               data-aos="zoom"
               data-aos-delay="350"
-              data-aos-duration="1120"
+              data-aos-duration="1150"
               data-aos-once="false"
               data-aos-anchor-placement="top-center"
-              data-aos-offset="2"
               className="info-box-content"
             >
               <img alt="Info-Bio" src={InfoBio1}></img>
@@ -176,12 +191,11 @@ export default function HomePage() {
             </div>
             <div
               data-aos="zoom"
-              data-aos-delay="450"
+              data-aos-delay="550"
               data-aos-duration="1200"
               data-aos-once="false"
               data-aos-anchor-placement="top-center"
-              data-aos-offset="2"
-              className="info-box-content"
+             className="info-box-content"
             >
               <img alt="Info-Bio" src={InfoBio1}></img>
               <p>3.Levar sua feira até você, sem complicações</p>

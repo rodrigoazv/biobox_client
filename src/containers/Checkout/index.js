@@ -42,6 +42,9 @@ function Checkout() {
   const [products, setProducts] = useState([]);
   const [userId, setUserId] = useState("");
   const [totalPrice, setTotalPrice] = useState(null)
+  const [shipValue] = useState(0)
+  const [shipStatus] = useState('Pedido')
+  const [vaucher] = useState('No')
   const [BoolAdress, setBoolAdress] = useState(Boolean);
   const id = JSON.parse(localStorage.getItem("user_session")); //LocalStorage-set when data response validate token
 
@@ -124,6 +127,9 @@ function Checkout() {
       userId,
       adress,
       totalPrice,
+      shipValue,
+      shipStatus,
+      vaucher
     };
     try {
       await api.post("sendo", cartByUser, headers);
@@ -151,6 +157,9 @@ function Checkout() {
       userId,
       adressUser,
       totalPrice,
+      shipValue,
+      shipStatus,
+      vaucher
     };
     try {
       await api.post("sendnoadress", cartByUser, headers);

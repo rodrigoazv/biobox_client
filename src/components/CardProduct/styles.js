@@ -70,7 +70,7 @@ export const Container = styled.div`
   }
   }
   .padding-into {
-    padding: 15px;
+    padding: 5px;
   }
   .flex-quant {
     margin-top: 10px;
