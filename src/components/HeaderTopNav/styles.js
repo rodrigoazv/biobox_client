@@ -27,14 +27,13 @@ export const Container = styled.header`
   .searchBar {
     width: 55%;
     margin-left: 0;
+    z-index:11;
     @media (max-width: 720px) {
       margin-bottom: 10px;
       width: 100%;
     }
   }
-  .link-top {
-    margin-left: 4px;
-  }
+  
   a {
     color: #333;
     text-decoration: none;
@@ -68,6 +67,11 @@ export const Container = styled.header`
     @media (max-width: 956px) {
       display: flex;
       flex-direction: column;
+    }
+  }
+  .show{
+    @media (max-width: 720px) {
+      display:none;
     }
   }
   div.under-nav-top {
@@ -114,6 +118,7 @@ export const Container = styled.header`
     overflow: auto;
     max-height: 200px;
     border: 1px solid rgba(0, 0, 0, 0.25);
+    
   }
   .listbox-element {
     padding: 2px 0 2px 0;
@@ -140,6 +145,7 @@ export const Container = styled.header`
     -webkit-box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.39);
     -moz-box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.39);
     box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.39);
+    z-index: 1;
     @media (min-width: 720px) {
       height: 50px;
       display: none;
@@ -151,6 +157,7 @@ export const Container = styled.header`
     font-size: 10px;
     align-items: center;
     font-weight: 300;
+    background: #fff;
   }
   .menu-after-scroll {
     background: white;
@@ -173,7 +180,7 @@ export const Container = styled.header`
     position: fixed;
     background: white;
     width: 100%;
-    z-index: 10;
+    z-index:1;
     @media (max-width: 720px) {
       box-shadow: unset;
     }
@@ -192,12 +199,5 @@ export const Container = styled.header`
   .undernav-hover:hover {
     color: #91b431;
   }
-  .menu-grow {
-    border-radius: 4px;
-    border: solid 1px #ccc;
-
-    -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.18);
-    -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.18);
-    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.18);
-  }
+  
 `;

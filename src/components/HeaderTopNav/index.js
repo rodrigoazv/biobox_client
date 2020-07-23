@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Container } from "./styles";
 import { Link, useHistory } from "react-router-dom";
 import "../../styles/colors";
+import ButtonLog from "./ButtonLog";
 
 //assets import
 import Logo from "../../assets/logobio.svg";
@@ -10,36 +11,25 @@ import { RiShoppingBasketLine } from "react-icons/ri";
 import { FaSignInAlt } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import { FaGripLines } from "react-icons/fa";
-import { FaSignOutAlt } from "react-icons/fa";
 import { FaLeaf } from "react-icons/fa";
 import { FaConciergeBell } from "react-icons/fa";
 import { FaHouseDamage } from "react-icons/fa";
 import { FaPagelines } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
-import { FaUserCircle } from "react-icons/fa";
 
-import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../../store/ducks/authe";
+import { useSelector } from "react-redux";
 
 //Autocomplet Search Bar
 import useAutocomplete from "@material-ui/lab/useAutocomplete";
 //MaterialUi Auth
-import Button from '@material-ui/core/Button';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
 
 export default function HeaderTopNav() {
   const [search] = useState();
   const history = useHistory();
-  const dispatch = useDispatch();
 
   const length = useSelector((state) => state.cart.length);
   const { isAuthenticated } = useSelector((state) => state.authe);
-  const user = JSON.parse(localStorage.getItem("user_session"));
+  //const user = JSON.parse(localStorage.getItem("user_session"));
 
   function showNav() {
     const showMenu = (IDnav) => {
@@ -59,17 +49,10 @@ export default function HeaderTopNav() {
     history.push(`product/${search}`);
   }
 
-  function handleSignOut(e) {
-    e.preventDefault();
-    dispatch(logout());
-    localStorage.removeItem("sback_id");
-    localStorage.removeItem("user_session");
-  }
   function menuOnScroll() {
     function menufixed() {
       let menuonScroll = document.getElementById("menu-fixed");
-      if (window.pageYOffset > 1)
-        menuonScroll.classList.add("menu-on-scroll");
+      if (window.pageYOffset > 1) menuonScroll.classList.add("menu-on-scroll");
       else menuonScroll.classList.remove("menu-on-scroll");
     }
     const navpadding = (id) => {
@@ -100,40 +83,6 @@ export default function HeaderTopNav() {
     getOptionLabel: (option) => option.productName,
   });
 
-
-  /*Material ui configurations for isAuthenticat*/
-
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef(null);
-
-  const handleToggle = () => {
-    setOpen((prevOpen) => !prevOpen);
-  };
-
-  const handleClose = (event) => {
-    if (anchorRef.current && anchorRef.current.contains(event.target)) {
-      return;
-    }
-
-    setOpen(false);
-  };
-
-  function handleListKeyDown(event) {
-    if (event.key === 'Tab') {
-      event.preventDefault();
-      setOpen(false);
-    }
-  }
-
-  // return focus to the button when we transitioned from !open -> open
-  const prevOpen = React.useRef(open);
-  React.useEffect(() => {
-    if (prevOpen.current === true && open === false) {
-      anchorRef.current.focus();
-    }
-
-    prevOpen.current = open;
-  }, [open]);
   return (
     <Container className="top-nav-sizing">
       <div id="menu-fixed" className="menu-after-scroll">
@@ -175,9 +124,11 @@ export default function HeaderTopNav() {
                                 />
                                 <div>
                                   <p>{option.productName}</p>
-                                  <p className="min-list">{option.productDescription}</p>
+                                  <p className="min-list">
+                                    {option.productDescription}
+                                  </p>
                                 </div>
-                              </div>    
+                              </div>
                             </Link>
                           </li>
                         ))}
@@ -194,45 +145,9 @@ export default function HeaderTopNav() {
               </form>
             </div>
             {isAuthenticated ? (
-              <div className="menu-grow">
-              <Button
-                ref={anchorRef}
-                aria-controls={open ? 'menu-list-grow' : undefined}
-                aria-haspopup="true"
-                onClick={handleToggle}
-              >
-                <FaUserCircle size={16}/><span className="link-top">{user.userName.split(" ")[0]}</span>
-              </Button>
-              <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
-                {({ TransitionProps, placement }) => (
-                  <Grow
-                    {...TransitionProps}
-                    style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-                  >
-                    
-                    <Paper>
-                      <ClickAwayListener onClickAway={handleClose}>
-                        <MenuList autoFocusItem={open} id="menu-list-grow" className="flex-icon" onKeyDown={handleListKeyDown}>
-                          <MenuItem onClick={handleClose}>Convide um amigo</MenuItem>
-                          <MenuItem onClick={handleSignOut}><FaSignOutAlt /> Sair</MenuItem>
-                        </MenuList>
-                      </ClickAwayListener>
-                    </Paper>
-                    
-                  </Grow>
-                )}
-              </Popper>
+              <div className="show">
+              <ButtonLog />
               </div>
-              /*<div className="display-show">
-                <p>
-                  Olá,
-                  {user.userName.split(" ")[0]}
-                </p>
-                <p>Boas compras</p>
-                <button onClick={handleSignOut}>
-                  <FaSignOutAlt />
-                </button>
-              </div>*/
             ) : (
               <div className="display-show">
                 <Link to="/login">Entre </Link>
@@ -255,19 +170,34 @@ export default function HeaderTopNav() {
         <nav className="max-margin">
           <ul>
             <li>
-              <Link  className="undernav-hover" to="/bioprodutos"><FaLeaf size={16} /><span className="link-top">Produtos</span></Link>
+              <Link className="undernav-hover" to="/bioprodutos">
+                <FaLeaf size={16} />
+                <span className="link-top">Produtos</span>
+              </Link>
             </li>
             <li>
-              <Link className="undernav-hover" to="/receitas"><FaConciergeBell size={16} /><span className="link-top">Receitas</span></Link>
+              <Link className="undernav-hover" to="/receitas">
+                <FaConciergeBell size={16} />
+                <span className="link-top">Receitas</span>
+              </Link>
             </li>
             <li>
-              <Link className="undernav-hover" to="/sobre-nos"><FaPagelines size={16} /><span className="link-top">Sobre nós</span></Link>
+              <Link className="undernav-hover" to="/sobre-nos">
+                <FaPagelines size={16} />
+                <span className="link-top">Sobre nós</span>
+              </Link>
             </li>
             <li>
-              <Link className="undernav-hover" to="/biocabanas"><FaHouseDamage size={16} /><span className="link-top">Biocabanas</span></Link>
+              <Link className="undernav-hover" to="/biocabanas">
+                <FaHouseDamage size={16} />
+                <span className="link-top">Biocabanas</span>
+              </Link>
             </li>
             <li>
-              <Link className="undernav-hover" to="/contato"><FaEnvelope size={16} /><span className="link-top">Contato</span></Link>
+              <Link className="undernav-hover" to="/contato">
+                <FaEnvelope size={16} />
+                <span className="link-top">Contato</span>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -283,17 +213,7 @@ export default function HeaderTopNav() {
               </li>
               <li>
                 {isAuthenticated ? (
-                
-                  <div className="flex-icon">
-                    <div>
-                      <FaSignInAlt
-                        onClick={handleSignOut}
-                        size={25}
-                        color="#333"
-                      />
-                    </div>
-                    Sair
-                  </div>
+                  <ButtonLog />
                 ) : (
                   <div className="flex-icon">
                     <Link to="/login">
