@@ -5,6 +5,10 @@ export const Container = styled.div`
     margin-top:40px;
     margin-bottom: 200px;
   }
+  .display-flex-cart{
+    display: flex;
+    justify-content: space-between;
+  }
   .cart-box{
     display:flex;
     flex-direction: row;
@@ -29,6 +33,7 @@ export const Container = styled.div`
   }
   p{
     font-weight:100;
+    font-size:10px;
   }
   h4{
     font-size:13px;
@@ -55,6 +60,9 @@ export const Container = styled.div`
     display: flex;
     flex-direction:column;
     width:60%;
+    @media (max-width: 720px) {
+      width:100%;
+  }
   }
   .cart-photo{
     height:30px;
@@ -62,6 +70,9 @@ export const Container = styled.div`
   }
   .flex-end{
     padding-right: 50px;
+    @media (max-width: 720px) {
+      padding: 10px;
+    }
   }
   .mini-button{
     background-color:transparent;
