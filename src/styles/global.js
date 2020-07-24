@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
  
@@ -122,6 +122,10 @@ export default createGlobalStyle`
     .margint-top-bot{
       margin-top: 100px;
       margin-bottom: 100px;
+      @media (max-width: 500px){
+        margin-top: 10px;
+      margin-bottom: 70px;
+    }
     }
     .err-form{
       font-size: 12px;

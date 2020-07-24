@@ -42,7 +42,7 @@ function CartPage() {
       <div className="max-margin-width margin-align  cart-box">
         <div className="box-product">
           <h2>Carrinho</h2>
-          <div>
+          <div className="full-width">
             {cartProductState === 0 ? (
               <p>Carrinho vazio</p>
             ) : (
@@ -50,7 +50,7 @@ function CartPage() {
                 <ul>
                   {cartProductState.map((product) => (
                     <li key={product.pid}>
-                      <div className="display-flex">
+                      <div className="display-flex-cart">
                         <img
                           src={product.photo}
                           alt="none"
@@ -59,7 +59,7 @@ function CartPage() {
 
                         <div>
                           <h4>{product.name}</h4>
-                          <p>{product.description}</p>
+                          <p className="display-none-test">{product.description}</p>
                         </div>
                       </div>
                       <div className="flex-end">Preço: R${product.price}</div>
