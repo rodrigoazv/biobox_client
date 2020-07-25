@@ -17,10 +17,14 @@ import GlutenF from '../../assets/gluten-free.png';
 import Tree from '../../assets/tree.png'
 
 //assets
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Helmet } from 'react-helmet';
 
 
-export default function About() {
+export default function About() { 
+      //Animation on Scroll init
+      AOS.init();
     return (
         <Container>
             <Helmet>
@@ -45,7 +49,7 @@ export default function About() {
                     Morbi luctus ligula sit amet risus maximus, ornare sodales lacus molestie. Pellentesque eget erat ut diam posuere varius et lacinia lectus. Morbi et mi eu magna molestie posuere et ut sem. Nullam sagittis arcu eget elementum feugiat. Mauris ut enim odio. Donec posuere consectetur tristique. Ut rhoncus vel elit id consequat. Aenean id imperdiet dolor, non molestie metus. Ut erat justo, dictum eu scelerisque non, lacinia a lacus. Ut at libero nec lorem pulvinar gravida. Donec hendrerit blandit nunc a posuere. Pellentesque bibendum nec elit sit amet mattis.</p>
                     </div>
                 </section>
-                <div className="about-imgs">
+                <div className="about-imgs" data-aos="fade-up">
                     <ul className="about-img-list">
                         <li><img src={Beans} alt='img' ></img></li>
                         <li><img src={Food} alt='img'></img></li>

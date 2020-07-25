@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { Container } from "./styles";
 //Components
 import HeaderTop from "../../components/HeaderTop";
-import Footer from "../../components/Footer";
 import ResponsiveNav from "../../components/ResponsiveNav";
 import Button from "../../components/ButtonFull";
 import Loading from "../../components/Loading";
@@ -13,7 +12,7 @@ import Loading from "../../components/Loading";
 import { postUserLogin } from "../../store/fetchProduct";
 import { Helmet } from "react-helmet";
 //Material UI
-import TextField from '@material-ui/core/TextField';
+import TextField from "@material-ui/core/TextField";
 
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import * as yup from "yup";
@@ -57,10 +56,6 @@ export default function Login() {
         <section className="text-cad">
           <h1 className="text-cad">Login</h1>
           <p>Acessar sua conta</p>
-
-          <Link to="/register">
-            <h4>Ainda não tenho conta</h4>
-          </Link>
         </section>
         <div className="box-form">
           <Formik
@@ -97,6 +92,9 @@ export default function Login() {
                 />
               </div>
               <div className="margin-input">
+                <Link to="/forgot" className="right">
+                  Esqueceu sua senha ?
+                </Link>
                 <Field
                   className="input-login"
                   name="password"
@@ -115,21 +113,30 @@ export default function Login() {
                     );
                   }}
                 />
+
                 <ErrorMessage
                   className="err-form"
                   component="span"
                   name="password"
                 />
               </div>
-              {isLoading ? <Loading /> : <div className="button-sett"><Button type="submit" text="Entrar" /></div>}
-              <Link to="/forgot">
-                <h4>Esqueci minha senha</h4>
-              </Link>
+              {isLoading ? (
+                <Loading />
+              ) : (
+                <div className="button-sett">
+                  <Button type="submit" text="Entrar" />
+                </div>
+              )}
+              <p>
+                Ainda não tenho conta ?  
+                <Link to="/register" style={{ color: "#95b737" }}>
+                  Cadastre-se.
+                </Link>
+              </p>
             </Form>
           </Formik>
         </div>
       </div>
-      <Footer />
       <ResponsiveNav />
     </Container>
   );

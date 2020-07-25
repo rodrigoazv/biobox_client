@@ -55,7 +55,17 @@ function ForgotPass() {
                 name="email"
               />
             </div>
-            {loading ? <div>...</div> : <div className="button-sett"> <ButtonFull text="Enviar" type="submit" /></div>}
+            {loading ? (
+              <div className="button-sett">
+                {" "}
+                <ButtonFull text="Carregando.." inputColor="gray"/>
+              </div>
+            ) : (
+              <div className="button-sett">
+                {" "}
+                <ButtonFull text="Enviar" type="submit" />
+              </div>
+            )}
           </Form>
         </Formik>
       </div>

@@ -27,6 +27,7 @@ export const Container = styled.div`
     @media (max-width: 984px) {
       width: 100%;
       margin-top: 10px;
+      margin-left:0;
     }
   }
   .align-horizontal {

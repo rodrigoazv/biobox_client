@@ -5,6 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import "../../styles/colors";
 import ButtonLog from "./ButtonLog";
 
+
 //assets import
 import Logo from "../../assets/logobio.svg";
 import { RiShoppingBasketLine } from "react-icons/ri";
@@ -52,12 +53,12 @@ export default function HeaderTopNav() {
   function menuOnScroll() {
     function menufixed() {
       let menuonScroll = document.getElementById("menu-fixed");
-      if (window.pageYOffset > 1) menuonScroll.classList.add("menu-on-scroll");
+      if (window.pageYOffset > 50) menuonScroll.classList.add("menu-on-scroll");
       else menuonScroll.classList.remove("menu-on-scroll");
     }
     const navpadding = (id) => {
       let navFixed = document.getElementById(id);
-      if (window.pageYOffset > 2) navFixed.classList.add("nav-on-scroll");
+      if (window.pageYOffset > 60) navFixed.classList.add("nav-on-scroll");
       else navFixed.classList.remove("nav-on-scroll");
     };
     window.onscroll = () => {
@@ -89,9 +90,9 @@ export default function HeaderTopNav() {
         <div className="max-margin">
           <div className="nav-elements-mother">
             <div>
-              <Link to="/">
+              <a href="/">
                 <img src={Logo} alt="none" className="logo-sizing" />
-              </Link>
+              </a>
             </div>
             <div className="searchBar">
               <form className="max-margin">
@@ -150,15 +151,15 @@ export default function HeaderTopNav() {
               </div>
             ) : (
               <div className="display-show">
-                <Link to="/login">Entre </Link>
-                <span>ou </span>
-                <Link to="/register">cadastre-se</Link>
+                <Link to="/login" className="login">Entre </Link>
+                <span> ou </span>
+                <Link to="/register" className="login">cadastre-se</Link>
               </div>
             )}
 
-            <div className="display-show">
+            <div className="display-show cart-box" >
               <Link to="/cart">
-                <RiShoppingBasketLine size={36} color="#95B737" />
+                <RiShoppingBasketLine size={36}/>
                 <span>{length}</span>
               </Link>
             </div>
@@ -224,12 +225,12 @@ export default function HeaderTopNav() {
                 )}
               </li>
               <li>
-                <div>
+                <div className="cart-box">
                   <Link to="/cart">
                     <RiShoppingBasketLine
                       size={32}
-                      color="PRIMARY_GREN_LIGHT"
                     />
+                    <span>{length}</span>
                   </Link>
                 </div>
               </li>

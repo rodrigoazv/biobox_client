@@ -8,7 +8,6 @@ import { Container } from "./styles";
 //Components
 
 import HeaderTop from '../../components/HeaderTop';
-import Footer from '../../components/Footer';
 import UserTerms from '../../components/UserTerms';
 import ResponsiveNav from '../../components/ResponsiveNav';
 import Button from '../../components/ButtonFull';
@@ -122,8 +121,8 @@ export default function Register() {
       <HeaderTop />
       <div className="content max-margin-width">
         <section className="text-cad">
-          <h1 className="text-cad">Cadastro</h1>
-          <p>Faça seu cadastro:</p>
+          <h1 className="text-cad">Cadastre-se</h1>
+          <p className="make-login">Faça seu cadastro é rápido e fácil:</p>
           <Link to="/login">Já tenho cadastro</Link>
         </section>
         <div className="box-form">
@@ -191,7 +190,7 @@ export default function Register() {
               </div>
               <div className="margin-input">
                 <div className="flex-sexo">
-                  <span>Masculino</span>
+                  
                   <Field
                     placeholder="Nome completo*"
                     type="radio"
@@ -199,7 +198,8 @@ export default function Register() {
                     value="Masculino"
                     as={Radio}
                   />
-                  <span>Feminino</span>
+                  <span>Masculino</span>
+                  
                   <Field
                     placeholder="Nome completo*"
                     type="radio"
@@ -207,6 +207,16 @@ export default function Register() {
                     value="Feminino"
                     as={Radio}
                   />
+                  <span>Feminino</span>
+
+                  <Field
+                    placeholder="Nome completo*"
+                    type="radio"
+                    name="sexo"
+                    value="Outro"
+                    as={Radio}
+                  />
+                  <span>Outro</span>
                 </div>
                 <ErrorMessage
                   className="err-form"
@@ -335,7 +345,6 @@ export default function Register() {
           </Formik>
         </div>
       </div>
-      <Footer />
       <UserTerms/>
       <ResponsiveNav />
     </Container>

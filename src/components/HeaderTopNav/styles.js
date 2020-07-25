@@ -8,6 +8,7 @@ export const Container = styled.header`
   z-index: 3;
   top: 0;
   width: 100%;
+  position:fixed;
   left: 0;
   .max-margin {
     max-width: 1270px;
@@ -20,6 +21,37 @@ export const Container = styled.header`
   .top-nav-sizing {
     width: 100%;
     height: 80px;
+  }
+  .cart-box span{
+    background: #7FBC44;
+    color: #fff;
+    font-size: .69rem;
+    font-weight: 700;
+    border-radius: 50%;
+    width: 1.19rem;
+    height: 1.19rem;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    transition: all 150ms ease-in-out;
+    top: -1.1rem;
+    left: 0;
+  }
+  .cart-box{
+    background-color:white;
+    border: 1px solid #fff;
+    border-radius:5px;
+    padding: 2px;
+    height: 2.5rem;
+  }
+  .cart-box:hover{
+    border: 1px solid rgba(135, 147, 149, 0.3);
+    border-radius:5px;
   }
   .none {
     display: none;
@@ -42,8 +74,11 @@ export const Container = styled.header`
   }
   .display-show {
     @media (max-width: 720px) {
-      display: none;
+      display: none!important;
     }
+  }
+  .login{
+    text-decoration: underline;
   }
   .display-show button {
     color: white;
@@ -52,6 +87,9 @@ export const Container = styled.header`
     border-radius: 2.5px;
     cursor: pointer;
     transition: background-color 0.4s;
+    @media (max-width: 720px) {
+      display: none!important;
+    }
   }
   .display-show button:hover {
     background-color: red;

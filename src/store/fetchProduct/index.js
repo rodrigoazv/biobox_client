@@ -28,13 +28,14 @@ export const getAllCategory = () => {
 }
 
 export const getOneUser = (id) =>{
-    return (dispatch) =>{
-        api
-            .get(`useri/${id}`)
-            .then(res=>{
-                dispatch(getUser(res.data.user))
-            })
-            .catch(console.log())
+    return async (dispatch) =>{
+        try{
+            const response = await api.get(`useri/${id}`);
+            dispatch(getUser(response.data.user))
+            return true;
+        }catch{
+            return false;
+        }
     }
 }
 

@@ -22,7 +22,8 @@ export const Container = styled.div`
   .product-name {
     color: #333;
     margin: 10px 0;
-    font-size: 16px;
+    height:32px;
+    font-size: .81rem;
     font-weight: 500;
     font-family: sans-serif;
   }
