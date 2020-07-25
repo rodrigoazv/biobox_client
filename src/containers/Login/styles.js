@@ -28,15 +28,23 @@ export const Container = styled.div`
       text-align:center;
   }
   .content{
-      margin-top: 50px;
       width:100%;
-      padding:0 96px 96px 96px  ;
+      padding:0 96px 0 96px  ;
       border-radius:4px;
       display: flex;
       justify-content: space-between;
       flex-direction:column;
      
       align-items: center;  
+  }
+  .right{
+    font-size: 15px;
+    font-weight: 400;
+    font-family: sans-serif;
+    padding: 0 10px;
+    text-decoration: underline;
+    display:flex;
+    justify-content: flex-end;
   }
   span{
     margin-left: 1px;

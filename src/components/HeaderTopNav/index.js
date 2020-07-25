@@ -5,6 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import "../../styles/colors";
 import ButtonLog from "./ButtonLog";
 
+
 //assets import
 import Logo from "../../assets/logobio.svg";
 import { RiShoppingBasketLine } from "react-icons/ri";
@@ -52,12 +53,12 @@ export default function HeaderTopNav() {
   function menuOnScroll() {
     function menufixed() {
       let menuonScroll = document.getElementById("menu-fixed");
-      if (window.pageYOffset > 1) menuonScroll.classList.add("menu-on-scroll");
+      if (window.pageYOffset > 50) menuonScroll.classList.add("menu-on-scroll");
       else menuonScroll.classList.remove("menu-on-scroll");
     }
     const navpadding = (id) => {
       let navFixed = document.getElementById(id);
-      if (window.pageYOffset > 2) navFixed.classList.add("nav-on-scroll");
+      if (window.pageYOffset > 60) navFixed.classList.add("nav-on-scroll");
       else navFixed.classList.remove("nav-on-scroll");
     };
     window.onscroll = () => {

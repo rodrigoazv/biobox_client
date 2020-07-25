@@ -17,6 +17,7 @@ export default createGlobalStyle`
     color: #333;
     -webkit-font-smoothing: antialiased !important;
     font-weight:100!important;
+    padding-top: 8.0rem;
   }
   ul {
     list-style: none;

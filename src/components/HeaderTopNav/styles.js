@@ -8,6 +8,7 @@ export const Container = styled.header`
   z-index: 3;
   top: 0;
   width: 100%;
+  position:fixed;
   left: 0;
   .max-margin {
     max-width: 1270px;
@@ -64,6 +65,7 @@ export const Container = styled.header`
     justify-content: space-between;
     -webkit-box-align: center;
     align-items: center;
+    transition: 0.8s;
     @media (max-width: 956px) {
       display: flex;
       flex-direction: column;
@@ -79,6 +81,7 @@ export const Container = styled.header`
     align-items: center;
     position: relative;
     border-top: 0.08333rem solid #f2f2f2;
+    transition: 0.8s;
     -webkit-box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.39);
     -moz-box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.39);
     box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.39);
