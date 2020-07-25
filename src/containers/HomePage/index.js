@@ -105,6 +105,7 @@ export default function HomePage() {
               data-aos-delay="20"
               data-aos-duration="200"
               data-aos-once="false"
+              data-aos-offset="-150"
               data-aos-anchor-placement="top-center"
             >
               Frete Grátis
@@ -114,6 +115,7 @@ export default function HomePage() {
               data-aos-delay="150"
               data-aos-duration="220"
               data-aos-once="false"
+              data-aos-offset="-150"
               data-aos-anchor-placement="top-center"
             >
               Entrega em Taperoá-BA
@@ -123,6 +125,7 @@ export default function HomePage() {
               data-aos-delay="250"
               data-aos-duration="320"
               data-aos-once="false"
+              data-aos-offset="-150"
               data-aos-anchor-placement="top-center"
             >
               Produtos colhidos 1 dia antes
@@ -168,34 +171,22 @@ export default function HomePage() {
               <p>Entenda nossa filosofia e junte-se à família Biocampeiro</p>
             </div>
             <div
-              data-aos="zoom"
-              data-aos-delay="50"
-              data-aos-duration="1000"
-              data-aos-once="false"
-              data-aos-anchor-placement="top-center"
+              data-aos="fade-up"
               className="info-box-content"
             >
               <img alt="Info-Bio" src={InfoBio1}></img>
               <p>1.Alimentar você de forma limpa e sem agrotóxicos</p>
             </div>
             <div
-              data-aos="zoom"
-              data-aos-delay="350"
-              data-aos-duration="1150"
-              data-aos-once="false"
-              data-aos-anchor-placement="top-center"
+              data-aos="fade-up"
               className="info-box-content"
             >
               <img alt="Info-Bio" src={InfoBio1}></img>
               <p>2.Ajudar o pequeno agricultor no seu desenvolvimento</p>
             </div>
             <div
-              data-aos="zoom"
-              data-aos-delay="550"
-              data-aos-duration="1200"
-              data-aos-once="false"
-              data-aos-anchor-placement="top-center"
-             className="info-box-content"
+              data-aos="fade-up"
+              className="info-box-content"
             >
               <img alt="Info-Bio" src={InfoBio1}></img>
               <p>3.Levar sua feira até você, sem complicações</p>

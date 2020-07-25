@@ -1,92 +1,111 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
-  margin:0;
-  .background-h2{
-      background-color:#95B737;
-      font-weight: 100;
-      color:#fff;
-      font-size:20px;
-      padding: 3px 0 3px 15px;
-      border-radius:5px;   
+  margin: 0;
+  .background-h2 {
+    background-color: #95b737;
+    font-weight: 100;
+    color: #fff;
+    font-size: 20px;
+    padding: 3px 0 3px 15px;
+    border-radius: 5px;
   }
-  .flex-form{
-      display:flex;
+  .flex-form {
+    display: flex;
+    @media (max-width: 500px) {
+      flex-direction: column;
+    }
   }
-  .box-checkout{
+  .box-checkout {
     width: 50%;
-    border-radius:10px;
+    border-radius: 10px;
     border: 1px solid #ddd;
     padding: 25px;
     max-width: 400px;
+    @media (max-width: 500px) {
+      width: 100%;
+    }
   }
-  .form-adress{
-    width:50%;
-    padding-right:50px;
+  .form-adress {
+    width: 50%;
+    padding-right: 50px;
+    @media (max-width: 500px) {
+      width: 100%;
+      padding: 0;
+    }
   }
-  .form-margin-width{
-      width: 33%;
-      padding-right: 50px;
-      margin-bottom:15px;
-    
-  }.form-margin-width-2x{
-      width: 66%;
-      margin-bottom:15px;
-    
+  .form-margin-width {
+    width: 33%;
+    padding-right: 50px;
+    margin-bottom: 15px;
+    @media (max-width: 500px) {
+      width: 100%;
+      padding: 0;
+    }
   }
-  .form-submit{
-    display:flex;
+  .form-margin-width-2x {
+    width: 66%;
+    margin-bottom: 15px;
+    @media (max-width: 500px) {
+      width: 100%;
+      padding: 0;
+    }
+  }
+  .form-submit {
+    display: flex;
     justify-content: space-between;
-
+    @media (max-width: 500px) {
+      flex-direction: column;
+    }
   }
-  .input-margin{
-      margin-top:4px;
-  } 
-  .input-checkout{
+  .input-margin {
+    margin-top: 4px;
+  }
+  .input-checkout {
     width: 100%;
     max-width: 100%;
     font-size: 1rem;
     height: 30px;
-    padding: .5em .5rem .5rem 2rem;
-    border: 1px #A4A4A4 solid;
+    padding: 0.5em 0.5rem 0.5rem 2rem;
+    border: 1px #a4a4a4 solid;
     border-radius: 5px;
-    outline:none;
+    outline: none;
     background-color: white;
   }
-  
-  .button-change{
+
+  .button-change {
     padding: 3px;
-    width:100%;
+    width: 100%;
     color: grey;
-    border:none;
+    border: none;
     cursor: pointer;
   }
-  .button-change:hover{
+  .button-change:hover {
     color: green;
     cursor: pointer;
   }
 
-  .input-checkout:hover{
-    border: 2px #95B737 solid;
-
+  .input-checkout:hover {
+    border: 2px #95b737 solid;
   }
-  .input-checkout-autoload{
+  .input-checkout-autoload {
     width: 100%;
     max-width: 100%;
     font-size: 1rem;
     height: 30px;
-    padding: .5em .5rem .5rem 2rem;
-    border: 1px #A4A4A4 solid;
+    padding: 0.5em 0.5rem 0.5rem 2rem;
+    border: 1px #a4a4a4 solid;
     border-radius: 5px;
-    outline:none;
-    background-color: #F1F1F1;
+    outline: none;
+    background-color: #f1f1f1;
   }
-  .input-05{
-    margin-left:5px;
+  .input-05 {
+    margin-left: 5px;
   }
-  label{
+  label {
     padding: 0 5px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color:gray;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color: gray;
   }
 `;

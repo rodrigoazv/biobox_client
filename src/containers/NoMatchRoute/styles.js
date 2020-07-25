@@ -7,10 +7,7 @@ export const Container = styled.div`
 
   }
   .content{
-      margin-top: 50px;
-      margin-bottom:50px;
       width:100%;
-      padding:80px 80px 80px 80px  ;
       border-radius:8px;
       background:#F0F0F0;
       display: flex;
@@ -30,7 +27,7 @@ export const Container = styled.div`
      text-align:center;
      margin:auto;
      background-color: #F0F0F0;
-     padding: 10%;
+     padding: 5% 10%;
 
   }
   .box-construct-content div{
