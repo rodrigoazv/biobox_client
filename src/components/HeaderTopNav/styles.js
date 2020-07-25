@@ -22,6 +22,37 @@ export const Container = styled.header`
     width: 100%;
     height: 80px;
   }
+  .cart-box span{
+    background: #7FBC44;
+    color: #fff;
+    font-size: .69rem;
+    font-weight: 700;
+    border-radius: 50%;
+    width: 1.19rem;
+    height: 1.19rem;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    transition: all 150ms ease-in-out;
+    top: -1.1rem;
+    left: 0;
+  }
+  .cart-box{
+    background-color:white;
+    border: 1px solid #fff;
+    border-radius:5px;
+    padding: 2px;
+    height: 2.5rem;
+  }
+  .cart-box:hover{
+    border: 1px solid rgba(135, 147, 149, 0.3);
+    border-radius:5px;
+  }
   .none {
     display: none;
   }
@@ -43,8 +74,11 @@ export const Container = styled.header`
   }
   .display-show {
     @media (max-width: 720px) {
-      display: none;
+      display: none!important;
     }
+  }
+  .login{
+    text-decoration: underline;
   }
   .display-show button {
     color: white;
@@ -53,6 +87,9 @@ export const Container = styled.header`
     border-radius: 2.5px;
     cursor: pointer;
     transition: background-color 0.4s;
+    @media (max-width: 720px) {
+      display: none!important;
+    }
   }
   .display-show button:hover {
     background-color: red;
@@ -65,7 +102,6 @@ export const Container = styled.header`
     justify-content: space-between;
     -webkit-box-align: center;
     align-items: center;
-    transition: 0.8s;
     @media (max-width: 956px) {
       display: flex;
       flex-direction: column;
@@ -81,7 +117,6 @@ export const Container = styled.header`
     align-items: center;
     position: relative;
     border-top: 0.08333rem solid #f2f2f2;
-    transition: 0.8s;
     -webkit-box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.39);
     -moz-box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.39);
     box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.39);

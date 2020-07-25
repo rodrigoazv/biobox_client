@@ -33,7 +33,8 @@ export const Container = styled.div`
   }
   p{
     font-weight:100;
-    font-size:10px;
+    font-size:15px;
+    margin: 0 0 10px 0;
   }
   h4{
     font-size:13px;

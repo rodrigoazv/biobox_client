@@ -45,6 +45,7 @@ export const Container = styled.div`
     text-decoration: underline;
     display:flex;
     justify-content: flex-end;
+    color: #333;
   }
   span{
     margin-left: 1px;

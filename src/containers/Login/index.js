@@ -127,10 +127,12 @@ export default function Login() {
                   <Button type="submit" text="Entrar" />
                 </div>
               )}
-
-              <Link to="/register">
-                <h4>Ainda não tenho conta</h4>
-              </Link>
+              <p>
+                Ainda não tenho conta ?  
+                <Link to="/register" style={{ color: "#95b737" }}>
+                  Cadastre-se.
+                </Link>
+              </p>
             </Form>
           </Formik>
         </div>

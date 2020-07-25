@@ -6,6 +6,7 @@ import HeaderTopNav from "../../components/HeaderTopNav";
 import Footer from "../../components/Footer";
 import ResponsiveNav from "../../components/ResponsiveNav";
 import ButtonFull from "../../components/ButtonFull";
+import { formatPrice } from '../../helpers';
 
 import { useSelector, useDispatch } from "react-redux";
 import { removeItem } from "../../store/ducks/cart";
@@ -62,8 +63,8 @@ function CartPage() {
                           <p className="display-none-test">{product.description}</p>
                         </div>
                       </div>
-                      <div className="flex-end">Preço: R${product.price}</div>
-                      <div className="flex-end">Quantidade: {product.quantity}</div>
+                      <div className="flex-end">Preço: {formatPrice(product.price)}</div>
+                      <div className="flex-end">Qntde: {product.quantity}</div>
                       <button
                         className="mini-button"
                         onClick={() => removeProductCart(product.pid)}
@@ -84,7 +85,7 @@ function CartPage() {
           </p>
           <div className="display-flex">
             <h2>Sub-total</h2>
-            <h2>R$ {total},0</h2>
+            <h2>{formatPrice(total)}</h2>
           </div>
           <Link to="/checkout">
             <ButtonFull text="Fazer pedido" />

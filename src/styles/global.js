@@ -12,7 +12,8 @@ export default createGlobalStyle`
     height: 100%;
   }
   body {
-    font-family: 'Patua One', cursive;  
+    font-family: Arial, Helvetica, sans-serif;  
+    font-weight: 600;
     background: #FFFCF9;
     color: #333;
     -webkit-font-smoothing: antialiased !important;
@@ -121,11 +122,11 @@ export default createGlobalStyle`
         font-size:20px
     }
     .margint-top-bot{
-      margin-top: 100px;
-      margin-bottom: 100px;
+      margin-top: 70px;
+      margin-bottom: 70px;
       @media (max-width: 500px){
         margin-top: 10px;
-      margin-bottom: 70px;
+        margin-bottom: 70px;
     }
     }
     .err-form{
