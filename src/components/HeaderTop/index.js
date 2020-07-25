@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Container } from './styles';
 import "../../styles/colors";
-import {Link} from 'react-router-dom';
 
 //assets import
 import Logo from '../../assets/logobio.svg';
@@ -16,9 +15,9 @@ export default function HeaderTop() {
                 <div className="max-margin">
                     <div >
                         <div className= "nav-elements">
-                            <Link to="/">
+                            <a href="/">
                                 <img src={Logo} alt="none" className="logo-sizing"/>
-                            </Link>
+                            </a>
                             <a className="back-home" href="/"> Voltar Para o Início</a>
                         </div>
                     

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
 
 import { Container } from './styles';
 import { Helmet } from 'react-helmet';
@@ -35,7 +34,7 @@ export default function EndOfOrder() {
                                 <img alt="" src={InfoBio2}></img>
                             </div>
                             <div>
-                                <Link to="/"><Button text="Retornar" /></Link>
+                                <a href="/"><Button text="Retornar" /></a>
                             </div>
                         </div>
 
