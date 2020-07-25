@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Container } from './styles';
 import Loader from 'react-loader-spinner'
-import { Redirect } from 'react-router-dom';
 
 function Loading() {
   return <Container>
@@ -12,7 +11,6 @@ function Loading() {
         height={30}
         width={30}
     />
-    <Redirect to='/login'/>
   </Container>;
 }
 

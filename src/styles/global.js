@@ -12,7 +12,8 @@ export default createGlobalStyle`
     height: 100%;
   }
   body {
-    font-family: 'Patua One', cursive;  
+    font-family: Arial, Helvetica, sans-serif;  
+    font-weight: 600;
     background: #FFFCF9;
     color: #333;
     -webkit-font-smoothing: antialiased !important;

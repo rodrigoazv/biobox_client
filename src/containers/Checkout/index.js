@@ -6,6 +6,7 @@ import { Container } from "./styles";
 import Footer from "../../components/Footer";
 import HeaderTopNav from "../../components/HeaderTopNav";
 import ButtonFull from "../../components/ButtonFull";
+
 //api - with redux
 import { useDispatch, useSelector } from "react-redux";
 import { getOneUser } from "../../store/fetchProduct";
@@ -14,6 +15,7 @@ import api from "../../service/api";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import * as yup from "yup";
 import { useHistory } from "react-router-dom";
+import Loading from "../../components/Loading";
 
 const validation = yup.object().shape({
   zipcode: yup
@@ -41,11 +43,13 @@ function Checkout() {
   const [neighborhood, setNeighborhood] = useState("");
   const [products, setProducts] = useState([]);
   const [userId, setUserId] = useState("");
-  const [totalPrice, setTotalPrice] = useState(null)
-  const [shipValue] = useState(0)
-  const [shipStatus] = useState('Pedido')
-  const [vaucher] = useState('No')
+  const [totalPrice, setTotalPrice] = useState(null);
+  const [shipValue] = useState(0);
+  const [shipStatus] = useState("Pedido");
+  const [vaucher] = useState("No");
   const [BoolAdress, setBoolAdress] = useState(Boolean);
+  const [LoadingPage, setLoadingPage] = useState(false);
+  const [LoadingOrder, setLoadingOrder] = useState(true);
   const id = JSON.parse(localStorage.getItem("user_session")); //LocalStorage-set when data response validate token
 
   const user = useSelector((state) => state.user);
@@ -67,9 +71,9 @@ function Checkout() {
 	"complement": "1234",
 	"neighborhood": "1234"
     */
-    //Variavel que representa o valor total do pedido
+  //Variavel que representa o valor total do pedido
   const cartProductState = useSelector((state) => state.cart);
-  useEffect(() =>{
+  useEffect(() => {
     const productTotal = cartProductState.map((product) => {
       let productTotal = +product.price * product.quantity;
       return productTotal;
@@ -79,12 +83,18 @@ function Checkout() {
       0
     );
     setTotalPrice(totalPrice);
-  },[cartProductState])
-  
+  }, [cartProductState]);
+
   // verify token
 
   useEffect(() => {
-    dispatch(getOneUser(id.userid));
+    const fetchData = async () => {
+      const res = await dispatch(getOneUser(id.userid));
+      if (res) {
+        setLoadingPage(true);
+      }
+    };
+    fetchData();
   }, [dispatch, id.userid]);
 
   useEffect(() => {
@@ -107,6 +117,7 @@ function Checkout() {
 
   //functions onClick, onSubmit, onChange
   async function handleRegister(e) {
+    setLoadingOrder(false);
     const headers = {
       headers: {
         "Content-Type": "application/json",
@@ -129,7 +140,7 @@ function Checkout() {
       totalPrice,
       shipValue,
       shipStatus,
-      vaucher
+      vaucher,
     };
     try {
       await api.post("sendo", cartByUser, headers);
@@ -146,6 +157,7 @@ function Checkout() {
   };
   //Registrar sem cep
   async function handleRegisterNoAdress(e) {
+    setLoadingOrder(false);
     const headers = {
       headers: {
         "Content-Type": "application/json",
@@ -159,7 +171,7 @@ function Checkout() {
       totalPrice,
       shipValue,
       shipStatus,
-      vaucher
+      vaucher,
     };
     try {
       await api.post("sendnoadress", cartByUser, headers);
@@ -175,185 +187,198 @@ function Checkout() {
   return (
     <Container>
       <HeaderTopNav />
-      <div className="max-margin-width margint-top-bot">
-        <div className="flex-form">
-          <div className="form-margin-width">
-            <h2 className="background-h2">Dados usuário</h2>
-            <form onSubmit={handleRegister}>
-              <input
-                disabled
-                className="input-checkout-autoload input-margin"
-                placeholder={user.completName}
-              />
+      {LoadingPage ? (
+        <div className="max-margin-width margint-top-bot">
+          <div className="flex-form">
+            <div className="form-margin-width">
+              <h2 className="background-h2">Dados usuário</h2>
+              <form onSubmit={handleRegister}>
+                <input
+                  disabled
+                  className="input-checkout-autoload input-margin"
+                  placeholder={user.completName}
+                />
 
-              <input
-                disabled
-                className="input-checkout-autoload input-margin"
-                placeholder={user.email}
-              />
+                <input
+                  disabled
+                  className="input-checkout-autoload input-margin"
+                  placeholder={user.email}
+                />
 
-              <input
-                disabled
-                className="input-checkout-autoload input-margin"
-                placeholder={user.cpf}
-              />
+                <input
+                  disabled
+                  className="input-checkout-autoload input-margin"
+                  placeholder={user.cpf}
+                />
 
-              <input
-                disabled
-                className="input-checkout-autoload input-margin"
-                placeholder={user.dateNasc}
-              />
-            </form>
-          </div>
+                <input
+                  disabled
+                  className="input-checkout-autoload input-margin"
+                  placeholder={user.dateNasc}
+                />
+              </form>
+            </div>
 
-          {BoolAdress ? (
-            <div className="form-margin-width-2x">
-              <Formik
-                initialValues={{
-                  zipcode: "",
-                }}
-                onSubmit={handleRegister}
-                validationSchema={validation}
-              >
-                <Form className="form-submit">
-                  <div className="form-adress">
-                    <h2 className="background-h2">Dados Entrega</h2>
+            {BoolAdress ? (
+              <div className="form-margin-width-2x">
+                <Formik
+                  initialValues={{
+                    zipcode: "",
+                  }}
+                  onSubmit={handleRegister}
+                  validationSchema={validation}
+                >
+                  <Form className="form-submit">
+                    <div className="form-adress">
+                      <h2 className="background-h2">Dados Entrega</h2>
 
-                    <div>
-                      <label>CEP:</label>
-                      <Field
-                        type="zipcode"
-                        name="zipcode"
-                        validate={cepChange}
-                        children={({ field }) => {
-                          return (
-                            <input
-                              {...field}
-                              className="input-checkout input-margin"
-                              placeholder="ex. 0000000"
-                              maxLength={8}
-                              required
-                            />
-                          );
-                        }}
-                      />
-                      <ErrorMessage
-                        className="err-form"
-                        component="span"
-                        name="zipcode"
-                      />
-                    </div>
-                    <div>
-                      <label>Rua:</label>
-                      <input
-                        className="input-checkout input-margin"
-                        placeholder="Endereço"
-                        defaultValue={street}
-                        onChange={(e) => setStreet(e.target.value)}
-                        required
-                      />
-                    </div>
-                    <div className="flex-form">
                       <div>
-                        <label>Numero:</label>
+                        <label>CEP:</label>
+                        <Field
+                          type="zipcode"
+                          name="zipcode"
+                          validate={cepChange}
+                          children={({ field }) => {
+                            return (
+                              <input
+                                {...field}
+                                className="input-checkout input-margin"
+                                placeholder="ex. 0000000"
+                                maxLength={8}
+                                required
+                              />
+                            );
+                          }}
+                        />
+                        <ErrorMessage
+                          className="err-form"
+                          component="span"
+                          name="zipcode"
+                        />
+                      </div>
+                      <div>
+                        <label>Rua:</label>
                         <input
                           className="input-checkout input-margin"
-                          placeholder="Numero da casa"
-                          defaultValue={number}
-                          onChange={(e) => setNumber(e.target.value)}
+                          placeholder="Endereço"
+                          defaultValue={street}
+                          onChange={(e) => setStreet(e.target.value)}
                           required
                         />
                       </div>
-                      <div className="input-05">
-                        <label>Estado:</label>
+                      <div className="flex-form">
+                        <div>
+                          <label>Numero:</label>
+                          <input
+                            className="input-checkout input-margin"
+                            placeholder="Numero da casa"
+                            defaultValue={number}
+                            onChange={(e) => setNumber(e.target.value)}
+                            required
+                          />
+                        </div>
+                        <div className="input-05">
+                          <label>Estado:</label>
+                          <input
+                            disabled
+                            className="input-checkout input-margin input-checkout-autoload"
+                            placeholder="Estado"
+                            defaultValue={state}
+                            onChange={(e) => setState(e.target.value)}
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <label>Cidade:</label>
                         <input
                           disabled
                           className="input-checkout input-margin input-checkout-autoload"
-                          placeholder="Estado"
-                          defaultValue={state}
-                          onChange={(e) => setState(e.target.value)}
+                          placeholder="Cidade"
+                          defaultValue={city}
+                          onChange={(e) => setCity(e.target.value)}
                           required
                         />
                       </div>
-                    </div>
-                    <div>
-                      <label>Cidade:</label>
-                      <input
-                        disabled
-                        className="input-checkout input-margin input-checkout-autoload"
-                        placeholder="Cidade"
-                        defaultValue={city}
-                        onChange={(e) => setCity(e.target.value)}
-                        required
-                      />
-                    </div>
 
-                    <div>
-                      <label>Bairro:</label>
-                      <input
-                        className="input-checkout input-margin"
-                        placeholder="Bairro"
-                        defaultValue={neighborhood}
-                        onChange={(e) => setNeighborhood(e.target.value)}
-                        required
-                      />
+                      <div>
+                        <label>Bairro:</label>
+                        <input
+                          className="input-checkout input-margin"
+                          placeholder="Bairro"
+                          defaultValue={neighborhood}
+                          onChange={(e) => setNeighborhood(e.target.value)}
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label>Complemento (Opcional):</label>
+                        <input
+                          className="input-checkout input-margin"
+                          placeholder="Complemento (Opcional)"
+                          defaultValue={complement}
+                          onChange={(e) => setComplement(e.target.value)}
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <label>Bairro:</label>
-                      <input
-                        className="input-checkout input-margin"
-                        placeholder="Complemento (Opcional)"
-                        defaultValue={complement}
-                        onChange={(e) => setComplement(e.target.value)}
-                        required
-                      />
+                    <div className="box-checkout">
+                      <p>
+                        Os itens serão enviados de acordo com a data prevista de
+                        entrega e localidade especifica
+                      </p>
+                      <h2>Sub-total</h2>
+
+                      <ButtonFull text="Fazer pedido" type="submit" />
                     </div>
-                  </div>
-                  <div className="box-checkout">
+                  </Form>
+                </Formik>
+              </div>
+            ) : (
+              <>
+                <div className="form-margin-width">
+                  <h2 className="background-h2">Dados Entrega</h2>
+                  <div>
                     <p>
-                      Os itens serão enviados de acordo com a data prevista de
-                      entrega e localidade especifica
+                      Endereço de entrega {adressUser.city}, N:
+                      {adressUser.number}
                     </p>
-                    <h2>Sub-total</h2>
-
-                    <ButtonFull text="Fazer pedido" type="submit" />
+                    <p>Cep {adressUser.zipcode}</p>
                   </div>
-                </Form>
-              </Formik>
-            </div>
-          ) : (
-            <>
-              <div className="form-margin-width">
-                <h2 className="background-h2">Dados Entrega</h2>
-                <div>
-                  <p>
-                    Endereço de entrega {adressUser.city}, N:{adressUser.number}
-                  </p>
-                  <p>Cep {adressUser.zipcode}</p>
+                  <button
+                    onClick={() => setBoolAdress(true)}
+                    className="button-change"
+                  >
+                    Alterar endereço
+                  </button>
                 </div>
-                <button
-                  onClick={() => setBoolAdress(true)}
-                  className="button-change"
-                >
-                  Alterar endereço
-                </button>
-              </div>
-              <div className="box-checkout">
-                <p>
-                  Os itens serão enviados de acordo com a data prevista de
-                  entrega e localidade especifica
-                </p>
-                <h2>Sub-total</h2>
-
-                <ButtonFull
-                  text="Fazer pedido"
-                  onClick={() => handleRegisterNoAdress()}
-                />
-              </div>
-            </>
-          )}
+                <div className="box-checkout">
+                  <p>
+                    Os itens serão enviados de acordo com a data prevista de
+                    entrega e localidade especifica
+                  </p>
+                  <h2>Sub-total</h2>
+                  {LoadingOrder ? (
+                    <ButtonFull
+                      text="Fazer pedido"
+                      onClick={() => handleRegisterNoAdress()}
+                    />
+                  ) : (
+                    <ButtonFull
+                      text="Carregando.."
+                      style={{cursor:"default"}}
+                      inputColor="gray"
+                    />
+                  )}
+                </div>
+              </>
+            )}
+          </div>
         </div>
-      </div>
+      ) : (
+        <div style={{ margin: "100px auto" }}>
+          <Loading />
+        </div>
+      )}
       <Footer />
     </Container>
   );

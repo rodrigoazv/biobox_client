@@ -151,9 +151,9 @@ export default function HeaderTopNav() {
               </div>
             ) : (
               <div className="display-show">
-                <Link to="/login">Entre </Link>
-                <span>ou </span>
-                <Link to="/register">cadastre-se</Link>
+                <Link to="/login" className="login">Entre </Link>
+                <span> ou </span>
+                <Link to="/register" className="login">cadastre-se</Link>
               </div>
             )}
 

@@ -6,6 +6,7 @@ import { Container } from "./styles";
 import ButtonFull from "../ButtonFull";
 import { addItem } from "../../store/ducks/cart";
 import { useDispatch } from "react-redux";
+import { formatDiscount, formatPrice } from '../../helpers';
 
 export default function CardProduct({ props }) {
   const dispatch = useDispatch();
@@ -76,12 +77,12 @@ export default function CardProduct({ props }) {
               <div className="price-product-container">
                 <div>
                   <span className="display-flex">
-                    <span className="off-price">R$2,80</span>
+                    <span className="off-price">R$ {formatDiscount(props.productPrice)}</span>
                     <span className="off-price-style">Off</span>
                   </span>
 
                   <div className="product-price">
-                    R$ {props.productPrice},00
+                    {formatPrice(props.productPrice)}
                   </div>
                 </div>
 
