@@ -8,12 +8,18 @@ import ResponsiveNav from '../../components/ResponsiveNav';
 import Footer from '../../components/Footer';
 import Button from '../../components/ButtonFull';
 
+import { useSelector } from 'react-redux';
+import { formatPrice } from '../../helpers';
+
 //Images
 import InfoBio2 from '../../assets/InfoBio2.svg'
 
 
 
 export default function EndOfOrder() {
+    const cartProductState = useSelector((state) => state.cart);
+    localStorage.setItem("sback_cart_item", JSON.stringify(cartProductState));
+
     return (
         <Container>
             <Helmet>
@@ -33,6 +39,31 @@ export default function EndOfOrder() {
                             <div>
                                 <img alt="" src={InfoBio2}></img>
                             </div>
+                            <div className="box-product">
+                                <h3>Pedido :</h3>
+                                <div>
+                                    <ul>
+                                        {cartProductState.map((product) => (
+                                            <li key={product.pid}>
+                                                <div className="display-flex-cart">
+                                                    <img
+                                                        src={product.photo}
+                                                        alt="none"
+                                                        className="cart-photo"
+                                                    />
+
+                                                    <div>
+                                                        <h4>{product.name}</h4>
+                                                    </div>
+                                                </div>
+                                                <div className="flex-end">Preço: {formatPrice(product.price)}</div>
+                                                <div className="flex-end">Qntde: {product.quantity}</div>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                            </div>
                             <div>
                                 <a href="/"><Button text="Retornar" /></a>
                             </div>
@@ -44,7 +75,7 @@ export default function EndOfOrder() {
 
             </div>
             <Footer />
-            <ResponsiveNav/>
+            <ResponsiveNav />
         </Container >
     );
 }

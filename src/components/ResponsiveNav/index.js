@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Container } from './styles';
-import {Link} from 'react-router-dom'
 //assets
 import Logo from '../../assets/logobio.svg';
 
@@ -18,11 +17,11 @@ export default function ResponsiveNav() {
             </div>
             <nav>
               <ul className="responsive-menu">
-                <li><Link to="/bioprodutos">Produtos</Link></li>
-                <li><Link to="/receitas">Receitas</Link></li>
-                <li><Link to="/sobre-nos">Sobre nós</Link></li>
-                <li><Link to="/biocabanas">Biocabanas</Link></li>
-                <li><Link to="/contato">Contato</Link></li>
+                <li><a href="/bioprodutos">Produtos</a></li>
+                <li><a href="/receitas">Receitas</a></li>
+                <li><a href="/sobre-nos">Sobre nós</a></li>
+                <li><a href="/biocabanas">Biocabanas</a></li>
+                <li><a href="/contato">Contato</a></li>
               </ul>
             </nav>
           </div>
