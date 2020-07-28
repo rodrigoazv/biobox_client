@@ -39,6 +39,7 @@ export const getOneUser = (id) =>{
     }
 }
 
+
 export const forgotPassData = (data) => {
     return async (dispatch) =>{
         try{
