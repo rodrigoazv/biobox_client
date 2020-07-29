@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
 import { Container } from "./styles";
 //Componentes
 import HeaderTopNav from "../../components/HeaderTopNav";
 import Footer from "../../components/Footer";
 import Loading from "../../components/Loading";
+import TableOrder from "./TableOrder";
+
 
 //redux
 import { useSelector, useDispatch } from "react-redux";
@@ -26,7 +27,7 @@ function StatusOrder() {
     };
     fetchData();
   }, [dispatch, id.userid]);
-  console.log(user.demands);
+
   return (
     <Container>
       <HeaderTopNav />
@@ -43,36 +44,8 @@ function StatusOrder() {
             </div>
             <div>
               <h4>Todos os seus pedidos: </h4>
-              <div className="detail-table">
-                <ul>
-                  <tr>
-                    <th>Nome</th>
-                    <th>Data do pedido</th>
-                    <th>Status</th>
-                    <th>Preço total</th>
-                  </tr>
-                  {user.demands.map((orders) => (
-                    <li key={orders.id}>
-                      <Link
-                        to={{
-                          pathname: `orders/${orders.id}`,
-                          search: orders.name,
-                          state: { id: orders.id },
-                        }}
-                        className="font-li"
-                      >
-                        <table>
-                          <tr>
-                            <td>{user.completName}</td>
-                            <td>{orders.createdDate}</td>
-                            <th>{orders.shipStatus}</th>
-                            <td>{orders.totalPrice}</td>
-                          </tr>
-                        </table>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+              <div>
+                <TableOrder />
               </div>
             </div>
           </div>

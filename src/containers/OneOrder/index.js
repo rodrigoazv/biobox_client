@@ -8,6 +8,7 @@ import Footer from "../../components/Footer";
 import Loading from "../../components/Loading";
 import LifeOrder from "./LifeOrder";
 
+import moment from 'moment';
 import api from "../../service/api";
 
 function OneOrder() {
@@ -40,7 +41,7 @@ function OneOrder() {
               <div>
                 <h5>Detalhes envio: </h5>
                 <p>Código: {order.id}</p>
-                <p>{order.createdDate}</p>
+                <p>Data do pedido: {moment(order.createdDate).format("DD/MM/YYYY")}</p>
                 <p>{order.shipZipcode}</p>
                 <p>
                   {order.shipStreet} N: {order.shipNumber}
