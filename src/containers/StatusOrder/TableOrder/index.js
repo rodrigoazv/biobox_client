@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -10,7 +10,6 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
 import moment from "moment";
-import { useSelector } from "react-redux";
 import { FaExternalLinkAlt } from "react-icons/fa";
 // import { Container } from './styles';
 
@@ -30,36 +29,35 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 800,
-  },
-});
+function TableOrder({ props }) {
+  const [demands, setDemands] = useState(props);
+  useEffect(() => {
+    const dadu = props.map((data) => data);
+    let climb = dadu.sort((a, b) => (a.createdDate < b.createdDate ? 1 : -1));
+    setDemands(climb);
+  }, [props]);
 
-
-function TableOrder(props) {
-  const classes = useStyles();
-
-  const user = useSelector((state) => state.user);
   return (
     <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="customized table">
+      <Table className="table" aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Código do pedido</StyledTableCell>
-            <StyledTableCell align="right" >Data do pedido</StyledTableCell>
+            <StyledTableCell>Código:-</StyledTableCell>
+            <StyledTableCell align="right">Data</StyledTableCell>
             <StyledTableCell align="right">Status&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Preço total&nbsp;(g)</StyledTableCell>
+            <StyledTableCell align="right">
+              Preço total&nbsp;(g)
+            </StyledTableCell>
             <StyledTableCell align="right">-- &nbsp;</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {user.demands.map((row) => (
-            <StyledTableRow key={row.name}>
+          {demands.map((row) => (
+            <StyledTableRow key={row.id}>
               <StyledTableCell component="th" scope="row">
                 {row.id}
               </StyledTableCell>
-              <StyledTableCell align="right" >
+              <StyledTableCell align="right">
                 {moment(row.createdDate).format("DD/MM/YYYY")}
               </StyledTableCell>
               <StyledTableCell align="right">{row.shipStatus}</StyledTableCell>

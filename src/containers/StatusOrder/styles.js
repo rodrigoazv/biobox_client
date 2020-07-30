@@ -5,16 +5,22 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     margin: 20px;
-    @media (max-width: 995px) {
+    @media (max-width: 780px) {
       flex-direction: column;
       align-items: center;
     }
   }
+  .margin{
+    margin: 100px auto;
+  }
   .detail-table {
     border: 1px solid #ddd;
     border-radius: 4px;
-    padding: 15px 50px;
+    padding: 15px 20px;
     width:33%;
+    @media (max-width: 995px) {
+      display:none;
+    }
   }
   table {
     border-collapse: collapse;
@@ -45,5 +51,13 @@ export const Container = styled.div`
     font-weight: 300;
     line-height: 1.5;
     color: #333;
+  }
+  .table{
+    width: 800px;
+    padding: 10px;
+    @media (max-width: 780px) {
+      width: 320px;
+      margin:10px;
+    }
   }
 `;

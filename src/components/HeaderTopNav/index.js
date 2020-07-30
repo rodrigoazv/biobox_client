@@ -30,6 +30,7 @@ export default function HeaderTopNav() {
 
   const length = useSelector((state) => state.cart.length);
   const { isAuthenticated } = useSelector((state) => state.authe);
+
   //const user = JSON.parse(localStorage.getItem("user_session"));
 
   function showNav() {

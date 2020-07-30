@@ -7,11 +7,9 @@ import Footer from "../../components/Footer";
 import Loading from "../../components/Loading";
 import TableOrder from "./TableOrder";
 
-
 //redux
 import { useSelector, useDispatch } from "react-redux";
 import { getOneUser } from "../../store/fetchProduct";
-
 function StatusOrder() {
   const [loadingPage, setLoadingPage] = useState(true);
   const id = JSON.parse(localStorage.getItem("user_session"));
@@ -33,19 +31,20 @@ function StatusOrder() {
       <HeaderTopNav />
       <div>
         {loadingPage ? (
-          <div>
-            <Loading></Loading>
+          <div className="margin">
+            <Loading/>
           </div>
         ) : (
           <div className="max-margin-width flex-table">
             <div className="detail-table">
-              <h4>Seus dados</h4>
-              <div>Olá {user.completName}</div>
+              <h4>Ultimo pedido: </h4>
             </div>
-            <div>
+            <div className="table">
+              <div>
+              </div>
               <h4>Todos os seus pedidos: </h4>
               <div>
-                <TableOrder />
+                <TableOrder props={user.demands}/>
               </div>
             </div>
           </div>

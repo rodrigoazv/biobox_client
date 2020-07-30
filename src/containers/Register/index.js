@@ -5,6 +5,8 @@ import api from "../../service/api";
 import Loading from "../../components/Loading";
 
 import { Container } from "./styles";
+import { useDispatch } from "react-redux";
+import { postUserLogin } from "../../store/fetchProduct";
 //Components
 
 import HeaderTop from '../../components/HeaderTop';
@@ -42,12 +44,12 @@ const validation = yup.object().shape({
 });
 
 export default function Register() {
+  const dispatch = useDispatch();
   const history = useHistory();
   const [isLoading] = useState(false);
  //FUNCÇÃO DE REGISTRO ENVIA DADOS PARA BACKEND ATRAVES DO REDUX
   async function handleRegister(form) {
     const data = form.dateNasc.split("/").reverse().join("-");
-    console.log(data);
     let formSend = {
       completName: form.completName,
       email: form.email,
@@ -57,11 +59,15 @@ export default function Register() {
       password: form.password,
       sexo: form.sexo,
     };
-    console.log(formSend);
+    let formLogin = {
+      email: form.email,
+      password: form.password,
+    }
     try {
-      const response = await api.post("user", formSend);
-      alert(`Olá ${response.data.completName} seu cadastro foi realizado`);
-      history.push('/login');
+      await api.post("user", formSend);
+      alert(`Olá ${form.completName} seu cadastro foi realizado`);
+      await dispatch(postUserLogin(formLogin));
+      history.push('/');
     } catch {
       alert(`Desculpe, email, cpf ou numero de telefone já cadastrado no sistema tente novamente mudando algum desses campos`);
     }

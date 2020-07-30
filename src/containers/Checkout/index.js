@@ -183,7 +183,7 @@ function Checkout() {
       );
     }
   }
-  console.log(user);
+
   return (
     <Container>
       <HeaderTopNav />
