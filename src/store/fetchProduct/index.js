@@ -1,7 +1,7 @@
 import api from '../../service/api';
 import { addProducts} from '../ducks/products';
 import { addCategorys } from '../ducks/category';
-import {login, sucessAuth} from '../ducks/authe';
+import {login, sucessAuth, failedAuth} from '../ducks/authe';
 import {getUser} from '../ducks/user';
 
 
@@ -38,6 +38,7 @@ export const getOneUser = (id) =>{
         }
     }
 }
+
 
 export const forgotPassData = (data) => {
     return async (dispatch) =>{
@@ -96,7 +97,7 @@ export const boolUserVerify = (headers) =>{
                 dispatch(sucessAuth(response.data.auth))
             }
         }catch(error){
-            return false;
+            dispatch(failedAuth(false))
         }
     } 
 }

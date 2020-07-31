@@ -75,7 +75,7 @@ export default function Contact() {
     }
     function handleMessage(e) {
         e.preventDefault()
-        console.log(form)
+        
         setForm({ name: '', email: '', title: '', message: '' })
 
 

@@ -76,7 +76,7 @@ export default function HomePage() {
   useEffect(() =>{
     dispatch(getAllProducts());
   }, [dispatch])
-  console.log(category);
+
   //reducer addProducts in cart
 
   return (

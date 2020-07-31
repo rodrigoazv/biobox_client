@@ -49,7 +49,7 @@ export default function ProductPage() {
     api.get(`product/${id}`).then((response) => {
       setProduct(response.data);
       setElement(response.data.element);
-      console.log(response.data)
+
     });
   }, [id]);
   function HandleIncrement(e) {

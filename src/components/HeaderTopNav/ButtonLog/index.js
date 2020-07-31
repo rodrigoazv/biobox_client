@@ -7,6 +7,7 @@ import { Container } from "./styles";
 
 import { FaUserCircle, FaDolly } from "react-icons/fa";
 import { FaSignOutAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function ButtonLog() {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ function ButtonLog() {
           <span>{user.userName.split(" ")[0]}</span>
         </button>
         <div className="dropdown-content">
-          <a href="/"><FaDolly/> Ver pedidos</a>
+          <Link to="/user/orders"><FaDolly/> Ver pedidos</Link>
           <a href="/" onClick={handleSignOut}><FaSignOutAlt/> Sair</a>
         </div>
       </div>

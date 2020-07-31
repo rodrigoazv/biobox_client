@@ -30,6 +30,35 @@ export const Container = styled.div`
      padding: 10%;
 
   }
-  
+  .display-flex-cart{
+    display: flex;
+    justify-content: space-between;
+  }
+  .box-product{
+    display: flex;
+    flex-direction:column;
+    width:60%;
+    @media (max-width: 720px) {
+      width:100%;
+  }
+  }
+  .box-product li{
+    border-bottom: 1px solid #ddd;
+    margin-top: 20px;
+    display:flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+   }
+   .cart-photo{
+    height:30px;
+    margin:5px;
+  }
+  .flex-end{
+    padding-right: 50px;
+    @media (max-width: 720px) {
+      padding: 10px;
+    }
+  }
   
 `;
