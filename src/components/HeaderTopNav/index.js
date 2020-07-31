@@ -7,7 +7,7 @@ import ButtonLog from "./ButtonLog";
 
 
 //assets import
-import Logo from "../../assets/logobio.svg";
+import Logo from '../../assets/logobio.svg';
 import { RiShoppingBasketLine } from "react-icons/ri";
 import { FaSignInAlt } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
@@ -92,7 +92,7 @@ export default function HeaderTopNav() {
           <div className="nav-elements-mother">
             <div>
               <a href="/">
-                <img src={Logo} alt="none" className="logo-sizing" />
+                <div className="logo-sizing" />
               </a>
             </div>
             <div className="searchBar">
