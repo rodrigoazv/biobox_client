@@ -1,30 +1,18 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+
   .flex-table {
     display: flex;
-    justify-content: space-between;
-    margin: 20px;
     @media (max-width: 780px) {
       flex-direction: column;
       align-items: center;
     }
   }
-  .margin{
-    margin: 100px auto;
-  }
-  .detail-table {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 15px 20px;
-    width:33%;
-    @media (max-width: 995px) {
-      display:none;
-    }
-  }
   table {
     border-collapse: collapse;
     width: 100%;
+    margin-top: 50px;
   }
   th,
   td {
@@ -53,8 +41,8 @@ export const Container = styled.div`
     color: #333;
   }
   .table{
-    width: 800px;
-    padding: 10px;
+    width: 100%;
+    margin-top:50px;
     @media (max-width: 780px) {
       width: 320px;
       margin:10px;

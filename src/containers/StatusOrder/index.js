@@ -32,19 +32,13 @@ function StatusOrder() {
       <div>
         {loadingPage ? (
           <div className="margin">
-            <Loading/>
+            <Loading />
           </div>
         ) : (
           <div className="max-margin-width flex-table">
-            <div className="detail-table">
-              <h4>Ultimo pedido: </h4>
-            </div>
             <div className="table">
               <div>
-              </div>
-              <h4>Todos os seus pedidos: </h4>
-              <div>
-                <TableOrder props={user.demands}/>
+                <TableOrder props={user.demands} />
               </div>
             </div>
           </div>
