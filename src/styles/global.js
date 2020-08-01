@@ -14,11 +14,11 @@ export default createGlobalStyle`
   body {
     font-family: Arial, Helvetica, sans-serif;  
     font-weight: 600;
-    background: #ffffe6;
+    background: #fffbf6;
     color: #333;
     -webkit-font-smoothing: antialiased !important;
     font-weight:100!important;
-    padding-top: 8.0rem;
+    padding-top: 8.5rem;
   }
   ul {
     list-style: none;
@@ -33,7 +33,9 @@ export default createGlobalStyle`
             max-width:992px;
         }
   }
-
+  .margin{
+    margin: 100px 0;
+  }
   /* Responsive margin global ( NAV-TOP ) */
   /* Input search bar ( NAV-TOP )*/
   .input{

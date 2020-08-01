@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+import Logo from '../../assets/logobio.svg';
+import LogoIcon from '../../assets/LogoIcon.svg';
+
 export const Container = styled.header`
   display: block;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -11,8 +14,16 @@ export const Container = styled.header`
   position:fixed;
   left: 0;
   .max-margin {
-    max-width: 1270px;
-    padding: 0px 10px;
+    max-width: 1250px;
+    padding: 0px 20px;
+    margin: 0px auto;
+    @media (max-width: 1100px) {
+      max-width: 992px;
+    }
+  }
+  .max-margin-searchbar {
+    max-width: 1250px;
+    padding: 0px 0px 0px 15px;
     margin: 0px auto;
     @media (max-width: 1100px) {
       max-width: 992px;
@@ -104,7 +115,7 @@ export const Container = styled.header`
     align-items: center;
     @media (max-width: 956px) {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
     }
   }
   .show{
@@ -131,10 +142,15 @@ export const Container = styled.header`
     padding: 15px 0 15px 0;
   }
   .logo-sizing {
-    height: 72px;
-    padding: 10px 0;
+    height: 50px;
+    width: 180px;
+    margin: 12px 0;
+    background:url(${Logo});
+    background-size: cover;
     @media (max-width: 720px) {
       height: 50px;
+      width: 50px;
+      background:url(${LogoIcon});
     }
   }
   .button-signout {

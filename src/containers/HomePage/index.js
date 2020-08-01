@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { Container } from "./styles";
+import { Container, Section } from "./styles";
 // Components
 import HeaderTopNav from "../../components/HeaderTopNav";
 import CardProduct from "../../components/CardProduct";
@@ -88,17 +88,17 @@ export default function HomePage() {
       </Helmet>
       <HeaderTopNav />
       <main className="main-section">
-        <div className="general-banner">
+        <Section className="general-banner">
           <a href="/sobre-nos">
             <img src={Banner} alt="banner" className="banner-response" />
           </a>
-        </div>
+        </Section>
         <div className="general-banner-mobile">
           <a href="/sobre-nos">
             <img src={BannerResponsive} alt="banner" className="banner-response" />
           </a>
         </div>
-        <section className="product-hole">
+        <Section className="information-hole">
           <div className="info-stripe max-margin-width">
             <p
               data-aos="zoom"
@@ -131,8 +131,8 @@ export default function HomePage() {
               Produtos colhidos 1 dia antes
             </p>
           </div>
-        </section>
-        <div className="product-hole">
+        </Section>
+        <Section className="product-hole">
           {category.length !== 0 ? (
             category.map((categoria) => (
               <section className="product-type max-margin-width" key={categoria.id}>
@@ -200,7 +200,7 @@ export default function HomePage() {
           </div>
 
           <EmailBox />
-        </div>
+        </Section>
       </main>
       <ResponsiveNav />
 

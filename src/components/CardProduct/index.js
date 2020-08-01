@@ -90,7 +90,7 @@ export default function CardProduct({ props }) {
                   <button className="button-quantity" onClick={HandleDecrement}>
                     -
                   </button>
-                  <input className="input-quantity" defaultValue={quantity} />
+                  <input className="input-quantity" value={quantity} />
                   <button className="button-quantity" onClick={HandleIncrement}>
                     +
                   </button>

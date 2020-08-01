@@ -1,27 +1,44 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-
-    .main-section{
-        border-top:none;
-    }
-    .general-banner{
-        background-repeat:no-repeat;
-        background-position:center top;
-        @media (max-width: 500px){
-            display:none
-    }
-    }
-    .general-banner-mobile{
-        background-repeat:no-repeat;
-        background-position:center top;
-        @media (min-width: 500px){
-            display:none
-    } 
-
-    }
+export const Section = styled.section`
   
-
+`;
+export const Container = styled.div`
+  .main-section {
+    border-top: none;
+  }
+  .general-banner {
+    background-repeat: no-repeat;
+    background-position: center top;
+    @media (max-width: 500px) {
+      display: none;
+    }
+  }
+  .general-banner-mobile {
+    background-repeat: no-repeat;
+    background-position: center top;
+    @media (min-width: 500px) {
+      display: none;
+    }
+  }
+  .product-hole {
+    width: auto;
+    padding: 10px 0;
+    margin: 0 40px;
+    text-align: center;
+    @media (max-width: 720px) {
+      margin: 0 0px;
+    }
+  }
+  .information-hole {
+    width: auto;
+    padding: 10px 0;
+    margin: 0 40px;
+    text-align: center;
+    @media (max-width: 720px) {
+      margin: 0 10px;
+    }
+  }
   .banner-response {
     max-width: 100%;
     margin: auto;
@@ -35,14 +52,6 @@ export const Container = styled.div`
     }
   }
 
-  .product-hole {
-    width: auto;
-    padding: 10px 0;
-    margin: 0 40px;
-    @media (max-width: 720px) {
-      margin: 0 0;
-    }
-  }
   .product-type {
     height: auto;
     margin-top: 20px;
@@ -110,7 +119,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 0.5%;
+    margin-top: 0.4%;
   }
   .info-box-content img {
     margin: auto;

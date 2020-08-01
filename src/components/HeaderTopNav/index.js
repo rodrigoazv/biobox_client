@@ -7,8 +7,6 @@ import ButtonLog from "./ButtonLog";
 
 
 //assets import
-
-import Logo from "../../assets/logobio.svg";
 import { RiShoppingBasketLine } from "react-icons/ri";
 import { FaSignInAlt } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
@@ -97,7 +95,7 @@ export default function HeaderTopNav() {
               </a>
             </div>
             <div className="searchBar">
-              <form className="max-margin">
+              <form className="max-margin-searchbar">
                 <div className="inputWithIcon">
                   <div>
                     <div {...getRootProps()}>
