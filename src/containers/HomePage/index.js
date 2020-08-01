@@ -135,7 +135,7 @@ export default function HomePage() {
         <div className="product-hole">
           {category.length !== 0 ? (
             category.map((categoria) => (
-              <section className="product-type max-margin-width">
+              <section className="product-type max-margin-width" key={categoria.id}>
                 <div className="product-type-name">{categoria.name}</div>
                 <div className="padding-slick">
                   <ul>
