@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import Logo from "../../assets/logobio.svg";
-import LogoIcon from "../../assets/LogoIcon.svg";
 
 export const Container = styled.header`
   display: block;
@@ -17,7 +15,6 @@ export const Container = styled.header`
     padding: 0px 10px;
     margin: 0px auto;
     @media (max-width: 1100px) {
-      padding: 0 10px 0 20px;
       max-width: 992px;
     }
   }
@@ -64,6 +61,7 @@ export const Container = styled.header`
     margin-left: 0;
     z-index:11;
     @media (max-width: 720px) {
+      margin-bottom: 10px;
       width: 100%;
     }
   }
@@ -106,8 +104,7 @@ export const Container = styled.header`
     align-items: center;
     @media (max-width: 956px) {
       display: flex;
-      flex-direction: row;
-
+      flex-direction: column;
     }
   }
   .show{
@@ -134,15 +131,10 @@ export const Container = styled.header`
     padding: 15px 0 15px 0;
   }
   .logo-sizing {
-    height: 50px;
-    width: 180px;
-    margin: 12px 0;
-    background:url(${Logo});
-    background-size: cover;
+    height: 72px;
+    padding: 10px 0;
     @media (max-width: 720px) {
       height: 50px;
-      width: 50px;
-      background:url(${LogoIcon});
     }
   }
   .button-signout {
@@ -222,7 +214,7 @@ export const Container = styled.header`
     }
   }
   .nav-on-scroll {
-    top: 70px;
+    top: 100px;
     position: fixed;
     background: white;
     width: 100%;
