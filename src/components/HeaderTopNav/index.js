@@ -50,7 +50,7 @@ export default function HeaderTopNav() {
     e.preventDefault();
     history.push(`product/${search}`);
   }
-
+/* 
   function menuOnScroll() {
     function menufixed() {
       let menuonScroll = document.getElementById("menu-fixed");
@@ -68,7 +68,7 @@ export default function HeaderTopNav() {
       navpadding("nav-fixed");
     };
   }
-  menuOnScroll();
+  menuOnScroll();*/
 
   const products = useSelector((state) => state.products);
 
@@ -92,7 +92,7 @@ export default function HeaderTopNav() {
           <div className="nav-elements-mother">
             <div>
               <a href="/">
-                <div className="logo-sizing" />
+                <svg className="logo-sizing" />
               </a>
             </div>
             <div className="searchBar">

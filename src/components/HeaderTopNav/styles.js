@@ -14,7 +14,7 @@ export const Container = styled.header`
   left: 0;
   .max-margin {
     max-width: 1270px;
-    padding: 0px 30px;
+    padding: 0px 10px;
     margin: 0px auto;
     @media (max-width: 1100px) {
       padding: 0 10px 0 20px;
