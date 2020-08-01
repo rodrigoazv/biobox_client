@@ -327,8 +327,15 @@ function Checkout() {
                         entrega e localidade especifica
                       </p>
                       <h2>Sub-total</h2>
-
-                      <ButtonFull text="Fazer pedido" type="submit" />
+                      {LoadingOrder ? (
+                        <ButtonFull text="Fazer pedido" type="submit" />
+                      ) : (
+                        <ButtonFull
+                          text="Carregando.."
+                          style={{ cursor: "default" }}
+                          inputColor="gray"
+                        />
+                      )}
                     </div>
                   </Form>
                 </Formik>
@@ -365,7 +372,7 @@ function Checkout() {
                   ) : (
                     <ButtonFull
                       text="Carregando.."
-                      style={{cursor:"default"}}
+                      style={{ cursor: "default" }}
                       inputColor="gray"
                     />
                   )}

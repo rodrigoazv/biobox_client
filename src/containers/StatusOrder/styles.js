@@ -40,12 +40,13 @@ export const Container = styled.div`
     line-height: 1.5;
     color: #333;
   }
+  
   .table{
     width: 100%;
     margin-top:50px;
     @media (max-width: 780px) {
       width: 320px;
-      margin:10px;
+      margin:40px 10px ;
     }
   }
 `;

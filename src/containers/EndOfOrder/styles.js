@@ -32,6 +32,7 @@ export const Container = styled.div`
   }
   .display-flex-cart{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
   }
   .box-product{
@@ -52,6 +53,7 @@ export const Container = styled.div`
    }
    .cart-photo{
     height:30px;
+    width: 30px!important;
     margin:5px;
   }
   .flex-end{

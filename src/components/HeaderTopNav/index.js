@@ -7,8 +7,6 @@ import ButtonLog from "./ButtonLog";
 
 
 //assets import
-
-import Logo from "../../assets/logobio.svg";
 import { RiShoppingBasketLine } from "react-icons/ri";
 import { FaSignInAlt } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
@@ -51,7 +49,7 @@ export default function HeaderTopNav() {
     e.preventDefault();
     history.push(`product/${search}`);
   }
-
+/* 
   function menuOnScroll() {
     function menufixed() {
       let menuonScroll = document.getElementById("menu-fixed");
@@ -69,7 +67,7 @@ export default function HeaderTopNav() {
       navpadding("nav-fixed");
     };
   }
-  menuOnScroll();
+  menuOnScroll();*/
 
   const products = useSelector((state) => state.products);
 
@@ -93,11 +91,11 @@ export default function HeaderTopNav() {
           <div className="nav-elements-mother">
             <div>
               <a href="/">
-                <img src={Logo} alt="none" className="logo-sizing" />
+                <svg className="logo-sizing" />
               </a>
             </div>
             <div className="searchBar">
-              <form className="max-margin">
+              <form className="max-margin-searchbar">
                 <div className="inputWithIcon">
                   <div>
                     <div {...getRootProps()}>
