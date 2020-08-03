@@ -45,9 +45,9 @@ export const Container = styled.section`
     } 
     }
     .showcase-display ul li{
-        margin:2%;
+        margin:1.2%;
         color: white;
-        border-radius:4px;
+        border-radius:5px;
         cursor:pointer;
         width:200px;
         @media (max-width: 770px){
@@ -63,21 +63,7 @@ export const Container = styled.section`
     .biop-li{
         background:rgb(128,172,154);
     }
-    .horta{
-        background: #91B431;
-        border-radius:4px;
-        font-size:12px;
-    }
-    .granel{
-      background: #311F17;
-      border-radius:4px;
-      font-size:12px;
-    }
-    .bioprodutos{
-        background:rgb(128,172,154);
-        border-radius:4px;
-        font-size:12px;
-    }
+  
     .products{
         margin-left: 5%;
         position:initial;

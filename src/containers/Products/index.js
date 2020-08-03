@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import HeaderTopNav from '../../components/HeaderTopNav';
 import ResponsiveNav from '../../components/ResponsiveNav';
@@ -16,29 +16,12 @@ import { getAllProducts } from '../../store/fetchProduct';
 
 
 export default function Products() {
-    const [horta, setHorta] = useState(false)
-    const [granel, setGranel] = useState(false)
-    const [bioprod, setBioprod] = useState(false)
-    function handleHorta() {
-        setHorta(true)
-        setGranel(false)
-        setBioprod(false)
-    }
-    function handleBioprod() {
-        setHorta(false)
-        setGranel(false)
-        setBioprod(true)
-    }
-    function handleGranel() {
-        setHorta(false)
-        setGranel(true)
-        setBioprod(false)
-    }
+
     const products = useSelector(state => state.products);
     const dispatch = useDispatch();
-  
+
     useEffect(() => {
-      dispatch(getAllProducts());
+        dispatch(getAllProducts());
     }, [dispatch])
     return (
         <Container >
@@ -54,40 +37,9 @@ export default function Products() {
                         <div className="showcase-display" >
                             <nav id="tree max-margin-width">
                                 <ul>
-                                    <li className="hort-li" onClick={handleHorta}><p>Horta</p></li>
-                                    {horta && (
-                                        <div className="horta">
-                                            <ul>
-                                                <li>Hortaliças</li>
-                                                <li>Legumes</li>
-                                                <li>Frutas</li>
-                                            </ul>
-
-                                        </div>
-                                    )}
-                                    <li className="gran-li" onClick={handleGranel}><p>Granel</p></li>
-                                    {granel && (
-                                        <div className="granel">
-                                            <ul>
-                                                <li>Temperos</li>
-                                                <li>Granola</li>
-                                                <li>Sementes</li>
-                                            </ul>
-
-                                        </div>
-
-                                    )}
-                                    <li className="biop-li" onClick={handleBioprod}><p>Bioprodutos</p></li>
-                                    {bioprod && (
-                                        <div className="bioprodutos">
-                                            <ul>
-                                                <li>Pimentas</li>
-                                                <li>Geleias</li>
-                                                <li>Molhos Variados</li>
-                                            </ul>
-                                        </div>
-
-                                    )}
+                                    <li className="hort-li" ><p>Horta</p></li>
+                                    <li className="gran-li" ><p>Granel</p></li>
+                                    <li className="biop-li" ><p>Bioprodutos</p></li>
                                 </ul>
                             </nav>
                         </div>
@@ -96,23 +48,23 @@ export default function Products() {
                 </div>
                 <div className="products">
                     <ul className="display-flex">
-                        {products.map(product=>(
-                        <li key={product.id} className="paddingup">
-                          <CardProduct
-                            props={product}
-                          />
-                        </li>
-                      ))}
+                        {products.map(product => (
+                            <li key={product.id} className="paddingup">
+                                <CardProduct
+                                    props={product}
+                                />
+                            </li>
+                        ))}
 
                     </ul>
-                    
+
                 </div>
 
             </div>
 
             <Footer />
-            <Modal text="Produto adicionado ao Carrinho"/>
-            <ResponsiveNav/>
+            <Modal text="Produto adicionado ao Carrinho" />
+            <ResponsiveNav />
         </Container>
     );
 }
