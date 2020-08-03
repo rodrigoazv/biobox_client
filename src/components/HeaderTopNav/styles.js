@@ -13,12 +13,17 @@ export const Container = styled.header`
   width: 100%;
   position:fixed;
   left: 0;
+  @media (max-width: 650px) {
+     position:absolute;
+      
+    }
   .max-margin {
     max-width: 1250px;
     padding: 0px 20px;
     margin: 0px auto;
     @media (max-width: 1100px) {
       max-width: 992px;
+      
     }
   }
   .max-margin-searchbar {
@@ -225,20 +230,12 @@ export const Container = styled.header`
     top: 0;
     z-index: 1;
     box-shadow: 0 -0.83333rem 2.5rem #000;
-    @media (max-width: 720px) {
+    @media (max-width: 750px) {
       box-shadow: unset;
+      position: initial;
     }
   }
-  .nav-on-scroll {
-    top: 100px;
-    position: fixed;
-    background: white;
-    width: 100%;
-    z-index:1;
-    @media (max-width: 720px) {
-      box-shadow: unset;
-    }
-  }
+ 
   .min-list {
     font-size: 13px;
     color: #333;

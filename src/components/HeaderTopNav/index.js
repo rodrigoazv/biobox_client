@@ -49,25 +49,16 @@ export default function HeaderTopNav() {
     e.preventDefault();
     history.push(`product/${search}`);
   }
-/* 
+
   function menuOnScroll() {
-    function menufixed() {
+    const menufixed = () => {
       let menuonScroll = document.getElementById("menu-fixed");
       if (window.pageYOffset > 50) menuonScroll.classList.add("menu-on-scroll");
       else menuonScroll.classList.remove("menu-on-scroll");
     }
-    const navpadding = (id) => {
-      let navFixed = document.getElementById(id);
-      if (window.pageYOffset > 60) navFixed.classList.add("nav-on-scroll");
-      else navFixed.classList.remove("nav-on-scroll");
-    };
-    window.onscroll = () => {
-      menufixed("menu-fixed");
-      menufixed("nav-fixed");
-      navpadding("nav-fixed");
-    };
+    window.onscroll = () => menufixed("menu-fixed");
   }
-  menuOnScroll();*/
+  menuOnScroll();
 
   const products = useSelector((state) => state.products);
 
@@ -147,19 +138,19 @@ export default function HeaderTopNav() {
             </div>
             {isAuthenticated ? (
               <div className="show">
-              <ButtonLog />
+                <ButtonLog />
               </div>
             ) : (
-              <div className="display-show">
-                <Link to="/login" className="login">Entre </Link>
-                <span> ou </span>
-                <Link to="/register" className="login">cadastre-se</Link>
-              </div>
-            )}
+                <div className="display-show">
+                  <Link to="/login" className="login">Entre </Link>
+                  <span> ou </span>
+                  <Link to="/register" className="login">cadastre-se</Link>
+                </div>
+              )}
 
             <div className="display-show cart-box" >
               <Link to="/cart">
-                <RiShoppingBasketLine size={36}/>
+                <RiShoppingBasketLine size={36} />
                 <span>{length}</span>
               </Link>
             </div>
@@ -216,13 +207,13 @@ export default function HeaderTopNav() {
                 {isAuthenticated ? (
                   <ButtonLog />
                 ) : (
-                  <div className="flex-icon">
-                    <Link to="/login">
-                      <FaSignInAlt size={25} color="#333" />
-                    </Link>
+                    <div className="flex-icon">
+                      <Link to="/login">
+                        <FaSignInAlt size={25} color="#333" />
+                      </Link>
                     Entre/cadastre-se
-                  </div>
-                )}
+                    </div>
+                  )}
               </li>
               <li>
                 <div className="cart-box">
