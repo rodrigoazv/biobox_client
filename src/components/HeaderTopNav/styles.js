@@ -128,9 +128,9 @@ export const Container = styled.header`
     align-items: center;
     position: relative;
     border-top: 0.08333rem solid #f2f2f2;
-    -webkit-box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.39);
-    -moz-box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.39);
-    box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.39);
+    -webkit-box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.20);
+    -moz-box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.20);
+    box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.20);
     @media (max-width: 720px) {
       display: none;
     }
@@ -139,7 +139,7 @@ export const Container = styled.header`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 15px 0 15px 0;
+    padding: 18px 0 18px 0;
   }
   .logo-sizing {
     height: 50px;

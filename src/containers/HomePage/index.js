@@ -11,7 +11,9 @@ import ResponsiveNav from "../../components/ResponsiveNav";
 import Banner from "../../assets/banner.png";
 import BannerResponsive from "../../assets/Banner@2x.png";
 import BannerFood from "../../assets/BannerFood.png";
-import InfoBio1 from "../../assets/InfoBio1.svg";
+import InfoBio1 from "../../assets/InfoBio1.png";
+import InfoBio2 from "../../assets/InfoBio2.png";
+import InfoBio3 from "../../assets/InfoBio3.png";
 import Modal from "../../components/Modal";
 
 import Slider from "react-slick";
@@ -181,14 +183,14 @@ export default function HomePage() {
               data-aos="fade-up"
               className="info-box-content"
             >
-              <img alt="Info-Bio" src={InfoBio1}></img>
+              <img alt="Info-Bio" src={InfoBio2}></img>
               <p>2.Ajudar o pequeno agricultor no seu desenvolvimento</p>
             </div>
             <div
               data-aos="fade-up"
               className="info-box-content"
             >
-              <img alt="Info-Bio" src={InfoBio1}></img>
+              <img alt="Info-Bio" src={InfoBio3}></img>
               <p>3.Levar sua feira até você, sem complicações</p>
             </div>
           </div>

@@ -85,7 +85,7 @@ export const Container = styled.div`
   .info-box-content {
     padding: 2%;
     margin: 1%;
-    background: #f0f0f0;
+    background: #fffae6;
     border-radius: 24px;
     text-align: center;
     width: 21.5vw;
