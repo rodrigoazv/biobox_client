@@ -13,12 +13,17 @@ export const Container = styled.header`
   width: 100%;
   position:fixed;
   left: 0;
+  @media (max-width: 650px) {
+     position:absolute;
+      
+    }
   .max-margin {
     max-width: 1250px;
     padding: 0px 20px;
     margin: 0px auto;
     @media (max-width: 1100px) {
       max-width: 992px;
+      
     }
   }
   .max-margin-searchbar {
@@ -128,9 +133,9 @@ export const Container = styled.header`
     align-items: center;
     position: relative;
     border-top: 0.08333rem solid #f2f2f2;
-    -webkit-box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.39);
-    -moz-box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.39);
-    box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.39);
+    -webkit-box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.20);
+    -moz-box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.20);
+    box-shadow: 0px 2px 18px -9px rgba(0, 0, 0, 0.20);
     @media (max-width: 720px) {
       display: none;
     }
@@ -139,7 +144,7 @@ export const Container = styled.header`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 15px 0 15px 0;
+    padding: 18px 0 18px 0;
   }
   .logo-sizing {
     height: 50px;
@@ -225,20 +230,12 @@ export const Container = styled.header`
     top: 0;
     z-index: 1;
     box-shadow: 0 -0.83333rem 2.5rem #000;
-    @media (max-width: 720px) {
+    @media (max-width: 750px) {
       box-shadow: unset;
+      position: initial;
     }
   }
-  .nav-on-scroll {
-    top: 100px;
-    position: fixed;
-    background: white;
-    width: 100%;
-    z-index:1;
-    @media (max-width: 720px) {
-      box-shadow: unset;
-    }
-  }
+ 
   .min-list {
     font-size: 13px;
     color: #333;
