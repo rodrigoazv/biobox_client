@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   .detail-table {
@@ -8,15 +8,22 @@ export const Container = styled.div`
     background: #fff;
     margin: 10px 0;
   }
-  .flex-table{
+  .flex-table {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    @media (max-width: 780px) {
+      justify-content: none;
       display: flex;
-      justify-content:space-between;
+      flex-direction: column;
+    }
   }
-  .style-link-first{
-      width:100%;
-      background-color: #7fbc44;
-      border-radius: 4px;
-      padding: 2px 10px;
-      color: #fff;
+  .style-link-first {
+    width: 100%;
+    background-color: #7fbc44;
+    border-radius: 4px;
+    margin:10px;
+    padding: 4px 20px;
+    color: #fff;
   }
 `;

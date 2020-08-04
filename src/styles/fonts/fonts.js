@@ -11,7 +11,6 @@ export default createGlobalStyle`
         src: local('Patua One'), local('PatuaOne'),
         url(${PatuaOneWoff2}) format('woff2'),
         url(${PatuaOneWoff}) format('woff');
-        font-weight: 300;
         font-style: normal;
     }
     @font-face {

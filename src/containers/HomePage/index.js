@@ -11,10 +11,10 @@ import ResponsiveNav from "../../components/ResponsiveNav";
 import Banner from "../../assets/banner.png";
 import BannerResponsive from "../../assets/Banner@2x.png";
 import BannerFood from "../../assets/BannerFood.png";
-import InfoBio1 from "../../assets/InfoBio1.png";
-import InfoBio2 from "../../assets/InfoBio2.png";
-import InfoBio3 from "../../assets/InfoBio3.png";
+import InfoBio1 from "../../assets/Cooking.png";
 import Modal from "../../components/Modal";
+import InfoBio2 from "../../assets/Man.png";
+import InfoBio3 from "../../assets/Motoboy.png";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
