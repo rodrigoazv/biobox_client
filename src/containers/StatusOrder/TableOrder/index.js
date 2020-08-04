@@ -43,8 +43,9 @@ function TableOrder({ props }) {
       <div className="detail-table">
         <div className="flex-table">
           <div>
-            <h5>Detalhes envio: </h5>
-            <p>Código: {demands[0].id}</p>
+            <p>Código: #{demands[0].id}</p>
+            <h2>Detalhes envio: </h2>
+
             <p>
               Data do pedido:{" "}
               {moment(demands[0].createdDate).format("DD/MM/YYYY")}
@@ -58,20 +59,18 @@ function TableOrder({ props }) {
             </p>
           </div>
           <div>
-            <h5>Forma de pagamento: </h5>
+            <h2>Forma de pagamento: </h2>
             <p>Valor total: {demands[0].vaucher}</p>
           </div>
           <div>
-            <h5>Detalhes envio: </h5>
+            <h2>Detalhes envio: </h2>
             <div>
               <p>Valor dos pedidos:..</p>
               <p>Frete:..</p>
             </div>
           </div>
           <div>
-            <h5>
-              <br />{" "}
-            </h5>
+            <h2>--</h2>
             <p>{demands[0].totalPrice}</p>
             <p>{demands[0].shipValue}</p>
           </div>

@@ -1,7 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
+
 export default createGlobalStyle`
- 
+  
   * {
     margin: 0;
     padding: 0;
@@ -12,13 +13,15 @@ export default createGlobalStyle`
     height: 100%;
   }
   body {
-    font-family: Arial, Helvetica, sans-serif;  
-    font-weight: 600;
-    background: #fffbf6;
+    font-family: 'Patua One';
+    background: #fff;
     color: #333;
     -webkit-font-smoothing: antialiased !important;
     font-weight:100!important;
     padding-top: 8.5rem;
+  }
+  h1, h2{
+    font-weight: 100;
   }
   ul {
     list-style: none;

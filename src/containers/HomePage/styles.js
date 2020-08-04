@@ -59,7 +59,7 @@ export const Container = styled.div`
   .product-type-name {
     border-bottom: 2px solid #816a5a;
     font-size: 1.61667rem;
-    font-weight: 600;
+    font-weight: 200;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
     text-align: left;
