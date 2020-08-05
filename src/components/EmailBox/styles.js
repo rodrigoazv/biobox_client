@@ -4,8 +4,8 @@ export const Container = styled.div`
   .email-box {
     margin-top: 50px;
     margin-bottom: 50px;
-    background-color: #95b737;
-    border-radius: 24px;
+    background-color: #7fbc44;
+    border-radius: 8px;
     @media (max-width: 984px) {
       margin: 10px;
     }

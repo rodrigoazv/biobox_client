@@ -4,7 +4,7 @@ import { Container } from "./styles";
 import { Link, useHistory } from "react-router-dom";
 import "../../styles/colors";
 import ButtonLog from "./ButtonLog";
-
+import AppBanner from './AppBanner';
 
 //assets import
 import { RiShoppingBasketLine } from "react-icons/ri";
@@ -77,6 +77,7 @@ export default function HeaderTopNav() {
 
   return (
     <Container className="top-nav-sizing">
+      <AppBanner/>
       <div id="menu-fixed" className="menu-after-scroll">
         <div className="max-margin">
           <div className="nav-elements-mother">
@@ -163,32 +164,32 @@ export default function HeaderTopNav() {
           <ul>
             <li>
               <Link className="undernav-hover" to="/bioprodutos">
-                <FaLeaf size={16} />
-                <span className="link-top">Produtos</span>
+                <FaLeaf size={18} />
+                <span className="link-top">  Produtos</span>
               </Link>
             </li>
             <li>
               <Link className="undernav-hover" to="/receitas">
-                <FaConciergeBell size={16} />
-                <span className="link-top">Receitas</span>
+                <FaConciergeBell size={18} />
+                <span className="link-top">  Receitas</span>
               </Link>
             </li>
             <li>
               <Link className="undernav-hover" to="/sobre-nos">
-                <FaPagelines size={16} />
-                <span className="link-top">Sobre nós</span>
+                <FaPagelines size={18} />
+                <span className="link-top">  Sobre nós</span>
               </Link>
             </li>
             <li>
               <Link className="undernav-hover" to="/biocabanas">
-                <FaHouseDamage size={16} />
-                <span className="link-top">Biocabanas</span>
+                <FaHouseDamage size={18} />
+                <span className="link-top">  Biocabanas</span>
               </Link>
             </li>
             <li>
               <Link className="undernav-hover" to="/contato">
-                <FaEnvelope size={16} />
-                <span className="link-top">Contato</span>
+                <FaEnvelope size={18} />
+                <span className="link-top">  Contato</span>
               </Link>
             </li>
           </ul>

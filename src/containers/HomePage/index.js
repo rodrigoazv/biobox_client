@@ -24,10 +24,12 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 //materuakUi
 import Skeleton from "@material-ui/lab/Skeleton";
+import {GoChevronRight} from 'react-icons/go';
+import {GoChevronLeft} from 'react-icons/go';
 //import api from '../../service/api';
 
 import { useSelector, useDispatch } from "react-redux";
-import { getAllCategory, getAllProducts} from "../../store/fetchProduct";
+import { getAllCategory, getAllProducts } from "../../store/fetchProduct";
 
 export default function HomePage() {
   const settings = {
@@ -38,6 +40,8 @@ export default function HomePage() {
     slidesToScroll: 4,
     initialSlide: 0,
     variableWidth: true,
+    nextArrow: <GoChevronRight  color={"#333"}/>,
+    prevArrow: <GoChevronLeft  color={"#333"}/>,
     responsive: [
       {
         breakpoint: 1124,
@@ -75,9 +79,9 @@ export default function HomePage() {
     dispatch(getAllCategory());
   }, [dispatch]);
 
-  useEffect(() =>{
+  useEffect(() => {
     dispatch(getAllProducts());
-  }, [dispatch])
+  }, [dispatch]);
 
   //reducer addProducts in cart
 
@@ -97,47 +101,56 @@ export default function HomePage() {
         </Section>
         <div className="general-banner-mobile">
           <a href="/sobre-nos">
-            <img src={BannerResponsive} alt="banner" className="banner-response" />
+            <img
+              src={BannerResponsive}
+              alt="banner"
+              className="banner-response"
+            />
           </a>
         </div>
         <Section className="information-hole">
-          <div className="info-stripe max-margin-width">
-            <p
-              data-aos="zoom"
-              data-aos-delay="20"
-              data-aos-duration="200"
-              data-aos-once="false"
-              data-aos-offset="-150"
-              data-aos-anchor-placement="top-center"
-            >
-              Frete Grátis
-            </p>
-            <p
-              data-aos="zoom"
-              data-aos-delay="150"
-              data-aos-duration="220"
-              data-aos-once="false"
-              data-aos-offset="-150"
-              data-aos-anchor-placement="top-center"
-            >
-              Entrega em Taperoá-BA
-            </p>
-            <p
-              data-aos="zoom"
-              data-aos-delay="250"
-              data-aos-duration="320"
-              data-aos-once="false"
-              data-aos-offset="-150"
-              data-aos-anchor-placement="top-center"
-            >
-              Produtos colhidos 1 dia antes
-            </p>
+          <div className="info-stripe">
+            <div className="max-margin-width info-stripe">
+              <p
+                data-aos="zoom"
+                data-aos-delay="20"
+                data-aos-duration="200"
+                data-aos-once="false"
+                data-aos-offset="-150"
+                data-aos-anchor-placement="top-center"
+              >
+                Frete Grátis
+              </p>
+              <p
+                data-aos="zoom"
+                data-aos-delay="150"
+                data-aos-duration="220"
+                data-aos-once="false"
+                data-aos-offset="-150"
+                data-aos-anchor-placement="top-center"
+              >
+                Entrega em Taperoá-BA
+              </p>
+              <p
+                data-aos="zoom"
+                data-aos-delay="250"
+                data-aos-duration="320"
+                data-aos-once="false"
+                data-aos-offset="-150"
+                data-aos-anchor-placement="top-center"
+              >
+                Produtos colhidos 1 dia antes
+              </p>
+            </div>
           </div>
         </Section>
         <Section className="product-hole">
           {category.length !== 0 ? (
             category.map((categoria) => (
-              <section className="product-type max-margin-width" key={categoria.id}>
+              <section
+                className="product-type max-margin-width"
+                key={categoria.id}
+              >
                 <div className="product-type-name">{categoria.name}</div>
                 <div className="padding-slick">
                   <ul>
@@ -158,49 +171,61 @@ export default function HomePage() {
             ))
           ) : (
             <section className="product-type max-margin-width display-flex-row">
-               <Skeleton variant="rect" width={165} height={200} />
-               <Skeleton variant="rect" width={165} height={200} />
-               <Skeleton variant="rect" width={165} height={200} />
-               <Skeleton variant="rect" width={165} height={200} />
-               <Skeleton variant="rect" width={165} height={200} />
-          </section>
-           
+              <Skeleton variant="rect" width={165} height={200} />
+              <Skeleton variant="rect" width={165} height={200} />
+              <Skeleton variant="rect" width={165} height={200} />
+              <Skeleton variant="rect" width={165} height={200} />
+              <Skeleton variant="rect" width={165} height={200} />
+            </section>
           )}
 
           <div className="info-box max-margin-width">
             <div className="info-box-phrase">
               <h1>Porque nós fazemos o que fazemos?</h1>
-              <p>Entenda nossa filosofia e junte-se à família Biocampeiro</p>
+              <p>
+                A familia Biocampeiro tem dentre muitos objetivos o
+                desenvolvimento de um ecosistema saúdavel, onde o agricultor e
+                nossos clientes são sempre beneficiados
+              </p>
             </div>
-            <div
-              data-aos="fade-up"
-              className="info-box-content"
-            >
+            <div data-aos="fade-up" className="info-box-content">
               <img alt="Info-Bio" src={InfoBio1}></img>
-              <p>1.Alimentar você de forma limpa e sem agrotóxicos</p>
+              <p>
+                <h1>
+                  1.Alimentar <b>você e sua familia</b>
+                </h1>{" "}
+                de forma limpa e sem agrotóxicos
+              </p>
             </div>
-            <div
-              data-aos="fade-up"
-              className="info-box-content"
-            >
+            <div data-aos="fade-up" className="info-box-content">
               <img alt="Info-Bio" src={InfoBio2}></img>
-              <p>2.Ajudar o pequeno agricultor no seu desenvolvimento</p>
+              <p>
+                <h1>
+                  2.Ajudar o <b>pequeno agricultor</b>
+                </h1>{" "}
+                no seu desenvolvimento no campo
+              </p>
             </div>
-            <div
-              data-aos="fade-up"
-              className="info-box-content"
-            >
+            <div data-aos="fade-up" className="info-box-content">
               <img alt="Info-Bio" src={InfoBio3}></img>
-              <p>3.Levar sua feira até você, sem complicações</p>
+              <p>
+                <h1>
+                  3.Levar sua feira <b>até você,</b>
+                </h1>{" "}
+                sem complicações, sem estresse e muito rápido
+              </p>
             </div>
           </div>
-
+        </Section>
+        <Section>
           <div>
             <a href="/">
               <img src={BannerFood} alt="banner" className="banner-response" />
             </a>
           </div>
+        </Section>
 
+        <Section className="max-margin-width">
           <EmailBox />
         </Section>
       </main>

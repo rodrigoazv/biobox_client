@@ -1,6 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 
-
 export default createGlobalStyle`
   
   * {
@@ -14,11 +13,11 @@ export default createGlobalStyle`
   }
   body {
     font-family: 'Patua One';
-    background: #fff;
+    background: #FFFCFA;
     color: #333;
     -webkit-font-smoothing: antialiased !important;
     font-weight:100!important;
-    padding-top: 8.5rem;
+    padding-top: 9.8rem;
   }
   h1, h2{
     font-weight: 100;
@@ -45,15 +44,16 @@ export default createGlobalStyle`
     width: 100%;
     max-width: 100%;
     font-size: 1rem;
-    height: 36px;
+    height: 40px;
     padding: .5em .5rem .5rem 2rem;
-    border: 1px #A4A4A4 solid;
-    border-radius: 10px;
+    border: 1px #7fbc44 solid;
+    border-radius: 6px;
     outline:none;
-    background-color: rgba(242,242,242,.6);
+    background-color: rgba(242,242,242,.8);
 
     &:focus{
-      border: 1px green solid;
+      border: 1px #A4A4A4 solid;
+      box-shadow: inset 0 1px 2px 0 rgba(192, 208, 230, 0.9);
     }
   }
   /* Input login and register ( NAV-TOP )*/
@@ -71,13 +71,11 @@ export default createGlobalStyle`
     width:100%;
   }
   li{
-    font-family: 'Patua One', cursive;
     font-weight: 600;
   }
   a{
     text-decoration:none;
     font-weight: 200;
-    font-family: 'Patua One', cursive;
   }
   p{
     font-family: 'Kreon', cursive;
@@ -106,18 +104,20 @@ export default createGlobalStyle`
         display:flex;
     }
     
-    .button-quantity{
-        border:none;
-        background-color:#fff;
-        color: green;
-        font-weight: 200;
-        font-size:20px;
-        padding:3px; 
-        cursor:pointer;
-    }
+    .button-quantity {
+    color: black;
+    font-weight: 600;
+    padding: 8px 16px;
+    background-color: white;
+    cursor: pointer;
+    border:none;
+    font-size: 20px;
+    border-radius: 4px;
+    transition: 0.2s;
+  }
     .button-quantity:hover{
-        color:orange;
-        background-color:#ccc;
+        color:#7FBC44;
+        background-color:#f2f2f2;
     }
     .input-quantity{
         text-align: center;

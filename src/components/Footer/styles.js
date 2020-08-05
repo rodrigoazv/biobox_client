@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.footer`
-  background-color:#FFFAF5;
+  background-color:#FEF4D6;
+  color:#493c24;
   .flex-row{
       display: flex;
       @media(max-width:956px){
@@ -11,7 +12,7 @@ export const Container = styled.footer`
   }
   .flex-column  a{
         font-weight: 300;
-        color: #333;
+        color: #493c24;
         margin-top: 5px;
         border-top: 1px solid #D8D8D8;
         @media(max-width:956px){

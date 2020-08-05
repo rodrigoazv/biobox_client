@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import {PRIMARY_GREN_LIGHT} from '../../styles/colors';
 
 export const Container = styled.button`
-  
+    text-transform: uppercase;
     background-color: ${props => props.inputColor || `${PRIMARY_GREN_LIGHT}` };
     color: #FFF;
     border: 2px  ; 
@@ -21,7 +21,7 @@ export const Container = styled.button`
     transition-duration: 0.4s;
  
   :hover {
-    filter: brightness(90%);/* Green */
+    filter: brightness(80%);/* Green */
     color: white;
   }
 `;

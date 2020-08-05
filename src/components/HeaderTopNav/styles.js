@@ -13,10 +13,6 @@ export const Container = styled.header`
   width: 100%;
   position:fixed;
   left: 0;
-  @media (max-width: 650px) {
-     position:absolute;
-      
-    }
   .max-margin {
     max-width: 1250px;
     padding: 0px 20px;
@@ -86,7 +82,9 @@ export const Container = styled.header`
     color: #333;
     text-decoration: none;
     cursor: pointer;
-    font-family: "Patua One", cursive;
+    font-family: "Neuzeit Office Soft Rounded",sans-serif;
+    font-weight: 700;
+    
   }
   .display-show {
     @media (max-width: 720px) {
@@ -229,7 +227,6 @@ export const Container = styled.header`
     width: 100%;
     top: 0;
     z-index: 1;
-    box-shadow: 0 -0.83333rem 2.5rem #000;
     @media (max-width: 750px) {
       box-shadow: unset;
       position: initial;
@@ -245,7 +242,7 @@ export const Container = styled.header`
   .undernav-hover {
     align-items: center;
     text-align: center;
-    transition: color 0.4s;
+    transition: color 0.3s;
   }
   .undernav-hover:hover {
     color: #91b431;
