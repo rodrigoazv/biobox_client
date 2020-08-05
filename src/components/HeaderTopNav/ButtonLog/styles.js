@@ -11,7 +11,7 @@ export const Container = styled.div`
     border: 1px solid rgba(135, 147, 149, 0.3);
     color: #434a56;
     padding: 0 10px;
-    height: 36px;
+    height: 40px;
     background: white;
     border-radius: 4px;
     transition: 0.4s;

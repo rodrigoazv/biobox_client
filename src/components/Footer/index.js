@@ -3,7 +3,7 @@ import React from 'react';
 import { Container } from './styles';
 //assets
 import Logo from '../../assets/logobio.svg';
-import { FaInstagram, FaFacebook, FaPinterest, FaLinkedin } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 
 
 export default function Footer() {
@@ -14,12 +14,11 @@ export default function Footer() {
 
                 <div className="flex-column column-top">
                     <img src={Logo} alt="logo" />
-                    <p>Junte-se a mais de 10.000 pessoas que estão pens..</p>
+                    <p>Junte-se a mais de 100 clientes que fazem sua feira pela Biocampeiro</p>
                     <div className="flex-social-media">
                         <a href="https://www.instagram.com/biocampeiro/?hl=pt-br" > <FaInstagram size={32} /></a>
                         <a href="https://www.facebook.com/biocampeiro" ><FaFacebook size={32} /></a>
-                        <a href="https://www.instagram.com/biocampeiro/?hl=pt-br" ><FaPinterest size={32} /></a>
-                        <a href="https://www.instagram.com/biocampeiro/?hl=pt-br"> <FaLinkedin size={32} /></a>
+                        <a href="https://www.instagram.com/biocampeiro/?hl=pt-br" ><FaWhatsapp size={32} /></a>
                     </div>
                 </div>
 
@@ -27,16 +26,15 @@ export default function Footer() {
                     <div>
                         <h3>Institucional</h3>
                         <div className="flex-column">
-                            <a href="/sobre-nos">Quem somos</a>
-                            <a href="/sobre-nos">O que fazemos</a>
-                            <a href="/localizacao">Onde nos localizamos</a>
+                            <a href="/sobre-nos">Quem somos ?</a>
+                            <a href="/sobre-nos">O que fazemos ?</a>
+                            <a href="/localizacao">Onde nos localizamos ?</a>
                         </div>
                     </div>
                     <div >
                         <h3>Contato</h3>
                         <div className="flex-column">
-                            <a href="/">emailbiocampeiro@mail.com</a>
-                            <a href="/">9999-9999</a>
+                            <a href="/">biocampeiroltda@gmail.com</a>
                         </div>
                     </div>
                     <div >

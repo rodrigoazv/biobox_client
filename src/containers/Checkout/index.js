@@ -16,6 +16,13 @@ import { ErrorMessage, Formik, Form, Field } from "formik";
 import * as yup from "yup";
 import { useHistory } from "react-router-dom";
 import Loading from "../../components/Loading";
+//Error Bar
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const validation = yup.object().shape({
   zipcode: yup
@@ -30,6 +37,15 @@ const validation = yup.object().shape({
 });
 
 function Checkout() {
+  const [message, setMessage] = useState("Error: Se você inseriu tudo certinho, provavelmente ta faltando produto :/");
+  const [open, setOpen] = React.useState(false);
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+  };
   //Variaveis const
   const dispatch = useDispatch();
   const history = useHistory();
@@ -45,11 +61,12 @@ function Checkout() {
   const [userId, setUserId] = useState("");
   const [totalPrice, setTotalPrice] = useState(null);
   const [shipValue] = useState(0);
-  const [shipStatus] = useState("Pedido");
-  const [vaucher] = useState("No");
+  const [shipStatus] = useState("Pedido Realizado");
+  const [vaucher] = useState("Sem desconto");
   const [BoolAdress, setBoolAdress] = useState(Boolean);
   const [LoadingPage, setLoadingPage] = useState(false);
   const [LoadingOrder, setLoadingOrder] = useState(true);
+  
   const id = JSON.parse(localStorage.getItem("user_session")); //LocalStorage-set when data response validate token
 
   const user = useSelector((state) => state.user);
@@ -146,9 +163,8 @@ function Checkout() {
       await api.post("sendo", cartByUser, headers);
       history.push("/checkout/sendorder");
     } catch {
-      alert(
-        `Ocorreu algum erro confira seus dados e se existe produto no carrinho e tente novamente !`
-      );
+      setLoadingOrder(true);
+      setOpen(true);
     }
   }
 
@@ -174,18 +190,24 @@ function Checkout() {
       vaucher,
     };
     try {
-      await api.post("sendnoadress", cartByUser, headers);
+      const res = await api.post("sendnoadress", cartByUser, headers);
+      console.log(res.data);
+      setMessage(res.data.message)
       localStorage.removeItem("sback_cart_item");
       history.push("/checkout/sendorder");
-    } catch {
-      alert(
-        `Ocorreu algum erro confira seus dados e se existe produto no carrinho e tente novamente !`
-      );
+    } catch(error) {
+      setLoadingOrder(true);
+      setOpen(true);
     }
   }
 
   return (
     <Container>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error">
+          {message}
+        </Alert>
+      </Snackbar>
       <HeaderTopNav />
       {LoadingPage ? (
         <div className="max-margin-width margint-top-bot">

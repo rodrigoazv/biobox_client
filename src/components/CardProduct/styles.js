@@ -1,17 +1,19 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+
   @media (max-width: 850px) {
-    width: 150px;
+    width: 154px;
   }
   height: auto;
   width: 220px;
   background-color: white;
   border-radius: 8px;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #d7ccc8;
   transition: 0.2s;
+  text-align: center;
   :hover {
-    box-shadow: 0 1px 4px 0 rgba(192, 208, 230, 0.8);
+    box-shadow: 0 2px 4px 0 rgba(192, 208, 230, 0.9);
   }
 
   .product-info {
@@ -22,8 +24,8 @@ export const Container = styled.div`
   .product-name {
     color: #333;
     margin: 10px 0;
-    height:32px;
-    font-size: .81rem;
+    height: 32px;
+    font-size: 0.81rem;
     font-weight: 500;
     font-family: sans-serif;
   }
@@ -42,8 +44,8 @@ export const Container = styled.div`
     justify-content: space-between;
     width: 92%;
     @media (max-width: 850px) {
-    flex-direction: column;
-  }
+      flex-direction: column;
+    }
   }
   .product-price {
     color: #333;
@@ -55,7 +57,6 @@ export const Container = styled.div`
     width: 100%;
   }
   .align-figure {
-    display: table-cell;
     width: 100%;
     height: 100%;
     vertical-align: bottom;
@@ -67,11 +68,14 @@ export const Container = styled.div`
     display: inline-block;
     height: 198px;
     @media (max-width: 850px) {
-    height: 105px;
-  }
+      height: 105px;
+    }
+    :hover{
+      transform: scale(1.02);
+    }
   }
   .padding-into {
-    padding: 5px;
+    padding: 8px;
   }
   .flex-quant {
     margin-top: 10px;
@@ -89,13 +93,7 @@ export const Container = styled.div`
     text-align: center;
     background-color: #fff;
   }
-  .button-quantity {
-    color: black;
-    font-weight: 600;
-    padding: 8px 16px;
-    border-radius: 100px;
-    background-color: white;
-  }
+  
   .off-price {
     height: 11px;
     left: 1427px;
