@@ -4,7 +4,7 @@ import { Container } from "./styles";
 import { Link, useHistory } from "react-router-dom";
 import "../../styles/colors";
 import ButtonLog from "./ButtonLog";
-import AppBanner from './AppBanner';
+import AppBanner from "./AppBanner";
 
 //assets import
 import { RiShoppingBasketLine } from "react-icons/ri";
@@ -55,7 +55,7 @@ export default function HeaderTopNav() {
       let menuonScroll = document.getElementById("menu-fixed");
       if (window.pageYOffset > 50) menuonScroll.classList.add("menu-on-scroll");
       else menuonScroll.classList.remove("menu-on-scroll");
-    }
+    };
     window.onscroll = () => menufixed("menu-fixed");
   }
   menuOnScroll();
@@ -77,7 +77,7 @@ export default function HeaderTopNav() {
 
   return (
     <Container className="top-nav-sizing">
-      <AppBanner/>
+      <AppBanner />
       <div id="menu-fixed" className="menu-after-scroll">
         <div className="max-margin">
           <div className="nav-elements-mother">
@@ -93,6 +93,7 @@ export default function HeaderTopNav() {
                     <div {...getRootProps()}>
                       <label {...getInputLabelProps()} />
                       <input
+                        data-cy="input-task"
                         className="input"
                         placeholder="Procurando algo?"
                         {...getInputProps()}
@@ -101,7 +102,7 @@ export default function HeaderTopNav() {
                     {groupedOptions.length > 0 ? (
                       <ul className="listbox" {...getListboxProps()}>
                         {groupedOptions.map((option, index) => (
-                          <li {...getOptionProps({ option, index })}>
+                          <li {...getOptionProps({ option, index })} data-cy="product-rows">
                             <Link
                               to={{
                                 pathname: `/product/${option.id}`,
@@ -142,14 +143,18 @@ export default function HeaderTopNav() {
                 <ButtonLog />
               </div>
             ) : (
-                <div className="display-show">
-                  <Link to="/login" className="login">Entre </Link>
-                  <span> ou </span>
-                  <Link to="/register" className="login">cadastre-se</Link>
-                </div>
-              )}
+              <div className="display-show">
+                <Link to="/login" className="login">
+                  Entre{" "}
+                </Link>
+                <span> ou </span>
+                <Link to="/register" className="login">
+                  cadastre-se
+                </Link>
+              </div>
+            )}
 
-            <div className="display-show cart-box" >
+            <div className="display-show cart-box">
               <Link to="/cart">
                 <RiShoppingBasketLine size={36} />
                 <span>{length}</span>
@@ -165,31 +170,31 @@ export default function HeaderTopNav() {
             <li>
               <Link className="undernav-hover" to="/bioprodutos">
                 <FaLeaf size={18} />
-                <span className="link-top">  Produtos</span>
+                <span className="link-top"> Produtos</span>
               </Link>
             </li>
             <li>
               <Link className="undernav-hover" to="/receitas">
                 <FaConciergeBell size={18} />
-                <span className="link-top">  Receitas</span>
+                <span className="link-top"> Receitas</span>
               </Link>
             </li>
             <li>
               <Link className="undernav-hover" to="/sobre-nos">
                 <FaPagelines size={18} />
-                <span className="link-top">  Sobre nós</span>
+                <span className="link-top"> Sobre nós</span>
               </Link>
             </li>
             <li>
               <Link className="undernav-hover" to="/biocabanas">
                 <FaHouseDamage size={18} />
-                <span className="link-top">  Biocabanas</span>
+                <span className="link-top"> Biocabanas</span>
               </Link>
             </li>
             <li>
               <Link className="undernav-hover" to="/contato">
                 <FaEnvelope size={18} />
-                <span className="link-top">  Contato</span>
+                <span className="link-top"> Contato</span>
               </Link>
             </li>
           </ul>
@@ -208,20 +213,18 @@ export default function HeaderTopNav() {
                 {isAuthenticated ? (
                   <ButtonLog />
                 ) : (
-                    <div className="flex-icon">
-                      <Link to="/login">
-                        <FaSignInAlt size={25} color="#333" />
-                      </Link>
+                  <div className="flex-icon">
+                    <Link to="/login">
+                      <FaSignInAlt size={25} color="#333" />
+                    </Link>
                     Entre/cadastre-se
-                    </div>
-                  )}
+                  </div>
+                )}
               </li>
               <li>
                 <div className="cart-box">
                   <Link to="/cart">
-                    <RiShoppingBasketLine
-                      size={32}
-                    />
+                    <RiShoppingBasketLine size={32} />
                     <span>{length}</span>
                   </Link>
                 </div>
