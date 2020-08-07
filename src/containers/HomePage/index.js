@@ -89,8 +89,8 @@ export default function HomePage() {
     <Container>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Biocampeiro - Homepage</title>
-        <link rel="canonical" href="http://biocampeiro.com.br" />
+        <title>Biocampeiro - Sua feira até você</title>
+        <link rel="canonical" href="https://biocampeiro.com" />
       </Helmet>
       <HeaderTopNav />
       <main className="main-section">

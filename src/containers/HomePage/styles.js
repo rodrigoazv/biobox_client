@@ -55,7 +55,7 @@ export const Container = styled.div`
     border-bottom: 2px solid #816a5a;
     font-size: 1.61667rem;
     font-weight: 200;
-    padding-left: 1.25rem;
+    padding-left: 1.25rem;  
     padding-right: 1.25rem;
     text-align: center;
     text-transform: uppercase;
