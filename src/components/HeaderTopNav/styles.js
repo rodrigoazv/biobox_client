@@ -247,5 +247,8 @@ export const Container = styled.header`
   .undernav-hover:hover {
     color: #91b431;
   }
+  .closed-sign{
+    display:none;
+  }
   
 `;
