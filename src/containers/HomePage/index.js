@@ -7,6 +7,7 @@ import CardProduct from "../../components/CardProduct";
 import EmailBox from "../../components/EmailBox";
 import Footer from "../../components/Footer";
 import ResponsiveNav from "../../components/ResponsiveNav";
+import CardsHelper from './CardsHelper';
 //asssets
 import Banner from "../../assets/banner.png";
 import BannerResponsive from "../../assets/Banner@2x.png";
@@ -144,6 +145,7 @@ export default function HomePage() {
             </div>
           </div>
         </Section>
+        <CardsHelper/>
         <Section className="product-hole">
           {category.length !== 0 ? (
             category.map((categoria) => (
