@@ -24,4 +24,6 @@ export const Container = styled.div`
     padding-right: 10px;
     cursor: pointer;
   }
+
+
 `;
