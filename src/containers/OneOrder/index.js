@@ -1,20 +1,55 @@
 import React, { useEffect, useState } from "react";
 
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../store/ducks/cart";
 //Componentes
 import { Container } from "./styles";
 import HeaderTopNav from "../../components/HeaderTopNav";
 import Footer from "../../components/Footer";
 import Loading from "../../components/Loading";
 import LifeOrder from "./LifeOrder";
+import ButtonFull from "../../components/ButtonFull"
 
 import moment from "moment";
 import api from "../../service/api";
 
+
+
 function OneOrder() {
+  const history = useHistory();
+  const dispatch = useDispatch();
   const [order, setOrder] = useState({});
   const [LoadingPage, setLoadingPage] = useState(true);
+  const [goCart, setGoCart] = useState([{
+  pid:"v",
+  quantity:1,
+  price:1,
+  name:"",
+  photo:"",
+  description:"" 
+  }])
   let { id } = useParams();
+
+useEffect(()=>{
+    setGoCart(order.orders.map(product =>{
+    return (
+      {
+        pid : product.id,
+        quantity: product.quantity,
+        price: product.productPrice,
+        name: product.productName,
+        photo:  product.photoUrl,
+        description: product.productDescription
+       } 
+    ) 
+    }))
+  }, [order.orders, goCart])
+
+  function repeatOrder(){
+     dispatch(addItem(goCart))
+     history.push("/cart")
+  }
 
   useEffect(() => {
     const headers = {
@@ -94,6 +129,13 @@ function OneOrder() {
               ))}
             </div>
           </div>
+          <div className="button-sett">
+          <ButtonFull
+           onClick ={repeatOrder}
+           text="Repetir Pedido"
+          />
+          </div>
+          
         </div>
       )}
 
