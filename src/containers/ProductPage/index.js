@@ -14,7 +14,6 @@ import Button from "../../components/ButtonFull";
 import Footer from "../../components/Footer";
 
 //assets
-import { PRIMARY_GREN, PRIMARY_ORANGE } from "../../styles/colors";
 
 import { Helmet } from "react-helmet";
 
@@ -128,7 +127,7 @@ export default function ProductPage() {
                 <div className="button-sett">
                 <Button
                   text="Adicionar"
-                  inputColor={PRIMARY_ORANGE}
+                  inputColor={props => props.theme.primary}
                   type="submit"
                   onClick={() => addCartProduct(dataCart)}
                 />
@@ -139,7 +138,7 @@ export default function ProductPage() {
                   {" "}
                   <Button
                     text="Ir para o carrinho"
-                    inputColor={PRIMARY_GREN}
+                    inputColor={props => props.theme.primary}
                     type="submit"
                   />
                 </Link>

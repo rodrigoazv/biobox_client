@@ -1,10 +1,22 @@
 
 //colors
-export const PRIMARY_GREN = '#7FBC44';
-export const PRIMARY_GREN_LIGHT = '#7FBC44';
-export const BORDER_GREY_LIGHT = 'rgba(0,0,0,0.12)';
-export const PRIMARY_BORDER_GREY = '#b1b1b1';
-export const PRIMARY_ORANGE = '#FF7A00';
+export default {
+    title: 'colors',
+
+    colors:{
+        primary:'#7fbc44',
+        primaryLight:'#a7d163;',
+        secondary:'#FF6600',
+        secondaryLight:'#ffa66b',
+        tertiary:'#311f17',
+        quaternary:'#FEF4D6',
+
+        black:'#333',
+        biege:'#FEF4D6',
+        background:'#FFFCFA',
+        white: '#FFF'
+    }
+}
 //width
 export const MAX_WIDTH = "1250px"
 export const WIDTH_RESPONSIVE = "700px"

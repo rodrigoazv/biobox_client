@@ -35,7 +35,7 @@ export const Container = styled.header`
     height: 80px;
   }
   .cart-box span{
-    background: #7FBC44;
+    background: ${props => props.theme.colors.primary};
     color: #fff;
     font-size: .69rem;
     font-weight: 700;
@@ -79,7 +79,7 @@ export const Container = styled.header`
   }
   
   a {
-    color: #333;
+    color: ${props => props.theme.colors.black};
     text-decoration: none;
     cursor: pointer;
     font-family: "Neuzeit Office Soft Rounded",sans-serif;
@@ -96,7 +96,7 @@ export const Container = styled.header`
   }
   .display-show button {
     color: white;
-    background-color: #91b431;
+    background-color: ${props => props.theme.colors.primary};
     width: 35px;
     border-radius: 2.5px;
     cursor: pointer;
@@ -171,7 +171,7 @@ export const Container = styled.header`
     z-index: 10;
     position: absolute;
     list-style: none;
-    background-color: #fff;
+    background-color: ${props => props.theme.colors.white};
     overflow: auto;
     max-height: 200px;
     border: 1px solid rgba(0, 0, 0, 0.25);
@@ -191,7 +191,7 @@ export const Container = styled.header`
     right: 0;
     margin-right: 20px;
     top: 11px;
-    color: #91b431;
+    color: ${props => props.theme.colors.primary};
     transition: 0.3s;
   }
   .show-when-under-none {
