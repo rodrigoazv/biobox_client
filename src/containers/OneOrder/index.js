@@ -9,46 +9,50 @@ import HeaderTopNav from "../../components/HeaderTopNav";
 import Footer from "../../components/Footer";
 import Loading from "../../components/Loading";
 import LifeOrder from "./LifeOrder";
-import ButtonFull from "../../components/ButtonFull"
+import ButtonFull from "../../components/ButtonFull";
 
 import moment from "moment";
 import api from "../../service/api";
-
-
 
 function OneOrder() {
   const history = useHistory();
   const dispatch = useDispatch();
   const [order, setOrder] = useState({});
   const [LoadingPage, setLoadingPage] = useState(true);
-  const [goCart, setGoCart] = useState([{
-  pid:"v",
-  quantity:1,
-  price:1,
-  name:"",
-  photo:"",
-  description:"" 
-  }])
+  const [goCart, setGoCart] = useState([
+    {
+      pid: "v",
+      quantity: 1,
+      price: 1,
+      name: "",
+      photo: "",
+      description: "",
+    },
+  ]);
   let { id } = useParams();
+  
+  useEffect(() => {
+    if (!LoadingPage) {
+      setGoCart(
+        order.orders.map((product) => {
+          return {
+            pid: product.id,
+            quantity: product.quantity,
+            price: product.price,
+            name: product.productName,
+            photo: product.photo,
+            description: product.productDescription,
+          };
+        })
+      );
+    }
+  }, [order.orders, LoadingPage]);
 
-useEffect(()=>{
-    setGoCart(order.orders.map(product =>{
-    return (
-      {
-        pid : product.id,
-        quantity: product.quantity,
-        price: product.productPrice,
-        name: product.productName,
-        photo:  product.photoUrl,
-        description: product.productDescription
-       } 
-    ) 
-    }))
-  }, [order.orders, goCart])
-
-  function repeatOrder(){
-     dispatch(addItem(goCart))
-     history.push("/cart")
+  function repeatOrder() {
+    goCart.map(products => {
+      return dispatch(addItem(products))
+    })
+    history.push("/cart")
   }
 
   useEffect(() => {
@@ -63,6 +67,7 @@ useEffect(()=>{
       setLoadingPage(false);
     });
   }, [id]);
+  
   return (
     <Container>
       <HeaderTopNav />
@@ -130,12 +135,8 @@ useEffect(()=>{
             </div>
           </div>
           <div className="button-sett">
-          <ButtonFull
-           onClick ={repeatOrder}
-           text="Repetir Pedido"
-          />
+            <ButtonFull onClick={repeatOrder} text="Repetir Pedido" />
           </div>
-          
         </div>
       )}
 

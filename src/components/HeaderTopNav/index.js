@@ -7,7 +7,7 @@ import ButtonLog from "./ButtonLog";
 import AppBanner from "./AppBanner";
 
 //assets import
-import { RiShoppingBasketLine } from "react-icons/ri";
+import { GoPackage } from "react-icons/go";
 import { FaSignInAlt } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import { FaGripLines } from "react-icons/fa";
@@ -156,7 +156,7 @@ export default function HeaderTopNav() {
 
             <div className="display-show cart-box">
               <Link to="/cart">
-                <RiShoppingBasketLine size={36} />
+                <GoPackage size={36} />
                 <span>{length}</span>
               </Link>
             </div>
@@ -224,7 +224,7 @@ export default function HeaderTopNav() {
               <li>
                 <div className="cart-box">
                   <Link to="/cart">
-                    <RiShoppingBasketLine size={32} />
+                    <GoPackage size={32} />
                     <span>{length}</span>
                   </Link>
                 </div>

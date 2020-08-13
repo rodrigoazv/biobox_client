@@ -6,10 +6,14 @@ import HeaderTopNav from "../../components/HeaderTopNav";
 import Footer from "../../components/Footer";
 import ResponsiveNav from "../../components/ResponsiveNav";
 import ButtonFull from "../../components/ButtonFull";
-import { formatPrice } from '../../helpers';
+import { formatPrice } from "../../helpers";
 
 import { useSelector, useDispatch } from "react-redux";
-import { removeItem } from "../../store/ducks/cart";
+import {
+  removeItem,
+  incrementItem,
+  decrementItem,
+} from "../../store/ducks/cart";
 
 import { BsTrash } from "react-icons/bs";
 import { Helmet } from "react-helmet";
@@ -32,6 +36,21 @@ function CartPage() {
     dispatch(removeItem(id));
   }
 
+  function handleIncrement(id) {
+    dispatch(incrementItem(id));
+  }
+
+  function handleDecrement(id) {
+    dispatch(decrementItem(id));
+  }
+
+  /*const [demands, setDemands] = React.useState(cartProductState);
+  React.useEffect(() => {
+    const dadu = cartProductState.map((data) => data);
+    let climb = dadu.sort((a, b) => (a.name < b.name ? -1 : +1));
+    setDemands(climb);
+  }, [cartProductState]);*/
+
   return (
     <Container>
       <Helmet>
@@ -45,35 +64,65 @@ function CartPage() {
           <h2>Carrinho</h2>
           <div className="full-width">
             {cartProductState === 0 ? (
-              <p>Carrinho vazio</p>
+              <p>Oops, seu carrinho ta vazio !</p>
             ) : (
               <div>
-                <ul>
-                  {cartProductState.map((product) => (
-                    <li key={product.pid}>
-                      <div className="display-flex-cart">
-                        <img
-                          src={product.photo}
-                          alt="none"
-                          className="cart-photo"
-                        />
-
-                        <div>
-                          <h4>{product.name}</h4>
-                          <p className="display-none-test">{product.description}</p>
+                <table class="tag-list">
+                  {cartProductState.map((product, index) => (
+                    <tr key={product.pid}>
+                      <td>
+                        <div className="display-flex-cart">
+                          <img
+                            src={product.photo}
+                            alt="nophoto"
+                            className="cart-photo"
+                          />
+                          <div>
+                            <h4>{product.name}</h4>
+                            <p className="display-none-test">
+                              {product.description}
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                      <div className="flex-end">Preço: {formatPrice(product.price)}</div>
-                      <div className="flex-end">Qntde: {product.quantity}</div>
-                      <button
-                        className="mini-button"
-                        onClick={() => removeProductCart(product.pid)}
-                      >
-                        <BsTrash size={22} />
-                      </button>
-                    </li>
+                      </td>
+                      <td>
+                        <div className="flex-end">
+                          <div className="add-control">
+                            <button
+                              className="button-quantity"
+                              onClick={() => handleDecrement(index)}
+                            >
+                              -
+                            </button>
+                            <input
+                              className="input-quantity"
+                              value={product.quantity}
+                            />
+                            <button
+                              className="button-quantity"
+                              onClick={() => handleIncrement(index)}
+                            >
+                              +
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div className="flex-end">
+                          Preço: {formatPrice(product.price)}
+                        </div>
+                      </td>
+                      <td>
+                        <button
+                          className="mini-button"
+                          onClick={() => removeProductCart(product.pid)}
+                        >
+                          <BsTrash size={22} />
+                        </button>
+                      </td>
+                    </tr>
                   ))}
-                </ul>
+                </table>
               </div>
             )}
           </div>
