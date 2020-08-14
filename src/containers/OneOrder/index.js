@@ -135,7 +135,7 @@ function OneOrder() {
             </div>
           </div>
           <div className="button-sett">
-            <ButtonFull onClick={repeatOrder} text="Repetir Pedido" />
+            <ButtonFull onClick={repeatOrder} text="Repetir Pedido" inputColor={props => props.theme.colors.secondaryLight}/>
           </div>
         </div>
       )}

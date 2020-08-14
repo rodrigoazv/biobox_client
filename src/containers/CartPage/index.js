@@ -6,6 +6,9 @@ import HeaderTopNav from "../../components/HeaderTopNav";
 import Footer from "../../components/Footer";
 import ResponsiveNav from "../../components/ResponsiveNav";
 import ButtonFull from "../../components/ButtonFull";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
+//
 import { formatPrice } from "../../helpers";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -18,7 +21,23 @@ import {
 import { BsTrash } from "react-icons/bs";
 import { Helmet } from "react-helmet";
 
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
 function CartPage() {
+  // Gerencia snackbar de erro
+  const [open, setOpen] = React.useState(false);
+  const [message, setMessage] = React.useState(
+    "Error: não é possivel enviar essa quantidade"
+  );
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+  };
+  //
   const cartProductState = useSelector((state) => state.cart);
   localStorage.setItem("sback_cart_item", JSON.stringify(cartProductState));
   const dispatch = useDispatch();
@@ -36,12 +55,22 @@ function CartPage() {
     dispatch(removeItem(id));
   }
 
-  function handleIncrement(id) {
-    dispatch(incrementItem(id));
+  function handleIncrement(id, product) {
+    if (product.quantity <= 8) {
+      dispatch(incrementItem(id));
+    } else {
+      setMessage("Ooops, muito produto pra pessoa física");
+      setOpen(true);
+    }
   }
 
-  function handleDecrement(id) {
-    dispatch(decrementItem(id));
+  function handleDecrement(id, product) {
+    if (product.quantity >= 2) {
+      dispatch(decrementItem(id));
+    } else {
+      setMessage("Não da pra comprar 0 desse produto, caso não o queira, exclua na lixeira");
+      setOpen(true);
+    }
   }
 
   /*const [demands, setDemands] = React.useState(cartProductState);
@@ -53,6 +82,11 @@ function CartPage() {
 
   return (
     <Container>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error">
+          {message}
+        </Alert>
+      </Snackbar>
       <Helmet>
         <meta charSet="utf-8" />
         <title>Biocampeiro - Carrinho</title>
@@ -90,7 +124,7 @@ function CartPage() {
                           <div className="add-control">
                             <button
                               className="button-quantity"
-                              onClick={() => handleDecrement(index)}
+                              onClick={() => handleDecrement(index, product)}
                             >
                               -
                             </button>
@@ -100,7 +134,7 @@ function CartPage() {
                             />
                             <button
                               className="button-quantity"
-                              onClick={() => handleIncrement(index)}
+                              onClick={() => handleIncrement(index, product)}
                             >
                               +
                             </button>

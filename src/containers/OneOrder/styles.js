@@ -23,7 +23,6 @@ export const Container = styled.div`
       padding:0 0 10px 50px;
   }
   .margin-x2{
-      margin: 20px 100px;
       @media (max-width: 995px){
             margin: 10px 20px;
         }

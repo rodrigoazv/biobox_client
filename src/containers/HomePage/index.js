@@ -30,7 +30,7 @@ import {GoChevronLeft} from 'react-icons/go';
 //import api from '../../service/api';
 
 import { useSelector, useDispatch } from "react-redux";
-import { getAllCategory, getAllProducts } from "../../store/fetchProduct";
+import { getAllCategory } from "../../store/fetchProduct";
 
 export default function HomePage() {
   const settings = {
@@ -80,10 +80,6 @@ export default function HomePage() {
     dispatch(getAllCategory());
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(getAllProducts());
-  }, [dispatch]);
-
   //reducer addProducts in cart
 
   return (
@@ -100,7 +96,7 @@ export default function HomePage() {
             <img src={Banner} alt="banner" className="banner-response" />
           </a>
         </Section>
-        <div className="general-banner-mobile">
+        <Section className="general-banner-mobile">
           <a href="/sobre-nos">
             <img
               src={BannerResponsive}
@@ -108,7 +104,7 @@ export default function HomePage() {
               className="banner-response"
             />
           </a>
-        </div>
+        </Section>
         <Section className="information-hole">
           <div className="info-stripe">
             <div className="max-margin-width info-stripe">

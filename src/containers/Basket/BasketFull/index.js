@@ -1,5 +1,5 @@
 /* eslint-disable no-use-before-define */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import Popper from "@material-ui/core/Popper";
 import SettingsIcon from "@material-ui/icons/Settings";
@@ -9,9 +9,9 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 import InputBase from "@material-ui/core/InputBase";
 import ButtoFull from "../../../components/ButtonFull";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Container } from "./styles";
-
+import { addItem } from "../../../store/ducks/cart";
 const useStyles = makeStyles((theme) => ({
   root: {
     fontSize: 13,
@@ -90,11 +90,31 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function GitHubLabel() {
+  //Classes and redux
   const classes = useStyles();
+  const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [value, setValue] = React.useState([products[1], products[3]]);
-  const [pendingValue, setPendingValue] = React.useState([]);
+  //Estados
+  const [goCart, setGoCart] = useState([]);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [value, setValue] = useState([products[1], products[3], products[4],products[6],products[7]]);
+  const [pendingValue, setPendingValue] = useState([]);
+  //
+  useEffect(() => {
+    setGoCart(
+      value.map((product) => {
+        return {
+          pid: product.id,
+          quantity: 1,
+          price: product.productPrice,
+          name: product.productName,
+          photo: product.photoUrl,
+          description: product.productDescription,
+        };
+      })
+    );
+  }, [value]);
+  //functions use in label
   const handleClick = (event) => {
     setPendingValue(value);
     setAnchorEl(event.currentTarget);
@@ -111,11 +131,14 @@ export default function GitHubLabel() {
     setAnchorEl(null);
   };
 
-  const handleShow = () =>{
-      console.log(value)
-  }
   const open = Boolean(anchorEl);
   const id = open ? "github-label" : undefined;
+
+  function repeatOrder() {
+    goCart.map((products) => {
+      return dispatch(addItem(products));
+    });
+  }
 
   return (
     <Container>
@@ -149,9 +172,7 @@ export default function GitHubLabel() {
                 <img src={label.photoUrl} alt="sem" />
                 {label.productName}
               </td>
-              <td>
-                1
-              </td>
+              <td>1</td>
               <td>{label.productPrice}</td>
             </tr>
           ))}
@@ -161,7 +182,11 @@ export default function GitHubLabel() {
             <span>Total: 200,00R$</span>
           </div>
           <div className="button">
-            <ButtoFull inputColor="#FF7A00" text="adicionar ao carrinho" onClick={handleShow} />
+            <ButtoFull
+              inputColor="#FF7A00"
+              text="adicionar ao carrinho"
+              onClick={repeatOrder}
+            />
           </div>
         </div>
       </div>
@@ -189,7 +214,7 @@ export default function GitHubLabel() {
           disableCloseOnSelect
           disablePortal
           renderTags={() => null}
-          noOptionsText="Ainda não temos esse produto :/"
+          noOptionsText="Ainda não temos esse produto"
           renderOption={(option, { selected }) => (
             <React.Fragment>
               <GoCheck
@@ -207,7 +232,6 @@ export default function GitHubLabel() {
                 className={classes.close}
                 style={{ visibility: selected ? "visible" : "hidden" }}
               >
-                Remover
                 <GoX
                   color="white"
                   size={22}
