@@ -89,11 +89,11 @@ export default function CardProduct({ props }) {
                 </div>
 
                 <div className="add-control">
-                  <button className="button-quantity" onClick={HandleDecrement}>
+                  <button className="button-quantity" data-cy="decrement-button" onClick={HandleDecrement}>
                     -
                   </button>
-                  <input className="input-quantity" value={quantity} />
-                  <button className="button-quantity" onClick={HandleIncrement}>
+                  <input className="input-quantity" data-cy="value-quantity" value={quantity} />
+                  <button className="button-quantity" data-cy="increment-button" onClick={HandleIncrement}>
                     +
                   </button>
                 </div>

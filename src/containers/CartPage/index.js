@@ -27,6 +27,7 @@ function Alert(props) {
 
 function CartPage() {
   // Gerencia snackbar de erro
+  window.scrollTo(0, 0);
   const [open, setOpen] = React.useState(false);
   const [message, setMessage] = React.useState(
     "Error: não é possivel enviar essa quantidade"
@@ -50,7 +51,7 @@ function CartPage() {
     (total, productTotal) => total + productTotal,
     0
   );
-    console.log(total);
+ 
   function removeProductCart(id) {
     dispatch(removeItem(id));
   }
@@ -73,13 +74,6 @@ function CartPage() {
     }
   }
 
-  /*const [demands, setDemands] = React.useState(cartProductState);
-  React.useEffect(() => {
-    const dadu = cartProductState.map((data) => data);
-    let climb = dadu.sort((a, b) => (a.name < b.name ? -1 : +1));
-    setDemands(climb);
-  }, [cartProductState]);*/
-
   return (
     <Container>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
@@ -101,7 +95,7 @@ function CartPage() {
               <p>Oops, seu carrinho ta vazio !</p>
             ) : (
               <div>
-                <table class="tag-list">
+                <table className="tag-list">
                   {cartProductState.map((product, index) => (
                     <tr key={product.pid}>
                       <td>
