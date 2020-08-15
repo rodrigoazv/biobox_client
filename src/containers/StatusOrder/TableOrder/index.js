@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { Container } from "./styles";
+import formatPrice from '../../../helpers/formatPrice'
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -43,26 +44,28 @@ function TableOrder({ props }) {
       <div className="detail-table">
         <div className="flex-table">
           <div>
-            <p>Código: #{demands[0].id}</p>
             <h2>Detalhes envio: </h2>
 
             <p>
-              Data do pedido:{" "}
+              <strong>Data do pedido:</strong>{" "}
               {moment(demands[0].createdDate).format("DD/MM/YYYY")}
             </p>
-            <p>{demands[0].shipZipcode}</p>
+            <p><strong>CEP:</strong> {demands[0].shipZipcode}</p>
             <p>
-              {demands[0].shipStreet} N: {demands[0].shipNumber}
+              {demands[0].shipStreet} <strong>N:</strong> {demands[0].shipNumber}
             </p>
             <p>
               {demands[0].shipCity}-{demands[0].shipState}
             </p>
+            <p>Código: #{demands[0].id}</p>
           </div>
+         <span/>
           <div>
             <h2>Forma de pagamento: </h2>
-            <p>Valor total: {demands[0].vaucher}</p>
+            <p>{demands[0].vaucher}</p>
           </div>
-          <div>
+          <span/>
+          <div >
             <h2>Detalhes envio: </h2>
             <div>
               <p>Valor dos pedidos:..</p>
@@ -71,10 +74,11 @@ function TableOrder({ props }) {
           </div>
           <div>
             <h2>--</h2>
-            <p>{demands[0].totalPrice}</p>
-            <p>{demands[0].shipValue}</p>
+            <p>{formatPrice(demands[0].totalPrice)}</p>
+            <p>{formatPrice(demands[0].shipValue)}</p>
           </div>
         </div>
+        <div className= "order-button">
         <Link
           to={{
             pathname: `orders/${demands[0].id}`,
@@ -82,10 +86,11 @@ function TableOrder({ props }) {
             state: { id: demands[0].id },
           }}
           className="style-link-first"
-        >
-          <span>Ver seu pedido</span>
+        >        
+          <span>Ver seu pedido</span>          
           <FaExternalLinkAlt />
         </Link>
+        </div>
       </div>
       <h1>Todos seus pedidos: </h1>
       <TableContainer component={Paper}>
