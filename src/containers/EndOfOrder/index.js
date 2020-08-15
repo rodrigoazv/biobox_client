@@ -15,6 +15,7 @@ import { formatPrice } from "../../helpers";
 import InfoBio2 from "../../assets/Man.png";
 
 export default function EndOfOrder() {
+  window.scrollTo(0, 0);
   const cartProductState = useSelector((state) => state.cart);
   localStorage.setItem("sback_cart_items", JSON.stringify(cartProductState));
 

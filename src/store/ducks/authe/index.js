@@ -13,6 +13,7 @@ export const failedAuth = createAction('FAILED_AUTH')
 
 export default createReducer(INITIAL_STATE, {
     //[verify.type]: (state, action) =>({...state,isAuthenticated:action.payload}),
+    //Logica do isloading invertida
     [sucessAuth.type]: (state,action) => ({...state, isLoading: true, isAuthenticated:action.payload}),
     [failedAuth.type]: (state,action) => ({...state, isLoading: false, isAuthenticated:action.payload}),
     [login.type]: (state ) =>({...state,isAuthenticated:true, isLoading:true}),

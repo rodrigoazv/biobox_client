@@ -10,6 +10,9 @@ import { useSelector } from "react-redux";
 
 function Cesta() {
   const products = useSelector((state) => state.products);
+  
+  window.scrollTo(0, 0);
+  
 
   return (
     <Container>
@@ -21,12 +24,20 @@ function Cesta() {
           <div className="marginup">
             <div className="flex-box">
               <div className="flex-how">
-                <HowToMake><p>1. Escolha uma cesta elaborada por nós</p></HowToMake>
-                <HowToMake><p>3. Adicione no carrinho e ajuste a quantidade</p></HowToMake>
+                <HowToMake>
+                  <p>1. Escolha uma cesta elaborada por nós</p>
+                </HowToMake>
+                <HowToMake>
+                  <p>3. Adicione no carrinho e ajuste a quantidade</p>
+                </HowToMake>
               </div>
               <div className="flex-how">
-                <HowToMake><p>2. Fique a vontade para altera-la</p></HowToMake>
-                <HowToMake><p>4. É só esperar a entrega</p></HowToMake>
+                <HowToMake>
+                  <p>2. Fique a vontade para altera-la</p>
+                </HowToMake>
+                <HowToMake>
+                  <p>4. É só esperar a entrega</p>
+                </HowToMake>
               </div>
               <Basket>
                 <BasketFull />

@@ -44,7 +44,6 @@ export const forgotPassData = (data) => {
     return async (dispatch) =>{
         try{
             const response = await api.post('forgot_pass', data)
-            console.log(response);
             if(response.data.sucess){
                 return true;
             }
