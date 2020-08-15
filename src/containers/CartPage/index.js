@@ -50,7 +50,7 @@ function CartPage() {
     (total, productTotal) => total + productTotal,
     0
   );
-
+    console.log(total);
   function removeProductCart(id) {
     dispatch(removeItem(id));
   }

@@ -19,7 +19,11 @@ export const HowToMake = styled.div`
   min-width: 200px;
   border-radius: 4px;
   height: 100px;
-  background:#FEF4D6;
+  background:${props => props.theme.colors.biege};
+  padding: 10px;
+  p{
+    border-bottom: 1px solid ${props => props.theme.colors.tertiary};
+  }
 `;
 
 export const Basket = styled.div`

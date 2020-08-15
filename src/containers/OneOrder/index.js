@@ -47,7 +47,6 @@ function OneOrder() {
       );
     }
   }, [order.orders, LoadingPage]);
-
   function repeatOrder() {
     goCart.map(products => {
       return dispatch(addItem(products))

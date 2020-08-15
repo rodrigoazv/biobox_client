@@ -12,7 +12,22 @@ import ButtoFull from "../../../components/ButtonFull";
 import { useSelector, useDispatch } from "react-redux";
 import { Container } from "./styles";
 import { addItem } from "../../../store/ducks/cart";
-const useStyles = makeStyles((theme) => ({
+
+import formatPrice from "../../../helpers/formatPrice";
+import { createMuiTheme } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#a7d163',
+    },
+    secondary: {
+      main: '#f44336',
+    },
+  },
+});
+
+const useStyles = makeStyles(() => ({
   root: {
     fontSize: 13,
   },
@@ -28,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     border: "1px solid rgba(27,31,35,.15)",
     boxShadow: "0 3px 12px rgba(27,31,35,.15)",
     borderRadius: 3,
-    width: 300,
+    width: 500,
     zIndex: 1,
     fontSize: 13,
     color: "#586069",
@@ -97,8 +112,15 @@ export default function GitHubLabel() {
   //Estados
   const [goCart, setGoCart] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
-  const [value, setValue] = useState([products[1], products[3], products[4],products[6],products[7]]);
+  const [value, setValue] = useState([
+    products[1],
+    products[3],
+    products[4],
+    products[6],
+    products[7],
+  ]);
   const [pendingValue, setPendingValue] = useState([]);
+  const [total, setTotal] = useState(0);
   //
   useEffect(() => {
     setGoCart(
@@ -139,7 +161,13 @@ export default function GitHubLabel() {
       return dispatch(addItem(products));
     });
   }
-
+  React.useEffect(() => {
+    setTotal(value.reduce(
+      (total, productTotal) => total + productTotal.productPrice,
+      0
+    ));
+    
+  },[value])
   return (
     <Container>
       <div className="paragraph">
@@ -173,13 +201,13 @@ export default function GitHubLabel() {
                 {label.productName}
               </td>
               <td>1</td>
-              <td>{label.productPrice}</td>
+              <td>{formatPrice(label.productPrice)}</td>
             </tr>
           ))}
         </table>
         <div className="submit">
           <div>
-            <span>Total: 200,00R$</span>
+            <span> {formatPrice(total)}</span>
           </div>
           <div className="button">
             <ButtoFull
@@ -224,9 +252,17 @@ export default function GitHubLabel() {
                 style={{ visibility: selected ? "visible" : "hidden" }}
               />
               <div className={classes.text}>
-                {option.productName}
-                <br />
-                {option.productPrice}
+                <div style={{ display: "flex" }}>
+                  <img
+                    src={option.photoUrl}
+                    alt="sem"
+                    style={{ height: "34px" }}
+                  />
+                  <div style={{ 'display': "flex", 'flex-direction': "column" }}>
+                    <span>{option.productName}</span>
+                    <span>{formatPrice(option.productPrice)}</span>
+                  </div>
+                </div>
               </div>
               <div
                 className={classes.close}
