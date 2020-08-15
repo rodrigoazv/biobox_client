@@ -20,6 +20,7 @@ import PassChange from "./containers/PassChange";
 import NoMatchRoute from "./containers/NoMatchRoute";
 import allOrder from "./containers/StatusOrder";
 import oneOrder from "./containers/OneOrder";
+import Cesta from "./containers/Basket";
 //import NoMatch from './containers/NoMatchRoute'
 
 //Global Components
@@ -32,10 +33,11 @@ import { useSelector } from "react-redux";
 import store from "./store";
 import Checkout from "./containers/Checkout";
 
+
 function PrivateRoutes({ component: Component, ...rest }) {
   const { isAuthenticated } = useSelector((state) => state.authe);
   const { isLoading } = useSelector((state) => state.authe);
- 
+
   return (
     <Route
       {...rest}
@@ -56,38 +58,39 @@ function PrivateRoutes({ component: Component, ...rest }) {
 
 const Routes = () => (
   <Provider store={store}>
-    <GlobalFonts />
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/checkin" component={CheckIn} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/sobre-nos" component={About} />
-        <Route exact path="/product/:id" component={ProductPage} />
-        <Route exact path="/product" component={ProductPage} />
-        <Route exact path="/receitas" component={Recipes} />
-        <Route exact path="/bioprodutos" component={Products} />
-        <Route exact path="/contato" component={Contact} />
-        <Route exact path="/cart" component={CartPage} />
-        <Route exact path="/biocabanas" component={Biocabanas} />
-        <Route exact path="/localizacao" component={Location} />
-        <Route exact path="/forgot" component={ForgotPass} />
-        <Route exact path="/pass-change" component={PassChange} />
-        <Route exact path="/recovery/:token" component={RecoveryPass} />
-        <PrivateRoutes exact path="/checkout" component={Checkout} />
-        <PrivateRoutes
-          exact
-          path="/checkout/sendorder"
-          component={EndOfOrder}
-        />
-        <PrivateRoutes exact path="/user/orders" component={allOrder} />
-        <Route exact path="/user/orders/:id" component={oneOrder} />
-        <Route component={NoMatchRoute} />
-      </Switch>
-      <GlobalStyle />
-    </BrowserRouter>
-    <CheckUserAuth />
+      <GlobalFonts />
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/checkin" component={CheckIn} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/sobre-nos" component={About} />
+          <Route exact path="/product/:id" component={ProductPage} />
+          <Route exact path="/product" component={ProductPage} />
+          <Route exact path="/receitas" component={Recipes} />
+          <Route exact path="/bioprodutos" component={Products} />
+          <Route exact path="/contato" component={Contact} />
+          <Route exact path="/cart" component={CartPage} />
+          <Route exact path="/biocabanas" component={Biocabanas} />
+          <Route exact path="/localizacao" component={Location} />
+          <Route exact path="/forgot" component={ForgotPass} />
+          <Route exact path="/pass-change" component={PassChange} />
+          <Route exact path="/recovery/:token" component={RecoveryPass} />
+          <Route exact path="/cesta" component={Cesta} />
+          <PrivateRoutes exact path="/checkout" component={Checkout} />
+          <PrivateRoutes
+            exact
+            path="/checkout/sendorder"
+            component={EndOfOrder}
+          />
+          <PrivateRoutes exact path="/user/orders" component={allOrder} />
+          <Route exact path="/user/orders/:id" component={oneOrder} />
+          <Route component={NoMatchRoute} />
+        </Switch>
+        <GlobalStyle />
+      </BrowserRouter>
+      <CheckUserAuth />
   </Provider>
 );
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Container } from "./styles";
 import { Link, useHistory } from "react-router-dom";
@@ -7,7 +7,7 @@ import ButtonLog from "./ButtonLog";
 import AppBanner from "./AppBanner";
 
 //assets import
-import { RiShoppingBasketLine } from "react-icons/ri";
+import { GoPackage } from "react-icons/go";
 import { FaSignInAlt } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import { FaGripLines } from "react-icons/fa";
@@ -17,7 +17,8 @@ import { FaHouseDamage } from "react-icons/fa";
 import { FaPagelines } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getAllProducts } from "../../store/fetchProduct";
 
 //Autocomplet Search Bar
 import useAutocomplete from "@material-ui/lab/useAutocomplete";
@@ -26,9 +27,11 @@ import useAutocomplete from "@material-ui/lab/useAutocomplete";
 export default function HeaderTopNav() {
   const [search] = useState();
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const length = useSelector((state) => state.cart.length);
   const { isAuthenticated } = useSelector((state) => state.authe);
+  const products = useSelector((state) => state.products);
 
   //const user = JSON.parse(localStorage.getItem("user_session"));
 
@@ -60,8 +63,6 @@ export default function HeaderTopNav() {
   }
   menuOnScroll();
 
-  const products = useSelector((state) => state.products);
-
   const {
     getRootProps,
     getInputLabelProps,
@@ -74,6 +75,12 @@ export default function HeaderTopNav() {
     options: products,
     getOptionLabel: (option) => option.productName,
   });
+  //Verificação da existência de produtos, caso não exista faça o get no back end
+  useEffect(() => {
+    if (products.length === 0) {
+      dispatch(getAllProducts());
+    }
+  }, [dispatch, products]);
 
   return (
     <Container className="top-nav-sizing">
@@ -102,7 +109,10 @@ export default function HeaderTopNav() {
                     {groupedOptions.length > 0 ? (
                       <ul className="listbox" {...getListboxProps()}>
                         {groupedOptions.map((option, index) => (
-                          <li {...getOptionProps({ option, index })} data-cy="product-rows">
+                          <li
+                            {...getOptionProps({ option, index })}
+                            data-cy="product-rows"
+                          >
                             <Link
                               to={{
                                 pathname: `/product/${option.id}`,
@@ -156,7 +166,7 @@ export default function HeaderTopNav() {
 
             <div className="display-show cart-box">
               <Link to="/cart">
-                <RiShoppingBasketLine size={36} />
+                <GoPackage size={36} />
                 <span>{length}</span>
               </Link>
             </div>
@@ -224,7 +234,7 @@ export default function HeaderTopNav() {
               <li>
                 <div className="cart-box">
                   <Link to="/cart">
-                    <RiShoppingBasketLine size={32} />
+                    <GoPackage size={32} />
                     <span>{length}</span>
                   </Link>
                 </div>

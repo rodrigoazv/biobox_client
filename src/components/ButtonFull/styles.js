@@ -1,12 +1,11 @@
 import styled from 'styled-components';
-import {PRIMARY_GREN_LIGHT} from '../../styles/colors';
 
 export const Container = styled.button`
     text-transform: uppercase;
-    background-color: ${props => props.inputColor || `${PRIMARY_GREN_LIGHT}` };
+    background-color: ${props => props.inputColor || `${props.theme.colors.primary}` };
     color: #FFF;
     border: 2px  ; 
-    border-color:${props => props.inputBorder || `${PRIMARY_GREN_LIGHT}` };
+    border-color:${props => props.inputBorder || `${props.theme.colors.primary}` };
     padding: 8px 16px;
     text-align: center;
     text-decoration: none;

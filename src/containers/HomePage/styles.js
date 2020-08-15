@@ -87,6 +87,7 @@ export const Container = styled.div`
     border-radius: 8px;
     text-align: center;
     width: 21.5vw;
+    max-width: 350px;
     @media (max-width: 850px) {
       width: 80vw;
     }

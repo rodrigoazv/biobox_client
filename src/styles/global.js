@@ -13,8 +13,8 @@ export default createGlobalStyle`
   }
   body {
     font-family: 'Patua One';
-    background: #FFFCFA;
-    color: #333;
+    background: ${props => props.theme.colors.background};
+    color: ${props => props.theme.colors.black};
     -webkit-font-smoothing: antialiased !important;
     font-weight:100!important;
     padding-top: 9.8rem;
@@ -116,8 +116,8 @@ export default createGlobalStyle`
     transition: 0.2s;
   }
     .button-quantity:hover{
-        color:#7FBC44;
-        background-color:#f2f2f2;
+        color:${props => props.theme.colors.primary};
+        background-color:${props => props.theme.colors.biege};
     }
     .input-quantity{
         text-align: center;

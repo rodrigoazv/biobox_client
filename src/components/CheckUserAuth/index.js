@@ -13,7 +13,9 @@ function CheckUserAuth() {
   };
 
   useEffect(() => {
-    dispatch(boolUserVerify(headers));
+    if (headers.headers.authorization) {
+      dispatch(boolUserVerify(headers));
+    }
   }, [dispatch, headers]);
 
   return <></>;

@@ -2,8 +2,22 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   margin: 0;
+  .order-datails {
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+    color: #575757;
+    font-weight: 500;
+    span {
+      font-size: 14px;
+      font-weight: 400;
+    }
+    p {
+      font-family: "Roboto", sans-serif;
+      margin: 10px 0;
+    }
+  }
   .background-h2 {
-    background-color: #95b737;
+    background-color: ${props => props.theme.colors.primary};
     font-weight: 100;
     color: #fff;
     font-size: 20px;
@@ -26,6 +40,17 @@ export const Container = styled.div`
     @media (max-width: 500px) {
       width: 100%;
     }
+    .line {
+      border-bottom: 2px solid #dedede;
+      margin: 10px 0;
+      width: 100%;
+    }
+  }
+  .discount-style {
+    margin: 5px 0;
+    color: #333;
+    font-family: sans-serif;
+    font-weight: 300;
   }
   .form-adress {
     width: 50%;

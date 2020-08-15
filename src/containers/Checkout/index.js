@@ -19,6 +19,7 @@ import Loading from "../../components/Loading";
 //Error Bar
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
+import formatPrice from "../../helpers/formatPrice";
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -37,7 +38,9 @@ const validation = yup.object().shape({
 });
 
 function Checkout() {
-  const [message, setMessage] = useState("Error: Se você inseriu tudo certinho, provavelmente ta faltando produto :/");
+  const [message, setMessage] = useState(
+    "Error: Se você inseriu tudo certinho, provavelmente ta faltando produto :/"
+  );
   const [open, setOpen] = React.useState(false);
 
   const handleClose = (event, reason) => {
@@ -51,6 +54,7 @@ function Checkout() {
   const history = useHistory();
   //state de envio adress quando não tiver endereço
   const [zipcode, setZipcode] = useState("");
+  const [cepVerify, setCepVerify] = useState(true);
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [street, setStreet] = useState("");
@@ -66,7 +70,7 @@ function Checkout() {
   const [BoolAdress, setBoolAdress] = useState(Boolean);
   const [LoadingPage, setLoadingPage] = useState(false);
   const [LoadingOrder, setLoadingOrder] = useState(true);
-  
+
   const id = JSON.parse(localStorage.getItem("user_session")); //LocalStorage-set when data response validate token
 
   const user = useSelector((state) => state.user);
@@ -79,15 +83,6 @@ function Checkout() {
       setBoolAdress(true);
     }
   }, [adressUser.zipcode]);
-  /* {
-	"zipcode": "1234",
-	"city": "tap",
-	"state": "tap",
-	"street": "1234",
-	"number": "1234",
-	"complement": "1234",
-	"neighborhood": "1234"
-    */
   //Variavel que representa o valor total do pedido
   const cartProductState = useSelector((state) => state.cart);
   useEffect(() => {
@@ -101,7 +96,6 @@ function Checkout() {
     );
     setTotalPrice(totalPrice);
   }, [cartProductState]);
-
   // verify token
 
   useEffect(() => {
@@ -124,11 +118,13 @@ function Checkout() {
       let zipcodeGet = await api.get(`getcep/${zipcode}`);
       setState(zipcodeGet.data.data.state);
       setCity(zipcodeGet.data.data.city);
+      setCepVerify(true);
     };
     if (zipcode.length === 8) {
+      setCepVerify(false);
       fetchData();
     }
-  }, [street, zipcode]);
+  }, [zipcode]);
 
   //user get data
 
@@ -192,10 +188,10 @@ function Checkout() {
     try {
       const res = await api.post("sendnoadress", cartByUser, headers);
       console.log(res.data);
-      setMessage(res.data.message)
+      setMessage(res.data.message);
       localStorage.removeItem("sback_cart_item");
       history.push("/checkout/sendorder");
-    } catch(error) {
+    } catch (error) {
       setLoadingOrder(true);
       setOpen(true);
     }
@@ -256,27 +252,56 @@ function Checkout() {
 
                       <div>
                         <label>CEP:</label>
-                        <Field
-                          type="zipcode"
-                          name="zipcode"
-                          validate={cepChange}
-                          children={({ field }) => {
-                            return (
-                              <input
-                                {...field}
-                                className="input-checkout input-margin"
-                                placeholder="ex. 0000000"
-                                maxLength={8}
-                                required
-                              />
-                            );
-                          }}
-                        />
-                        <ErrorMessage
-                          className="err-form"
-                          component="span"
-                          name="zipcode"
-                        />
+                        {cepVerify ? (
+                          <>
+                            <Field
+                              type="zipcode"
+                              name="zipcode"
+                              validate={cepChange}
+                              children={({ field }) => {
+                                return (
+                                  <input
+                                    {...field}
+                                    className="input-checkout input-margin"
+                                    placeholder="ex. 0000000"
+                                    maxLength={8}
+                                    required
+                                  />
+                                );
+                              }}
+                            />
+                            <ErrorMessage
+                              className="err-form"
+                              component="span"
+                              name="zipcode"
+                            />
+                          </>
+                        ) : (
+                          <>
+                            <Field
+                              type="zipcode"
+                              name="zipcode"
+                              validate={cepChange}
+                              children={({ field }) => {
+                                return (
+                                  <input
+                                    {...field}
+                                    disabled
+                                    className="input-checkout input-margin"
+                                    placeholder="ex. 0000000"
+                                    maxLength={8}
+                                    required
+                                  />
+                                );
+                              }}
+                            />
+                            <ErrorMessage
+                              className="err-form"
+                              component="span"
+                              name="zipcode"
+                            />
+                          </>
+                        )}
                       </div>
                       <div>
                         <label>Rua:</label>
@@ -344,11 +369,50 @@ function Checkout() {
                       </div>
                     </div>
                     <div className="box-checkout">
+                      <h2>Falta pouco, quase nada !</h2>
                       <p>
-                        Os itens serão enviados de acordo com a data prevista de
-                        entrega e localidade especifica
+                        Confira com detalhes seu pedido e insira o endereço de
+                        entrega.
                       </p>
-                      <h2>Sub-total</h2>
+                      <table className="order-datails">
+                        <tr>Detalhes do pedido:</tr>
+                        {cartProductState.map((products) => (
+                          <tr>
+                            <td>
+                              <span>{products.quantity}x</span>
+                              {products.name}
+                            </td>
+                            <td>{formatPrice(products.price)}</td>
+                          </tr>
+                        ))}
+                        <div className="line" />
+                        <tr>
+                          <td>Total pedido: </td>
+                          <td>{formatPrice(totalPrice)}</td>
+                        </tr>
+                        <tr>
+                          <td>Frete:</td>
+                          <td style={{ color: "#7fbc44" }}>Grátis</td>
+                        </tr>
+                        <tr>
+                          <td>Cupom desconto:</td>
+                          <td style={{ color: "#7fbc44" }}>Nenhum</td>
+                        </tr>
+                        <tr
+                          style={{
+                            "font-weight": "600",
+                            color: "#333",
+                            "font-size": "20px",
+                          }}
+                        >
+                          <td>
+                            <p>Total pedido:</p>{" "}
+                          </td>
+                          <td>
+                            <p>{formatPrice(totalPrice)}</p>
+                          </td>
+                        </tr>
+                      </table>
                       {LoadingOrder ? (
                         <ButtonFull text="Fazer pedido" type="submit" />
                       ) : (
@@ -381,11 +445,51 @@ function Checkout() {
                   </button>
                 </div>
                 <div className="box-checkout">
+                  <h2>Falta pouco, quase nada !</h2>
                   <p>
-                    Os itens serão enviados de acordo com a data prevista de
-                    entrega e localidade especifica
+                    Confira com detalhes seu pedido e insira o endereço de
+                    entrega.
                   </p>
-                  <h2>Sub-total</h2>
+                  <table className="order-datails">
+                    <tr>Detalhes do pedido:</tr>
+                    {cartProductState.map((products) => (
+                      <tr>
+                        <td>
+                          <span>{products.quantity}x</span>
+                          {products.name}
+                        </td>
+                        <td>{formatPrice(products.price)}</td>
+                      </tr>
+                    ))}
+                    <div className="line" />
+                    <tr>
+                      <td>Total pedido: </td>
+                      <td>{formatPrice(totalPrice)}</td>
+                    </tr>
+                    <tr>
+                      <td>Frete:</td>
+                      <td style={{ color: "#7fbc44" }}>Grátis</td>
+                    </tr>
+                    <tr>
+                      <td>Cupom desconto:</td>
+                      <td style={{ color: "#7fbc44" }}>Nenhum</td>
+                    </tr>
+                    <tr
+                      style={{
+                        "font-weight": "600",
+                        color: "#333",
+                        "font-size": "20px",
+                      }}
+                    >
+                      <td>
+                        <p>Total pedido:</p>{" "}
+                      </td>
+                      <td>
+                        <p>{formatPrice(totalPrice)}</p>
+                      </td>
+                    </tr>
+                  </table>
+
                   {LoadingOrder ? (
                     <ButtonFull
                       text="Fazer pedido"

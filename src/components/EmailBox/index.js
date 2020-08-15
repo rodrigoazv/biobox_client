@@ -3,7 +3,6 @@ import React from "react";
 import { Container } from "./styles";
 import api from "../../service/api";
 
-import { PRIMARY_ORANGE } from "../../styles/colors";
 import ButtonFull from '../../components/ButtonFull';
 import { ErrorMessage, Formik, Form , Field } from 'formik';
 import * as yup from "yup";
@@ -58,7 +57,7 @@ export default function EmailBox() {
                 />
               </div>
               <div className="width-x3">
-                <ButtonFull text="Enviar" type="submit" inputColor={PRIMARY_ORANGE} />
+                <ButtonFull text="Enviar" type="submit" inputColor={props => props.theme.colors.secondary} />
               </div>
             </Form>
             

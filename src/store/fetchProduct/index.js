@@ -12,7 +12,7 @@ export const getAllProducts = () => {
             .then(res => {
                 dispatch(addProducts(res.data));
             })
-            .catch(console.log)
+            .catch()
     }
 }
 
