@@ -9,6 +9,25 @@ export const Container = styled.div`
             align-items:center;
         }
   }
+  .order-datails {
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+    color: #575757;
+    font-weight: 500;
+    span {
+      font-size: 14px;
+      font-weight: 400;
+    }
+    p {
+      font-family: "Roboto", sans-serif;
+      margin: 10px 0;
+    }
+    .line {
+      border-bottom: 2px solid #dedede;
+      margin: 10px 0;
+      width: 100%;
+    }
+  }
   h5{
     background-color: #ddd;
     

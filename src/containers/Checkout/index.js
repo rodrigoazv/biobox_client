@@ -187,7 +187,6 @@ function Checkout() {
     };
     try {
       const res = await api.post("sendnoadress", cartByUser, headers);
-      console.log(res.data);
       setMessage(res.data.message);
       localStorage.removeItem("sback_cart_item");
       history.push("/checkout/sendorder");

@@ -14,6 +14,8 @@ import ButtonFull from "../../components/ButtonFull";
 import moment from "moment";
 import api from "../../service/api";
 
+import formatPrice from "../../helpers/formatPrice";
+
 function OneOrder() {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -30,17 +32,17 @@ function OneOrder() {
     },
   ]);
   let { id } = useParams();
-  
+
   useEffect(() => {
     if (!LoadingPage) {
       setGoCart(
         order.orders.map((product) => {
           return {
-            pid: product.id,
+            pid: product.productId,
             quantity: product.quantity,
             price: product.price,
             name: product.productName,
-            photo: product.photo,
+            photo: product.photoUrl,
             description: product.productDescription,
           };
         })
@@ -48,10 +50,10 @@ function OneOrder() {
     }
   }, [order.orders, LoadingPage]);
   function repeatOrder() {
-    goCart.map(products => {
-      return dispatch(addItem(products))
-    })
-    history.push("/cart")
+    goCart.map((products) => {
+      return dispatch(addItem(products));
+    });
+    history.push("/cart");
   }
 
   useEffect(() => {
@@ -66,7 +68,7 @@ function OneOrder() {
       setLoadingPage(false);
     });
   }, [id]);
-  
+
   return (
     <Container>
       <HeaderTopNav />
@@ -109,32 +111,47 @@ function OneOrder() {
                 <h5>
                   <br />{" "}
                 </h5>
-                <p>{order.totalPrice}</p>
-                <p>{order.shipValue}</p>
+                <p>{formatPrice(order.totalPrice)}</p>
+                <p>{formatPrice(order.shipValue)}</p>
               </div>
             </div>
           </div>
           <div className="flex-table detail-table">
             <div>
-              <LifeOrder />
+              <LifeOrder props={order.shipStatus}/>
             </div>
             <div style={{ width: "40%" }}>
-              <h4>Sua cesta do pedido: </h4>
-              {order.orders.map((products) => (
-                <div>
-                  <ul>
-                    <li key={products.id} className="underline-table">
-                      <div>{products.productName}</div>
-                      <div>{products.quantity}</div>
-                      <div>{products.price}</div>
-                    </li>
-                  </ul>
-                </div>
-              ))}
+              <table className="order-datails">
+                <tr>Detalhes do pedido:</tr>
+                {order.orders.map((products) => (
+                  <tr>
+                    <td>
+                      <span>{products.quantity}x</span>
+                      {products.productName}
+                    </td>
+                    <td>{formatPrice(products.price)}</td>
+                  </tr>
+                ))}
+                <div className="line" />
+                <tr
+                  style={{
+                    "font-weight": "600",
+                    color: "#333",
+                    "font-size": "20px",
+                  }}
+                >
+                  <td>Total pedido: </td>
+                  <td>{formatPrice(order.totalPrice)}</td>
+                </tr>
+              </table>
             </div>
           </div>
           <div className="button-sett">
-            <ButtonFull onClick={repeatOrder} text="Repetir Pedido" inputColor={props => props.theme.colors.secondaryLight}/>
+            <ButtonFull
+              onClick={repeatOrder}
+              text="Repetir Pedido"
+              inputColor={(props) => props.theme.colors.secondaryLight}
+            />
           </div>
         </div>
       )}

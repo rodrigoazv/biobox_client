@@ -11,6 +11,9 @@ export const Container = styled.div`
   .flex-how{
     display:flex;
     flex-direction: column;
+    @media(max-width: 920px){
+      display: none;
+    }
   }
 `;
 
