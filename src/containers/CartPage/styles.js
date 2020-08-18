@@ -107,4 +107,7 @@ export const Container = styled.div`
     opacity: 0.8;
     color: red;
   }
+  .add-control{
+    width: 100px;
+  }
 `;

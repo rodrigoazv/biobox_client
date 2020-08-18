@@ -18,6 +18,7 @@ export const Container = styled.section`
 
 export const Card = styled.div`
   align-items: center;
+  transition: transform .35s, opacity .35s;
   &:hover{
     transform: scale(1.01);
     cursor:pointer;

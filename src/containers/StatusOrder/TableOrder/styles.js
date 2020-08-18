@@ -16,6 +16,13 @@ export const Container = styled.div`
       justify-content: none;
       display: flex;
       flex-direction: column;
+      text-align:center;
+    }
+  }
+  .flex-table span{
+    border: 1px dotted black;
+    @media (max-width: 780px) {
+      display:none;
     }
   }
   .style-link-first {
@@ -25,5 +32,19 @@ export const Container = styled.div`
     margin:10px;
     padding: 4px 20px;
     color: #fff;
+  }
+  .order-button{
+    margin-top:1.5%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:flex-end;
+    position: initial;
+    @media (max-width: 780px) {
+      justify-content: center;
+    
+    }
+  }
+  .order-button a{
+    width: 105px;
   }
 `;
