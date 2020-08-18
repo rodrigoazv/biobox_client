@@ -38,11 +38,11 @@ function OneOrder() {
       setGoCart(
         order.orders.map((product) => {
           return {
-            pid: product.id,
+            pid: product.productId,
             quantity: product.quantity,
             price: product.price,
             name: product.productName,
-            photo: product.photo,
+            photo: product.photoUrl,
             description: product.productDescription,
           };
         })

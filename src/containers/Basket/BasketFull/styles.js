@@ -25,6 +25,9 @@ export const Container = styled.div`
   .paragraph {
     padding: 10px 10px;
     color: #999a9a;
+    @media (max-width: 920px){
+      padding: 0px;
+    }
   }
   .button {
     width: 300px;

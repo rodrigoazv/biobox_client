@@ -43,10 +43,12 @@ const useStyles = makeStyles(() => ({
     border: "1px solid rgba(27,31,35,.15)",
     boxShadow: "0 3px 12px rgba(27,31,35,.15)",
     borderRadius: 3,
-    width: 500,
+    width: "60%",
+    maxWidth: 500,
     zIndex: 1,
     fontSize: 13,
     color: "#586069",
+    top: '0px',
     backgroundColor: "#f6f8fa",
   },
   header: {
@@ -114,11 +116,9 @@ export default function GitHubLabel() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [value, setValue] = useState([
     products[1],
-    products[3],
-    products[4],
-    products[6],
-    products[7],
+    products[2],
   ]);
+  
   const [pendingValue, setPendingValue] = useState([]);
   const [total, setTotal] = useState(0);
   //
