@@ -118,7 +118,7 @@ function OneOrder() {
           </div>
           <div className="flex-table detail-table">
             <div>
-              <LifeOrder props={order.shipStatus}/>
+              <LifeOrder props={order.shipStatus} date={order.shipExpectedDate}/>
             </div>
             <div style={{ width: "40%" }}>
               <table className="order-datails">

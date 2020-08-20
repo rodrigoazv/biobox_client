@@ -38,7 +38,11 @@ function StatusOrder() {
           <div className="max-margin-width flex-table">
             <div className="table">
               <div>
-                <TableOrder props={user.demands} />
+                {user.demands.length === 0 ? (
+                  <div>Você não tem pedidos</div>
+                ) : (
+                  <TableOrder props={user.demands} />
+                )}
               </div>
             </div>
           </div>

@@ -14,6 +14,8 @@ import RepeatIcon from "@material-ui/icons/Repeat";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
+import moment from 'moment';
+
 // import { Container } from './styles';
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -27,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function LifeOrder({ props }) {
+function LifeOrder({ props, date }) {
   const classes = useStyles();
   const [connector, setConnector] = React.useState({
     pedido: false,
@@ -37,7 +39,7 @@ function LifeOrder({ props }) {
   });
   useEffect(() => {
     switch (props) {
-      case "Pedido Realizado":
+      case "Realizado":
         setConnector({
           pedido: true,
           confirmed: false,
@@ -45,7 +47,7 @@ function LifeOrder({ props }) {
           loaded: false,
         });
         break;
-      case "Pedido Confirmado":
+      case "Confirmado":
         setConnector({
           pedido: true,
           confirmed: true,
@@ -53,7 +55,7 @@ function LifeOrder({ props }) {
           loaded: false,
         });
         break;
-      case "Pedido Embalado":
+      case "Colhido":
         setConnector({
           pedido: true,
           confirmed: true,
@@ -61,7 +63,7 @@ function LifeOrder({ props }) {
           loaded: false,
         });
         break;
-      case "Pedido Entregue":
+      case "Entregue":
         setConnector({
           pedido: true,
           confirmed: true,
@@ -73,6 +75,8 @@ function LifeOrder({ props }) {
         break;
     }
   }, [props]);
+
+  console.log(date);
   return (
     <Timeline align="alternate">
       <TimelineItem>
@@ -131,7 +135,8 @@ function LifeOrder({ props }) {
               Pedido confirmado
             </Typography>
             <Typography>
-              Seu pedido foi confirmado e está sendo embalado
+              Seu pedido foi confirmado vamos colher{" "}
+              {date ? <span>, previsão de entrega {moment(date).format('DD/MM/YYYY')}</span> : <span>Confirmaremos</span>}
             </Typography>
           </Paper>
         </TimelineContent>
@@ -156,9 +161,9 @@ function LifeOrder({ props }) {
         <TimelineContent>
           <Paper elevation={3} className={classes.paper}>
             <Typography variant="h6" component="h1">
-              Pedido Embalado, previsão de entrega:
+              Pedido colhido !
             </Typography>
-            <Typography>28282828</Typography>
+            <Typography>Previsão de entrega toda sexta</Typography>
           </Paper>
         </TimelineContent>
       </TimelineItem>
