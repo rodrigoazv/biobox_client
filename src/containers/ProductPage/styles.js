@@ -33,6 +33,9 @@ export const Container = styled.section`
     .product-detail{
         width:80%;
         padding-left:150px;
+        display:flex;
+        flex-direction: column;
+        justify-content:space-between;
         @media (max-width: 1100px){
             padding:0;
             width:100%;
@@ -54,14 +57,27 @@ export const Container = styled.section`
     }
     .product-name{
         text-align:left;
+        p{
+            font-size: 19px;
+        }
     }
-    .details-pricebox{
-        margin-top: 80px;
+    .flex-price{
         display:flex;
         justify-content: space-between;
+        @media(max-width:720px){
+            flex-direction:column;
+            justify-content:center;
+        }
+    }
+    .details-pricebox{
+        display:flex;
+        justify-content: center;
+        padding: 10px;
+        background: #f5f5f5;
         span{
             font-size: 30px;
         }
+        
     }
     .add-cart-form{
         display:flex;
@@ -87,13 +103,21 @@ export const Container = styled.section`
         padding-top: 5px;
         padding-left: 8px;
     }
+    .notReady-message{
+        border: 1px solid red;
+        border-radius:  4px;
+        margin: 5%;
+        padding: 2%;
+        text-align:center;
+    }
+    .notReady-message p{
+        color:red;
+        font-size:12px;
+    }
     .color{
         background-color:#f2f2f2;
         width:100%;
     }  
-    .button-box{
-        width:180px;
-    }
     .margin{
         margin:100px 0;
         width: 50%;

@@ -7,12 +7,12 @@ import Footer from "../../components/Footer";
 //componentes internos
 import BasketFull from "./BasketFull";
 import { useSelector } from "react-redux";
+import  ResponsiveNav  from "../../components/ResponsiveNav";
 
 function Cesta() {
   const products = useSelector((state) => state.products);
-  
+
   window.scrollTo(0, 0);
-  
 
   return (
     <Container>
@@ -48,6 +48,7 @@ function Cesta() {
         </div>
       )}
       <Footer />
+      <ResponsiveNav/>
     </Container>
   );
 }

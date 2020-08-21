@@ -93,6 +93,17 @@ export const Container = styled.div`
     text-align: center;
     background-color: #fff;
   }
+  .notReady-message{
+        border: 1px solid red;
+        border-radius:  4px;
+        margin: 5%;
+        padding: 2%;
+        text-align:center;
+    }
+    .notReady-message p{
+        color:red;
+        font-size:12px;
+    }
   
   .off-price {
     height: 11px;

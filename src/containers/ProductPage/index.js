@@ -111,82 +111,104 @@ export default function ProductPage() {
               ></img>
             </div>
             <div className="product-detail">
-              <div className="product-name">
-                <p>Marca: {product.brand}</p>
-                <h1>{product.productName}</h1>
-                <p>Unidade: {product.productVol}</p>
-                <p>{product.productDescription}</p>
-                <p>
-                  Já ajudamos nossos fornecedores comprando:{" "}
-                  {product.sellQuantity}
-                </p>
-              </div>
-              <div>
-                <div className="details-pricebox">
-                  <div className="add-cart-form">
-                    <div>
-                      <span>{formatPrice(product.productPrice)}</span>
-                    </div>
-                    <div className="color-add">
-                      <div className="add-control">
-                        <button
-                          className="button-quantity"
-                          onClick={HandleDecrement}
-                        >
-                          -
-                        </button>
-                        <input
-                          className="input-quantity"
-                          value={quantity}
-                        ></input>
-                        <button
-                          className="button-quantity"
-                          onClick={HandleIncrement}
-                        >
-                          +
-                        </button>
-                      </div>
-                    </div>
-                    <div className="button-box">
-                      <div className="button-sett">
-                        <Button
-                          text="Adicionar"
-                          inputColor={(props) => props.theme.primary}
-                          type="submit"
-                          onClick={() => addCartProduct(dataCart)}
-                        />
-                      </div>
-                      <div className="button-sett">
-                        <Link to="/cart">
-                          {" "}
-                          <Button
-                            text="Ir para o carrinho"
-                            inputColor={(props) => props.theme.primary}
-                            type="submit"
-                          />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="price-payment">
-                  <div className="payment-type">Formas de pagamento</div>
-                  <p className="paragraph-payment">
-                    <FaTruck size={16} />
-                    Pague quando receber
+              <div className="flex-price">
+                <div className="product-name">
+                  <p>Marca: {product.brand}</p>
+                  <h1>{product.productName}</h1>
+                  <p>Unidade: {product.productVol}</p>
+                  <p>{product.productDescription}</p>
+                  <p>
+                    Já ajudamos nossos fornecedores comprando:{" "}
+                    {product.sellQuantity}
                   </p>
-                  <p className="paragraph-payment">Pague antes por email</p>
                 </div>
-                <div className="price-payment">
-                  <div className="payment-type">Caracteristicas</div>
-                  <div className="elementProd">
-                    {element.map((data) => (
-                      <span className="spanicon">
-                        <img src={data.iconUrl} alt="no" className="icon" />
-                        {data.name}
-                      </span>
-                    ))}
+                <div>
+                  <div className="details-pricebox">
+                    <div className="add-cart-form">
+                      <div>
+                        <span>{formatPrice(product.productPrice)}</span>
+                      </div>
+                      <div className="color-add">
+                        <div className="add-control">
+                          <button
+                            className="button-quantity"
+                            onClick={HandleDecrement}
+                          >
+                            -
+                          </button>
+                          <input
+                            className="input-quantity"
+                            value={quantity}
+                          ></input>
+                          <button
+                            className="button-quantity"
+                            onClick={HandleIncrement}
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+
+                  <div className="button-box">
+                    {product.stock === 0 ? (
+                      <>
+                        <div className="notReady-message">
+                          <p>Produto ainda está sendo cultivado</p>
+                        </div>
+                        <Button
+                          text="Sem Estoque"
+                          style={{ cursor: "default" }}
+                          inputColor={(props) =>
+                            props.theme.colors.secondaryLight
+                          }
+                        />
+                      </>
+                    ) : (
+                      <>
+                        <div className="button-sett">
+                          <Button
+                            text="Adicionar"
+                            inputColor={(props) =>
+                              props.theme.colors.secondaryLight
+                            }
+                            type="submit"
+                            onClick={() => addCartProduct(dataCart)}
+                          />
+                        </div>
+                        <div className="button-sett">
+                          <Link to="/cart">
+                            {" "}
+                            <Button
+                              text="Ir para o carrinho"
+                              inputColor={(props) => props.theme.colors.primary}
+                              type="submit"
+                            />
+                          </Link>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className="price-payment">
+                <div className="payment-type">Formas de pagamento</div>
+                <p className="paragraph-payment">
+                  <FaTruck size={16} />
+                  Pague quando receber
+                </p>
+                <p className="paragraph-payment">Pague antes por email</p>
+              </div>
+              <div className="price-payment">
+                <div className="payment-type">Caracteristicas</div>
+                <div className="elementProd">
+                  {element.map((data) => (
+                    <span className="spanicon">
+                      <img src={data.iconUrl} alt="no" className="icon" />
+                      {data.name}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
