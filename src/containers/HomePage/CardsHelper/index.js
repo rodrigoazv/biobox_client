@@ -16,12 +16,12 @@ function CardsHelper() {
   return (
     <Container className="max-margin-width" >
       <div className="flextop">
-        <Card data-aos="fade-right" data-aos-duration="2000">
+        <Card data-aos="fade-up" data-aos-duration="1000">
           <Link to="/cesta">
             <Picture src={Cesta} />
           </Link>
         </Card>
-        <Card data-aos="fade-left" data-aos-duration="2000">
+        <Card data-aos="fade-up" data-aos-duration="1000">
           <Link to="/user/orders">
             <Picture src={ManSearch} />
           </Link>
