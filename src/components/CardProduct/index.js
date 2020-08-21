@@ -74,37 +74,54 @@ export default function CardProduct({ props }) {
 
           <div>
             <form onSubmit={HandleSubmit} className="flex-display flex-quant">
-              <div className="price-product-container">
-                <div>
-                  <span className="display-flex">
-                    <span className="off-price">
-                      R$ {formatDiscount(props.productPrice)}
-                    </span>
-                    <span className="off-price-style">Off</span>
-                  </span>
-
-                  <div className="product-price">
-                    {formatPrice(props.productPrice)}
+              {props.stock === 0 ? (
+                <>
+                  <div className="notReady-message">
+                    <p>Produto ainda está sendo cultivado</p>
                   </div>
-                </div>
+                  <div className="button-margin">
+                    <ButtonFull
+                      text="Sem Estoque"
+                      style={{ cursor: "default" }}
+                      inputColor={(props) => props.theme.colors.secondaryLight}
+                    />
+                  </div>
+                </>
+              ) : (
+                  <>
+                    <div className="price-product-container">
+                      <div>
+                        <span className="display-flex">
+                          <span className="off-price">
+                            R$ {formatDiscount(props.productPrice)}
+                          </span>
+                          <span className="off-price-style">Off</span>
+                        </span>
 
-                <div className="add-control">
-                  <button className="button-quantity" data-cy="decrement-button" onClick={HandleDecrement}>
-                    -
+                        <div className="product-price">
+                          {formatPrice(props.productPrice)}
+                        </div>
+                      </div>
+
+                      <div className="add-control">
+                        <button className="button-quantity" data-cy="decrement-button" onClick={HandleDecrement}>
+                          -
                   </button>
-                  <input className="input-quantity" data-cy="value-quantity" value={quantity} />
-                  <button className="button-quantity" data-cy="increment-button" onClick={HandleIncrement}>
-                    +
+                        <input className="input-quantity" data-cy="value-quantity" value={quantity} />
+                        <button className="button-quantity" data-cy="increment-button" onClick={HandleIncrement}>
+                          +
                   </button>
-                </div>
-              </div>
-              <div className="button-margin">
-                <ButtonFull
-                  onClick={() => addCartProduct(dataCart)}
-                  text="ADICIONAR"
-                  type="submit"
-                />
-              </div>
+                      </div>
+                    </div>
+                    <div className="button-margin">
+                      <ButtonFull
+                        onClick={() => addCartProduct(dataCart)}
+                        text="ADICIONAR"
+                        type="submit"
+                      />
+                    </div>
+                  </>
+                )}
             </form>
           </div>
         </div>

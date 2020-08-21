@@ -82,7 +82,7 @@ export default function ProductPage() {
       <Helmet>
         <meta charSet="utf-8" />
         <title>{`Biocampeiro - ${product.productName}`}</title>
-        <meta name="description" content={`${product.productDescription}`}/>
+        <meta name="description" content={`${product.productDescription}`} />
         <link rel="canonical" href="http://biocampeiro.com.br" />
       </Helmet>
       <HeaderTopNav />
@@ -124,31 +124,50 @@ export default function ProductPage() {
                   </div>
                 </div>
                 <div className="button-box">
-                <div className="button-sett">
-                <Button
-                  text="Adicionar"
-                  inputColor={props => props.theme.primary}
-                  type="submit"
-                  onClick={() => addCartProduct(dataCart)}
-                />
+                {product.stock === 0  ? (
+                  <>
+                  <div className="notReady-message">
+                    <p>Produto ainda está sendo cultivado</p>
+                  </div>
+                        <Button
+                        text="Sem Estoque"
+                        style={{ cursor: "default" }}
+                        inputColor={(props) => props.theme.colors.secondaryLight}
+                      />
+                  </>
+                      ) : (
+                        <>
+                        <div className="button-sett">
+                        <Button
+                          text="Adicionar"
+                          inputColor={(props) => props.theme.colors.secondaryLight}
+                          type="submit"
+                          onClick={() => addCartProduct(dataCart)}
+                        />
+    
+                      </div>
+                      <div className="button-sett">
+                        <Link to="/cart">
+                          {" "}
+                          <Button
+                            text="Ir para o carrinho"
+                            inputColor={(props) => props.theme.colors.primary}
+                            type="submit"
+                          />
+                        </Link>
+                      </div>
+                      </>
+                       
+                        
+                      )}
 
-                </div>
-                <div className="button-sett">
-                <Link to="/cart">
-                  {" "}
-                  <Button
-                    text="Ir para o carrinho"
-                    inputColor={props => props.theme.primary}
-                    type="submit"
-                  />
-                </Link>
 
-                </div>
-
-                </div>
-               
                 
-               
+
+                </div>
+
+
+
               </div>
             </div>
             <div className="price-payment">

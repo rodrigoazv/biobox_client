@@ -78,6 +78,17 @@ export const Container = styled.section`
         padding-top: 5px;
         padding-left: 8px;
     }
+    .notReady-message{
+        border: 1px solid red;
+        border-radius:  4px;
+        margin: 5%;
+        padding: 2%;
+        text-align:center;
+    }
+    .notReady-message p{
+        color:red;
+        font-size:12px;
+    }
     .color{
         background-color:#f2f2f2;
         width:100%;
