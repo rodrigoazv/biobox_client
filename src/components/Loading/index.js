@@ -6,10 +6,10 @@ import Loader from 'react-loader-spinner'
 function Loading() {
   return <Container>
     <Loader 
-        type="Puff"
+        type="Oval"
         color="#95B737"
-        height={30}
-        width={30}
+        height={64}
+        width={64}
     />
   </Container>;
 }

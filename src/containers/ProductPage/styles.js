@@ -2,8 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.section`
     .product-image{
-        background-color:green;
+        background-color:transparent;
         height:440px;
+        background: url('https://i.imgur.com/PBtTGaE.png') no-repeat;
+        background-size: cover;
         @media (max-width: 1100px){
             height:300px;
         }
@@ -41,6 +43,10 @@ export const Container = styled.section`
         font-size:40px;
         color:#333;
     }
+    .linear{
+        margin:100px 0;
+        
+    }
     h2{
         font-weight: 600;
         font-size:45px;
@@ -53,6 +59,9 @@ export const Container = styled.section`
         margin-top: 80px;
         display:flex;
         justify-content: space-between;
+        span{
+            font-size: 30px;
+        }
     }
     .add-cart-form{
         display:flex;
