@@ -31,6 +31,7 @@ function ButtonLog() {
         <div className="dropdown-content">
           <Link to="/user/orders"><FaDolly/> Ver pedidos</Link>
           <a href="/" onClick={handleSignOut}><FaSignOutAlt/> Sair</a>
+          
         </div>
       </div>
     </Container>
