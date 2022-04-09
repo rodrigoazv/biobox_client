@@ -16,7 +16,7 @@
     "cypress": "^4.12.1",
     "dotenv": "^8.2.0",
     "formik": "^2.1.4",
-    "moment": "^2.27.0",
+    "moment": "^2.29.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
